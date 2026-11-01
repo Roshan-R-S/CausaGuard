@@ -1,10 +1,32 @@
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing and linting
 .pytest_cache/
 .ruff_cache/
-.venv/
-*.egg-info/
+.coverage
+htmlcov/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Build outputs
 dist/
 build/
-artifacts/*.joblib
-artifacts/*.json
+
+# Generated ML models and evaluation results
+artifacts/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
