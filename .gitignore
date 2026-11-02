@@ -30,3 +30,5 @@ artifacts/
 .idea/
 .DS_Store
 Thumbs.db
+models/
+vendor/llama.cpp/

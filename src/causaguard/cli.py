@@ -7,6 +7,7 @@ from causaguard.conservative import ConservativeConfig, ConservativePolicy
 from causaguard.data import make_scenarios
 from causaguard.domain import Scenario
 from causaguard.evaluation import evaluate
+from causaguard.llm_commands import COMMANDS, add_commands, run_command
 from causaguard.policy import LearnedPolicy
 from causaguard.research import ExperimentConfig, run_development, run_final, write_report
 from causaguard.sandbox import CASES, replay_trace, run_agent
@@ -31,6 +32,7 @@ def _load_selected(args):
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="causaguard", description="Agent intervention lab")
     commands = parser.add_subparsers(dest="command", required=True)
+    add_commands(commands)
     train = commands.add_parser("train", help="train on synthetic paired outcomes")
     train.add_argument("--n", type=int, default=2000)
     train.add_argument("--seed", type=int, default=42)
@@ -66,7 +68,9 @@ def main(argv: list[str] | None = None) -> None:
 
 
 def _run(args) -> None:
-    if args.command == "train":
+    if args.command in COMMANDS:
+        run_command(args, _load_selected)
+    elif args.command == "train":
         policy = LearnedPolicy(args.risk_limit, args.seed if args.model_seed is None else args.model_seed)
         policy.fit(make_scenarios(args.n, args.seed))
         policy.save(args.model)

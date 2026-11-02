@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "causaguard"
-version = "0.2.0"
+version = "0.3.0"
 description = "Local-first counterfactual intervention policy research lab for AI agents"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -15,11 +15,12 @@ dependencies = [
   "scikit-learn>=1.4,<2",
   "joblib>=1.4,<2",
   "numpy>=1.26,<3",
-  "pydantic>=2,<3"
+  "pydantic>=2,<3",
+  "httpx>=0.27,<1"
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "httpx>=0.27,<1", "ruff>=0.9,<1"]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
 
 [project.scripts]
 causaguard = "causaguard.cli:main"
