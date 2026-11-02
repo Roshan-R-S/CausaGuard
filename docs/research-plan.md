@@ -1,5 +1,19 @@
 # Research plan: from failure detection to intervention utility
 
+## v0.2.0 implemented protocol
+
+The original learned selector underperformed always-verify, and isotonic risk calibration alone did not improve policy utility. The v0.2.0 response is a verification-first selector, not a claim that further risk-score calibration solves action selection.
+
+The frozen specification is `experiments/v020.json`: 3,000 training cases from seed 1701, model seed 42, development seeds 7101-7105, final seeds 8101-8105, and 1,000 cases per evaluation seed. The primary conservative settings are risk limit 0.03, reward margin 0.05, spread multiplier 1, maximum reward spread 0.35, and maximum risk spread 0.05. They are fixed before inspecting development or final outcomes. The complete 3-by-3 risk/margin grid is descriptive development analysis, not a selection rule.
+
+The primary outcome is the final IID paired mean reward difference, conservative minus gated always-verify. Unsafe rate, completion, deferral, action frequency, and intervention utility cost are also reported. Missing confirmation escalates for all primary policies; the historical ungated always-verify baseline is retained separately. IID, stale-data, tool-failure, and injection-score distributions are all reported with per-seed results. No unfavorable seeds or distributions are dropped.
+
+The final command verifies a development report's configuration, package source hashes, software versions, data identity, and deterministically refitted model before creating final data. Final CLI invocations cannot override policy thresholds. Source changes require a new development report; changes motivated by final results require fresh final seeds. The tooling prevents accidental split reuse and protocol drift, but cannot prevent a researcher from deliberately reusing known test outcomes.
+
+Paired percentile bootstrap intervals use 2,000 resamples, stratified within generator-seed batches. These batches contain independently generated scenarios, not repeated observations of one agent task. Intervals condition on the fixed trained model and seed mixture. Multiple training seeds, training uncertainty, structural distribution changes, and multiplicity-adjusted claims remain future work. Zero unsafe events do not prove zero risk.
+
+See `docs/v020-results.md` for measured results and `docs/architecture.md` for the implemented boundaries. The broader hypotheses and long-term roadmap below remain research goals, not delivered capabilities.
+
 ## Problem statement
 
 Given an agent's current trace prefix X and an action set A = {proceed, retry, verify, escalate}, choose a permitted intervention a that maximizes expected *task utility* while keeping safety violations low, accounting for interruption cost. A good failure predictor is not necessarily a good intervention selector.

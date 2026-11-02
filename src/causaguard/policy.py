@@ -1,4 +1,4 @@
-"""Per-action outcome models and conservative cost-aware decision policy."""
+"""Original per-action outcome models and reward-maximizing comparison policy."""
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -36,6 +36,11 @@ class LearnedPolicy:
         if len(scenarios) < 16:
             raise ValueError("at least 16 scenarios required")
         x, rewards, risks = matrices(scenarios)
+        # Training-only support metadata for the optional conservative selector.
+        # Older model artifacts without this metadata remain usable by the original policy.
+        self.feature_min = x.min(axis=0)
+        self.feature_max = x.max(axis=0)
+        self.training_scenario_seeds = tuple(s.seed for s in scenarios)
         for action in Intervention:
             arm = action.value
             self.reward_models[arm] = RandomForestRegressor(

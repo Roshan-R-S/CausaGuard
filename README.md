@@ -1,27 +1,84 @@
-# CausaGuard — choose a *useful* intervention, not merely a warning
+# CausaGuard v0.2.0
 
-**Experimental open-source AI/ML engineering project.** CausaGuard is a local-first research lab for choosing between **proceed**, **retry**, **verify**, and **escalate** *before* a tool-using agent performs a consequential action. Instead of training a binary "failure detector", it estimates outcomes and the downside of **each available intervention**, then selects a cost-aware action under a risk threshold. Mandatory authorization policies remain hard-coded, not delegated to ML.
+A local research MVP for choosing **proceed**, **retry**, **verify**, or **escalate** before a tool-using agent acts. Per-action random forests estimate synthetic reward and unsafe-outcome scores. Independent hard rules enforce authorization. Everything runs offline without API keys or paid services.
 
-**State of this repository: working Phase-0 research MVP.** It includes a completely offline simulator, paired synthetic potential outcomes, per-action random-forest models, a conservative decision policy, multiple baselines, reproducible evaluation, a REST endpoint, and automated tests. It **does not** connect to a real LLM or MCP server, and **does not** demonstrate safety or causal effects in live systems. Risk scores are **not calibrated probabilities**. The simulator's paired outcomes are available because its physics are under our control, not because real-world potential outcomes are observable.
+The original learned policy underperformed always-verify; isotonic calibration alone did not fix that result. This milestone adds a **verification-first policy**, a frozen development/final evaluation protocol, and a deterministic agent demonstration with fake tools. It does not establish a real-world safety or causal-effect claim. Raw risk scores and tree disagreement are **not calibrated probabilities, confidence bounds, or guarantees**.
 
-## Why this research direction?
+## Install and check
 
-AI agent debugging, replay, prompt injection, online monitoring, and safety gating are all active fields. A critical 2026 research observation is that even strong failure classifiers can make overall agent performance *worse* by interrupting tasks that would otherwise succeed. We want to estimate intervention **benefit and cost**, not just failure risk. Our hypotheses are unproven and are stated in `docs/research-plan.md`.
-
-## Quick start (Windows PowerShell)
+Python 3.12 is the tested environment. In PowerShell:
 
 ```powershell
-cd C:\path\to\causaguard
+cd D:\causaguard
+# Only needed for a new environment:
 uv venv --python 3.12
 uv pip install --python .venv\Scripts\python.exe -e ".[dev]"
+
+.venv\Scripts\python.exe -m ruff check . --no-cache
+.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+```
+
+On Linux/macOS, use `python -m venv .venv`, `.venv/bin/python -m pip install -e '.[dev]'`, and substitute `.venv/bin/python` below. Generated models, JSON reports, and traces belong in the Git-ignored `artifacts/` directory. Existing local artifacts are not migrated or overwritten by the research commands.
+
+## Reproduce the v0.2.0 experiment
+
+The committed [protocol](experiments/v020.json) fixes the primary conservative configuration before any evaluation. Training uses 3,000 scenarios; development and final each use five independent generator seeds with 1,000 scenarios per seed. Each split includes IID, stale-data, tool-failure, and injection-score shifts. The nine-point threshold sensitivity grid runs on development IID data only.
+
+```powershell
+.venv\Scripts\python.exe -m causaguard.cli experiment --phase development --config experiments/v020.json --output artifacts/v020/development.json
+.venv\Scripts\python.exe -m causaguard.cli experiment --phase final --protocol artifacts/v020/development.json --output artifacts/v020/final.json
+```
+
+The final command accepts the frozen development report, with **no tuning/configuration override**. It verifies source hashes, software versions, model fingerprint, and development data identity before generating final scenarios. It retrains the same fixed model from the recorded training data. A changed source or environment requires a new development protocol. Repeated runs of an identical protocol reproduce the report; inspecting a final report makes those seeds development data for any subsequent research iteration. Choose new final seeds before testing a revised hypothesis.
+
+Reports retain every requested seed, shift, and development grid point, including unfavorable results. They contain reward, unsafe/completion/defer rates, intervention rate, per-action frequencies, mean/total intervention cost, dataset hashes, model identity, and paired percentile bootstrap intervals for all metric differences. The primary contrast is IID conservative minus always-verify mean reward. Cost uses the simulator's fixed utility units: proceed 0, retry 0.08, verify 0.18, escalate 0.28; reward already includes this cost.
+
+All three primary policies escalate without confirmation. `historical_ungated_always_verify` is separately reported for continuity with earlier simulator experiments. Do not compare the new gated baseline with old numbers without accounting for this difference.
+
+The bootstrap resamples matched scenario rows within each generator-seed batch, preserving pairing across policies. Its intervals condition on a single trained model and the observed seed mixture. They exclude training uncertainty, model misspecification, and real-world distribution uncertainty. Secondary contrasts and sensitivity intervals have no multiple-comparison correction. Zero observed unsafe events, including a `[0, 0]` bootstrap interval, do not establish zero population risk.
+
+## Run and replay the agent demonstration
+
+Train a model with the same data/model seeds as the committed research protocol, without touching `artifacts/policy.joblib`:
+
+```powershell
+.venv\Scripts\python.exe -m causaguard.cli train --n 3000 --seed 1701 --model-seed 42 --model artifacts/v020/agent-policy.joblib
+.venv\Scripts\python.exe -m causaguard.cli agent-demo --model artifacts/v020/agent-policy.joblib --policy conservative --case all --output artifacts/v020/agent-traces.json
+.venv\Scripts\python.exe -m causaguard.cli replay artifacts/v020/agent-traces.json --model artifacts/v020/agent-policy.joblib --policy conservative
+```
+
+The agent is an explicitly **scripted stand-in for an LLM**, with a two-step read/stage task. Only `read_record` and `stage_update` exist, and their effects are confined to a Python dictionary. There is no shell, network, email, payment, dynamic tool import, or external service. This is an application-level simulation, not an OS sandbox for running arbitrary code.
+
+Cases: `clean`, `stale_data`, `schema_failure`, `timeout`, `authorization`, `prompt_injection`. A fake authoritative verification operation can refresh or repair records; retry makes at most two attempts. Unknown tools, wrong record scope, missing confirmation, denied authoritative authorization, and unsafe staged state are blocked independently of ML. Injection text is synthetic untrusted data; the fixture's deterministic rules do not constitute a general injection detector.
+
+Each JSON trace records the fixture, proposed arguments, pre-action signals, complete recommendation, enforcement result, verification, all tool attempts/errors, observations, and final in-memory state. Replay recomputes both decisions and tool execution using the same model/configuration and rejects differences or altered traces. It does not authenticate trace files against a malicious author. No wall-clock timestamps or external randomness are used.
+
+## Select the conservative policy
+
+`LearnedPolicy` retains the original selection algorithm for comparisons. `ConservativePolicy(base, config)` wraps the same trained models:
+
+1. Missing explicit confirmation always escalates.
+2. Missing models, insufficient tree evidence, or unknown/out-of-range training support defaults to verify.
+3. A known excessive verification score escalates.
+4. Proceed/retry requires an advantage over verify **strictly greater** than the configured reward margin after subtracting a tree-spread penalty.
+5. The candidate's risk score plus spread must pass the risk threshold, and reward/risk disagreement must be below configured limits.
+
+Defaults: risk limit 0.03, reward margin 0.05, spread multiplier 1, maximum reward spread 0.35, maximum risk spread 0.05. These are prespecified engineering heuristics, not learned risk guarantees. Training min/max ranges are only a weak distribution-shift check; low tree disagreement can still be wrong. Old model artifacts without support metadata remain usable by the original selector; the conservative selector abstains to verify.
+
+`--policy original|conservative` is supported by `evaluate`, `demo`, `agent-demo`, and `replay`. To explicitly override conservative settings, pass `--policy-config path/to/config.json` containing `ConservativeConfig` fields. This configuration must match during replay. Overrides are recorded in decisions; the authorization gate is not configurable.
+
+## Existing CLI and API
+
+The original `train`, `evaluate`, `demo`, `serve`, calibration audit, and paired benchmark remain available. `evaluate` is an exploratory legacy command; use the frozen `experiment` workflow for final reporting. The earlier `experiments/compare_calibrated_policy.py` comparison is preserved.
+
+```powershell
 .venv\Scripts\python.exe -m causaguard.cli train --n 2000 --seed 42
 .venv\Scripts\python.exe -m causaguard.cli evaluate --n 1000 --seed 2027
-.venv\Scripts\python.exe -m causaguard.cli demo
-.venv\Scripts\python.exe -m pytest -q
+.venv\Scripts\python.exe -m causaguard.cli demo --policy conservative
 .venv\Scripts\python.exe -m causaguard.cli serve
 ```
 
-The API will run on `http://127.0.0.1:8765`. In another PowerShell tab:
+The local API remains advisory-only at `http://127.0.0.1:8765`; `/health` and `/recommend` are preserved, with interactive documentation at `/docs`. Old request bodies select the original policy and preserve its response shape. Add `policy` and optionally `conservative_config` for explicit experiments:
 
 ```powershell
 $body = @{
@@ -32,72 +89,12 @@ $body = @{
   tool_error_rate = 0.25
   schema_warning = $true
   confirmation_present = $true
-} | ConvertTo-Json
-
-Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8765/recommend `
-    -Body $body -ContentType "application/json"
+  policy = "conservative"
+  conservative_config = @{ risk_limit = 0.03; reward_margin = 0.05 }
+} | ConvertTo-Json -Depth 4
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8765/recommend -Body $body -ContentType "application/json"
 ```
 
-API documentation: `http://127.0.0.1:8765/docs`.
+Authorization fields require real JSON booleans. Unknown fields, nonfinite/out-of-range inputs, and policy/configuration mismatches are rejected. Missing or invalid local models return an actionable 503. `CAUSAGUARD_MODEL` selects a trusted local model artifact. Never deserialize untrusted joblib files: loading them can execute arbitrary Python code.
 
-### Linux / macOS alternative
-
-```bash
-python -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
-.venv/bin/python -m causaguard.cli train
-.venv/bin/python -m causaguard.cli evaluate
-.venv/bin/python -m pytest -q
-```
-
-## Architecture
-
-```text
-  PUBLIC PRE-ACTION SIGNALS                   OFFLINE RESEARCH LOOP
-  consent, tool health, age,                 generate scenario seeds
-  schema warnings, trust signal              (hidden simulator state)
-                 |                                    |
-                 v                                    v
-          hard authorization gate        execute all 4 intervention arms
-                 |                                    |
-                 v                                    v
-        per-action ML predictors <------- training examples with
-        (reward + harm risk)              paired potential outcomes
-                 |
-                 v
-      cost-aware constrained selector ------> policy vs rules vs always-* vs oracle
-                 |
-                 v
-         advise an intervention
-         (NO live tool execution)
-```
-
-## What the numbers mean
-
-- `mean_reward`: deliberately specified simulated utility, **not** dollar value.
-- `unsafe_rate`: fraction of simulated actions that crossed a modeled unsafe boundary.
-- `completion_rate`: fraction that finished automatically.
-- `defer_rate`: fraction handed to human review, a safe but non-completion outcome.
-- `simulator_oracle_upper_bound`: unrealistic upper bound using counterfactual outcomes; **never** a deployable comparison.
-- `predicted_unsafe_risk`: a random-forest score fit to 0/1 outcomes; **not** yet calibrated and cannot provide a guaranteed bound.
-
-Any result produced by this prototype is **synthetic**; do not report it as real-world deployment impact.
-
-## Practical roadmap
-
-1. **Phase 0 (delivered):** offline paired simulator, action-conditioned ML models, conservative policy, tests, API, baseline comparisons.
-2. **Phase 1:** add richer, versioned environments including LLM-to-tool calls with prompt-injection, stale-data, missing-authorization, and schema-drift scenarios; collect real traces in a safe sandbox.
-3. **Phase 2:** introduce randomized logged interventions with propensities, contextual bandit/uplift baselines, cross-fitting and doubly robust off-policy evaluation; report uncertainty.
-4. **Phase 3:** add calibration (reliability diagrams, Brier score, ECE), uncertainty-aware abstention, subgroup audits, out-of-distribution tests, and stronger human-approval gates.
-5. **Phase 4:** integrate OpenTelemetry-compatible trace adapters, a read-only MCP interception layer, model adapters (local or remote), and CI replay.
-6. **Phase 5:** open-source dataset + evaluation protocol, ablations, confidence intervals, manual labels, benchmarking against research systems, and a paper-quality methodology.
-
-## Safety boundaries
-
-- No tool calls beyond the advisory endpoint; nothing executes payments, messages, shell commands, account changes, or other consequential actions.
-- A missing `confirmation_present` **always** escalates. An ML score cannot override this hard rule.
-- A score threshold is an **engineering heuristic**, not a formal risk guarantee.
-- For production, obtain explicit authorization, least-privilege scopes, independent policy enforcement, and human approval for consequential actions.
-- Never load `joblib` model files from untrusted sources; they may execute arbitrary code during deserialization.
-
-See `docs/architecture.md` and `docs/research-plan.md` for the blueprint and experimental protocol.
+See [architecture](docs/architecture.md), [research protocol](docs/research-plan.md), and [measured milestone results](docs/v020-results.md).
