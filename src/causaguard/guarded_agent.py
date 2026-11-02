@@ -5,7 +5,7 @@ from dataclasses import asdict
 from time import perf_counter
 from uuid import uuid4
 
-from causaguard.llm import ChatClient, LLMError, normalize_message, validate_sequence
+from causaguard.llm import ChatClient, LLMError, normalize_message, strict_json, validate_sequence
 from causaguard.llm_trace import (
     TRACE_VERSION,
     redact,
@@ -68,20 +68,21 @@ def _step(sandbox, policy, call, *, guarded):
     event["pre_action_signals"] = asdict(scenario)
     try:
         decision = policy.recommend(scenario)
-        event["decision"] = decision.as_dict()
+        event["decision"] = redact(strict_json(json.dumps(decision.as_dict(), allow_nan=False)))
         if decision.action not in ("proceed", "retry", "verify", "escalate"):
             return blocked("invalid_intervention")
-    except (ValueError, RuntimeError, KeyError, AttributeError, TypeError):
+    except Exception:
+        event["decision"] = None
         return blocked("policy_error")
     if decision.action == "escalate":
         return blocked("policy_escalation")
     if decision.action == "verify":
-        event["verification"] = sandbox.verify_authoritative(args)
+        event["verification"] = redact(sandbox.verify_authoritative(args))
         if not event["verification"]["success"]:
             return blocked(event["verification"]["reason"])
     for _ in range(2 if decision.action == "retry" else 1):
         # execute rechecks trusted state and hard rules immediately before each attempt.
-        result = sandbox.execute(name, args, guarded=guarded)
+        result = redact(sandbox.execute(name, args, guarded=guarded))
         event["attempts"].append(result)
         event["unsafe_executed"] |= result["unsafe_executed"]
         if result["status"] != "error" or result.get("error") != "tool_timeout":
@@ -99,6 +100,7 @@ def run_agent(client: ChatClient, policy, state: MockState, *, task=None, max_ro
     if not isinstance(task, str) or not task.strip() or len(task) > 4000:
         raise ValueError("task must contain 1 to 4000 characters")
     started = perf_counter()
+    state = MockState.model_validate(redact(state.model_dump(warnings=False)))
     sandbox = MockSandbox(state)
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": redact(task)}]
     tools = tool_schemas()
@@ -114,16 +116,24 @@ def run_agent(client: ChatClient, policy, state: MockState, *, task=None, max_ro
         except LLMError as exc:
             trace["identity_error"] = exc.classification
             raise
+        except Exception as exc:
+            trace["identity_error"] = "client_error"
+            raise LLMError("client_error") from exc
         for _ in range(max_rounds):
             validate_sequence(messages)
+            if len(json.dumps(messages).encode("utf-8")) > 131072:
+                raise LLMError("conversation_limit")
             row = {"request_sha256": request_digest(messages, tools)}
             call_started = perf_counter()
             try:
-                response = normalize_message(redact(client.complete(messages, tools)))
+                response = normalize_message(redact(normalize_message(client.complete(messages, tools))))
                 row["response"] = response
             except LLMError as exc:
                 row["error"] = exc.classification
                 raise
+            except Exception as exc:
+                row["error"] = "client_error"
+                raise LLMError("client_error") from exc
             finally:
                 row["elapsed_ms"] = (perf_counter() - call_started) * 1000
                 trace["llm_responses"].append(row)

@@ -11,6 +11,7 @@ from causaguard.llm_commands import COMMANDS, add_commands, run_command
 from causaguard.policy import LearnedPolicy
 from causaguard.research import ExperimentConfig, run_development, run_final, write_report
 from causaguard.sandbox import CASES, replay_trace, run_agent
+from causaguard.validation import add_validation_commands, run_validation_command
 
 MODEL = Path("artifacts/policy.joblib")
 
@@ -33,6 +34,7 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="causaguard", description="Agent intervention lab")
     commands = parser.add_subparsers(dest="command", required=True)
     add_commands(commands)
+    add_validation_commands(commands)
     train = commands.add_parser("train", help="train on synthetic paired outcomes")
     train.add_argument("--n", type=int, default=2000)
     train.add_argument("--seed", type=int, default=42)
@@ -68,7 +70,9 @@ def main(argv: list[str] | None = None) -> None:
 
 
 def _run(args) -> None:
-    if args.command in COMMANDS:
+    if args.command in ("validate-research", "validation-replay"):
+        run_validation_command(args)
+    elif args.command in COMMANDS:
         run_command(args, _load_selected)
     elif args.command == "train":
         policy = LearnedPolicy(args.risk_limit, args.seed if args.model_seed is None else args.model_seed)

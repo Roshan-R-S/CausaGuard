@@ -1,6 +1,49 @@
-# CausaGuard v0.3.0
+# CausaGuard v0.4.0
 
 A local research MVP for choosing **proceed**, **retry**, **verify**, or **escalate** before a tool-using agent acts. Per-action random forests estimate synthetic reward and unsafe-outcome scores. Independent hard rules enforce authorization. Everything runs offline without API keys or paid services.
+
+v0.4.0 adds a structured adversarial validation protocol and hardens the mock execution
+boundary. It preserves existing APIs, CLI commands, policy algorithms, and frozen
+v0.2/v0.3 protocols and results. This is a research milestone, not production-grade safety.
+
+## v0.4.0 research validation
+
+The new benchmark covers 21 control/attack families: prompt and tool-output injection,
+authorization spoofing, cross-user access, malformed calls, stale/schema-invalid records,
+timeouts, retries, revocation, and resource exhaustion. Nine families are excluded from
+development measurements. Three independently trained forests and five evaluation seeds
+per split produce paired comparisons with 2,000 bootstrap replicates. Fixed proposals
+are inert fixtures; optional Qwen3 tests separately exercise real local inference.
+
+Six comparators distinguish hard protection from ML contributions: unguarded mock,
+gated always-verify, original, conservative, hard rules alone, and hard rules with a
+deterministic record-repair rule. Reports include independent execution grading,
+all failures, per-family/seed outcomes, paired uncertainty, full recordings and replay.
+See [measured results and limitations](docs/v040-results.md),
+[compact measured evidence](docs/v040-summary.json), and [protocol](experiments/v040.json).
+
+```powershell
+.venv\Scripts\python.exe -m causaguard.cli validate-research --phase development --config experiments/v040.json --output artifacts/v040/development.json
+.venv\Scripts\python.exe -m causaguard.cli validate-research --phase final --protocol artifacts/v040/development.json --output artifacts/v040/final.json
+.venv\Scripts\python.exe -m causaguard.cli validation-replay artifacts/v040/final.json
+# Rerun existing benchmarks into a new directory; historical reports are preserved:
+.venv\Scripts\python.exe -m experiments.run_v040_regressions
+.venv\Scripts\python.exe -m experiments.summarize_v040
+```
+
+These commands refuse to overwrite existing v0.4 reports; choose fresh output paths
+for repeat runs. Final evaluation accepts no configuration override and checks source,
+environment, training data and model fingerprints before opening final cases. Timing
+and full-report checksums can vary; behavioral checksums exclude timing and the linked
+development report's timing-dependent checksum. Once final results are inspected,
+any result-driven research revision needs new final seeds and a new protocol.
+
+Authorization now checks explicit confirmation, principal/owner binding, read permission,
+resource scope and revocation before each attempt. Retry budgets persist across call
+IDs. JSON structure, request/response bytes, execution counts and API concurrency are
+bounded. Secrets are minimized in tool outputs before recording or sending the next
+model request. These are synthetic mock checks and best-effort redaction, not a general
+prompt-injection detector, comprehensive DLP, or authenticated deployment service.
 
 v0.3.0 adds a functioning **local llama.cpp tool-using agent**, guarded in-memory execution, recorded-response replay, and separate execution benchmarks. The original learned policy underperformed always-verify; isotonic calibration alone did not fix that result. The v0.2.0 verification-first policy, scripted demo, commands, and frozen research results remain intact. Raw risk scores and tree disagreement are **not calibrated probabilities, confidence bounds, or guarantees**.
 

@@ -15,8 +15,10 @@ from causaguard.llm_commands import environment_config
 from causaguard.llm_trace import inspect_trace, replay_trace
 from causaguard.mock_tools import CASES, fixture
 from causaguard.policy import LearnedPolicy
+from causaguard.request_limits import RequestLimits
 
 app = FastAPI(title="CausaGuard", version=__version__)
+app.add_middleware(RequestLimits)
 MODEL_PATH = Path(os.environ.get("CAUSAGUARD_MODEL", "artifacts/policy.joblib"))
 _model: LearnedPolicy | None = None
 
