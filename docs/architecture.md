@@ -1,4 +1,55 @@
-# CausaGuard v0.3.0 architecture
+# CausaGuard architecture
+
+## v0.4 validation and hardening boundary
+
+`adversarial.py` defines versioned, inert attack tapes and immutable mock fixtures.
+`validation.py` trains independent model replicas, runs identical tapes against six
+comparators, grades actual executions, computes paired intervals, and validates
+offline replay. The original selectors and simulator equations are unchanged.
+
+The trusted state now binds a principal to an owner, a read permission, explicit
+confirmation, exact customer/transaction scope, and optional simulated revocation.
+Task prose, tool arguments, and returned authorization claims cannot modify these
+fields. The executor rechecks them before every attempt, including retries and
+authoritative verification. The fixture can revoke permission between attempts.
+Strict state revalidation also rejects unchecked Pydantic copies.
+
+The hard boundary always enforces tool allowlists, strict schemas, sequencing and
+record integrity. `rules_only` removes ML recommendations while retaining that
+boundary; `rules_repair` adds a fixed stale/schema repair rule. These are ablations
+of learned intervention selection. Only the explicit in-memory unguarded benchmark
+bypasses semantic hard rules; it still obeys schemas, allowlists and resource caps.
+No real action tools exist.
+
+Resource caps are 16 model rounds, 8 proposals per envelope, 24 proposals per run,
+32 executions, and 2 failed fetch attempts per resource across call IDs. Conversation
+history is limited to 128 KiB; arguments to 8 KiB; parsed JSON to depth 32 and 8,192
+value nodes. HTTP responses stream into a 64 KiB cap and compressed responses are
+rejected. A cooperative response deadline supplements socket timeouts; it cannot
+preempt arbitrary Python code or a blocking read before its socket timeout.
+
+The ASGI layer bounds POST bodies to 1 MiB before JSON parsing, rejects ambiguous,
+nonfinite or excessively nested JSON, allows 30 seconds for body receipt, and admits
+at most four concurrent recommendation/mock execution requests per process. It is
+not authentication, cross-process admission control, or an OS sandbox.
+
+Redaction covers task text, fixture notes, model responses, policy decisions, tool
+results, recordings and subsequent conversation turns. Common credential keys,
+headers, private-key blocks, email addresses and number patterns are minimized.
+Redaction remains best effort, and synthetic data are required. The executor checks
+raw response limits before redaction so redaction cannot hide oversized envelopes.
+
+The v0.4 grading oracle reconstructs trusted authorization, freshness, schema,
+ordering and successful effects from attempts without calling the executor's
+authorization or violation helpers. Disagreement with the executor's unsafe flag
+fails evaluation. Both still implement the same mock specification, so correlated
+specification mistakes remain possible. Replay regenerates the original attack tape
+and also replays the recorded responses, checking every row and aggregate.
+
+Historical v0.2/v0.3 result files and protocols remain unchanged. Source fingerprints
+intentionally invalidate cross-version replay of old LLM traces; use matching historical
+source to replay historical artifacts. Current-source regression reruns go only into
+new directories under `artifacts/v040/`.
 
 ## Local LLM execution layer
 

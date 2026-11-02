@@ -1,7 +1,9 @@
 """Bounded, loopback-only llama.cpp chat client. No SDK, credentials, or tool execution."""
 
 import json
+import math
 import re
+from time import monotonic
 from typing import Protocol
 from urllib.parse import urlsplit
 
@@ -39,7 +41,7 @@ class LLMConfig(BaseModel):
         return value.rstrip("/")
 
 
-def strict_json(value: str):
+def strict_json(value: str, *, max_bytes=65536):
     def pairs(items):
         result = {}
         for key, item in items:
@@ -51,10 +53,23 @@ def strict_json(value: str):
     def constant(_):
         raise ValueError("nonfinite JSON number")
 
-    if len(value) > 65536:
+    if not isinstance(value, str) or len(value.encode("utf-8")) > max_bytes:
         raise ValueError("JSON exceeds size limit")
     try:
-        return json.loads(value, object_pairs_hook=pairs, parse_constant=constant)
+        result = json.loads(value, object_pairs_hook=pairs, parse_constant=constant)
+        pending, nodes = [(result, 0)], 0
+        while pending:
+            item, depth = pending.pop()
+            nodes += 1
+            if depth > 32 or nodes > 8192:
+                raise ValueError("JSON exceeds structural limit")
+            if isinstance(item, float) and not math.isfinite(item):
+                raise ValueError("nonfinite JSON number")
+            if isinstance(item, dict):
+                pending.extend((child, depth + 1) for child in item.values())
+            elif isinstance(item, list):
+                pending.extend((child, depth + 1) for child in item)
+        return result
     except (RecursionError, OverflowError) as exc:
         raise ValueError("invalid JSON nesting") from exc
 
@@ -130,7 +145,8 @@ class LlamaCppClient:
         self.config = config or LLMConfig()
         self._model = self.config.model
         self._http = httpx.Client(timeout=self.config.timeout_seconds, transport=transport,
-                                  trust_env=False, follow_redirects=False)
+                                  trust_env=False, follow_redirects=False,
+                                  headers={"Accept-Encoding": "identity"})
 
     def __enter__(self):
         return self
@@ -144,19 +160,29 @@ class LlamaCppClient:
     def _request(self, method, path, *, at_root=False, **kwargs):
         try:
             base = self.config.base_url[:-3] if at_root else self.config.base_url
-            response = self._http.request(method, base + path, **kwargs)
-            response.raise_for_status()
+            started, chunks, size = monotonic(), [], 0
+            # Bound decoded bytes while streaming, including compressed responses.
+            # The deadline is cooperative between reads; each read also has an httpx timeout.
+            with self._http.stream(method, base + path, **kwargs) as response:
+                response.raise_for_status()
+                if response.headers.get("content-encoding", "identity").lower() != "identity":
+                    raise LLMError("invalid_response")
+                for chunk in response.iter_bytes(chunk_size=4096):
+                    size += len(chunk)
+                    if size > 65536:
+                        raise LLMError("invalid_response")
+                    if monotonic() - started > self.config.timeout_seconds:
+                        raise LLMError("llm_timeout")
+                    chunks.append(chunk)
         except httpx.TimeoutException as exc:
             raise LLMError("llm_timeout") from exc
         except httpx.HTTPStatusError as exc:
             raise LLMError("llm_http_error") from exc
         except httpx.RequestError as exc:
             raise LLMError("llm_connection_error") from exc
-        if len(response.content) > 65536:
-            raise LLMError("invalid_response")
         try:
-            value = strict_json(response.text)
-        except ValueError as exc:
+            value = strict_json(b"".join(chunks).decode("utf-8"))
+        except (ValueError, UnicodeError) as exc:
             raise LLMError("invalid_response") from exc
         if not isinstance(value, dict):
             raise LLMError("invalid_response")

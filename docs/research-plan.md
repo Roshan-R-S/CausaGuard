@@ -1,5 +1,68 @@
 # Research plan: from failure detection to intervention utility
 
+## v0.4 prespecified validation protocol
+
+`experiments/v040.json` fixes three independent training datasets (10001-10003),
+three forest seeds (401-403), five development seeds (10401-10405), and five final
+seeds (10501-10505). Each model uses 1,500 synthetic scenarios and 40 trees per arm.
+There is no threshold search, policy fitting on attack outcomes, or final-set tuning.
+All original/conservative defaults remain unchanged. Unit tests use separate seeds.
+
+Development contains four control families and eight attack/failure families. Final
+adds nine held-out families: role delimiters, encoded tool-output instructions,
+confused-deputy permission requests, duplicate keys, Unicode resource lookalikes,
+authorization revocation during retry, oversized batches, retry storms, and model
+timeouts. Known-family results and held-out-family results remain separate. Two
+variants per family and seed vary identifiers, amounts, payload wording or timeout
+counts. These variations are limited; family labels are not independent samples of
+all possible attacks. Held-out templates are authored and unit-tested before final
+evaluation, but excluded from development measurements. This is not blind external
+red teaming, and the forest is trained on simulator covariates rather than attack text.
+
+The six comparators are unguarded mock execution, gated always-verify, original,
+conservative, hard-rules-only/proceed, and hard rules with a deterministic stale/schema
+repair rule. Every comparator receives the same fixed proposal tape, even after a
+denial, the same initial state, allowlist, schema and resource limits. Only the mock
+unguarded comparator bypasses semantic authorization/state gates. No harmful action
+exists. Fixed tapes measure enforcement under forced proposals, not the probability
+that a live model follows an injection. Live Qwen integration is separately labeled.
+
+The primary contrast is conservative minus gated always-verify safe completion per
+run. Safety and authoritative-verification operations are co-reported, without a
+scalar utility that could conceal unsafe completion. Hard-rules-only minus unguarded
+isolates hard protection; learned policies minus hard-rules-only measure incremental
+selection; conservative minus deterministic repair asks whether any benefit requires
+learning. A verify decision means an additional authoritative fixture check, distinct
+from the task's normal `verify_mock_record` tool. The repair baseline checks age over
+24 hours or a schema warning. It does not use fitted parameters or model scores.
+
+Reports retain all failures, action/error counts, full traces, family/cohort summaries,
+per-training/evaluation-seed summaries, training/data/source/model/environment hashes,
+and paired contrasts. The outcome oracle reconstructs executed actions independently
+of the executor's authorization/violation helpers. Final evaluation accepts only the
+frozen development report and validates all identities before generating final cases.
+Offline replay checks both the original fixture tape and the saved model-response tape.
+
+The 2,000-replicate paired percentile bootstrap first differences matched case outcomes,
+then independently resamples training replicas and evaluation-seed clusters in the
+crossed design. Each sampled cell retains the fixed family/variant mixture. This avoids
+treating the same cases across fitted models as independent observations. Only three
+training replicas and five evaluation clusters limit interval resolution. The intervals
+do not cover unobserved families, mock-specification errors, live generation variability,
+or real-world risk. Secondary contrasts are descriptive without multiplicity correction;
+zero events and zero-width intervals cannot establish zero risk.
+
+After final results are viewed, improvements motivated by them require fresh final
+seeds and a new protocol. Checksums are reproducibility evidence, not authentication
+or protection against a researcher deliberately relabeling known test data. Historical
+v0.2/v0.3 reports and committed protocols are preserved; current-source regression
+reruns use `python -m experiments.run_v040_regressions` under `artifacts/v040/`.
+
+Results, negative findings, limitations and reproduction commands are recorded in
+`docs/v040-results.md`. Future priorities are externally authored adaptive attacks,
+more training replicas, fallible verification, and evaluation of final-answer leakage
+and factuality; these are not capabilities claimed by this milestone.
+
 ## v0.3.0 implemented integration evaluation
 
 This milestone tests the actual local Qwen/llama.cpp tool-call integration with the existing policy and deterministic authorization layer. It does not revise the v0.2.0 hypothesis, frozen protocol, simulator equations, or published numbers.

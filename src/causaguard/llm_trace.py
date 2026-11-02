@@ -9,30 +9,39 @@ from pathlib import Path
 from causaguard.llm import LLMError
 
 TRACE_VERSION = "llm-sandbox-v1"
-SENSITIVE = re.compile(r"^(password|secret|api_key|access_token|authorization|email|phone|ssn|card_number)$", re.I)
+SENSITIVE = re.compile(
+    r"^(password|secret|api[_-]?key|access[_-]?token|refresh[_-]?token|token|"
+    r"authorization|proxy-authorization|cookie|set-cookie|email|phone|ssn|card_number)$", re.I)
 
 
-def redact(value):
+def redact(value, _depth=0):
     """Best-effort minimization for this synthetic demo, not a general DLP guarantee."""
+    if _depth > 32:
+        return "[REDACTED_DEPTH]"
     if isinstance(value, dict):
-        return {key: "[REDACTED]" if SENSITIVE.fullmatch(key) else redact(item)
+        return {key: "[REDACTED]" if SENSITIVE.fullmatch(str(key)) else redact(item, _depth + 1)
                 for key, item in value.items()}
     if isinstance(value, list):
-        return [redact(item) for item in value]
+        return [redact(item, _depth + 1) for item in value]
     if isinstance(value, str):
         # Function arguments arrive as JSON strings. Redact sensitive keys inside them too.
-        if value.lstrip().startswith("{"):
+        if value.lstrip().startswith(("{", "[")):
             from causaguard.llm import strict_json
             try:
                 parsed = strict_json(value)
-                cleaned = redact(parsed)
+                cleaned = redact(parsed, _depth + 1)
                 if cleaned != parsed:
                     return json.dumps(cleaned, sort_keys=True)
             except ValueError:
                 pass
         value = re.sub(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", "[REDACTED_EMAIL]", value)
         value = re.sub(r"(?i)\bBearer\s+[A-Za-z0-9._~+/-]+", "Bearer [REDACTED]", value)
-        value = re.sub(r"(?i)\b(password|secret|api_key|access_token)\s*[:=]\s*[^\s,;\"}]+",
+        value = re.sub(r"(?i)\bBasic\s+[A-Za-z0-9+/=]+", "Basic [REDACTED]", value)
+        value = re.sub(r"-----BEGIN [A-Z ]*PRIVATE KEY-----.*?-----END [A-Z ]*PRIVATE KEY-----",
+                       "[REDACTED_PRIVATE_KEY]", value, flags=re.S)
+        value = re.sub(r"(?i)\b(cookie|set-cookie|authorization|proxy-authorization)\s*:\s*[^\r\n]+",
+                       r"\1: [REDACTED]", value)
+        value = re.sub(r"(?i)\b(password|secret|api[_-]?key|access[_-]?token|refresh[_-]?token|token)\s*[:=]\s*[^\s,;\"}]+",
                        r"\1=[REDACTED]", value)
         value = re.sub(r'(?i)("(?:password|secret|api_key|access_token)"\s*:\s*")[^"\r\n]*',
                        r'\1[REDACTED]', value)
@@ -97,6 +106,11 @@ class RecordedClient:
 def inspect_trace(trace):
     if not isinstance(trace, dict) or trace.get("trace_version") != TRACE_VERSION:
         raise ValueError("unsupported trace version")
+    if (len(json.dumps(trace, allow_nan=False).encode()) > 2_000_000
+            or not isinstance(trace.get("steps"), list) or len(trace["steps"]) > 24
+            or not isinstance(trace.get("llm_responses"), list)
+            or len(trace["llm_responses"]) > 16):
+        raise ValueError("trace exceeds resource limits")
     if trace.get("content_sha256") != digest({k: v for k, v in trace.items() if k != "content_sha256"}):
         raise ValueError("trace integrity check failed")
     return {"run_id": trace["run_id"], "case": trace["fixture"]["case"],

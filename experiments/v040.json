@@ -1,0 +1,19 @@
+{
+  "protocol_version": "v040-validation-1",
+  "training_seeds": [10001, 10002, 10003],
+  "model_seeds": [401, 402, 403],
+  "development_seeds": [10401, 10402, 10403, 10404, 10405],
+  "final_seeds": [10501, 10502, 10503, 10504, 10505],
+  "train_n": 1500,
+  "n_estimators": 40,
+  "variants_per_family": 2,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 10491,
+  "conservative": {
+    "risk_limit": 0.03,
+    "reward_margin": 0.05,
+    "uncertainty_multiplier": 1.0,
+    "max_reward_std": 0.35,
+    "max_risk_std": 0.05
+  }
+}
