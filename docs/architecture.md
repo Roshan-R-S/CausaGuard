@@ -1,4 +1,45 @@
-# CausaGuard v0.2.0 architecture
+# CausaGuard v0.3.0 architecture
+
+## Local LLM execution layer
+
+v0.3.0 adds six modules alongside the unchanged v0.2.0 policy and scripted simulator:
+
+| Module | Responsibility |
+| --- | --- |
+| `llm.py` | Loopback llama.cpp client using `httpx`; model resolution, bounded generation, strict envelopes and multi-turn tool message sequencing |
+| `mock_tools.py` | Immutable trusted fixtures, strict tool argument schemas, fixed four-tool registry, resource/authorization/state checks and memory-only effects |
+| `guarded_agent.py` | Bounded chat loop, policy interception, correlated results, authoritative completion grading, classified failures |
+| `llm_trace.py` | Redaction, response recordings, request/source/policy identities, integrity checks and deterministic offline playback |
+| `llm_benchmark.py` | Four execution comparators, isolated development/final protocols, fixture and live data, per-run metrics and benchmark replay |
+| `llm_commands.py` | Additive health, demo, smoke, inspection, replay and benchmark CLI commands |
+
+```text
+immutable application fixture + synthetic user task
+    -> llama.cpp /v1/chat/completions
+    -> validate assistant envelope / unique call IDs / call and round budgets
+    -> fixed tool registry + strict JSON arguments (no extras, coercion, duplicate keys, NaN)
+    -> trusted confirmation + application ACL + exact customer/transaction scope
+    -> deterministic ordering / injection-fixture / freshness / record-schema rules
+    -> existing original or ConservativePolicy recommendation
+    -> verify / bounded retry / escalate / proceed
+    -> recheck authorization and hard rules immediately before each execution
+    -> in-memory tool result -> tool message with original tool_call_id
+    -> next model turn -> final prose + independently graded task state + trace
+```
+
+Authorization is checked before model policy selection, including before authoritative verification. Verification can repair mock freshness/schema state but cannot create authorization. An apparent `authorized: true` value in a note or tool response is just data. API bodies cannot supply ACL flags, model artifact paths or LLM URLs. The API always selects the conservative policy. The benchmark's deliberately unguarded comparator is never exposed as an API option and still uses the same fixed tools and strict schemas.
+
+Hard failures return a correlated blocked result to the model. Envelope errors, duplicate/reused IDs, truncated output and transport failures terminate with classified errors and no execution of that envelope. Argument errors deny only that proposal and are returned to the model. The runner appends the assistant message before all of its tool results, then requests the next assistant turn. Tool retries are limited to two per proposal; the run has at most 16 model rounds and 24 accepted-envelope proposals (default 8 rounds). The HTTP timeout is configurable and does not cause automatic inference retries.
+
+The sandbox contains controlled stale/schema/timeout/injection fixtures. `validate_customer_authorization` reports the trusted result but never updates it. `verify_mock_record` completes only a fetched mock transaction. Injection flags are synthetic fixture labels, not a general prompt-injection detector. There is no dynamic importing/dispatching of generated functions, code evaluation, external tool network access, or real-world side effect.
+
+Each trace includes the immutable initial snapshot, model/configuration, normalized redacted responses or classified response failures, hashed requests, proposals and validated arguments, authorization outcomes, model diagnostics, verification, tool attempts, final sandbox state, errors and elapsed milliseconds. Common secret keys and recognizable sensitive text are minimized before recording and reuse in chat. Raw invalid protocol bodies and transport exception details are discarded. The trace's `task_completed` flag is derived from sandbox state; it cannot be asserted by LLM prose. A completed sandbox task may still lack a final model response, which is reported separately.
+
+Replay instantiates `RecordedClient`, reconstructs the fixture and tools, checks every request against the recorded hash, and recomputes the same policy and tool effects. No llama.cpp connection is created. It compares all deterministic data and ignores only measured timing fields/checksums. Recorded errors replay as errors. It rejects source, policy, configuration, state, request and result drift. Checksums detect accidental changes, not a malicious author who rewrites an entire internally consistent history. Use only trusted local joblib policy artifacts.
+
+Execution evaluation lives in `experiments/v030*.json` and `artifacts/v030/`; it never updates the v0.2.0 protocol or results. Frozen final reports validate source fingerprints, software, policy fingerprints and LLM identity/configuration. All four benchmark comparators can be replayed offline using `llm-replay --benchmark`; unguarded playback stays inside the same memory-only benchmark. Wall-clock latency includes trace fingerprinting, model calls, policy evaluation and tool work. Replay verifies outcomes, not the repeatability of wall-clock time.
+
+## Preserved v0.2.0 components
 
 ## Implemented components
 
@@ -40,7 +81,7 @@ Trusted synthetic fixture + untrusted synthetic note
            full trace + deterministic replay
 ```
 
-The advisory HTTP surface does not execute tools. The demonstration is entirely local and does not expose an execution endpoint. Recommendations do not grant capabilities. Even a deliberately adversarial policy that always recommends proceed cannot override authorization, the tool allowlist, or resource scope.
+The legacy advisory HTTP surface does not execute tools. The v0.2.0 scripted demonstration has no execution endpoint; the additive v0.3.0 mock execution endpoints are described above. Recommendations do not grant capabilities. Even a deliberately adversarial policy that always recommends proceed cannot override authorization, the tool allowlist, or resource scope in a guarded run.
 
 The scripted proposer first reads `demo-record`, then stages a change to a dictionary. It stops on denied or failed reads. Verification consults a controlled authoritative fixture; retry is limited to two attempts and cannot grant authorization or sanitize injected instructions. Stage operations require a successful read and appropriate authoritative state. Every effect is in memory; traces are written only by the CLI report writer.
 
@@ -96,6 +137,6 @@ Dataset SHA-256 hashes cover serialized public signals and latent seeds. Source 
 
 ## Limits and next work
 
-The synthetic generator exposes all intervention outcomes because its physics are controlled. No observational causal identification or real-world risk guarantee follows. Verification is safe by construction and strong relative to other arms. The agent is a deterministic fixture, not an LLM robustness evaluation. Future work needs multiple training seeds, structural shifts, uncertain verification, learned-agent traces, calibrated uncertainty with coverage checks, and evaluation under a newly frozen final protocol.
+The synthetic generator exposes all intervention outcomes because its physics are controlled. No observational causal identification or real-world risk guarantee follows. Verification is safe by construction and strong relative to other arms. The v0.2.0 agent remains a deterministic fixture. v0.3.0 adds live-model integration evidence but not a broad LLM robustness evaluation. Future work needs multiple training seeds, structural shifts, uncertain verification, larger held-out attack/task families, and calibrated uncertainty with coverage checks.
 
 The existing research plan describes longer-term randomized logging, off-policy evaluation, adapters, and governance. Those are not implemented in this milestone.

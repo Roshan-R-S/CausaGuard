@@ -1,5 +1,24 @@
 # Research plan: from failure detection to intervention utility
 
+## v0.3.0 implemented integration evaluation
+
+This milestone tests the actual local Qwen/llama.cpp tool-call integration with the existing policy and deterministic authorization layer. It does not revise the v0.2.0 hypothesis, frozen protocol, simulator equations, or published numbers.
+
+Two prespecified protocols are separate:
+
+- `experiments/v030.json`: development seeds 9301/9302 and final seeds 9401/9402, nine fixed proposal families, 18 runs per comparator per split. These are intentionally scripted adversarial proposals, not LLM generation. They cover malformed schemas and unsupported tools even when the live model avoids them.
+- `experiments/v030-live.json`: development seed 9501 and final seed 9601, seven mock task families, seven live runs per comparator per split. Each policy receives an independent closed-loop conversation against the same tasks and initial state. Responses can diverge with different tool results. Model ID/configuration, every response and error, and measured timings are recorded.
+
+Comparators are an unguarded in-memory baseline, authorization-gated always-verify, the original forest policy, and the conservative wrapper with unchanged defaults. The three guarded comparators share strict authorization, scope, schemas and deterministic safety checks; learned scores cannot bypass them. The unguarded comparator remains constrained to the fixed mock tools and is not deployable.
+
+Metrics include sandbox task completion and completion with final prose; unsafe attempted and executed proposals; correctly blocked proposals; intervention action counts (including hard blocks); schema/allowlist validity among intercepted proposals; errors; tool attempts; and observed elapsed milliseconds. The fixture oracle defines unsafe state independently of learned scores. A stale proposal repaired by verification is not an unsafe execution. Earlier interventions can change later proposal safety. Blocked/incomplete and failed-model runs remain in denominators. An invalid protocol envelope is recorded as a model error rather than assigned a guessed number of tool proposals. A policy can block safely without completing the original task.
+
+The final command accepts only a frozen development report and validates its integrity, source/software identities, learned-model fingerprints, configuration and LLM identity. No tuning flags are accepted. Seed/record sets are disjoint; task and attack templates are shared. Thus this is integration regression evidence, not an independent unseen-attack generalization study. Once final results are inspected, revisions motivated by those results require new final seeds and a new protocol.
+
+Replay consumes recorded model responses and initial state, validates request hashes, recomputes interventions and mock executions, and verifies traces/aggregates offline. It does not rerun generation. Fresh live inference, even with fixed seed/temperature, may differ across hardware/runtime versions. Recorded latency is observational and includes fingerprint/report preparation inside each run; no synthetic speedup or confidence interval is claimed. These small samples and strong mock verification do not establish a learned-policy advantage or production safety.
+
+Measured results and full reproduction commands are in `docs/v030-results.md` and the README. The larger randomized logging, external benchmark comparisons, uncertain verification, calibration coverage, and causal identification goals below remain future work.
+
 ## v0.2.0 implemented protocol
 
 The original learned selector underperformed always-verify, and isotonic risk calibration alone did not improve policy utility. The v0.2.0 response is a verification-first selector, not a claim that further risk-score calibration solves action selection.

@@ -1,8 +1,71 @@
-# CausaGuard v0.2.0
+# CausaGuard v0.3.0
 
 A local research MVP for choosing **proceed**, **retry**, **verify**, or **escalate** before a tool-using agent acts. Per-action random forests estimate synthetic reward and unsafe-outcome scores. Independent hard rules enforce authorization. Everything runs offline without API keys or paid services.
 
-The original learned policy underperformed always-verify; isotonic calibration alone did not fix that result. This milestone adds a **verification-first policy**, a frozen development/final evaluation protocol, and a deterministic agent demonstration with fake tools. It does not establish a real-world safety or causal-effect claim. Raw risk scores and tree disagreement are **not calibrated probabilities, confidence bounds, or guarantees**.
+v0.3.0 adds a functioning **local llama.cpp tool-using agent**, guarded in-memory execution, recorded-response replay, and separate execution benchmarks. The original learned policy underperformed always-verify; isotonic calibration alone did not fix that result. The v0.2.0 verification-first policy, scripted demo, commands, and frozen research results remain intact. Raw risk scores and tree disagreement are **not calibrated probabilities, confidence bounds, or guarantees**.
+
+## Local LLM demonstration
+
+Use the existing llama.cpp service at `http://127.0.0.1:8080/v1` with `Qwen3-4B-Instruct-2507-Q4_K_M.gguf`. No Ollama, downloads, paid endpoints, or API keys are used. The adapter reuses `httpx`, now a runtime dependency. Its URL validation accepts only loopback HTTP addresses; redirects and environment HTTP proxies are disabled.
+
+```powershell
+cd D:\causaguard
+.venv\Scripts\python.exe -m causaguard.cli llm-health
+.venv\Scripts\python.exe -m causaguard.cli train --n 3000 --seed 1701 --model-seed 42 --model artifacts/v030/agent-policy.joblib
+.venv\Scripts\python.exe -m causaguard.cli llm-smoke --output artifacts/v030/smoke.json
+.venv\Scripts\python.exe -m causaguard.cli llm-demo --case all --output artifacts/v030/demo.json
+.venv\Scripts\python.exe -m causaguard.cli llm-inspect artifacts/v030/demo.json
+.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/demo.json
+```
+
+The smoke command requires actual task completion and automatically checks replay; it exits with an error and saves the trace on failure. `llm-demo` also saves blocked/failed runs and verifies replay. `--model` selects the trusted CausaGuard forest artifact; `--llm-model` selects the llama.cpp model ID. When omitted, the adapter resolves the sole model from `/v1/models`; multiple models require an explicit ID. Health checks both `/health` and `/v1/models`.
+
+Options: `--llm-url`, `--llm-model`, `--timeout` (seconds), `--max-tokens`, `--max-rounds` (1–16, default 8), `--seed`, `--task`, and `--policy original|conservative`. Defaults also come from `CAUSAGUARD_LLM_BASE_URL`, `CAUSAGUARD_LLM_MODEL`, `CAUSAGUARD_LLM_TIMEOUT`, and `CAUSAGUARD_LLM_MAX_TOKENS`. Tool proposals are capped at 24 per run and retries at two executions per proposal. Generation uses temperature 0 and seed 42; live GPU generation is not promised to be deterministic.
+
+The LLM receives four structured tools: `lookup_customer`, `validate_customer_authorization`, `fetch_mock_transaction`, and `verify_mock_record`. It proposes calls, receives correlated tool results, and produces a final response. The application validates strict argument schemas and resource scope, checks immutable mock authorization, applies deterministic rules and the selected ML policy, then rechecks before execution. Neither user-task text, LLM arguments, nor returned `authorized` fields grant permissions. Task completion is graded from sandbox state, never the final prose.
+
+Cases include clean, stale, missing confirmation, denied authorization, injected notes, malformed records, and transient tool timeouts. The `invalid_schema` and `unsupported_function` cases force invalid proposals in the **fixture benchmark**; a live model may emit valid calls on those named fixtures. They are not evidence of live attacks unless the trace actually contains them. All tools use synthetic in-memory data. There are no banking, filesystem mutation, email, payment, Python execution, or shell execution tools.
+
+Traces record run/model/configuration identity, normalized redacted model responses, request hashes, proposals, validated arguments, authorization outcomes, safety findings, decisions, verification, attempts, results, classifications, and measured timings. Redaction minimizes common secrets, email addresses, and sensitive JSON keys before recording and subsequent chat turns. It is not comprehensive DLP; submit synthetic tasks only. Replay uses the recorded responses and initial sandbox snapshot, recomputes enforcement and tool effects, and checks all deterministic fields. It never regenerates responses or makes network calls. Timing is retained as a measurement, not reproduced. Source/model/configuration mismatches and altered traces are rejected; checksums are not authentication against a malicious trace author.
+
+## v0.3.0 execution benchmarks
+
+```powershell
+# Fixed adversarial proposals; no llama.cpp required:
+.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase development --config experiments/v030.json --output artifacts/v030/development.json
+.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase final --protocol artifacts/v030/development.json --output artifacts/v030/final.json
+.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/final.json --benchmark
+
+# Genuine live closed-loop proposals, separately reported:
+.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase development --config experiments/v030-live.json --output artifacts/v030/live-development.json
+.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase final --protocol artifacts/v030/live-development.json --output artifacts/v030/live-final.json
+.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/live-final.json --benchmark
+```
+
+Both compare the unguarded sandbox, authorization-gated always-verify, original CausaGuard, and conservative CausaGuard. The unguarded comparator bypasses semantic/authorization enforcement **only inside the in-memory benchmark**; even it cannot dispatch arbitrary functions or bypass argument schemas. The HTTP demo cannot select it. Final runs accept a frozen development report, validate source/software/policy/LLM identities, and reject tuning overrides. Every case, error and trace remains in the report. Fixture replay is exact; fresh live runs can differ. The final split uses distinct records/seeds within known task templates, not held-out attack families.
+
+See [v0.3.0 measurements and metric definitions](docs/v030-results.md). These small integration benchmarks do not establish production safety or superiority over always-verify. Frozen `experiments/v020.json` and `docs/v020-results.md` are unchanged.
+
+## Additive local API
+
+Legacy `/health` and `/recommend` retain their response contracts. New routes operate only the mock sandbox:
+
+| Route | Behavior |
+| --- | --- |
+| `GET /llm/health` | Probe configured llama.cpp and model discovery |
+| `POST /llm/demo` | Conservative guarded demo; body contains `case`, `seed`, optional `task`, `max_rounds` |
+| `POST /llm/trace/inspect` | Inspect a trace object after integrity checks |
+| `POST /llm/replay` | Recompute a conservative trace offline |
+
+```powershell
+$env:CAUSAGUARD_MODEL = "artifacts/v030/agent-policy.joblib"
+.venv\Scripts\python.exe -m causaguard.cli serve
+# In another terminal:
+Invoke-RestMethod http://127.0.0.1:8765/llm/health
+Invoke-RestMethod -Method Post http://127.0.0.1:8765/llm/demo -ContentType application/json -Body '{"case":"clean"}'
+```
+
+Model paths, LLM URLs, and permissions cannot be supplied in request bodies. This local demonstration service is not an authenticated production execution service.
 
 ## Install and check
 
@@ -16,6 +79,14 @@ uv pip install --python .venv\Scripts\python.exe -e ".[dev]"
 
 .venv\Scripts\python.exe -m ruff check . --no-cache
 .venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+```
+
+Ordinary tests use mock HTTP transports and recorded proposals. To opt into the real local service:
+
+```powershell
+$env:CAUSAGUARD_LIVE_LLM = "1"
+.venv\Scripts\python.exe -m pytest -q tests/test_llm_live.py
+Remove-Item Env:CAUSAGUARD_LIVE_LLM
 ```
 
 On Linux/macOS, use `python -m venv .venv`, `.venv/bin/python -m pip install -e '.[dev]'`, and substitute `.venv/bin/python` below. Generated models, JSON reports, and traces belong in the Git-ignored `artifacts/` directory. Existing local artifacts are not migrated or overwritten by the research commands.
@@ -78,7 +149,7 @@ The original `train`, `evaluate`, `demo`, `serve`, calibration audit, and paired
 .venv\Scripts\python.exe -m causaguard.cli serve
 ```
 
-The local API remains advisory-only at `http://127.0.0.1:8765`; `/health` and `/recommend` are preserved, with interactive documentation at `/docs`. Old request bodies select the original policy and preserve its response shape. Add `policy` and optionally `conservative_config` for explicit experiments:
+The legacy advisory API remains at `http://127.0.0.1:8765`; `/health` and `/recommend` are preserved, with interactive documentation at `/docs`. Its legacy health `mode` field remains `advisory-only`; the additive `/llm` routes execute only the in-memory demonstration described above. Old recommendation bodies select the original policy and preserve its response shape. Add `policy` and optionally `conservative_config` for explicit experiments:
 
 ```powershell
 $body = @{

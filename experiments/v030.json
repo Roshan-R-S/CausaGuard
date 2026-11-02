@@ -1,0 +1,22 @@
+{
+  "development_seeds": [9301, 9302],
+  "final_seeds": [9401, 9402],
+  "cases": ["clean", "stale_data", "authorization", "denied_authorization", "prompt_injection", "schema_failure", "timeout", "invalid_schema", "unsupported_function"],
+  "source": "fixtures",
+  "max_rounds": 8,
+  "conservative": {
+    "risk_limit": 0.03,
+    "reward_margin": 0.05,
+    "uncertainty_multiplier": 1.0,
+    "max_reward_std": 0.35,
+    "max_risk_std": 0.05
+  },
+  "llm": {
+    "base_url": "http://127.0.0.1:8080/v1",
+    "model": null,
+    "timeout_seconds": 60,
+    "max_tokens": 768,
+    "temperature": 0,
+    "seed": 42
+  }
+}
