@@ -191,3 +191,55 @@ Dataset SHA-256 hashes cover serialized public signals and latent seeds. Source 
 The synthetic generator exposes all intervention outcomes because its physics are controlled. No observational causal identification or real-world risk guarantee follows. Verification is safe by construction and strong relative to other arms. The v0.2.0 agent remains a deterministic fixture. v0.3.0 adds live-model integration evidence but not a broad LLM robustness evaluation. Future work needs multiple training seeds, structural shifts, uncertain verification, larger held-out attack/task families, and calibrated uncertainty with coverage checks.
 
 The existing research plan describes longer-term randomized logging, off-policy evaluation, adapters, and governance. Those are not implemented in this milestone.
+
+
+## Additive v0.5 intervention laboratory
+
+`intervention_env.py` defines frozen public observations, private simulator cases and
+fixed random tapes. `intervention_policy.py` accepts observations only; it cannot inspect
+case identifiers, seeds, latent defects, future outcomes or the true shifted error rates.
+`intervention_study.py` owns the protocol, training/calibration split, evaluation, paired
+statistics, report storage and deterministic replay. Existing runtime selectors and
+agent executors are unchanged. The new CLI commands are research-only; no API mode can
+enable a v0.5 policy on real tools or remove the existing mandatory checks.
+
+Each action is a bounded macro: proceed uses one in-memory record access, retry and
+verify use two, and escalate uses none. Before every access, `MockSandbox.execute`
+enforces the existing lookup schema, ownership, scope, confirmation, ACL, revocation and
+execution cap. A case budget of one or two further limits the macro. No arbitrary tool
+name or code can be dispatched. A separate grader reconstructs successful access
+permissions without calling enforcement helpers and fails evaluation on disagreement.
+The v0.4 transaction ordering, freshness and schema checks and HTTP limits remain in
+their original executor and are covered by the full regression suite. Operational
+defects in this new domain are hidden quality failures, not permission or schema overrides.
+
+Only after the macro's permitted accesses does the simulator score operational success.
+Verification reads an older record, can produce false positives/negatives, can fail to
+repair a flagged defect, and can miss a deadline. It cannot grant authorization. The
+existing v0.4 `verify_authoritative` function is unchanged and is not called by this
+fallible operational verifier. Escalation incurs a cost with no assumed human success.
+Blocked macros cannot complete; partial permitted access incurs 0.01 per access.
+
+Learning uses full simulator potential outcomes on independent training cases. Per-arm
+multi-output forests predict completion, unsafe completion and cost. Separate isotonic
+maps calibrate completion and risk on disjoint calibration seeds. Selection maximizes
+predicted value*completion - harm*unsafe - cost subject to a heuristic 0.05 risk-score
+cap and the public operation budget. Escalation is always an option. Raw and calibrated
+scores are empirical estimates, not formal conditional risk bounds. Calibration may
+worsen under shift. Model output never changes the independent execution checks.
+
+The original reward/risk forests are refit on identical v0.5 training outcomes using the
+original feature projection and unchanged original/conservative selection algorithms.
+The full-context learner has additional observable cost/quality/deadline features; the
+no-context ablation removes those from outcome fitting. No-calibration shares the full
+forest and bypasses isotonic maps. No-cost shares calibrated predictions and removes
+cost only from the selection objective. Deterministic rules see the same observations.
+
+Full JSON reports contain all public/private case fields, all permitted potential
+outcomes and guard events, every policy choice for each training replicate, calibration
+bins, seed/domain summaries, contrasts and fingerprints. No pickle is read by v0.5.
+Replay retrains from seeds, checks stable per-tree field hashes, regenerates cases and
+compares the complete deterministic report. Source and numeric environment must match.
+No wall-clock timing enters the report; latency is simulated in arbitrary time units.
+Reports use exclusive creation and generated files belong under ignored `artifacts/v050`.
+Legacy replay requires its corresponding historical source version, as before.

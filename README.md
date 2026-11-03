@@ -1,10 +1,45 @@
-# CausaGuard v0.4.0
+# CausaGuard v0.5.0
 
 A local research MVP for choosing **proceed**, **retry**, **verify**, or **escalate** before a tool-using agent acts. Per-action random forests estimate synthetic reward and unsafe-outcome scores. Independent hard rules enforce authorization. Everything runs offline without API keys or paid services.
 
 v0.4.0 adds a structured adversarial validation protocol and hardens the mock execution
 boundary. It preserves existing APIs, CLI commands, policy algorithms, and frozen
 v0.2/v0.3 protocols and results. This is a research milestone, not production-grade safety.
+
+## v0.5.0 fallible-verification research
+
+The additive v0.5 laboratory studies whether learned intervention selection earns its
+complexity when operational verification can be wrong, late, or expensive. Two synthetic
+domain analogues (customer support and data engineering) use noisy observations,
+fallible repair, outages, deadlines, heterogeneous costs and explicit resource budgets.
+Independent v0.4 permission, ownership, scope and argument-schema checks remain mandatory.
+The experiment uses in-memory lookups only; it does not connect to an LLM or external tool.
+
+The prespecified primary superiority criterion was not met: contextual utility
+improved over always-verify but did not establish an IID improvement over
+deterministic repair. See the measured evidence and uncertainty below.
+
+Eleven comparisons include always-verify, rules alone, deterministic repair, a stronger
+cost-aware deterministic rule, refit original/conservative selectors, contextual learning,
+three ablations, and an unattainable hindsight oracle. Three training replicas, separate
+calibration data, six development and six final seed clusters support paired inference.
+The [protocol and measured findings](docs/v050-results.md) explain the acceptance rule,
+negative findings, limitations and exact reproduction commands. Compact results are in
+[v050-summary.json](docs/v050-summary.json); settings are in [v050.json](experiments/v050.json).
+
+```powershell
+.venv\Scripts\python.exe -m causaguard.cli intervention-study --phase development --config experiments/v050.json --output artifacts/v050/development-frozen.json
+.venv\Scripts\python.exe -m causaguard.cli intervention-study --phase final --protocol artifacts/v050/development-frozen.json --output artifacts/v050/final.json
+.venv\Scripts\python.exe -m causaguard.cli intervention-replay artifacts/v050/final.json --protocol artifacts/v050/development-frozen.json
+.venv\Scripts\python.exe -m experiments.summarize_v050 --development artifacts/v050/development-frozen.json --final artifacts/v050/final.json --output artifacts/v050/summary.json
+```
+
+Use fresh output paths for repeats: reports are exclusively created. Final evaluation
+checks frozen source, environment, configuration, training data, calibration data and
+model identities before generating final cases. Replay recomputes every outcome,
+decision and aggregate. Checksums detect drift, not malicious authorship. Historical
+v0.1-v0.4 algorithms, protocols and results remain unchanged. This is simulation research,
+not evidence of real-world causal identification, prompt-injection robustness or safety.
 
 ## v0.4.0 research validation
 

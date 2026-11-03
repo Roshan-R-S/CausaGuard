@@ -157,3 +157,44 @@ Let Y(a) be a potential outcome under action a. Optimize E[U(Y(a), a) | X] subje
 - Chronicle cut-point replay — 2026: https://aclanthology.org/2026.realm-1.71/
 
 We have not exhaustively surveyed all relevant publications. Literature review and novelty assessment must continue before making any publication claim.
+
+
+## v0.5 prespecified milestone (implemented)
+
+The first two synthetic domain analogues are customer support and data engineering.
+They share a decision structure but vary defect prevalence and retry repair response;
+this is not an external cross-domain validation. The final protocol is in
+`experiments/v050.json`, with executable hypotheses and acceptance rules in
+`intervention_study.PRESPECIFICATION`, copied into every development/final report.
+
+H1: contextual learned selection improves IID mean utility by more than 0.01 versus
+each of always-verify, deterministic repair and the cost-aware deterministic rule,
+while absolute operational unsafe completion is at most 0.05 and excess unsafe
+completion versus each comparator is at most 0.005. The composite null is that any
+one condition fails. Seven Bonferroni-adjusted percentile intervals (99.2857% each)
+must satisfy these conditions; zero independent access violations is also mandatory.
+These bootstrap criteria do not establish a general safety guarantee.
+
+Three training datasets (50001-50003; 1,800 cases each), three calibration datasets
+(50101-50103; 600 cases each), and forest seeds 50201-50203 are independent. Development
+seeds 50301-50306 and final seeds 50401-50406 each contain 250 cases/profile. All four
+profiles (IID, verifier deterioration, outages, cost inflation) and all eleven policies
+are fixed before final inspection. The profiles use distinct random streams. Each
+split therefore has 6,000 distinct cases and 198,000 policy-case runs; fixed baseline
+repeats across training replicas are never counted as independent cases.
+
+There is one prespecified model configuration, no adaptive model search and no
+development-fitted threshold. Development freezes executable source, numeric environment,
+training/calibration dataset and fitted model hashes. Final accepts that report only;
+source or training drift is rejected before final generation. The stopping rule is
+complete collection of every declared seed and profile, retaining all failures.
+Results-driven changes require a new protocol and unused final seeds.
+
+Inference pairs cases first, averages within training-by-evaluation-seed cells, then
+independently resamples both crossed cluster axes (4,000 replicates, seed 50501).
+Three training replicas and six evaluation clusters limit interval reliability. Domain,
+shift, calibration and ablation results use descriptive 95% intervals without adjusted
+claims. Zero-width contrasts are enumerated and interpreted structurally, never as
+proof of a precise zero-risk population. All-arms synthetic supervision and the
+unattainable realized-outcome oracle do not solve observational causal identification.
+Measured results and next research limitations are in `docs/v050-results.md`.
