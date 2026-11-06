@@ -1,13 +1,14 @@
 # CausaGuard v0.7.1: System Architecture and Generative Specification
 
-**Status:** Technical Architecture Document, CausaGuard PhD Research Programme  
-**Date:** 6 November 2026  
-**Scope:** Architecture Specification for Isolated CausaGuard v0.7.1 Engine  
+**Status:** Technical Architecture Document, CausaGuard PhD Research Programme
+**Date:** 6 November 2026
+**Scope:** Architecture Specification for Isolated CausaGuard v0.7.1 Engine
 **Referenced Evidence:**
-- [src_v07_1/causaguard_v07_1/](file:///d:/causaguard/src_v07_1/causaguard_v07_1/)
-- [docs/v071-engineering-implementation-report.md](file:///d:/causaguard/docs/v071-engineering-implementation-report.md)
-- [research/methodology/v07-escalation-remediation-design.md](file:///d:/causaguard/research/methodology/v07-escalation-remediation-design.md)
-- [research/reviews/v07-methodological-gate-resolution.md](file:///d:/causaguard/research/reviews/v07-methodological-gate-resolution.md)
+
+- [src_v07_1/causaguard_v07_1/](../src_v07_1/causaguard_v07_1/)
+- [docs/v071-engineering-implementation-report.md](../docs/v071-engineering-implementation-report.md)
+- [research/methodology/v07-escalation-remediation-design.md](../research/methodology/v07-escalation-remediation-design.md)
+- [research/reviews/v07-methodological-gate-resolution.md](../research/reviews/v07-methodological-gate-resolution.md)
 
 ---
 
@@ -16,6 +17,7 @@
 CausaGuard v0.7.1 provides an isolated, reproducible benchmark for evaluating sequential causal decision algorithms under uncertainty, operational risk limits, and authentic workflow disruption penalties.
 
 The v0.7.1 architecture is structured around five core pillars:
+
 1. **Generative Causal DAG Environments:** Synthetic enterprise workflow simulators (Customer Support and Data Engineering) with latent state spaces, fallible observational alarms, and asymmetric operational hazards.
 2. **Decomposed Human-Intervention Engine:** A realistic multi-attribute escalation model that captures human labor engagement fees, queuing delay distributions, capacity bounds, specialist error rates, and downstream workflow value degradation.
 3. **Action-Space Symmetry:** A strict comparator protocol where all practical policies operate under identical public observations, feasible actions, tool operation budgets, and safety constraints.
@@ -75,7 +77,8 @@ The v0.7.1 architecture is structured around five core pillars:
 
 ## 2. Domain Generative Causal Models
 
-### 2.1 Customer Support Record-Resolution Domain ([`domain_cs.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/domain_cs.py))
+### 2.1 Customer Support Record-Resolution Domain ([`domain_cs.py`](../src_v07_1/causaguard_v07_1/domain_cs.py))
+
 Models enterprise customer record resolution where tickets may contain stale customer data or deliberate account takeover fraud:
 
 - **State Space ($\mathcal{S}_{\text{cs}}$):** $S \in \{\text{clean}, \text{stale}, \text{fraud}\}$.
@@ -91,9 +94,10 @@ Models enterprise customer record resolution where tickets may contain stale cus
   - `proceed`: Consumes $1$ tool op. Safe on clean; silent failure on stale; causes catastrophic operational harm ($-H$) on fraud.
   - `verify`: Consumes $1$ tool op. Non-terminal consistency check. Generates fallible binary evidence flag with quoted/actual error rates.
   - `retry`: Consumes $1$ tool op. Authoritative database re-query. Cures stale record with probability $\rho_{\text{cs}} = \text{clip}(0.35 + 0.45 \cdot \text{Rel} - 0.20 \cdot \text{Load}, 0.10, 0.95)$. On clean tickets, causes customer friction ($p_{\text{fric}} = 0.15 + 0.35 \cdot \text{Load}$) resulting in ticket abandonment ($25\%$) or satisfaction discount ($10–40\%$). Cannot cure fraud.
-  - `escalate`: Consumes $0$ tool ops. Routes ticket to human specialist via [`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/escalation.py).
+  - `escalate`: Consumes $0$ tool ops. Routes ticket to human specialist via [`escalation.py`](../src_v07_1/causaguard_v07_1/escalation.py).
 
-### 2.2 Data Engineering Pipeline Domain ([`domain_de.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/domain_de.py))
+### 2.2 Data Engineering Pipeline Domain ([`domain_de.py`](../src_v07_1/causaguard_v07_1/domain_de.py))
+
 Models automated batch transformation pipelines subject to multi-channel data defects:
 
 - **State Space ($\mathcal{S}_{\text{de}}$):** Multivariate Bernoulli failure indicators $F = (F_s, F_c, F_t)$:
@@ -104,15 +108,16 @@ Models automated batch transformation pipelines subject to multi-channel data de
   - `proceed`: Consumes $1$ tool op. If $F_s$ or $F_c$ present, corrupted data enters production analytics, triggering operational harm ($-H$).
   - `verify`: Consumes $1$ tool op. Non-terminal schema audit and sample row check. Generates `schema_valid` and continuous `sample_pass_rate`.
   - `restore`: Consumes $1$ tool op. Checkpoint snapshot rollback. Recovers degraded fallback output ($v_{\text{fallback}} = 0.45 \times V$). If structural schema drift ($F_s$) is present, persistent incompatibility occurs with probability $80\%$, collapsing value to $0.10 \times V$.
-  - `escalate`: Consumes $0$ tool ops. Pages on-call data engineer via [`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/escalation.py).
+  - `escalate`: Consumes $0$ tool ops. Pages on-call data engineer via [`escalation.py`](../src_v07_1/causaguard_v07_1/escalation.py).
 
 ---
 
-## 3. Decomposed Human Escalation Engine ([`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/escalation.py))
+## 3. Decomposed Human Escalation Engine ([`escalation.py`](../src_v07_1/causaguard_v07_1/escalation.py))
 
 Human escalation is modeled as a 7-attribute generative state machine:
 
 ### 3.1 Mathematical Formulation
+
 1. **Labor Cost:**
    $$C_{\text{labor}} = C_{\text{base}} + \beta_{\text{labor}} \cdot \text{Load}$$
    ($C_{\text{base}} = \$0.45$ CS, $\$0.75$ DE; $\beta_{\text{labor}} = \$0.20$ CS, $\$0.30$ DE).
@@ -135,22 +140,25 @@ Human escalation is modeled as a 7-attribute generative state machine:
 
 ---
 
-## 4. Symmetric Policy Suite & Decision Architecture ([`policy_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/policy_v07_1.py))
+## 4. Symmetric Policy Suite & Decision Architecture ([`policy_v07_1.py`](../src_v07_1/causaguard_v07_1/policy_v07_1.py))
 
 ### 4.1 Comparator Matrix
-| Policy Name | Action Set at Step 1 | Action Set at Step 2 | Decision Mechanism | Confirmatory Status |
-|---|---|---|---|---|
-| `cost_rule_v07_1` | `{proceed, verify, recover, escalate}` | `{proceed, recover, escalate}` | Bayesian VOI Optimization | **Candidate** |
-| `always_escalate` | `{escalate}` | N/A | Fixed Policy | **Primary Baseline** |
-| `always_recovery` | `{retry}` (CS) / `{restore}` (DE) | N/A | Fixed Policy | **Primary Baseline** |
-| `cost_sensitive_symmetric_heuristic` | `{proceed, verify, recover, escalate}` | `{proceed, recover, escalate}` | Symmetric Cost-Benefit Heuristic | **Primary Baseline** |
-| `budget_aware_direct_recovery` | `{proceed, recover}` | N/A | Heuristic Direct Recovery | Secondary Baseline |
-| `escalation_aware_deterministic_thresh` | `{proceed, recover, escalate}` | `{proceed, recover, escalate}` | Calibrated Threshold ($\tau_{\text{low}}=0.15, \tau_{\text{high}}=0.65$) | Secondary Baseline |
-| `fixed_verify_repair_macro` | `{verify}` | `{proceed, recover}` | Fixed Inspection-First Macro | Historical Benchmark |
-| `oracle` | `{proceed, recover, escalate}` | N/A | Ground-Truth Optimal | Diagnostic Reference Only |
+
+| Policy Name                             | Action Set at Step 1                   | Action Set at Step 2           | Decision Mechanism                                                       | Confirmatory Status       |
+| --------------------------------------- | -------------------------------------- | ------------------------------ | ------------------------------------------------------------------------ | ------------------------- |
+| `cost_rule_v07_1`                       | `{proceed, verify, recover, escalate}` | `{proceed, recover, escalate}` | Bayesian VOI Optimization                                                | **Candidate**             |
+| `always_escalate`                       | `{escalate}`                           | N/A                            | Fixed Policy                                                             | **Primary Baseline**      |
+| `always_recovery`                       | `{retry}` (CS) / `{restore}` (DE)      | N/A                            | Fixed Policy                                                             | **Primary Baseline**      |
+| `cost_sensitive_symmetric_heuristic`    | `{proceed, verify, recover, escalate}` | `{proceed, recover, escalate}` | Symmetric Cost-Benefit Heuristic                                         | **Primary Baseline**      |
+| `budget_aware_direct_recovery`          | `{proceed, recover}`                   | N/A                            | Heuristic Direct Recovery                                                | Secondary Baseline        |
+| `escalation_aware_deterministic_thresh` | `{proceed, recover, escalate}`         | `{proceed, recover, escalate}` | Calibrated Threshold ($\tau_{\text{low}}=0.15, \tau_{\text{high}}=0.65$) | Secondary Baseline        |
+| `fixed_verify_repair_macro`             | `{verify}`                             | `{proceed, recover}`           | Fixed Inspection-First Macro                                             | Historical Benchmark      |
+| `oracle`                                | `{proceed, recover, escalate}`         | N/A                            | Ground-Truth Optimal                                                     | Diagnostic Reference Only |
 
 ### 4.2 Analytical Bayesian VOI Derivation
+
 At Step 1, with observation $X$ and budget $B$:
+
 1. Compute posterior defect probability $p_0 = P(\text{Defect} \mid X)$.
 2. Evaluate expected utilities for terminal actions:
    $$U(\text{proceed}) = \begin{cases} V \cdot a_0 \cdot (1 - p_0) - H \cdot a_0 \cdot p_0 - C_{\text{apply}} - C_{\text{time}} L_0 & \text{if } p_0 \le 0.050 \\ -\infty & \text{if } p_0 > 0.050 \end{cases}$$
@@ -163,10 +171,12 @@ At Step 1, with observation $X$ and budget $B$:
 
 ---
 
-## 5. Counterfactual Study Runner & Order Invariance ([`study_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/study_v07_1.py))
+## 5. Counterfactual Study Runner & Order Invariance ([`study_v07_1.py`](../src_v07_1/causaguard_v07_1/study_v07_1.py))
 
 ### 5.1 The `QueueState` Isolation Mechanism
+
 To prevent policies from interfering with each other's queue capacity:
+
 ```python
 # study_v07_1.py lines 170-176
 queue_states = {name: QueueState(capacity_limit=capacity_limit) for name in policies}
@@ -180,17 +190,20 @@ for case in cases:
             **step_kwargs,
         )
 ```
+
 Each policy updates only its own `QueueState`.
 
 ### 5.2 Formal Policy-Order Invariance Guarantee
+
 Because:
+
 1. Cases in a cluster are deterministic pure data objects with fixed random draw tapes;
 2. Policies receive immutable observation slices;
 3. Queue states are maintained in separate, non-overlapping instances;
-The execution of Policy $A$ is a mathematical pure function of $(\text{Cases}, \text{Policy } A, \text{QueueState}_A)$, completely independent of the execution sequence or existence of Policy $B$.
-Formally:
-$$\mathcal{M}(\text{Policy } A \mid \text{Order } [A, B]) \equiv \mathcal{M}(\text{Policy } A \mid \text{Order } [B, A])$$
-Verified by unit test [`test_strict_policy_order_invariance`](file:///d:/causaguard/tests_v07_1/test_study_v07_1.py#L35).
+   The execution of Policy $A$ is a mathematical pure function of $(\text{Cases}, \text{Policy } A, \text{QueueState}_A)$, completely independent of the execution sequence or existence of Policy $B$.
+   Formally:
+   $$\mathcal{M}(\text{Policy } A \mid \text{Order } [A, B]) \equiv \mathcal{M}(\text{Policy } A \mid \text{Order } [B, A])$$
+   Verified by unit test [`test_strict_policy_order_invariance`](../tests_v07_1/test_study_v07_1.py#L35).
 
 ---
 
@@ -219,10 +232,10 @@ Verified by unit test [`test_strict_policy_order_invariance`](file:///d:/causagu
 ========================================================================================
 ```
 
-The seed boundaries are strictly protected by assertions in [`test_identity_preservation_v07_1.py`](file:///d:/causaguard/tests_v07_1/test_identity_preservation_v07_1.py#L42), guaranteeing that fresh exploratory calibration will never contaminate prospective development or final confirmatory evaluation samples.
+The seed boundaries are strictly protected by assertions in [`test_identity_preservation_v07_1.py`](../tests_v07_1/test_identity_preservation_v07_1.py#L42), guaranteeing that fresh exploratory calibration will never contaminate prospective development or final confirmatory evaluation samples.
 
 ---
-*Authored on behalf of the System Architecture Team,*  
-**CausaGuard PhD Programme**  
-6 November 2026
 
+_Authored on behalf of the System Architecture Team,_
+**CausaGuard PhD Programme**
+6 November 2026

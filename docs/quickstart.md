@@ -15,32 +15,38 @@ Welcome to the CausaGuard research alpha release. This guide provides exact inst
 ## 2. Environment Setup
 
 ### 2.1 Clone the Repository
+
 ```bash
-git clone https://github.com/causaguard/causaguard.git
+git clone https://github.com/Roshan-R-S/CausaGuard.git causaguard
 cd causaguard
 ```
 
 ### 2.2 Create and Activate Virtual Environment
 
 **On Windows (PowerShell):**
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
 **On Linux / macOS (Bash):**
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 ### 2.3 Install Core Dependencies
+
 Install the required scientific computation and verification packages:
+
 ```bash
 pip install numpy scipy pydantic pytest ruff
 ```
 
-*(Optional) Install root package in editable mode:*
+_(Optional) Install root package in editable mode:_
+
 ```bash
 pip install -e .
 ```
@@ -49,27 +55,32 @@ pip install -e .
 
 ## 3. Running the Interactive Demonstration
 
-CausaGuard includes a standalone, self-contained demonstration entry point: [`demo_v07_1.py`](file:///d:/causaguard/demo_v07_1.py). 
+CausaGuard includes a standalone, self-contained demonstration entry point: [`demo_v07_1.py`](../demo_v07_1.py).
 
 The demo runs completely offline on synthetic cases sampled from the **non-evaluative infrastructure reserve** (seeds `70003001+`). It does not touch or unlock any confirmatory evaluation seeds.
 
 ### 3.1 Run Full Demonstration (Both Domains)
+
 ```bash
 python demo_v07_1.py
 ```
 
 ### 3.2 Run Specific Domain
+
 Evaluate only Data Engineering (Primary Confirmatory Domain):
+
 ```bash
 python demo_v07_1.py --domain de --n-cases 50
 ```
 
 Evaluate only Customer Support (Secondary Boundary Domain):
+
 ```bash
 python demo_v07_1.py --domain cs --n-cases 50
 ```
 
 ### 3.3 What the Demo Illustrates
+
 1. **Single-Case Counterfactual Walkthrough:** Evaluates the exact same synthetic case across all 8 policies simultaneously, demonstrating how analytical Bayesian Value of Information (VOI) balances diagnostic verification fees against the risk of catastrophic unobservable execution failures.
 2. **Aggregate Benchmark Table:** Displays paired potential outcomes across $N$ cases, comparing mean utility, operational risk ($R \le 0.050$), safe completion rate, economic costs, latency, and human escalation queue wait times.
 3. **Domain Contrast:** Shows why VOI achieves superiority in Data Engineering (where recovery carries high fallback haircuts), while demonstrating that Customer Support serves as an operational boundary condition where cheap retries favor direct recovery.
@@ -81,13 +92,17 @@ python demo_v07_1.py --domain cs --n-cases 50
 CausaGuard isolates research milestones across dedicated configuration profiles:
 
 ### 4.1 Run v0.7.1 Isolated Test Suite (59 tests)
+
 ```bash
 pytest -c pytest_v07_1.ini -v
 ```
+
 Tests the complete v0.7.1 engine, Bayesian VOI policy, multi-attribute human escalation simulator, symmetric heuristic baseline, confirmatory runner execution lock, numerical hand calculations, and historical cryptographic preservation.
 
 ### 4.2 Run Historical Test Suites
+
 Verify byte-level historical preservation across prior milestones:
+
 ```bash
 # v0.7 historical suite (35 tests)
 pytest -c pytest_v07.ini -v
@@ -97,6 +112,7 @@ pytest -c pytest_v06.ini -v
 ```
 
 ### 4.3 Run Linting & Code Quality
+
 ```bash
 ruff check src_v07_1 tests_v07_1 experiments_v07_1
 ```
@@ -141,7 +157,7 @@ print(cluster_results["policy_metrics"]["cost_rule_v07_1"]["mean_utility"])
 
 ## 6. Understanding the Confirmatory Execution Lock
 
-If you inspect [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](file:///d:/causaguard/experiments_v07_1/evaluate_confirmatory_v07_1.py), you will notice that attempting to run actual confirmatory seeds (`70100001+` or `70200001+`) is blocked:
+If you inspect [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](../experiments_v07_1/evaluate_confirmatory_v07_1.py), you will notice that attempting to run actual confirmatory seeds (`70100001+` or `70200001+`) is blocked:
 
 ```powershell
 python experiments_v07_1/evaluate_confirmatory_v07_1.py --domain de
@@ -151,4 +167,3 @@ python experiments_v07_1/evaluate_confirmatory_v07_1.py --domain de
 
 **Why is it locked?**
 In clinical trials and high-integrity causal research, confirmatory evaluation cannot commence until the prospective statistical protocol is cryptographically sealed and preregistered. This guarantees zero post-hoc data peaking, hyperparameter tuning, or retrospective hypothesis shifting (anti-HARKing). The execution lock cannot be bypassed by user CLI arguments.
-

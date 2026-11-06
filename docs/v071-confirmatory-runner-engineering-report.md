@@ -1,37 +1,39 @@
 # CausaGuard v0.7.1: Confirmatory Runner Engineering & Verification Report
 
-**Document ID:** `ENG-CG-071-RUNNER-01`  
-**Package:** Package 6I-ENG — Pre-Freeze Confirmatory Runner Implementation and Verification  
-**Commit Baseline:** [`3450d6e`](file:///d:/causaguard) (`feat(v071): implement isolated v0.7.1 engine with decomposed escalation and symmetric suite`)  
-**Repository:** `D:\causaguard` (`feat/research-v051`)  
-**Target Research Engine:** Isolated CausaGuard v0.7.1 Engine ([`src_v07_1/causaguard_v07_1/`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/))  
-**Auditor / Implementer:** CausaGuard Research Integrity & Engineering Group  
-**Date:** 6 November 2026  
+**Document ID:** `ENG-CG-071-RUNNER-01`
+**Package:** Package 6I-ENG — Pre-Freeze Confirmatory Runner Implementation and Verification
+**Commit Baseline:** [`3450d6e`](https://github.com/Roshan-R-S/CausaGuard/commit/3450d6e) (`feat(v071): implement isolated v0.7.1 engine with decomposed escalation and symmetric suite`)
+**Repository:** `D:\causaguard` (`feat/research-v051`)
+**Target Research Engine:** Isolated CausaGuard v0.7.1 Engine ([`src_v07_1/causaguard_v07_1/`](../src_v07_1/causaguard_v07_1/))
+**Auditor / Implementer:** CausaGuard Research Integrity & Engineering Group
+**Date:** 6 November 2026
 **Final Verdict:** **COMPLETE — EXECUTION INFRASTRUCTURE VERIFIED (CONDITIONAL GO FOR PROTOCOL FREEZE)**
 
 ---
 
 ## 1. Executive Summary & Engineering Scope
 
-Package 6I-ENG addresses the execution infrastructure blocker identified in [`research/methodology/v071-pre-freeze-blocker-report.md`](file:///d:/causaguard/research/methodology/v071-pre-freeze-blocker-report.md). 
+Package 6I-ENG addresses the execution infrastructure blocker identified in [`research/methodology/v071-pre-freeze-blocker-report.md`](../research/methodology/v071-pre-freeze-blocker-report.md).
 
-Prior to this package, CausaGuard v0.7.1 possessed a complete analytical engine ([`causaguard_v07_1`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/)) and an exploratory calibration runner ([`experiments_v07_1/run_exploratory_v07_1.py`](file:///d:/causaguard/experiments_v07_1/run_exploratory_v07_1.py)), but lacked an exact, frozen confirmatory evaluation runner script and an associated invariant test suite. 
+Prior to this package, CausaGuard v0.7.1 possessed a complete analytical engine ([`causaguard_v07_1`](../src_v07_1/causaguard_v07_1/)) and an exploratory calibration runner ([`experiments_v07_1/run_exploratory_v07_1.py`](../experiments_v07_1/run_exploratory_v07_1.py)), but lacked an exact, frozen confirmatory evaluation runner script and an associated invariant test suite.
 
 In strict compliance with clinical trial and open-science preregistration guidelines (FDA CDER Statistical Principles, Center for Open Science Preregistration Standards):
-1. **Confirmatory Runner Implemented:** Created [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](file:///d:/causaguard/experiments_v07_1/evaluate_confirmatory_v07_1.py), implementing the full confirmatory analysis pipeline, two-stage gatekeeping, multiplicity control, and provenance logging.
+
+1. **Confirmatory Runner Implemented:** Created [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](../experiments_v07_1/evaluate_confirmatory_v07_1.py), implementing the full confirmatory analysis pipeline, two-stage gatekeeping, multiplicity control, and provenance logging.
 2. **Mandatory Pre-Freeze Execution Lock:** Embedded an unbypassable cryptographic execution lock that strictly refuses to execute actual confirmatory development seeds (`70100001–70110128`) without an independently verified protocol seal containing an explicit authorization token and exact file hash bindings.
 3. **Quarantine Enforcement:** Hardcoded fatal security violations for reserved final seeds (`70200001+`) and historical quarantined seeds (`60030001+`).
-4. **Statistical Remediation:** Formally resolved the joint study power claim via the Fréchet-Bonferroni inequality ($P \ge 92.52\%$) and established cluster-robust operational-risk inference in [`research/methodology/v071-pre-freeze-statistical-corrections.md`](file:///d:/causaguard/research/methodology/v071-pre-freeze-statistical-corrections.md).
-5. **Comprehensive Runner Test Suite:** Authored [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/causaguard/tests_v07_1/test_confirmatory_runner_v07_1.py) (20 tests covering execution locks, numerical hand calculations, gatekeeping logic, duplicate rejection, and synthetic smoke runs).
+4. **Statistical Remediation:** Formally resolved the joint study power claim via the Fréchet-Bonferroni inequality ($P \ge 92.52\%$) and established cluster-robust operational-risk inference in [`research/methodology/v071-pre-freeze-statistical-corrections.md`](../research/methodology/v071-pre-freeze-statistical-corrections.md).
+5. **Comprehensive Runner Test Suite:** Authored [`tests_v07_1/test_confirmatory_runner_v07_1.py`](../tests_v07_1/test_confirmatory_runner_v07_1.py) (20 tests covering execution locks, numerical hand calculations, gatekeeping logic, duplicate rejection, and synthetic smoke runs).
 6. **Zero Evaluative Execution:** Zero confirmatory development or final seeds were generated or sampled.
 
 ---
 
 ## 2. Confirmatory Runner Architecture & CLI Specification
 
-The confirmatory evaluation runner is located at [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](file:///d:/causaguard/experiments_v07_1/evaluate_confirmatory_v07_1.py).
+The confirmatory evaluation runner is located at [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](../experiments_v07_1/evaluate_confirmatory_v07_1.py).
 
 ### 2.1 CLI Interface
+
 ```bash
 python experiments_v07_1/evaluate_confirmatory_v07_1.py \
     --domain {de, cs} \
@@ -92,21 +94,24 @@ flowchart TD
 
 ## 3. Statistical Corrections & Validated Bounds
 
-As detailed in [`research/methodology/v071-pre-freeze-statistical-corrections.md`](file:///d:/causaguard/research/methodology/v071-pre-freeze-statistical-corrections.md):
+As detailed in [`research/methodology/v071-pre-freeze-statistical-corrections.md`](../research/methodology/v071-pre-freeze-statistical-corrections.md):
 
 ### 3.1 Joint Power Lower Bound via Fréchet-Bonferroni Inequality
+
 The claim that positive correlation between contrast statistics guarantees $\text{Power}_{\text{joint}} \ge \min(P_1, P_2, P_3)$ was identified as mathematically incomplete (it requires comonotonicity). Under the rigorous, assumption-free Fréchet-Bonferroni lower bound:
 $$\text{Power}_{\text{joint}} \ge 1 - \sum_{j=1}^3 (1 - P_j)$$
 
 Under $K = 128$, $df = 127$, planning effect $\delta = +0.030$, hurdle $\Delta = +0.015$, and Bonferroni $\alpha = 0.00333333$:
+
 - $C_1$ (vs `always_recovery`): Conservative Upper 95% Bound Power $P_1 = 0.92524$, unrejected risk $= 0.07476$.
 - $C_2$ (vs `always_escalate`): Marginal Power $P_2 = 1.0 - \epsilon_2$ ($\epsilon_2 < 10^{-15}$).
 - $C_3$ (vs `cost_sensitive_symmetric_heuristic`): Marginal Power $P_3 = 1.0 - \epsilon_3$ ($\epsilon_3 < 10^{-15}$).
 - **Resulting Joint Power Lower Bound:**
   $$\text{Power}_{\text{joint}} \ge 1 - 0.07476 - 10^{-15} - 10^{-15} = \mathbf{92.52\%}$$
-This guarantees that joint study success probability strictly exceeds $90\%$ without requiring unverified distributional assumptions.
+  This guarantees that joint study success probability strictly exceeds $90\%$ without requiring unverified distributional assumptions.
 
 ### 3.2 Clustered Operational-Risk Safety Bounds
+
 - Unadjusted case-level Clopper-Pearson intervals ($N=51{,}200$) assume independent Bernoulli trials and produce anti-conservative confidence bounds when intra-cluster correlation $\rho > 0$.
 - The runner implements a cluster-level estimator using the $K = 128$ independent clusters as the primary unit of inference:
   - If variance $> 0$: One-sided Student-$t$ clustered interval ($df = 127$).
@@ -118,7 +123,7 @@ This guarantees that joint study success probability strictly exceeds $90\%$ wit
 
 ## 4. Test Suite Execution & Verification Results
 
-The test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/causaguard/tests_v07_1/test_confirmatory_runner_v07_1.py) was executed using synthetic, non-evaluative fixtures.
+The test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](../tests_v07_1/test_confirmatory_runner_v07_1.py) was executed using synthetic, non-evaluative fixtures.
 
 ```
 ========================================================================================
@@ -152,6 +157,7 @@ The test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/caus
 ```
 
 ### 4.1 Numerical Hand Calculation Verification
+
 - **Paired Student-$t$:** Evaluated on $\mathbf{d} = [0.03, 0.04, 0.05, 0.04, 0.04]$ ($K=5$):
   - Hand: $\bar{d} = 0.0400$, $S_D = 0.00707107$, $\text{SE} = 0.00316228$, $t_{\text{crit}} = 5.1668$, $\text{LCB} = 0.023661$, $p = 0.000692$.
   - Runner: Exact match to 5 decimal places.
@@ -159,6 +165,7 @@ The test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/caus
 - **Clustered Risk ($s_R > 0$):** Hand: $0.0150 + 2.35336 \times 0.00288675 = 0.021794$; Runner: `0.021794` (exact match).
 
 ### 4.2 Repository-Wide Test Suite Status
+
 - **`pytest_v07_1.ini`:** 59 / 59 passed in 1.17s.
 - **`pytest_v07.ini`:** 35 / 35 passed in 1.87s.
 - **`pytest_v06.ini`:** 34 / 34 passed in 1.88s.
@@ -169,14 +176,14 @@ The test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/caus
 
 ## 5. Git Reproducibility & Historical Preservation Audit
 
-1. **Repository HEAD:** Commit [`3450d6e`](file:///d:/causaguard) (`feat(v071): implement isolated v0.7.1 engine with decomposed escalation and symmetric suite`).
+1. **Repository HEAD:** Commit [`3450d6e`](https://github.com/Roshan-R-S/CausaGuard/commit/3450d6e) (`feat(v071): implement isolated v0.7.1 engine with decomposed escalation and symmetric suite`).
 2. **Historical Sealed Bytes Verification:**
-   - Root [`pyproject.toml`](file:///d:/causaguard/pyproject.toml): `1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049` — MATCH.
+   - Root [`pyproject.toml`](../pyproject.toml): `1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049` — MATCH.
    - v0.5.2 Freeze (`artifacts/v052/development-frozen.json`): `053dea36...` — MATCH.
    - v0.6 Master Seal (`experiments_v06/v06_protocol_seal.json`): `c0f217ca...` (all 20 files) — MATCH.
    - v0.6 Amendment 01 Seal (`experiments_v06/v06_amendment_01_seal.json`): `a5cb7ab9...` (all 4 files) — MATCH.
 3. **`.gitattributes` Verification:**
-   - The path-scoped [`.gitattributes`](file:///d:/causaguard/.gitattributes) file was verified non-destructive.
+   - The path-scoped [`.gitattributes`](../.gitattributes) file was verified non-destructive.
    - `research/methodology/v06-statistical-protocol.md` disk bytes ($28{,}765$) and SHA-256 hash (`4359648371af7ba3f0b830c5a7f0eac8e6dc25c55188c19ea43b8a319a8f16e1`) remain identical.
    - Cross-platform checkouts on POSIX environments will checkout CRLF for this historical document, guaranteeing universal seal verification.
 
@@ -231,10 +238,9 @@ The authoritative SHA-256 hashes of all v0.7.1 engine, runner, test, and configu
 ========================================================================================
 ```
 
-1. **Phase 3 Blocker Resolved:** The confirmatory runner [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](file:///d:/causaguard/experiments_v07_1/evaluate_confirmatory_v07_1.py) and test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](file:///d:/causaguard/tests_v07_1/test_confirmatory_runner_v07_1.py) are fully implemented, verified, and protected by execution locks.
+1. **Phase 3 Blocker Resolved:** The confirmatory runner [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](../experiments_v07_1/evaluate_confirmatory_v07_1.py) and test suite [`tests_v07_1/test_confirmatory_runner_v07_1.py`](../tests_v07_1/test_confirmatory_runner_v07_1.py) are fully implemented, verified, and protected by execution locks.
 2. **Next Authorized Step:** Proceed to **Package 6I-FREEZE / 7A: Prospective Cryptographic Protocol Sealing and Commit Baseline Lock**.
 3. **No Automatic Progression:** All confirmatory development and final evaluation runs remain strictly prohibited until formal protocol sealing is completed and authorized.
 
-*Certified by the CausaGuard Research Integrity & Engineering Group*  
+_Certified by the CausaGuard Research Integrity & Engineering Group_
 6 November 2026
-

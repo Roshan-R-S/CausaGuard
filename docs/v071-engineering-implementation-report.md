@@ -1,15 +1,16 @@
 # CausaGuard v0.7.1: Isolated Engineering Implementation Report
 
-**Status:** Official Engineering Implementation & Validation Report, CausaGuard PhD Programme  
-**Date:** 6 November 2026  
-**Scope:** Engineering Package 6F-B — Isolated Implementation of CausaGuard v0.7.1  
+**Status:** Official Engineering Implementation & Validation Report, CausaGuard PhD Programme
+**Date:** 6 November 2026
+**Scope:** Engineering Package 6F-B — Isolated Implementation of CausaGuard v0.7.1
 **Referenced Evidence:**
-- [research/methodology/v07-escalation-remediation-design.md](file:///d:/causaguard/research/methodology/v07-escalation-remediation-design.md)
-- [research/reviews/v07-methodological-gate-resolution.md](file:///d:/causaguard/research/reviews/v07-methodological-gate-resolution.md)
-- [research/reviews/v07-independent-scientific-review.md](file:///d:/causaguard/research/reviews/v07-independent-scientific-review.md)
-- [src_v07_1/causaguard_v07_1/](file:///d:/causaguard/src_v07_1/causaguard_v07_1/)
-- [tests_v07_1/](file:///d:/causaguard/tests_v07_1/)
-- [pytest_v07_1.ini](file:///d:/causaguard/pytest_v07_1.ini)
+
+- [research/methodology/v07-escalation-remediation-design.md](../research/methodology/v07-escalation-remediation-design.md)
+- [research/reviews/v07-methodological-gate-resolution.md](../research/reviews/v07-methodological-gate-resolution.md)
+- [research/reviews/v07-independent-scientific-review.md](../research/reviews/v07-independent-scientific-review.md)
+- [src_v07_1/causaguard_v07_1/](../src_v07_1/causaguard_v07_1/)
+- [tests_v07_1/](../tests_v07_1/)
+- [pytest_v07_1.ini](../pytest_v07_1.ini)
 
 **Strict Scientific & Repository Boundaries:** Pure engineering and unit-testing package. Zero experimental simulations, zero parameter sweeps, zero training, zero confirmatory benchmark executions. Root `pyproject.toml` and historical cryptographic seals remain 100% byte-identical and verified. Quarantined v0.6 seeds (`60030001–60040064`), prospective v0.7 development seeds (`70010001–70020064`), and reserved final seeds (`70030001–70040064`) were strictly untouched.
 
@@ -17,7 +18,7 @@
 
 ## 1. Executive Summary & Verification Verdict
 
-This document delivers the formal engineering implementation report for **CausaGuard v0.7.1**. Built in strict accordance with the Package 6F-A remediation design ([`research/methodology/v07-escalation-remediation-design.md`](file:///d:/causaguard/research/methodology/v07-escalation-remediation-design.md)), this package successfully resolves the core scientific defects discovered during exploratory calibration:
+This document delivers the formal engineering implementation report for **CausaGuard v0.7.1**. Built in strict accordance with the Package 6F-A remediation design ([`research/methodology/v07-escalation-remediation-design.md`](../research/methodology/v07-escalation-remediation-design.md)), this package successfully resolves the core scientific defects discovered during exploratory calibration:
 
 1. **Decomposed Multi-Attribute Escalation:** Replaced the "free-lunch" escalation model with explicit labor handling fees ($C_{\text{labor}}$), queuing delay distributions ($L_{\text{queue}}$), capacity limits ($\mathcal{K}_{\text{capacity}}$), specialist error rates ($P_{\text{error}}$), and downstream workflow value discounts ($\gamma_{\text{workflow}} \times V$).
 2. **Restored Comparator Symmetry:** Implemented the full 8-policy benchmark suite where every comparator operates under identical observations, feasible actions, budgets, and safety rules.
@@ -42,6 +43,7 @@ This document delivers the formal engineering implementation report for **CausaG
 ## 2. Full v0.7.1 File Hierarchy & Modified Files Accounting
 
 ### 2.1 File Tree
+
 ```
 D:\causaguard\
 ├── pytest_v07_1.ini                             [Isolated pytest configuration]
@@ -69,6 +71,7 @@ D:\causaguard\
 ```
 
 ### 2.2 Accounting of Changed vs. Created Files
+
 - **New Directories Created:** `src_v07_1/causaguard_v07_1/`, `tests_v07_1/`, `experiments_v07_1/`, `artifacts_v07_1/`.
 - **New Source Files Created:** 6 modules (`__init__.py`, `escalation.py`, `domain_cs.py`, `domain_de.py`, `policy_v07_1.py`, `study_v07_1.py`).
 - **New Test Files Created:** 6 test suites (33 comprehensive test functions).
@@ -80,22 +83,22 @@ D:\causaguard\
 
 ## 3. Scientific Defect Remediation Audit
 
-| # | Scientific Defect Identified in Package 6E | Root Cause in v0.7 Simulator | Technical Remediation in v0.7.1 | Verification Test Reference |
-|---|---|---|---|---|
-| **1** | **DE Reversal:** `always_escalate` beat candidate policy by $\bar{D} = -0.0155$ | Escalating to engineer awarded $100\%$ value ($1.0 \times V$) with $0$ operations and $0$ harm risk, while automated restore awarded only $45\%$ ($0.45 \times V$). | In [`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/escalation.py), on-call engineer engagement costs $C_{\text{labor}} = \$0.75$, adds $1.20\text{h}$ queue delay, and discounts downstream completion value to $\gamma_{\text{de}} = 0.75 \times V$. | [`test_escalation_de_workflow_value_discount`](file:///d:/causaguard/tests_v07_1/test_escalation_v07_1.py#L71) |
-| **2** | **Escalation Monoculture:** Policy escalated in $77.2\%$ CS and $87.9\%$ DE cases | Rational optimization under "free-lunch" escalation mechanics. Fallible tools had negative VOI because human escalation was an omnipotent, low-cost bypass. | Multi-attribute escalation models labor handling fees, queuing delays, capacity bounds, and human error rates ($5–15\%$). Automated recovery on recoverable defects now yields higher net expected utility than escalation. | [`test_cost_rule_bayesian_decision_logic`](file:///d:/causaguard/tests_v07_1/test_policy_fairness_v07_1.py) |
-| **3** | **Strawman Heuristic Comparator:** Baseline was barred from escalating | In `policy_v07.py`, `cost_sensitive_threshold_recovery` was hardcoded never to return `"escalate"` at Step 1. | Specified [`CostSensitiveSymmetricHeuristicPolicyV07_1`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/policy_v07_1.py#L98) and [`EscalationAwareDeterministicThresholdPolicyV07_1`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/policy_v07_1.py#L65) with full, symmetric access to all feasible actions. | [`test_symmetric_action_space_availability`](file:///d:/causaguard/tests_v07_1/test_policy_fairness_v07_1.py#L58) |
-| **4** | **Unvalidated Post-Hoc Threshold Snooping** | Diagnostic probe `if alarm > 0.30: escalate` yielded $+0.6155$ in CS during review. | Formally rejected using $0.30$ as a tuned constant. Specified prospective baseline thresholds derived analytically from cost-benefit breakevens ($\tau_{\text{low}}=0.15, \tau_{\text{high}}=0.65$). | [`test_baseline_policies_suite_contains_all_eight_policies`](file:///d:/causaguard/tests_v07_1/test_policy_fairness_v07_1.py#L16) |
-| **5** | **Premature Sample-Size Freezing** | Sizing $K=160, 84$ was based on obsolete variance from the distorted simulator. | Sample-size locking is formally deferred to Package 6F-D following fresh empirical calibration on the remediated simulator. | Section 8 of this report |
-| **6** | **Seed Namespace Collision Risk** | Prospective seed intervals were tightly packed without buffer zones. | Allocated disjoint exploratory seed block `70002001–70002016` for v0.7.1, with permanent safety buffer zones before development seeds. | [`test_quarantined_and_confirmatory_seed_ranges`](file:///d:/causaguard/tests_v07_1/test_identity_preservation_v07_1.py#L42) |
+| #     | Scientific Defect Identified in Package 6E                                        | Root Cause in v0.7 Simulator                                                                                                                                        | Technical Remediation in v0.7.1                                                                                                                                                                                                                                              | Verification Test Reference                                                                                    |
+| ----- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **1** | **DE Reversal:** `always_escalate` beat candidate policy by $\bar{D} = -0.0155$   | Escalating to engineer awarded $100\%$ value ($1.0 \times V$) with $0$ operations and $0$ harm risk, while automated restore awarded only $45\%$ ($0.45 \times V$). | In [`escalation.py`](../src_v07_1/causaguard_v07_1/escalation.py), on-call engineer engagement costs $C_{\text{labor}} = \$0.75$, adds $1.20\text{h}$ queue delay, and discounts downstream completion value to $\gamma_{\text{de}} = 0.75 \times V$.                        | [`test_escalation_de_workflow_value_discount`](../tests_v07_1/test_escalation_v07_1.py#L71)                    |
+| **2** | **Escalation Monoculture:** Policy escalated in $77.2\%$ CS and $87.9\%$ DE cases | Rational optimization under "free-lunch" escalation mechanics. Fallible tools had negative VOI because human escalation was an omnipotent, low-cost bypass.         | Multi-attribute escalation models labor handling fees, queuing delays, capacity bounds, and human error rates ($5–15\%$). Automated recovery on recoverable defects now yields higher net expected utility than escalation.                                                  | [`test_cost_rule_bayesian_decision_logic`](../tests_v07_1/test_policy_fairness_v07_1.py)                       |
+| **3** | **Strawman Heuristic Comparator:** Baseline was barred from escalating            | In `policy_v07.py`, `cost_sensitive_threshold_recovery` was hardcoded never to return `"escalate"` at Step 1.                                                       | Specified [`CostSensitiveSymmetricHeuristicPolicyV07_1`](../src_v07_1/causaguard_v07_1/policy_v07_1.py#L98) and [`EscalationAwareDeterministicThresholdPolicyV07_1`](../src_v07_1/causaguard_v07_1/policy_v07_1.py#L65) with full, symmetric access to all feasible actions. | [`test_symmetric_action_space_availability`](../tests_v07_1/test_policy_fairness_v07_1.py#L58)                 |
+| **4** | **Unvalidated Post-Hoc Threshold Snooping**                                       | Diagnostic probe `if alarm > 0.30: escalate` yielded $+0.6155$ in CS during review.                                                                                 | Formally rejected using $0.30$ as a tuned constant. Specified prospective baseline thresholds derived analytically from cost-benefit breakevens ($\tau_{\text{low}}=0.15, \tau_{\text{high}}=0.65$).                                                                         | [`test_baseline_policies_suite_contains_all_eight_policies`](../tests_v07_1/test_policy_fairness_v07_1.py#L16) |
+| **5** | **Premature Sample-Size Freezing**                                                | Sizing $K=160, 84$ was based on obsolete variance from the distorted simulator.                                                                                     | Sample-size locking is formally deferred to Package 6F-D following fresh empirical calibration on the remediated simulator.                                                                                                                                                  | Section 8 of this report                                                                                       |
+| **6** | **Seed Namespace Collision Risk**                                                 | Prospective seed intervals were tightly packed without buffer zones.                                                                                                | Allocated disjoint exploratory seed block `70002001–70002016` for v0.7.1, with permanent safety buffer zones before development seeds.                                                                                                                                       | [`test_quarantined_and_confirmatory_seed_ranges`](../tests_v07_1/test_identity_preservation_v07_1.py#L42)      |
 
 ---
 
 ## 4. Complete Comparator Suite Implementation
 
-In [`policy_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/policy_v07_1.py), the official 8-policy benchmark comparison suite was implemented under strict action-space symmetry:
+In [`policy_v07_1.py`](../src_v07_1/causaguard_v07_1/policy_v07_1.py), the official 8-policy benchmark comparison suite was implemented under strict action-space symmetry:
 
-1. **`cost_rule_v07_1` (Candidate Policy):**  
+1. **`cost_rule_v07_1` (Candidate Policy):**
    Evaluates closed-form Bayesian Value of Information across all feasible actions. Integrates remediated escalation parameters ($C_{\text{labor}}$, $L_{\text{queue}}$, $\gamma_{\text{workflow}} \times V$, $P_{\text{error}}$, $H_{\text{error}}$). Strictly prunes `verify` at $B=1$ (since verifying consumes 1 op leaving 0 ops, which is strictly dominated by terminal actions). Enforces $P(\text{Harm}) \le 0.050$.
 2. **`always_escalate`:** Fixed universal human delegation baseline. Returns `"escalate"` unconditionally.
 3. **`always_recovery`:** Fixed universal automated recovery baseline. Returns `"retry"` in CS, `"restore"` in DE unconditionally.
@@ -109,9 +112,10 @@ In [`policy_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/policy_v
 
 ## 5. Decomposed Human Escalation Engine
 
-Implemented in [`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/escalation.py), the human escalation engine separates all operational attributes:
+Implemented in [`escalation.py`](../src_v07_1/causaguard_v07_1/escalation.py), the human escalation engine separates all operational attributes:
 
 ### 5.1 Parameter Specifications
+
 - **Customer Support (`HumanEscalationParamsCS`):**
   - Base labor fee: $C_{\text{labor\_base}} = \$0.45$ ($+\$0.20 \times \text{queue\_load}$)
   - Base queue delay: $L_{\text{queue\_base}} = 0.75\text{h}$ ($+1.20\text{h} \times \text{queue\_load}$)
@@ -130,15 +134,17 @@ Implemented in [`escalation.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_
   - Workflow value discount: $\gamma_{\text{workflow}} = 0.75$ (retains $75\%$ of task completion value)
 
 ### 5.2 Resolution on the Operation Budget ($B$) for Escalation
+
 As decided in Package 6F-A, escalation **does not consume an automated tool operation** ($B_{\text{escalate}} = 0$ tool ops) because $B$ represents automated compute executions (queries, API calls), and escalation is an exit from the automated loop. However, escalation is strictly terminal within a 2-step macro horizon and incurs explicit economic, capacity, and delay costs.
 
 ---
 
 ## 6. Counterfactual Evaluation & Policy-Order Invariance
 
-In [`study_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/study_v07_1.py):
+In [`study_v07_1.py`](../src_v07_1/causaguard_v07_1/study_v07_1.py):
+
 - **Isolated Queue Lifecycle:** Each policy is evaluated against an independent `QueueState` instance. If Policy A escalates $100\%$ of cases and exhausts queue capacity (causing queue drops), this has **zero impact** on Policy B's queue state.
-- **Strict Policy-Order Invariance:** Verified by [`test_strict_policy_order_invariance`](file:///d:/causaguard/tests_v07_1/test_study_v07_1.py#L35): evaluating policies in order `[A, B]` versus `[B, A]` produces identical metrics for every policy.
+- **Strict Policy-Order Invariance:** Verified by [`test_strict_policy_order_invariance`](../tests_v07_1/test_study_v07_1.py#L35): evaluating policies in order `[A, B]` versus `[B, A]` produces identical metrics for every policy.
 - **Reproducible Exogenous Tape:** For every case, all 12 exogenous random draws are fixed across all policies, guaranteeing exact counterfactual pairing.
 
 ---
@@ -146,9 +152,11 @@ In [`study_v07_1.py`](file:///d:/causaguard/src_v07_1/causaguard_v07_1/study_v07
 ## 7. Isolated Test Results & Linting Status
 
 ### 7.1 Test Execution Output
+
 ```bash
 .venv\Scripts\pytest.exe -c pytest_v07_1.ini -v
 ```
+
 ```
 ============================= test session starts =============================
 platform win32 -- Python 3.12.13, pytest-9.2.0, pluggy-1.7.0 -- D:\causaguard\.venv\Scripts\python.exe
@@ -193,9 +201,11 @@ tests_v07_1/test_study_v07_1.py::test_de_cluster_evaluation_metrics PASSED      
 ```
 
 ### 7.2 Linting & Static Code Quality
+
 ```bash
 .venv\Scripts\ruff.exe check src_v07_1 tests_v07_1
 ```
+
 ```
 All checks passed!
 ```
@@ -206,13 +216,13 @@ All checks passed!
 
 The implementation reflects the approved Package 6F-A design, but the following parameters remain **unvalidated research hypotheses** requiring calibration in Package 6F-C:
 
-1. **Workflow Value Discounts ($\gamma_{\text{cs}} = 0.80, \gamma_{\text{de}} = 0.75$):**  
+1. **Workflow Value Discounts ($\gamma_{\text{cs}} = 0.80, \gamma_{\text{de}} = 0.75$):**
    Represents downstream holding friction and latency degradation. These constants must be subjected to sensitivity sweeps ($\gamma \in [0.65, 0.90]$).
-2. **Labor Base Fees ($C_{\text{labor}} = \$0.45\text{ CS}, \$0.75\text{ DE}$):**  
+2. **Labor Base Fees ($C_{\text{labor}} = \$0.45\text{ CS}, \$0.75\text{ DE}$):**
    Represents enterprise human specialist triage costs. Must be evaluated across cost-shift profiles.
-3. **Queue Capacity Limit ($150$ per cluster):**  
+3. **Queue Capacity Limit ($150$ per cluster):**
    Models specialist team saturation. Sensitivity to lower thresholds ($75, 100$) must be examined.
-4. **Specialist Error Rate ($5–15\%$):**  
+4. **Specialist Error Rate ($5–15\%$):**
    Models human cognitive fatigue under queue congestion.
 
 ---
@@ -234,7 +244,7 @@ The implementation reflects the approved Package 6F-A design, but the following 
 The CausaGuard v0.7.1 engineering implementation is complete, isolated, and 100% verified by automated unit tests. The project is ready to proceed to **Package 6F-C: Fresh Exploratory Calibration** upon separate authorization.
 
 ---
-*Authored on behalf of the Engineering Implementation Team,*  
-**CausaGuard PhD Programme**  
-6 November 2026
 
+_Authored on behalf of the Engineering Implementation Team,_
+**CausaGuard PhD Programme**
+6 November 2026
