@@ -151,3 +151,4 @@ python experiments_v07_1/evaluate_confirmatory_v07_1.py --domain de
 
 **Why is it locked?**
 In clinical trials and high-integrity causal research, confirmatory evaluation cannot commence until the prospective statistical protocol is cryptographically sealed and preregistered. This guarantees zero post-hoc data peaking, hyperparameter tuning, or retrospective hypothesis shifting (anti-HARKing). The execution lock cannot be bypassed by user CLI arguments.
+

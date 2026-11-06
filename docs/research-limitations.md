@@ -59,3 +59,4 @@ Future milestones (v0.8+) will address:
 1. **Prior Sensitivity Analysis:** Evaluating performance when analytical priors deviate from true environment hazard frequencies.
 2. **Online Empirical Estimation:** Coupling Bayesian VOI controllers with streaming Bayesian parameter estimation.
 3. **Live Sandbox Evaluation:** Deploying the controller within non-production cloud sandboxes to validate analytical predictions against physical execution latencies and real database transactions.
+
