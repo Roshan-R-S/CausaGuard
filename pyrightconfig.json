@@ -1,0 +1,18 @@
+{
+  "include": [
+    "src",
+    "src_v06",
+    "src_v07",
+    "src_v07_1",
+    "tests",
+    "tests_v06",
+    "tests_v07",
+    "tests_v07_1"
+  ],
+  "extraPaths": [
+    "src_v07_1",
+    "src_v07",
+    "src_v06",
+    "src"
+  ]
+}
