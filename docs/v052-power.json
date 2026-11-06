@@ -1,0 +1,83 @@
+{
+  "historical_development_sha256": "03e29215655e36f9df807a8876a2a893398494e219852044f6cc05683dfb0936",
+  "contrasts": {
+    "f16_raw_r05-original_r05": {
+      "mean": -0.010518803721418361,
+      "training": 0.0001531832561521119,
+      "evaluation": 0,
+      "residual": 0.0018907953584286613,
+      "untruncated_evaluation": -3.316789653713043e-05
+    },
+    "f16_raw_r05-rules_repair": {
+      "mean": -0.041683727217751744,
+      "training": 0.001020741470373887,
+      "evaluation": 0.002458960154452016,
+      "residual": 0.0010023069624840624,
+      "untruncated_evaluation": 0.002458960154452016
+    },
+    "f16_cal_r05-original_r05": {
+      "mean": 0.08014689400619879,
+      "training": 0.0005207465031684679,
+      "evaluation": 0,
+      "residual": 0.0021366838621064165,
+      "untruncated_evaluation": -0.0001259791905565529
+    },
+    "f16_cal_r05-rules_repair": {
+      "mean": 0.0489819705098654,
+      "training": 0.0006078112279922913,
+      "evaluation": 0.0016787543168998744,
+      "residual": 0.0012236613419692257,
+      "untruncated_evaluation": 0.0016787543168998744
+    }
+  },
+  "envelope": {
+    "training": 0.001020741470373887,
+    "evaluation": 0.002458960154452016,
+    "residual": 0.0021366838621064165
+  },
+  "power": [
+    {
+      "variance_multiplier": 1,
+      "alpha": 0.0125,
+      "se": 0.008447646182786117,
+      "power": {
+        "0.03": 0.1451095650178108,
+        "0.04": 0.5501817974429972,
+        "0.06": 0.9936780369327535
+      }
+    },
+    {
+      "variance_multiplier": 2,
+      "alpha": 0.0125,
+      "se": 0.011946775801825434,
+      "power": {
+        "0.03": 0.0801063136748219,
+        "0.04": 0.2852514939017241,
+        "0.06": 0.8658056814828092
+      }
+    },
+    {
+      "variance_multiplier": 4,
+      "alpha": 0.0125,
+      "se": 0.016895292365572235,
+      "power": {
+        "0.03": 0.049520382435893795,
+        "0.04": 0.1451095650178108,
+        "0.06": 0.550181797442997
+      }
+    },
+    {
+      "variance_multiplier": 2,
+      "alpha": 0.00625,
+      "se": 0.011946775801825434,
+      "power": {
+        "0.03": 0.04839092088005659,
+        "0.04": 0.2050795659417704,
+        "0.06": 0.802470369173943
+      }
+    }
+  ],
+  "audit_forest_fits": 40,
+  "prior_exploratory_audit_forest_fits": 80,
+  "limitations": "Five historical replicas; sensitivity envelope is not a variance confidence bound. Marginal normal utility power, not joint or safety power."
+}

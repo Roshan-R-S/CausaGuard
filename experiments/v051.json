@@ -1,0 +1,30 @@
+{
+  "protocol_version": "v051-factorial-1",
+  "training_seeds": [70001, 70002, 70003, 70004, 70005],
+  "calibration_seeds": [70101, 70102, 70103, 70104, 70105],
+  "model_seeds": [70201, 70202, 70203, 70204, 70205],
+  "development_seeds": [70301, 70302, 70303, 70304, 70305, 70306, 70307, 70308],
+  "final_seeds": [70401, 70402, 70403, 70404, 70405, 70406, 70407, 70408],
+  "train_n": 1800,
+  "calibration_n": 600,
+  "cases_per_seed": 250,
+  "trees": 32,
+  "leaf_size": 8,
+  "risk_limits": [0.05, 0.10],
+  "feature_sets": [7, 16],
+  "calibration_modes": ["raw", "calibrated"],
+  "bootstrap_replicates": 4000,
+  "bootstrap_seed": 70501,
+  "environment": {
+    "version": "fallible-v050-1",
+    "defect_base": 0.04,
+    "defect_age": 0.28,
+    "defect_load": 0.18,
+    "drift": 0.07,
+    "denial_rate": 0.10,
+    "verifier_shift": 0.24,
+    "outage_shift": 0.30,
+    "cost_multiplier": 2.5
+  }
+}
+

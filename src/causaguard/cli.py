@@ -7,6 +7,8 @@ from causaguard.conservative import ConservativeConfig, ConservativePolicy
 from causaguard.data import make_scenarios
 from causaguard.domain import Scenario
 from causaguard.evaluation import evaluate
+from causaguard.factorial_study import add_commands as add_factorial_commands
+from causaguard.factorial_study import run_command as run_factorial_command
 from causaguard.intervention_study import add_commands as add_intervention_commands
 from causaguard.intervention_study import run_command as run_intervention_command
 from causaguard.llm_commands import COMMANDS, add_commands, run_command
@@ -38,6 +40,7 @@ def main(argv: list[str] | None = None) -> None:
     add_commands(commands)
     add_validation_commands(commands)
     add_intervention_commands(commands)
+    add_factorial_commands(commands)
     train = commands.add_parser("train", help="train on synthetic paired outcomes")
     train.add_argument("--n", type=int, default=2000)
     train.add_argument("--seed", type=int, default=42)
@@ -73,7 +76,9 @@ def main(argv: list[str] | None = None) -> None:
 
 
 def _run(args) -> None:
-    if args.command in ("intervention-study", "intervention-replay"):
+    if args.command in ("factorial-study", "factorial-replay"):
+        run_factorial_command(args)
+    elif args.command in ("intervention-study", "intervention-replay"):
         run_intervention_command(args)
     elif args.command in ("validate-research", "validation-replay"):
         run_validation_command(args)
