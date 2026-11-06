@@ -1,214 +1,203 @@
-# CausaGuard v0.4.0
+# CausaGuard
 
-A local research MVP for choosing **proceed**, **retry**, **verify**, or **escalate** before a tool-using agent acts. Per-action random forests estimate synthetic reward and unsafe-outcome scores. Independent hard rules enforce authorization. Everything runs offline without API keys or paid services.
+[![Release](https://img.shields.io/badge/release-v0.7.1--alpha.1-blue.svg)](https://github.com/Roshan-R-S/CausaGuard)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/tests-128%20passed-success.svg)](pytest_v07_1.ini)
+[![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
-v0.4.0 adds a structured adversarial validation protocol and hardens the mock execution
-boundary. It preserves existing APIs, CLI commands, policy algorithms, and frozen
-v0.2/v0.3 protocols and results. This is a research milestone, not production-grade safety.
+**CausaGuard** is an offline, local-first counterfactual intervention policy research laboratory for autonomous software agents and automated execution workflows.
 
-## v0.4.0 research validation
 
-The new benchmark covers 21 control/attack families: prompt and tool-output injection,
-authorization spoofing, cross-user access, malformed calls, stale/schema-invalid records,
-timeouts, retries, revocation, and resource exhaustion. Nine families are excluded from
-development measurements. Three independently trained forests and five evaluation seeds
-per split produce paired comparisons with 2,000 bootstrap replicates. Fixed proposals
-are inert fixtures; optional Qwen3 tests separately exercise real local inference.
+It studies a fundamental question in decision-theoretic autonomy:
 
-Six comparators distinguish hard protection from ML contributions: unguarded mock,
-gated always-verify, original, conservative, hard rules alone, and hard rules with a
-deterministic record-repair rule. Reports include independent execution grading,
-all failures, per-family/seed outcomes, paired uncertainty, full recordings and replay.
-See [measured results and limitations](docs/v040-results.md),
-[compact measured evidence](docs/v040-summary.json), and [protocol](experiments/v040.json).
+> **When an automated agent faces potential operational hazards, when does active diagnostic verification earn its complexity, cost, and latency compared to immediate direct recovery, universal human escalation, or deterministic threshold heuristics?**
 
-```powershell
-.venv\Scripts\python.exe -m causaguard.cli validate-research --phase development --config experiments/v040.json --output artifacts/v040/development.json
-.venv\Scripts\python.exe -m causaguard.cli validate-research --phase final --protocol artifacts/v040/development.json --output artifacts/v040/final.json
-.venv\Scripts\python.exe -m causaguard.cli validation-replay artifacts/v040/final.json
-# Rerun existing benchmarks into a new directory; historical reports are preserved:
-.venv\Scripts\python.exe -m experiments.run_v040_regressions
-.venv\Scripts\python.exe -m experiments.summarize_v040
 ```
 
-These commands refuse to overwrite existing v0.4 reports; choose fresh output paths
-for repeat runs. Final evaluation accepts no configuration override and checks source,
-environment, training data and model fingerprints before opening final cases. Timing
-and full-report checksums can vary; behavioral checksums exclude timing and the linked
-development report's timing-dependent checksum. Once final results are inspected,
-any result-driven research revision needs new final seeds and a new protocol.
+========================================================================================
+CAUSAGUARD v0.7.1-alpha.1
+========================================================================================
+STATUS: Public Research Alpha Release (Fully Functional Offline Simulation Testbed)
+CONFIRMATORY EVALUATION STATUS: Cryptographically Locked (Pre-Freeze Protocol)
+SAFETY STATUS: Research Prototype (Zero Real-World Certification Claimed)
+========================================================================================
 
-Authorization now checks explicit confirmation, principal/owner binding, read permission,
-resource scope and revocation before each attempt. Retry budgets persist across call
-IDs. JSON structure, request/response bytes, execution counts and API concurrency are
-bounded. Secrets are minimized in tool outputs before recording or sending the next
-model request. These are synthetic mock checks and best-effort redaction, not a general
-prompt-injection detector, comprehensive DLP, or authenticated deployment service.
-
-v0.3.0 adds a functioning **local llama.cpp tool-using agent**, guarded in-memory execution, recorded-response replay, and separate execution benchmarks. The original learned policy underperformed always-verify; isotonic calibration alone did not fix that result. The v0.2.0 verification-first policy, scripted demo, commands, and frozen research results remain intact. Raw risk scores and tree disagreement are **not calibrated probabilities, confidence bounds, or guarantees**.
-
-## Local LLM demonstration
-
-Use the existing llama.cpp service at `http://127.0.0.1:8080/v1` with `Qwen3-4B-Instruct-2507-Q4_K_M.gguf`. No Ollama, downloads, paid endpoints, or API keys are used. The adapter reuses `httpx`, now a runtime dependency. Its URL validation accepts only loopback HTTP addresses; redirects and environment HTTP proxies are disabled.
-
-```powershell
-cd D:\causaguard
-.venv\Scripts\python.exe -m causaguard.cli llm-health
-.venv\Scripts\python.exe -m causaguard.cli train --n 3000 --seed 1701 --model-seed 42 --model artifacts/v030/agent-policy.joblib
-.venv\Scripts\python.exe -m causaguard.cli llm-smoke --output artifacts/v030/smoke.json
-.venv\Scripts\python.exe -m causaguard.cli llm-demo --case all --output artifacts/v030/demo.json
-.venv\Scripts\python.exe -m causaguard.cli llm-inspect artifacts/v030/demo.json
-.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/demo.json
 ```
 
-The smoke command requires actual task completion and automatically checks replay; it exits with an error and saves the trace on failure. `llm-demo` also saves blocked/failed runs and verifies replay. `--model` selects the trusted CausaGuard forest artifact; `--llm-model` selects the llama.cpp model ID. When omitted, the adapter resolves the sole model from `/v1/models`; multiple models require an explicit ID. Health checks both `/health` and `/v1/models`.
+---
 
-Options: `--llm-url`, `--llm-model`, `--timeout` (seconds), `--max-tokens`, `--max-rounds` (1–16, default 8), `--seed`, `--task`, and `--policy original|conservative`. Defaults also come from `CAUSAGUARD_LLM_BASE_URL`, `CAUSAGUARD_LLM_MODEL`, `CAUSAGUARD_LLM_TIMEOUT`, and `CAUSAGUARD_LLM_MAX_TOKENS`. Tool proposals are capped at 24 per run and retries at two executions per proposal. Generation uses temperature 0 and seed 42; live GPU generation is not promised to be deterministic.
+## 1. Core Problem & Methodological Framework
 
-The LLM receives four structured tools: `lookup_customer`, `validate_customer_authorization`, `fetch_mock_transaction`, and `verify_mock_record`. It proposes calls, receives correlated tool results, and produces a final response. The application validates strict argument schemas and resource scope, checks immutable mock authorization, applies deterministic rules and the selected ML policy, then rechecks before execution. Neither user-task text, LLM arguments, nor returned `authorized` fields grant permissions. Task completion is graded from sandbox state, never the final prose.
+In enterprise automated systems (e.g., ETL pipelines, automated customer ticket triage, code migration agents), execution hazards (such as schema drift, silent corruption, or authorization disputes) can disrupt operations. When a potential hazard is suspected:
+1. **Blindly Proceeding** risks severe, unobservable catastrophic failures ($R > 0.050$).
+2. **Direct Automated Recovery** (e.g., restoring from checkpoint, retrying requests) incurs immediate disruption costs and haircuts when the system was actually healthy.
+3. **Universal Human Escalation** overwhelms finite human review capacity, creating cascading queue delays, drop penalties, and expensive labor costs.
+4. **Diagnostic Verification** (e.g., running integrity checks, schema validation) provides informative evidence, but incurs its own cost, latency, and fallible error rates (false positives and false negatives).
 
-Cases include clean, stale, missing confirmation, denied authorization, injected notes, malformed records, and transient tool timeouts. The `invalid_schema` and `unsupported_function` cases force invalid proposals in the **fixture benchmark**; a live model may emit valid calls on those named fixtures. They are not evidence of live attacks unless the trace actually contains them. All tools use synthetic in-memory data. There are no banking, filesystem mutation, email, payment, Python execution, or shell execution tools.
+CausaGuard models these trade-offs as a **Partially Observable Markov Decision Process (POMDP)** with finite human queue bandwidth and evaluates decision policies under a **paired counterfactual potential-outcomes framework**.
 
-Traces record run/model/configuration identity, normalized redacted model responses, request hashes, proposals, validated arguments, authorization outcomes, safety findings, decisions, verification, attempts, results, classifications, and measured timings. Redaction minimizes common secrets, email addresses, and sensitive JSON keys before recording and subsequent chat turns. It is not comprehensive DLP; submit synthetic tasks only. Replay uses the recorded responses and initial sandbox snapshot, recomputes enforcement and tool effects, and checks all deterministic fields. It never regenerates responses or makes network calls. Timing is retained as a measurement, not reproduced. Source/model/configuration mismatches and altered traces are rejected; checksums are not authentication against a malicious trace author.
 
-## v0.3.0 execution benchmarks
+---
 
-```powershell
-# Fixed adversarial proposals; no llama.cpp required:
-.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase development --config experiments/v030.json --output artifacts/v030/development.json
-.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase final --protocol artifacts/v030/development.json --output artifacts/v030/final.json
-.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/final.json --benchmark
 
-# Genuine live closed-loop proposals, separately reported:
-.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase development --config experiments/v030-live.json --output artifacts/v030/live-development.json
-.venv\Scripts\python.exe -m causaguard.cli llm-benchmark --phase final --protocol artifacts/v030/live-development.json --output artifacts/v030/live-final.json
-.venv\Scripts\python.exe -m causaguard.cli llm-replay artifacts/v030/live-final.json --benchmark
+## 2. The Analytical Bayesian VOI Controller
+
+Unlike black-box deep reinforcement learning or prompt-engineered LLM wrappers, the candidate policy in v0.7.1 ([`CostRulePolicyV07_1`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L274)) is an **analytical, closed-form, non-learned decision engine**:
+
+- **Belief Updating:** Propagates observed noisy features through exact Bayesian conditioning on known causal graphical structures.
+- **Value of Information (VOI):** Closed-form expected utility calculation balancing:
+  $$EU(\text{proceed}) \quad \text{vs.} \quad EU(\text{repair}) \quad \text{vs.} \quad EU(\text{escalate}) \quad \text{vs.} \quad EU(\text{verify})$$
+- **Information-Theoretic Value:** It triggers active verification **only** when the expected reduction in decision loss strictly exceeds the diagnostic verification fee and computational latency.
+- **No model-training dependency:** The policy does not train a neural model; its decisions remain sensitive to misspecified priors, reward assumptions, and distribution shift.
+
+
+## 3. Supported Synthetic Domains
+
+CausaGuard v0.7.1 provides two parameterized synthetic operational POMDP domains:
+
+### 3.1 Data Engineering Batch Supervision (`de`) — Primary Confirmatory Domain
+
+- **Operational Reality:** Supervised batch pipeline management where upstream database migrations cause silent schema drift and content corruption.
+- **Economic Characteristics:** Checkpoint restoration imposes a heavy haircut ($v_{\text{fallback}} = 0.45 \times V$). Human escalation incurs significant labor fees ($\$2.50$) and bandwidth delays.
+- **Role:** High positive Value of Information; diagnostic verification prevents catastrophic recovery haircuts on healthy pipelines.
+
+### 3.2 Customer Support Ticket Triage (`cs`) — Secondary Boundary Domain
+
+- **Operational Reality:** High-volume user ticket triage with conflicting state and source reliability alarms.
+- **Economic Characteristics:** Customer retry cost is negligible ($\$0.05$), while human review is expensive ($\$1.20$).
+- **Role:** Serves as an operational boundary condition where cheap direct recovery dominates, illustrating the domain limits of Bayesian VOI.
+
+
+## 4. The 8-Policy Benchmark Suite
+
+All policies operate under **symmetric action and observation access** (including Step-1 escalation access):
+
+| Policy Name | Category | Decision Logic |
+| :--- | :--- | :--- |
+| [`cost_rule_v07_1`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L274) | **Candidate** | Analytical Bayesian POMDP Value of Information controller. |
+| [`always_recovery`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L32) | Baseline | Blindly executes recovery action immediately at Step 1. |
+| [`always_escalate`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L46) | Baseline | Delegates 100% of cases immediately to human review queue. |
+| [`cost_sensitive_symmetric_heuristic`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L140) | Baseline | Calibrated threshold heuristic with symmetric Step-1 escalation access. |
+| [`escalation_aware_deterministic_threshold`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L98) | Baseline | Deterministic thresholding factoring in queue wait and repair costs. |
+| [`fixed_verify_repair_macro`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L60) | Baseline | Static workflow: always verifies, repairs if alarm triggers. |
+| [`budget_aware_direct_recovery`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L76) | Baseline | Attempts direct recovery only if budget permits. |
+| [`oracle`](src_v07_1/causaguard_v07_1/policy_v07_1.py#L226) | Upper Bound | Theoretical hindsight benchmark observing true latent ground truth. |
+
+---
+
+## 5. Quickstart & Installation
+
+CausaGuard is local-first, requires no GPU or network access, and runs completely offline.
+
+### 5.1 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Roshan-R-S/CausaGuard.git causaguard
+cd causaguard
+
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate       # On Linux/macOS
+# .venv\Scripts\Activate.ps1    # On Windows PowerShell
+
+# Install dependencies
+pip install numpy scipy pydantic pytest ruff
 ```
 
-Both compare the unguarded sandbox, authorization-gated always-verify, original CausaGuard, and conservative CausaGuard. The unguarded comparator bypasses semantic/authorization enforcement **only inside the in-memory benchmark**; even it cannot dispatch arbitrary functions or bypass argument schemas. The HTTP demo cannot select it. Final runs accept a frozen development report, validate source/software/policy/LLM identities, and reject tuning overrides. Every case, error and trace remains in the report. Fixture replay is exact; fresh live runs can differ. The final split uses distinct records/seeds within known task templates, not held-out attack families.
-
-See [v0.3.0 measurements and metric definitions](docs/v030-results.md). These small integration benchmarks do not establish production safety or superiority over always-verify. Frozen `experiments/v020.json` and `docs/v020-results.md` are unchanged.
-
-## Additive local API
-
-Legacy `/health` and `/recommend` retain their response contracts. New routes operate only the mock sandbox:
-
-| Route | Behavior |
-| --- | --- |
-| `GET /llm/health` | Probe configured llama.cpp and model discovery |
-| `POST /llm/demo` | Conservative guarded demo; body contains `case`, `seed`, optional `task`, `max_rounds` |
-| `POST /llm/trace/inspect` | Inspect a trace object after integrity checks |
-| `POST /llm/replay` | Recompute a conservative trace offline |
-
-```powershell
-$env:CAUSAGUARD_MODEL = "artifacts/v030/agent-policy.joblib"
-.venv\Scripts\python.exe -m causaguard.cli serve
-# In another terminal:
-Invoke-RestMethod http://127.0.0.1:8765/llm/health
-Invoke-RestMethod -Method Post http://127.0.0.1:8765/llm/demo -ContentType application/json -Body '{"case":"clean"}'
+### 5.2 Execute the Interactive Demo
+Run the safe, standalone demonstration on non-evaluative reserve seeds:
+```bash
+python demo_v07_1.py
 ```
 
-Model paths, LLM URLs, and permissions cannot be supplied in request bodies. This local demonstration service is not an authenticated production execution service.
+_(See [`docs/quickstart.md`](docs/quickstart.md) for full CLI flags and walkthrough options.)_
 
-## Install and check
+### 5.3 Run the Test Suite
 
-Python 3.12 is the tested environment. In PowerShell:
+```bash
+# Run isolated v0.7.1 unit and invariant tests (59 tests)
+pytest -c pytest_v07_1.ini -v
 
-```powershell
-cd D:\causaguard
-# Only needed for a new environment:
-uv venv --python 3.12
-uv pip install --python .venv\Scripts\python.exe -e ".[dev]"
-
-.venv\Scripts\python.exe -m ruff check . --no-cache
-.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+# Run complete historical test suites (v0.6 and v0.7)
+pytest -c pytest_v07.ini -v
+pytest -c pytest_v06.ini -v
 ```
 
-Ordinary tests use mock HTTP transports and recorded proposals. To opt into the real local service:
 
-```powershell
-$env:CAUSAGUARD_LIVE_LLM = "1"
-.venv\Scripts\python.exe -m pytest -q tests/test_llm_live.py
-Remove-Item Env:CAUSAGUARD_LIVE_LLM
+## 6. Pre-Freeze Confirmatory Execution Lock
+
+CausaGuard adheres strictly to open-science and clinical preregistration methodology (FDA CDER Statistical Principles, Center for Open Science Preregistration Standards):
+
+- **Prospective Confirmatory Allocation:** $K = 128$ clusters per domain, $N = 400$ cases per cluster ($51{,}200$ cases per domain).
+- **Statistical Power:** Under the prespecified effect-size and variance assumptions, a Fréchet-Bonferroni calculation gives an estimated joint-success lower bound of $\ge \mathbf{92.52\%}$. This is conditional on the modeling assumptions, not a guaranteed study outcome.
+- **Execution Lock:** The confirmatory runner [`experiments_v07_1/evaluate_confirmatory_v07_1.py`](experiments_v07_1/evaluate_confirmatory_v07_1.py) contains a hardcoded pre-freeze cryptographic lock. It strictly refuses to execute actual confirmatory development seeds (`70100001+`) or final seeds (`70200001+`) until the prospective protocol is formally sealed and signed by independent gate authorization.
+- Attempting to run confirmatory seeds today will safely exit with:
+  `LOCKED: EXECUTION LOCK: Confirmatory evaluation blocked. No valid protocol seal file found...`
+
+
+## 7. Research Maturity, Non-Claims & Limitations
+
+
+> [!WARNING]
+>
+> ### RESEARCH ALPHA DISCLOSURE
+>
+> CausaGuard v0.7.1-alpha.1 is an **algorithmic research laboratory**, not production-grade safety infrastructure.
+>
+> - **Synthetic Environments:** Simulations are stylized mathematical POMDP analogues, not live cloud environments or physical queues.
+> - **Zero Production Safety Certification:** CausaGuard makes **no claim** of certified real-world safety, regulatory approval, or robustness against adversarial prompt injections.
+> - **Hypothesis-Generating Evidence:** Reported exploratory gains ($K=16$) are hypothesis-generating; confirmatory evaluation remains locked pending formal protocol freeze.
+>
+> See [`docs/research-limitations.md`](docs/research-limitations.md) for full scope boundaries and scientific disclosures.
+
+
+
+## 8. Repository Structure
+
 ```
 
-On Linux/macOS, use `python -m venv .venv`, `.venv/bin/python -m pip install -e '.[dev]'`, and substitute `.venv/bin/python` below. Generated models, JSON reports, and traces belong in the Git-ignored `artifacts/` directory. Existing local artifacts are not migrated or overwritten by the research commands.
+causaguard/
+├── src_v07_1/causaguard_v07_1/ # Isolated v0.7.1 core research engine
+│ ├── domain_de.py # Data Engineering POMDP simulator
+│ ├── domain_cs.py # Customer Support POMDP simulator
+│ ├── escalation.py # Multi-attribute human escalation model
+│ ├── policy_v07_1.py # Analytical Bayesian VOI & benchmark policies
+│ └── study_v07_1.py # Counterfactual paired evaluation runner
+├── experiments_v07_1/ # Confirmatory evaluation runner & protocol draft
+│ ├── evaluate_confirmatory_v07_1.py # Locked confirmatory runner
+│ ├── run_exploratory_v07_1.py # Exploratory variance runner (K=16)
+│ └── v071_confirmatory_protocol_draft.json # Prospective protocol draft
+├── tests_v07_1/ # Isolated v0.7.1 test suite (59 tests)
+├── demo_v07_1.py # Standalone interactive research demo
+├── docs/ # Architectural & methodological documentation
+│ ├── quickstart.md # Quickstart and developer guide
+│ ├── research-limitations.md # Detailed scientific limitations & non-claims
+│ ├── v071-architecture.md # Engine architecture & mathematical POMDP specification
+│ └── v071-confirmatory-runner-engineering-report.md
+├── research/methodology/ # Formal protocols, audits, and statistical derivations
+├── CHANGELOG.md # Release history and milestone logs
+├── LICENSE # MIT License
+└── pyproject.toml # Root package configuration (cryptographically sealed)
 
-## Reproduce the v0.2.0 experiment
-
-The committed [protocol](experiments/v020.json) fixes the primary conservative configuration before any evaluation. Training uses 3,000 scenarios; development and final each use five independent generator seeds with 1,000 scenarios per seed. Each split includes IID, stale-data, tool-failure, and injection-score shifts. The nine-point threshold sensitivity grid runs on development IID data only.
-
-```powershell
-.venv\Scripts\python.exe -m causaguard.cli experiment --phase development --config experiments/v020.json --output artifacts/v020/development.json
-.venv\Scripts\python.exe -m causaguard.cli experiment --phase final --protocol artifacts/v020/development.json --output artifacts/v020/final.json
 ```
 
-The final command accepts the frozen development report, with **no tuning/configuration override**. It verifies source hashes, software versions, model fingerprint, and development data identity before generating final scenarios. It retrains the same fixed model from the recorded training data. A changed source or environment requires a new development protocol. Repeated runs of an identical protocol reproduce the report; inspecting a final report makes those seeds development data for any subsequent research iteration. Choose new final seeds before testing a revised hypothesis.
+---
 
-Reports retain every requested seed, shift, and development grid point, including unfavorable results. They contain reward, unsafe/completion/defer rates, intervention rate, per-action frequencies, mean/total intervention cost, dataset hashes, model identity, and paired percentile bootstrap intervals for all metric differences. The primary contrast is IID conservative minus always-verify mean reward. Cost uses the simulator's fixed utility units: proceed 0, retry 0.08, verify 0.18, escalate 0.28; reward already includes this cost.
+## 9. Historical Preservation & Research Continuity
 
-All three primary policies escalate without confirmation. `historical_ungated_always_verify` is separately reported for continuity with earlier simulator experiments. Do not compare the new gated baseline with old numbers without accounting for this difference.
+CausaGuard maintains a continuous chain of cryptographically sealed historical milestones:
+- **v0.5.2:** Factorial study closeout & historical freeze (`artifacts/v052/development-frozen.json`, SHA-256 `053dea36...`).
+- **v0.6.0:** Master protocol freeze (`c0f217ca...`) & Amendment 01 development evaluation (`a5cb7ab9...`).
+- **v0.7.0:** Initial Bayesian VOI exploratory calibration and adversarial scientific audit.
+- **v0.7.1:** Isolated remediation engine with decomposed escalation and symmetric heuristic.
 
-The bootstrap resamples matched scenario rows within each generator-seed batch, preserving pairing across policies. Its intervals condition on a single trained model and the observed seed mixture. They exclude training uncertainty, model misspecification, and real-world distribution uncertainty. Secondary contrasts and sensitivity intervals have no multiple-comparison correction. Zero observed unsafe events, including a `[0, 0]` bootstrap interval, do not establish zero population risk.
+All historical files and cryptographic hashes are verified byte-for-byte by automated tests on every build.
 
-## Run and replay the agent demonstration
+---
 
-Train a model with the same data/model seeds as the committed research protocol, without touching `artifacts/policy.joblib`:
+## 10. License
 
-```powershell
-.venv\Scripts\python.exe -m causaguard.cli train --n 3000 --seed 1701 --model-seed 42 --model artifacts/v020/agent-policy.joblib
-.venv\Scripts\python.exe -m causaguard.cli agent-demo --model artifacts/v020/agent-policy.joblib --policy conservative --case all --output artifacts/v020/agent-traces.json
-.venv\Scripts\python.exe -m causaguard.cli replay artifacts/v020/agent-traces.json --model artifacts/v020/agent-policy.joblib --policy conservative
-```
-
-The agent is an explicitly **scripted stand-in for an LLM**, with a two-step read/stage task. Only `read_record` and `stage_update` exist, and their effects are confined to a Python dictionary. There is no shell, network, email, payment, dynamic tool import, or external service. This is an application-level simulation, not an OS sandbox for running arbitrary code.
-
-Cases: `clean`, `stale_data`, `schema_failure`, `timeout`, `authorization`, `prompt_injection`. A fake authoritative verification operation can refresh or repair records; retry makes at most two attempts. Unknown tools, wrong record scope, missing confirmation, denied authoritative authorization, and unsafe staged state are blocked independently of ML. Injection text is synthetic untrusted data; the fixture's deterministic rules do not constitute a general injection detector.
-
-Each JSON trace records the fixture, proposed arguments, pre-action signals, complete recommendation, enforcement result, verification, all tool attempts/errors, observations, and final in-memory state. Replay recomputes both decisions and tool execution using the same model/configuration and rejects differences or altered traces. It does not authenticate trace files against a malicious author. No wall-clock timestamps or external randomness are used.
-
-## Select the conservative policy
-
-`LearnedPolicy` retains the original selection algorithm for comparisons. `ConservativePolicy(base, config)` wraps the same trained models:
-
-1. Missing explicit confirmation always escalates.
-2. Missing models, insufficient tree evidence, or unknown/out-of-range training support defaults to verify.
-3. A known excessive verification score escalates.
-4. Proceed/retry requires an advantage over verify **strictly greater** than the configured reward margin after subtracting a tree-spread penalty.
-5. The candidate's risk score plus spread must pass the risk threshold, and reward/risk disagreement must be below configured limits.
-
-Defaults: risk limit 0.03, reward margin 0.05, spread multiplier 1, maximum reward spread 0.35, maximum risk spread 0.05. These are prespecified engineering heuristics, not learned risk guarantees. Training min/max ranges are only a weak distribution-shift check; low tree disagreement can still be wrong. Old model artifacts without support metadata remain usable by the original selector; the conservative selector abstains to verify.
-
-`--policy original|conservative` is supported by `evaluate`, `demo`, `agent-demo`, and `replay`. To explicitly override conservative settings, pass `--policy-config path/to/config.json` containing `ConservativeConfig` fields. This configuration must match during replay. Overrides are recorded in decisions; the authorization gate is not configurable.
-
-## Existing CLI and API
-
-The original `train`, `evaluate`, `demo`, `serve`, calibration audit, and paired benchmark remain available. `evaluate` is an exploratory legacy command; use the frozen `experiment` workflow for final reporting. The earlier `experiments/compare_calibrated_policy.py` comparison is preserved.
-
-```powershell
-.venv\Scripts\python.exe -m causaguard.cli train --n 2000 --seed 42
-.venv\Scripts\python.exe -m causaguard.cli evaluate --n 1000 --seed 2027
-.venv\Scripts\python.exe -m causaguard.cli demo --policy conservative
-.venv\Scripts\python.exe -m causaguard.cli serve
-```
-
-The legacy advisory API remains at `http://127.0.0.1:8765`; `/health` and `/recommend` are preserved, with interactive documentation at `/docs`. Its legacy health `mode` field remains `advisory-only`; the additive `/llm` routes execute only the in-memory demonstration described above. Old recommendation bodies select the original policy and preserve its response shape. Add `policy` and optionally `conservative_config` for explicit experiments:
-
-```powershell
-$body = @{
-  amount = 420
-  authorization_confidence = 0.91
-  note_risk_score = 0.12
-  data_age_hours = 45
-  tool_error_rate = 0.25
-  schema_warning = $true
-  confirmation_present = $true
-  policy = "conservative"
-  conservative_config = @{ risk_limit = 0.03; reward_margin = 0.05 }
-} | ConvertTo-Json -Depth 4
-Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8765/recommend -Body $body -ContentType "application/json"
-```
-
-Authorization fields require real JSON booleans. Unknown fields, nonfinite/out-of-range inputs, and policy/configuration mismatches are rejected. Missing or invalid local models return an actionable 503. `CAUSAGUARD_MODEL` selects a trusted local model artifact. Never deserialize untrusted joblib files: loading them can execute arbitrary Python code.
-
-See [architecture](docs/architecture.md), [research protocol](docs/research-plan.md), and [measured milestone results](docs/v020-results.md).
+CausaGuard is distributed under the [MIT License](LICENSE).
+Copyright (c) 2026 CausaGuard Contributors.

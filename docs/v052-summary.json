@@ -1,0 +1,1155 @@
+{
+  "sha256": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
+  "identity_sha256": "ec19c187d5fb422864763f2ff28aefbb13a9e089e8a6202a3fac46b5578ca357",
+  "config_sha256": "c3e2d4b097479a69fdd12ae7bf06765515d64f9a939486f087e2170944b4f096",
+  "selection": {
+    "eligible_candidates": [],
+    "selected_candidate": null,
+    "status": "development_stop"
+  },
+  "resources": {
+    "calibration_cases": 19200,
+    "evaluated_policies": 5,
+    "evaluation_arm_outcomes": 256000,
+    "evaluation_seed_clusters": 64,
+    "external_tool_calls": 0,
+    "forest_fits": 384,
+    "isotonic_fits": 256,
+    "llm_calls": 0,
+    "policy_case_evaluations": 10240000,
+    "profiles": 4,
+    "training_calibration_arm_outcomes": 307200,
+    "training_calibration_cases": 76800,
+    "training_cases": 57600,
+    "training_replicas": 32,
+    "unique_evaluation_cases": 64000
+  },
+  "authorization_violations": 0,
+  "inference": {
+    "authorization_violations": 0,
+    "candidates": {
+      "f16_cal_r05": {
+        "checks": {
+          "absolute_risk": {
+            "alpha": 0.00625,
+            "bound": 0.036572351074218794,
+            "estimate": 0.031480468750000004,
+            "passes": true,
+            "relation": "<=",
+            "threshold": 0.05,
+            "zero_width": false
+          },
+          "excess_risk_vs_always_verify": {
+            "alpha": 0.00625,
+            "bound": 0.0010157104492187808,
+            "estimate": -0.0035820312499999993,
+            "passes": true,
+            "relation": "<=",
+            "threshold": 0.01,
+            "zero_width": false
+          },
+          "utility_vs_original_r05": {
+            "alpha": 0.00625,
+            "bound": -0.011411178413318172,
+            "estimate": 0.027938854340797216,
+            "passes": false,
+            "relation": ">",
+            "threshold": 0.02,
+            "zero_width": false
+          },
+          "utility_vs_rules_repair": {
+            "alpha": 0.00625,
+            "bound": -0.03277007506257903,
+            "estimate": 0.007130560414268457,
+            "passes": false,
+            "relation": ">",
+            "threshold": 0.02,
+            "zero_width": false
+          }
+        },
+        "eligible": false,
+        "iid_utility": 0.38769512184267996
+      },
+      "f16_raw_r05": {
+        "checks": {
+          "absolute_risk": {
+            "alpha": 0.00625,
+            "bound": 0.031074230957031265,
+            "estimate": 0.027833984375000002,
+            "passes": true,
+            "relation": "<=",
+            "threshold": 0.05,
+            "zero_width": false
+          },
+          "excess_risk_vs_always_verify": {
+            "alpha": 0.00625,
+            "bound": -0.004199206542968747,
+            "estimate": -0.007228515625000001,
+            "passes": true,
+            "relation": "<=",
+            "threshold": 0.01,
+            "zero_width": false
+          },
+          "utility_vs_original_r05": {
+            "alpha": 0.00625,
+            "bound": -0.0073814935506809195,
+            "estimate": 0.0019163520013062763,
+            "passes": false,
+            "relation": ">",
+            "threshold": 0.02,
+            "zero_width": false
+          },
+          "utility_vs_rules_repair": {
+            "alpha": 0.00625,
+            "bound": -0.03629106484724314,
+            "estimate": -0.018891941925222484,
+            "passes": false,
+            "relation": ">",
+            "threshold": 0.02,
+            "zero_width": false
+          }
+        },
+        "eligible": false,
+        "iid_utility": 0.3616726195031891
+      }
+    },
+    "contrasts": {
+      "f16_cal_r05-always_verify": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.004091796874999974,
+            "lower": -0.008117236328125003,
+            "upper": -5.253906250001688e-05,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.38167870358032296,
+            "lower": 0.3431406558244668,
+            "upper": 0.41824752624432715,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.003582031249999971,
+            "lower": -0.0071738769531250034,
+            "upper": 4.301757812499619e-05,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.20179894162961418,
+            "lower": 0.17028409539070333,
+            "upper": 0.23121095062093597,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": 0.0011894531250000008,
+            "lower": -0.0016074218750000003,
+            "upper": 0.004009765625000001,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.2634241906494816,
+            "lower": 0.23280265925385374,
+            "upper": 0.29063625580346214,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.015599609374999898,
+            "lower": -0.021824267578125004,
+            "upper": -0.009505761718750012,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.2514796576089199,
+            "lower": 0.22293604148305854,
+            "upper": 0.2780717364817567,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_cal_r05-original_r05": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.0029003906249999898,
+            "lower": -0.006710986328125003,
+            "upper": 0.0009179687499999995,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": -0.0060202467613177,
+            "lower": -0.042140039489067874,
+            "upper": 0.027013601829689184,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.0020312499999999996,
+            "lower": -0.005062548828125001,
+            "upper": 0.0010371582031249963,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.02793885434079723,
+            "lower": -0.002616886373135187,
+            "upper": 0.05586425098661943,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": -0.0008886718750000006,
+            "lower": -0.003193408203125001,
+            "upper": 0.0014238281250000006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.041076091770067484,
+            "lower": 0.011351860414460381,
+            "upper": 0.06734196447142594,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.0012832031249999964,
+            "lower": -0.0074766113281250005,
+            "upper": 0.004888818359374989,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.025627582815702047,
+            "lower": -0.001665945272620518,
+            "upper": 0.04966975760190976,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_cal_r05-rules_repair": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.020029296874999894,
+            "lower": -0.024179687500000005,
+            "upper": -0.015892529296875013,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.028467105262018115,
+            "lower": -0.010905651590897939,
+            "upper": 0.06518238337340242,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.018332031249999877,
+            "lower": -0.02202543945312501,
+            "upper": -0.01468159179687501,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.007130560414268473,
+            "lower": -0.024426517664873144,
+            "upper": 0.03614871645058574,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": -0.009810546874999885,
+            "lower": -0.012884814453125008,
+            "upper": -0.006810449218750009,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.0875440658052461,
+            "lower": 0.057065888607713354,
+            "upper": 0.11497162303085075,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.031162109374999875,
+            "lower": -0.03737910156250002,
+            "upper": -0.025058593750000004,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.05777283934699067,
+            "lower": 0.02910673045329228,
+            "upper": 0.08397114565584743,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_raw_r05-always_verify": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.008263671874999913,
+            "lower": -0.010771484375000005,
+            "upper": -0.005753857421875006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.3465421710148246,
+            "lower": 0.3163204926650144,
+            "upper": 0.375575463563898,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.007228515624999914,
+            "lower": -0.009580126953125002,
+            "upper": -0.004796826171875006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.17577643929012346,
+            "lower": 0.16134559429934645,
+            "upper": 0.19049025680925705,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": -0.0017675781250000011,
+            "lower": -0.0037578125000000007,
+            "upper": 0.00018749999999999946,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.23852207984175464,
+            "lower": 0.22535522666676627,
+            "upper": 0.25165258743075825,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.02104687499999989,
+            "lower": -0.02433203125,
+            "upper": -0.017775341796875014,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.23211642413173394,
+            "lower": 0.2179932045550913,
+            "upper": 0.24671332159609188,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_raw_r05-original_r05": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.0070722656249999245,
+            "lower": -0.008845703125000003,
+            "upper": -0.005390625000000002,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": -0.04115677932681623,
+            "lower": -0.06700364237253963,
+            "upper": -0.01699659566311234,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.005677734374999926,
+            "lower": -0.006769531250000001,
+            "upper": -0.004609375000000002,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.001916352001306274,
+            "lower": -0.005408986957868559,
+            "upper": 0.009063136001883408,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": -0.003845703124999964,
+            "lower": -0.004750000000000001,
+            "upper": -0.0029511230468750047,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.016173980962340257,
+            "lower": 0.008720305669974162,
+            "upper": 0.023560750083135313,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.006730468749999937,
+            "lower": -0.008369140625,
+            "upper": -0.005070312500000002,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.006264349338515602,
+            "lower": -0.0018867197489141631,
+            "upper": 0.014569346092456876,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_raw_r05-rules_repair": {
+        "cost_shift": {
+          "unsafe": {
+            "estimate": -0.02420117187499988,
+            "lower": -0.02703129882812501,
+            "upper": -0.021421875000000007,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": -0.006669427303480189,
+            "lower": -0.03765767408981637,
+            "upper": 0.023132812176564526,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "unsafe": {
+            "estimate": -0.021978515624999882,
+            "lower": -0.02458403320312501,
+            "upper": -0.01945112304687501,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": -0.018891941925222495,
+            "lower": -0.03278778517819787,
+            "upper": -0.005098499518951028,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "unsafe": {
+            "estimate": -0.012767578124999833,
+            "lower": -0.015199267578125005,
+            "upper": -0.010376953125000005,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.06264195499751872,
+            "lower": 0.04900267046464614,
+            "upper": 0.07625472811415655,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "unsafe": {
+            "estimate": -0.03660937499999992,
+            "lower": -0.040031298828125,
+            "upper": -0.03317968750000001,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.03840960586980442,
+            "lower": 0.023777061794344575,
+            "upper": 0.05297039143391071,
+            "zero_width": false
+          }
+        }
+      }
+    },
+    "policies": {
+      "always_verify": {
+        "cost_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5406249999999957,
+            "lower": 0.5333125000000001,
+            "upper": 0.5478749999999999,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.624916790188775,
+            "lower": 0.618460834282172,
+            "upper": 0.6313894589523592,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03581249999999989,
+            "lower": 0.033,
+            "upper": 0.038750000000000014,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": -0.14724429281088736,
+            "lower": -0.1613585082299736,
+            "upper": -0.13296013605178425,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5293749999999982,
+            "lower": 0.5213125000000002,
+            "upper": 0.5372515625000001,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.28445743108650606,
+            "lower": 0.2817359655172789,
+            "upper": 0.28712995740474495,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03506249999999977,
+            "lower": 0.032000000000000015,
+            "upper": 0.038125000000000006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.18589618021306545,
+            "lower": 0.17301157643083379,
+            "upper": 0.1989009124311611,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.3425000000000005,
+            "lower": 0.3355625,
+            "upper": 0.34925,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.28345668699263504,
+            "lower": 0.2807169294798357,
+            "upper": 0.2861523696831607,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.02418749999999977,
+            "lower": 0.02175000000000001,
+            "upper": 0.02668750000000001,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.014639950662285746,
+            "lower": 0.0021570717227202955,
+            "upper": 0.027165894119925347,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5338749999999961,
+            "lower": 0.5263125000000001,
+            "upper": 0.5413125000000001,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.28236415813954474,
+            "lower": 0.2796827526774388,
+            "upper": 0.2850601496795684,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.06387499999999986,
+            "lower": 0.060250000000000026,
+            "upper": 0.067625,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.0795398310921073,
+            "lower": 0.06383315845637284,
+            "upper": 0.094753624094153,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_cal_r05": {
+        "cost_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5654570312500008,
+            "lower": 0.5266834960937501,
+            "upper": 0.6022132324218749,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.2898599396802957,
+            "lower": 0.271102315799755,
+            "upper": 0.3095199248745027,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03172070312499974,
+            "lower": 0.027572216796875004,
+            "upper": 0.036023437500000005,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.23443441076943544,
+            "lower": 0.1955779750637297,
+            "upper": 0.2714202616416112,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5932519531249993,
+            "lower": 0.5624821777343749,
+            "upper": 0.622273681640625,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16981129738904813,
+            "lower": 0.163043907943524,
+            "upper": 0.17703209662386923,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03148046874999976,
+            "lower": 0.027706982421875005,
+            "upper": 0.03542778320312499,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.387695121842681,
+            "lower": 0.3556396347195412,
+            "upper": 0.4179463944958981,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.47533593749999853,
+            "lower": 0.44886074218749994,
+            "upper": 0.49972470703125,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16926537551731652,
+            "lower": 0.16239267969011298,
+            "upper": 0.17660698509258635,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.025376953124999782,
+            "lower": 0.022427734375000008,
+            "upper": 0.028427783203125,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.2780641413117681,
+            "lower": 0.24683472642746143,
+            "upper": 0.3067080984426773,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.6007167968749988,
+            "lower": 0.56938916015625,
+            "upper": 0.6302021484374999,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16919574543915225,
+            "lower": 0.16235906540439615,
+            "upper": 0.17644699324041976,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.04827539062499974,
+            "lower": 0.04207788085937501,
+            "upper": 0.05458403320312501,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.3310194887010279,
+            "lower": 0.30184681282567605,
+            "upper": 0.3578919682678923,
+            "zero_width": false
+          }
+        }
+      },
+      "f16_raw_r05": {
+        "cost_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5228632812499979,
+            "lower": 0.49583154296875,
+            "upper": 0.5485100585937499,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.2918869355568945,
+            "lower": 0.2820681224031815,
+            "upper": 0.3024925701114162,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.027548828124999817,
+            "lower": 0.02488867187500001,
+            "upper": 0.030291064453125006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.19929787820393766,
+            "lower": 0.16878091130215073,
+            "upper": 0.22891118058374438,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5621972656249968,
+            "lower": 0.5501464355468749,
+            "upper": 0.5742656249999999,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.17371630304003444,
+            "lower": 0.17067666098079884,
+            "upper": 0.17670069889714385,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.027833984374999732,
+            "lower": 0.025415966796875005,
+            "upper": 0.030369189453125004,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.361672619503189,
+            "lower": 0.3460168130072183,
+            "upper": 0.37741410135980724,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.44755664062500095,
+            "lower": 0.43743554687500014,
+            "upper": 0.4579498046875001,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.17295772598937048,
+            "lower": 0.16975853445983216,
+            "upper": 0.17604152684744886,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.022419921874999867,
+            "lower": 0.020359375000000013,
+            "upper": 0.024541015625000013,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.25316203050403996,
+            "lower": 0.23870568198197606,
+            "upper": 0.26760612354671476,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5689843749999978,
+            "lower": 0.556695068359375,
+            "upper": 0.5812735839843749,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.17281053483449357,
+            "lower": 0.16958465434913408,
+            "upper": 0.17592549275824065,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.04282812500000001,
+            "lower": 0.03970107421875,
+            "upper": 0.04621494140624999,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.31165625522384083,
+            "lower": 0.2960293827131805,
+            "upper": 0.32734629137374693,
+            "zero_width": false
+          }
+        }
+      },
+      "original_r05": {
+        "cost_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.5800624999999984,
+            "lower": 0.5713808593749999,
+            "upper": 0.5887404296875,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.2877810585210579,
+            "lower": 0.28168967589732835,
+            "upper": 0.2941376852258347,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03462109374999989,
+            "lower": 0.032037109375000004,
+            "upper": 0.03730273437500001,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.2404546575307533,
+            "lower": 0.22612947031747838,
+            "upper": 0.25477240922407585,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.573646484374998,
+            "lower": 0.5650194824218749,
+            "upper": 0.5821565917968751,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16668693007729185,
+            "lower": 0.1637713604114138,
+            "upper": 0.16972326504648466,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03351171874999975,
+            "lower": 0.030951171875000013,
+            "upper": 0.03616025390624998,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.35975626750188305,
+            "lower": 0.3456235351051231,
+            "upper": 0.37359724757443913,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.44031835937500036,
+            "lower": 0.43323222656250016,
+            "upper": 0.4474766113281251,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16614790938804097,
+            "lower": 0.1632441895863297,
+            "upper": 0.1691150898067724,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.02626562499999986,
+            "lower": 0.024187451171875003,
+            "upper": 0.02839262695312501,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.23698804954169972,
+            "lower": 0.2246170717044543,
+            "upper": 0.24913767366200595,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.579970703124997,
+            "lower": 0.5714959960937499,
+            "upper": 0.5883789062499999,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.16551175649681177,
+            "lower": 0.1624983058758043,
+            "upper": 0.16856123984810542,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.04955859375000007,
+            "lower": 0.046761621093750004,
+            "upper": 0.052468798828125,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.30539190588532567,
+            "lower": 0.2914778864833416,
+            "upper": 0.31868276565756065,
+            "zero_width": false
+          }
+        }
+      },
+      "rules_repair": {
+        "cost_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.6438124999999983,
+            "lower": 0.6360609374999998,
+            "upper": 0.6518749999999999,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.32562716017821625,
+            "lower": 0.3193257074903573,
+            "upper": 0.33195941721936817,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.051750000000000004,
+            "lower": 0.048187499999999994,
+            "upper": 0.055374999999999994,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.20596730550741713,
+            "lower": 0.18723251375383412,
+            "upper": 0.2249685783342624,
+            "zero_width": false
+          }
+        },
+        "iid": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.6329999999999997,
+            "lower": 0.6253124999999998,
+            "upper": 0.6403750000000001,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.15169372408014617,
+            "lower": 0.1488629361748458,
+            "upper": 0.1545298517797239,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.0498125000000005,
+            "lower": 0.046375000000000006,
+            "upper": 0.05337500000000001,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.3805645614284111,
+            "lower": 0.3657256428803713,
+            "upper": 0.39509231531596795,
+            "zero_width": false
+          }
+        },
+        "outage_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.4200625000000004,
+            "lower": 0.41318750000000004,
+            "upper": 0.4268750000000001,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.15202285673193167,
+            "lower": 0.14893334208826334,
+            "upper": 0.15502708175464383,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.03518749999999987,
+            "lower": 0.032000000000000015,
+            "upper": 0.038437500000000006,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.19052007550652256,
+            "lower": 0.1768825424540258,
+            "upper": 0.2042953901172962,
+            "zero_width": false
+          }
+        },
+        "verifier_shift": {
+          "authorization_violation": {
+            "estimate": 0.0,
+            "lower": 0.0,
+            "upper": 0.0,
+            "zero_width": true
+          },
+          "completed": {
+            "estimate": 0.6430000000000015,
+            "lower": 0.6350625,
+            "upper": 0.650875,
+            "zero_width": false
+          },
+          "cost": {
+            "estimate": 0.15146643073725297,
+            "lower": 0.14903090052374862,
+            "upper": 0.15400440551041217,
+            "zero_width": false
+          },
+          "unsafe": {
+            "estimate": 0.0794375,
+            "lower": 0.07525000000000001,
+            "upper": 0.08375,
+            "zero_width": false
+          },
+          "utility": {
+            "estimate": 0.27324664935403753,
+            "lower": 0.2550365845328385,
+            "upper": 0.2907603936430837,
+            "zero_width": false
+          }
+        }
+      }
+    }
+  },
+  "replay": {
+    "external_tool_calls": 0,
+    "identity_sha256": "ec19c187d5fb422864763f2ff28aefbb13a9e089e8a6202a3fac46b5578ca357",
+    "llm_calls": 0,
+    "phase": "development",
+    "policy_case_evaluations": 10240000,
+    "replay": "matched",
+    "replay_resources": {
+      "calibration_cases": 19200,
+      "evaluated_policies": 5,
+      "evaluation_arm_outcomes": 256000,
+      "evaluation_seed_clusters": 64,
+      "external_tool_calls": 0,
+      "forest_fits": 384,
+      "isotonic_fits": 256,
+      "llm_calls": 0,
+      "policy_case_evaluations": 10240000,
+      "profiles": 4,
+      "training_calibration_arm_outcomes": 307200,
+      "training_calibration_cases": 76800,
+      "training_cases": 57600,
+      "training_replicas": 32,
+      "unique_evaluation_cases": 64000
+    },
+    "sha256": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6"
+  },
+  "validation": {
+    "pytest": "480 passed, 6 skipped; one existing Starlette warning",
+    "ruff": "passed",
+    "git_diff_check": "passed"
+  },
+  "preservation": {
+    "checked_files": 129,
+    "changed_original_files": []
+  },
+  "final_evaluated": false
+}

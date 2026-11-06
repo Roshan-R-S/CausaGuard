@@ -1,0 +1,26 @@
+{
+  "protocol_version": "v050-study-1",
+  "training_seeds": [50001, 50002, 50003],
+  "calibration_seeds": [50101, 50102, 50103],
+  "model_seeds": [50201, 50202, 50203],
+  "development_seeds": [50301, 50302, 50303, 50304, 50305, 50306],
+  "final_seeds": [50401, 50402, 50403, 50404, 50405, 50406],
+  "train_n": 1800,
+  "calibration_n": 600,
+  "cases_per_seed": 250,
+  "trees": 32,
+  "risk_limit": 0.05,
+  "bootstrap_replicates": 4000,
+  "bootstrap_seed": 50501,
+  "environment": {
+    "version": "fallible-v050-1",
+    "defect_base": 0.04,
+    "defect_age": 0.28,
+    "defect_load": 0.18,
+    "drift": 0.07,
+    "denial_rate": 0.10,
+    "verifier_shift": 0.24,
+    "outage_shift": 0.30,
+    "cost_multiplier": 2.5
+  }
+}

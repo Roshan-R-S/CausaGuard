@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "protocol_id": "v071-confirmatory-protocol-draft",
+  "protocol_version": "0.7.1-draft",
+  "protocol_status": "DRAFT_PRE_FREEZE",
+  "sealed": false,
+  "created_at": "2026-11-06T23:15:00Z",
+  "author": "CausaGuard Research Methodology & Statistical Planning Group",
+  "git_commit_baseline": "3450d6e5e20bd77e9557e056108fc2a5df242983",
+  "historical_seal_dependencies": {
+    "v052_identity_seal": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
+    "v06_protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
+    "v06_amendment_01_seal": "a5cb7ab963f8e02c2e1fa850e17cfd6611dc63d39f91aa8b7140619fc615a781"
+  },
+  "scientific_architecture": {
+    "primary_confirmatory_domain": "data_engineering",
+    "secondary_boundary_domain": "customer_support",
+    "domain_selection_provenance": "Informed by v0.7.0 and v0.7.1 exploratory calibrations. Explicitly registered prospectively for independent confirmatory verification.",
+    "core_claim": "Analytical Bayesian Value of Information decisions achieve operational utility superiority (Delta >= +0.015) over strong direct recovery, universal escalation, and symmetric deterministic heuristics under unobservable hazards and asymmetric recovery costs.",
+    "policy_nature": "Closed-form analytical Bayesian POMDP decision engine (non-learned, non-parametric, zero neural weights)."
+  },
+  "statistical_parameters": {
+    "superiority_hurdle_delta": 0.015,
+    "planning_effect_nominal_delta": 0.030,
+    "planning_effect_target_delta": 0.035,
+    "family_wise_alpha": 0.010,
+    "primary_multiplicity_contrasts": 3,
+    "per_contrast_alpha_primary": 0.0033333333333333335,
+    "operational_risk_threshold_r_limit": 0.050,
+    "authorization_violation_tolerance": 0,
+    "degrees_of_freedom": 127,
+    "critical_t_value_primary": 2.76007
+  },
+  "sample_allocation": {
+    "cases_per_cluster": 400,
+    "clusters_per_domain_k": 128,
+    "total_cases_per_domain": 51200,
+    "primary_profile": "iid",
+    "secondary_shift_profiles": [
+      "verifier_shift",
+      "outage_shift",
+      "cost_shift"
+    ],
+    "conditional_power_estimates_de_contrast_c1": {
+      "point_variance_sd_00260": 0.999899,
+      "upper_95_bound_sd_00403": 0.925253,
+      "mde_80_power_upper_sd": 0.027014
+    }
+  },
+  "confirmatory_contrasts": {
+    "primary_family_data_engineering": [
+      {
+        "contrast_id": "DE_C1",
+        "candidate": "cost_rule_v07_1",
+        "comparator": "always_recovery",
+        "scientific_role": "Autonomous VOI vs universal automated checkpoint restoration",
+        "hurdle": 0.015,
+        "alpha": 0.0033333333333333335
+      },
+      {
+        "contrast_id": "DE_C2",
+        "candidate": "cost_rule_v07_1",
+        "comparator": "always_escalate",
+        "scientific_role": "Autonomous VOI vs universal human on-call engineer delegation",
+        "hurdle": 0.015,
+        "alpha": 0.0033333333333333335
+      },
+      {
+        "contrast_id": "DE_C3",
+        "candidate": "cost_rule_v07_1",
+        "comparator": "cost_sensitive_symmetric_heuristic",
+        "scientific_role": "Autonomous VOI vs strongest symmetric cost-benefit heuristic",
+        "hurdle": 0.015,
+        "alpha": 0.0033333333333333335
+      }
+    ],
+    "reference_benchmarks": [
+      {
+        "name": "fixed_verify_repair_macro",
+        "role": "Active historical inspection-first reference benchmark",
+        "status": "secondary_reference"
+      },
+      {
+        "name": "budget_aware_direct_recovery",
+        "role": "Direct recovery comparator (Gate 1 safety disqualified if R > 0.050)",
+        "status": "safety_gatekeeping_benchmark"
+      },
+      {
+        "name": "escalation_aware_deterministic_threshold",
+        "role": "Calibrated alarm threshold comparator (Gate 1 safety disqualified if R > 0.050)",
+        "status": "safety_gatekeeping_benchmark"
+      },
+      {
+        "name": "oracle",
+        "role": "Privileged ground-truth diagnostic upper bound",
+        "status": "diagnostic_only_excluded_from_superiority"
+      }
+    ]
+  },
+  "two_stage_gatekeeping_rules": {
+    "gate_1_safety_compliance": {
+      "metric": "operational_risk",
+      "threshold": 0.050,
+      "mandatory_candidate_pass": true,
+      "comparator_failure_consequence": "Recorded as Operationally Disqualified / Safety Violation"
+    },
+    "gate_2_superiority_hurdle": {
+      "metric": "paired_cluster_utility_difference",
+      "hurdle": 0.015,
+      "statistic": "one_sided_bonferroni_lcb",
+      "decision_rule": "Reject null if LCB > 0.015 across all eligible primary contrasts"
+    }
+  },
+  "seed_allocation_registry": {
+    "historical_exploratory_v07": {
+      "range": [70001001, 70001016],
+      "status": "historical_archived"
+    },
+    "historical_exploratory_v07_1": {
+      "range": [70002001, 70002016],
+      "status": "historical_archived"
+    },
+    "exploratory_smoke_reserve": {
+      "range": [70003001, 70009999],
+      "status": "preflight_smoke_tests_only"
+    },
+    "dev_eval_de_primary": {
+      "range": [70100001, 70100128],
+      "k_clusters": 128,
+      "status": "confirmatory_development_primary_locked"
+    },
+    "dev_eval_cs_secondary": {
+      "range": [70110001, 70110128],
+      "k_clusters": 128,
+      "status": "confirmatory_development_secondary_locked"
+    },
+    "dev_eval_expansion_buffer": {
+      "range": [70120001, 70199999],
+      "status": "reserved_expansion_locked"
+    },
+    "final_eval_de_quarantine": {
+      "range": [70200001, 70200128],
+      "k_clusters": 128,
+      "status": "strictly_quarantined_final_evaluation"
+    },
+    "final_eval_cs_quarantine": {
+      "range": [70210001, 70210128],
+      "k_clusters": 128,
+      "status": "strictly_quarantined_final_evaluation"
+    },
+    "final_eval_expansion_buffer": {
+      "range": [70220001, 70299999],
+      "status": "strictly_quarantined_final_expansion"
+    },
+    "independent_replication_reserve": {
+      "range": [70300001, 70399999],
+      "status": "reserved_external_lab_replication"
+    }
+  },
+  "codebase_immutability_bindings": {
+    "src_v07_1/causaguard_v07_1/__init__.py": "1056a3635a314a1317eee1f52757f6804f65d6fa4f3c7a74a4eb9518116d6507",
+    "src_v07_1/causaguard_v07_1/domain_cs.py": "6098fadf98345bcf02d69c0c2d68829800e0346598fac8629efe1113d879995c",
+    "src_v07_1/causaguard_v07_1/domain_de.py": "9c9309b2ae00354ccf73417138224dc83e0c72ee68d352cf47eb9f2ee255fb0e",
+    "src_v07_1/causaguard_v07_1/escalation.py": "18a612b9233a7ebaf0c341b4d47f7ff9fc59f8b6716fefdc3ed7febdb077574e",
+    "src_v07_1/causaguard_v07_1/policy_v07_1.py": "8cd42ee3063729ef71b2104c1a07ebfa4c97f5b098cd4c022fda3d666a9ac5bf",
+    "src_v07_1/causaguard_v07_1/study_v07_1.py": "80aedbe57135b65c99e39f0bec2c92c98272128663bc49998988a7ae840b7bbf",
+    "tests_v07_1/test_cs_domain_v07_1.py": "519915200b9300b2e08de814ae1e8bb66f35f55cf56cfd3df61899daa8bc54e8",
+    "tests_v07_1/test_de_domain_v07_1.py": "6b26a3e1aa6ec8747b8ff8f1c936ae9109a92e68a23048af16abd6d6fabc4029",
+    "tests_v07_1/test_escalation_v07_1.py": "ea11ce99801043215be26e29c48e1aa6bbef18d69fb53d49583c54e70caea100",
+    "tests_v07_1/test_exploratory_runner_v07_1.py": "6b65755d91a352061c13549f6a787df9980730074fe67aa102296d11e1692377",
+    "tests_v07_1/test_identity_preservation_v07_1.py": "43967d063971e0b902f0000b8daa90d320bff019efb7e439c9b98157cd915bd1",
+    "tests_v07_1/test_policy_fairness_v07_1.py": "ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94",
+    "tests_v07_1/test_study_v07_1.py": "a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f",
+    "pyproject.toml": "1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049",
+    "pytest_v07_1.ini": "de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98"
+  }
+}
+

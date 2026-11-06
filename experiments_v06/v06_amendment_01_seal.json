@@ -1,0 +1,13 @@
+{
+  "amendment_id": "v06-amendment-01",
+  "created_at": "2026-11-04T18:00:00Z",
+  "parent_protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
+  "amendment_json_sha256": "455743ce7e13aab7f555133832ff38336d987401ab00242baf3bebbcd3c44a1e",
+  "amendment_files": {
+    "experiments_v06/evaluate_dev.py": "b1580481a8388d72c70ea992df16fe20c498a3402ff5495268670042a21946bd",
+    "tests_v06/test_evaluate_dev.py": "cae9708ecc80d01ca4b2fe5bbba6903f45226ffc06315a93a75b213e35fd3d77",
+    "research/methodology/v06-protocol-amendment-01.md": "cf074fdcd0a227bee7ccf7f492260598704f7fc28cae985bc8a92cf289c2586c",
+    "experiments_v06/v06_protocol_amendment_01.json": "455743ce7e13aab7f555133832ff38336d987401ab00242baf3bebbcd3c44a1e"
+  },
+  "amendment_seal": "a5cb7ab963f8e02c2e1fa850e17cfd6611dc63d39f91aa8b7140619fc615a781"
+}
