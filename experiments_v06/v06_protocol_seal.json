@@ -1,0 +1,30 @@
+{
+  "study_version": "0.6.0-locked",
+  "created_at": "2026-11-04T12:00:00Z",
+  "protocol_json_sha256": "3135d28cdce4e01e35a56da0df6ff3ac7fbcb52678f6cb9496aac71b6d8ff330",
+  "historical_seal_dependency": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
+  "protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
+  "file_hashes": {
+    "artifacts/v052/development-frozen.json": "db995e4c18312d86c327928fffa09e7eee851b378d38151dd81e59aa603c501f",
+    "experiments_v06/audit_power.py": "a3c4f632f412276aebeab6f3f43456b21d19ba5627d375247fae495d91240c26",
+    "experiments_v06/v06_protocol.json": "3135d28cdce4e01e35a56da0df6ff3ac7fbcb52678f6cb9496aac71b6d8ff330",
+    "pyproject.toml": "1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049",
+    "pytest_v06.ini": "be40b49dd79288586f97eba763ae9dd727f4c4340f82c6c8b1c0f91b8ad7a110",
+    "research/methodology/v06-pre-freeze-corrections.md": "62c0f579a1e54c92590d6d82142fcb327e1689e6e217b7be4191ffb95d1a21e1",
+    "research/methodology/v06-protocol-freeze-readiness.md": "f19adcf97973248a6d8468d5959583305280ec8d92fccf613ff98b64c99fb4c7",
+    "research/methodology/v06-statistical-protocol.md": "4359648371af7ba3f0b830c5a7f0eac8e6dc25c55188c19ea43b8a319a8f16e1",
+    "src_v06/causaguard_v06/__init__.py": "0a5c265f3c74a5e9e8c26ae01ea6d3f210e94b5c2d6cf56823ae6a29c9ec5a0f",
+    "src_v06/causaguard_v06/domain_cs.py": "d627338cef1b5d3017127bbfd5797137748877e45f4c10126e29a3e2e22116f4",
+    "src_v06/causaguard_v06/domain_de.py": "9cb900dcabb794a56be5a97eec1ef187c84e9a4849bec550a9d9a393dea4ca1c",
+    "src_v06/causaguard_v06/policy_v06.py": "be96c444e481a77f2df5e27dfd7e79ff44373e0789746c0cc6dfa7896b77029c",
+    "src_v06/causaguard_v06/study_v06.py": "2e67edb4fbece60fd15d3057da4a588822bbc19a2f7ebb3e7243447098b300a1",
+    "tests_v06/test_cost_rule.py": "3e6d5cb284bee290aad70ff5d7f6f9b6bc03427287f8ad4ec7316cd01abff0d1",
+    "tests_v06/test_cs_domain.py": "8050ff3112362170faeef704c0774f734fc3800f7ae2fc86dbbb8a6915cf0455",
+    "tests_v06/test_de_domain.py": "225bde9e7a55c2a900c8fc829a6f85329bd188cf2af2069e380c4ce54c241c9c",
+    "tests_v06/test_feasibility.py": "24dea8c712221fdaad4f0889ffe3778439072369001b0ab324e4661e13e566e4",
+    "tests_v06/test_identity_preservation.py": "eeb100e001f66b594d6670c48f1dd296060267c6dccea4614517fe4c6acc8635",
+    "tests_v06/test_power_audit.py": "fc4a9bb3a59f40c251aabb1da2bec7224bce8e2d35fb0351b730cddcf3482a79",
+    "tests_v06/test_study_v06.py": "2393ce49a87bfaca7fcc986cc729f85a8ee2edc51064628e902c0a2ff197cf0a"
+  }
+}
+

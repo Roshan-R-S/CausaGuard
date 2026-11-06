@@ -1,0 +1,131 @@
+{
+  "protocol_version": "0.6.0-locked",
+  "created_at": "2026-11-04T12:00:00Z",
+  "author": "CausaGuard PhD Research Programme",
+  "git_commit": "b64c924309bd2dc4a7f9a18f4643d44bb6e91d90",
+  "historical_seal_dependency": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
+  "statistical_parameters": {
+    "superiority_hurdle_delta": 0.015,
+    "planning_effect_target_delta_star": 0.035,
+    "effective_planning_margin": 0.020,
+    "family_wise_alpha": 0.010,
+    "bonferroni_contrasts": 3,
+    "per_contrast_alpha": 0.0033333333333333335,
+    "secondary_shift_alpha": 0.050,
+    "operational_risk_limit": 0.050,
+    "excess_risk_limit": 0.005,
+    "authorization_violation_tolerance": 0
+  },
+  "sample_allocation": {
+    "cases_per_cluster": 250,
+    "clusters_per_profile_cs": 64,
+    "clusters_per_profile_de": 64,
+    "profiles": [
+      "iid",
+      "verifier_shift",
+      "outage_shift",
+      "cost_shift"
+    ],
+    "primary_confirmatory_profile": "iid",
+    "secondary_robustness_profiles": [
+      "verifier_shift",
+      "outage_shift",
+      "cost_shift"
+    ],
+    "total_evaluation_clusters_per_domain": 256,
+    "total_evaluation_clusters": 512,
+    "total_episodes_per_policy": 128000
+  },
+  "seed_namespaces": {
+    "exploratory_development": [
+      60001001,
+      60001010
+    ],
+    "dev_eval_cs": [
+      60010001,
+      60010064
+    ],
+    "dev_eval_de": [
+      60020001,
+      60020064
+    ],
+    "final_eval_cs_reserved": [
+      60030001,
+      60030064
+    ],
+    "final_eval_de_reserved": [
+      60040001,
+      60040064
+    ],
+    "unit_tests": [
+      60900001,
+      60900050
+    ]
+  },
+  "policies": {
+    "target_candidate": {
+      "name": "cost_rule",
+      "type": "analytical_bayesian_voi",
+      "learned_parameters": 0,
+      "state_access": "public_observation_and_evidence_only"
+    },
+    "baselines": [
+      {
+        "name": "fixed_verify_repair_macro",
+        "role": "historical_macro_comparator",
+        "contrast_id": "C1_macro"
+      },
+      {
+        "name": "rules_repair",
+        "role": "deterministic_heuristic_comparator",
+        "contrast_id": "C2_repair"
+      },
+      {
+        "name": "always_verify_then_proceed",
+        "role": "static_audit_comparator",
+        "contrast_id": "C3_verify_proceed"
+      },
+      {
+        "name": "rules_proceed",
+        "role": "diagnostic_lower_bound"
+      },
+      {
+        "name": "always_escalate",
+        "role": "diagnostic_risk_free_bound"
+      },
+      {
+        "name": "oracle",
+        "role": "diagnostic_upper_bound_privileged"
+      }
+    ]
+  },
+  "contrasts": [
+    {
+      "id": "C1_macro",
+      "candidate": "cost_rule",
+      "baseline": "fixed_verify_repair_macro",
+      "hypothesis": "Marginal value of sequential VOI over bundled repair"
+    },
+    {
+      "id": "C2_repair",
+      "candidate": "cost_rule",
+      "baseline": "rules_repair",
+      "hypothesis": "Marginal value of expected utility over static thresholds"
+    },
+    {
+      "id": "C3_verify_proceed",
+      "candidate": "cost_rule",
+      "baseline": "always_verify_then_proceed",
+      "hypothesis": "Marginal value of adaptive inspection over blind verification"
+    }
+  ],
+  "safety_estimators": {
+    "nonzero_events": "cluster_robust_gee_jackknife",
+    "zero_events_primary": "exact_cluster_level_clopper_pearson",
+    "zero_events_fallback": "pooled_rule_of_three_descriptive"
+  },
+  "stopping_rules": {
+    "development_stop_condition": "Any primary contrast L_j <= +0.015 OR risk > 0.050 OR excess_risk > 0.005 OR violations > 0",
+    "final_evaluation_execution": "Strictly blocked if development evaluation emits development_stop"
+  }
+}

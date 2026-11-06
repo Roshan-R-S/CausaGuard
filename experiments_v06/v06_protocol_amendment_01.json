@@ -1,0 +1,24 @@
+{
+  "amendment_id": "v06-amendment-01",
+  "created_at": "2026-11-04T18:00:00Z",
+  "parent_protocol_version": "0.6.0-locked",
+  "parent_protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
+  "historical_seal_dependency": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
+  "scope": "Prospective registration of confirmatory development evaluation runner and invariant tests",
+  "added_files": {
+    "experiments_v06/evaluate_dev.py": "b1580481a8388d72c70ea992df16fe20c498a3402ff5495268670042a21946bd",
+    "tests_v06/test_evaluate_dev.py": "cae9708ecc80d01ca4b2fe5bbba6903f45226ffc06315a93a75b213e35fd3d77",
+    "research/methodology/v06-protocol-amendment-01.md": "cf074fdcd0a227bee7ccf7f492260598704f7fc28cae985bc8a92cf289c2586c"
+  },
+  "invariants_confirmed": {
+    "zero_mathematical_changes": true,
+    "superiority_hurdle_unchanged": 0.015,
+    "planning_effect_target_unchanged": 0.035,
+    "k_clusters_unchanged": 64,
+    "bonferroni_alpha_unchanged": 0.0033333333333333335,
+    "operational_risk_limit_unchanged": 0.050,
+    "excess_risk_limit_unchanged": 0.005,
+    "zero_final_seeds_accessed": true,
+    "zero_dev_eval_seeds_accessed_prior_to_amendment": true
+  }
+}
