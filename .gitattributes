@@ -7,3 +7,4 @@ tests_v07_1/** text eol=lf
 experiments_v07_1/** text eol=lf
 docs/v071* text eol=lf
 research/methodology/v071* text eol=lf
+artifacts/v052/development-frozen.json -text
