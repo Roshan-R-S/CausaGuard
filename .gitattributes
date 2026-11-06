@@ -1,0 +1,9 @@
+# Historical preservation: ensure v0.6 protocol always checks out as CRLF on all platforms
+research/methodology/v06-statistical-protocol.md text eol=crlf
+
+# Modern prospective paths enforced with LF
+src_v07_1/** text eol=lf
+tests_v07_1/** text eol=lf
+experiments_v07_1/** text eol=lf
+docs/v071* text eol=lf
+research/methodology/v071* text eol=lf
