@@ -136,6 +136,8 @@ In automated data engineering and AI agent supervision, a policy that achieves h
     $$\text{UCB}_{0.95}(p_{\text{cluster}}) = 1 - 0.05^{1/K} = 1 - 0.05^{1/128} = 0.0231324053\dots \approx \mathbf{0.023132405}$$
     The reported threshold value **$0.02314$** ($2.314\%$) represents an explicit **conservative upward rounding** of this exact value, preserving the nominal $\ge 95\%$ confidence coverage.
     Because $\theta = \mathbb{E}[R_k] \le P(R_k > 0) = p_{\text{cluster}}$, this represents an upper bound on population operational risk that does not require case-level independence ($\rho = 0$). Since $0.02314 \le 0.050$, Gate 1 is satisfied under zero events. Unadjusted case-level independence formulas (yielding $0.0000585$) are strictly forbidden for formal gate certification.
+  - **Degenerate Constant Positive Risk Regime ($s_R = 0, \bar{R} > 0$):**
+    When constant nonzero harm occurs across all clusters ($s_R = 0, \bar{R} > 0$), degenerate zero-variance data cannot support standard Student-$t$ inference without unverified distributional assumptions, nor can zero-event Clopper-Pearson bounds apply. In this regime, safety governance mandates an immediate fail-closed **INCONCLUSIVE / GATE 1 FAIL** outcome (`gate1_passed = False`, `inference_method = "degenerate_constant_positive_risk_fail_closed"`). For downstream numeric compatibility, $\text{UCB}_{\text{cluster}}$ is set to $1.0$ as an explicit worst-case policy bound (not a calculated 95% confidence estimate), ensuring candidate disqualification.
 - **Methodological Assumptions & Limitations on Cluster Sampling:**
   1. *PRNG Cluster Independence Assumption:* In simulation experiments, clusters are instantiated with distinct integer seeds. Distinct PRNG seeds alone do not establish independent sampling clusters in a physical or measure-theoretic sense. Algorithmic pseudo-random sequences may exhibit unobserved inter-sequence cross-talk or generator cycle overlaps. The statistical inference model *assumes* that the generator produces sequences with negligible inter-cluster correlation under the designated simulators. This is an explicit operational modeling assumption and limitation, not an empirically verified physical property.
   2. *Student-$t$ Finite-Sample Coverage:* Exact finite-sample validity under Student-$t$ requires Gaussian cluster outcomes. For non-Gaussian bounded rates or utilities, CLT-based inference across $K = 128$ is asymptotic and approximate; finite-sample $t$-intervals are not automatically guaranteed to be strictly conservative.
@@ -268,17 +270,17 @@ A future formal protocol freeze will bind the exact code, runner, test, and conf
   tests_v07_1/test_identity_preservation_v07_1.py: 43967d063971e0b902f0000b8daa90d320bff019efb7e439c9b98157cd915bd1
   tests_v07_1/test_policy_fairness_v07_1.py:    ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94
   tests_v07_1/test_study_v07_1.py:              a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f
-  tests_v07_1/test_confirmatory_runner_v07_1.py: 92b6135a5386b31161d23777d689fb59862b1c9f0604bcc591d3196745d3306b
+  tests_v07_1/test_confirmatory_runner_v07_1.py: 6273cad72b66c90d10543e436865f976e60da84852bc925ece323ffd438208fc
 
   [CONFIRMATORY EVALUATION RUNNER]
-  experiments_v07_1/evaluate_confirmatory_v07_1.py: 888b3a385e95bed3886c968d83c874a61f3cf424ae53e764a3870bf857a6ec3c
+  experiments_v07_1/evaluate_confirmatory_v07_1.py: 5c4158edbc4651bd232808de5764ccf9925ac77cd87e3b6c1d543ef9808f6a3d
 
   [CONFIGURATION & RUNTIME SPECIFICATIONS]
   pyproject.toml:                               1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049
   pytest_v07_1.ini (LF normalized):             de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98
 
   [SECURITY VERIFIER INFRASTRUCTURE]
-  experiments_v07_1/verify_seal_v07_1.py:       baa15a9de52d5ca8170567bd618bae44cae38bfc55f27f8ed24c55fdb1ee0339
+  experiments_v07_1/verify_seal_v07_1.py:       a382dafb2c219ba953b96a9c03af01bc7bf4b4f50d8e36afef07fd43b6c60d47
   tests_v07_1/test_seal_verifier_v07_1.py:      ee38adb0f9f739c499973c82d41eb4219f7aabc3c60cee5ade03fc92fb770f64
 
   [PROSPECTIVE PROTOCOL SPECIFICATIONS]

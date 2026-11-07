@@ -128,6 +128,8 @@
       "zero_event_cluster_ucb_095_label": "conservative_upward_rounding",
       "authorization_violation_limit": 0,
       "mandatory_candidate_pass": true,
+      "constant_positive_risk_fail_closed": true,
+      "constant_positive_risk_handling": "Degenerate zero-variance positive risk triggers fail-closed INCONCLUSIVE / GATE 1 FAIL with worst-case policy bound 1.0.",
       "comparator_failure_consequence": "Recorded as Operationally Disqualified / Safety Violation"
     },
     "gate_2_superiority_hurdle": {
@@ -209,11 +211,11 @@
     "tests_v07_1/test_identity_preservation_v07_1.py": "43967d063971e0b902f0000b8daa90d320bff019efb7e439c9b98157cd915bd1",
     "tests_v07_1/test_policy_fairness_v07_1.py": "ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94",
     "tests_v07_1/test_study_v07_1.py": "a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f",
-    "tests_v07_1/test_confirmatory_runner_v07_1.py": "92b6135a5386b31161d23777d689fb59862b1c9f0604bcc591d3196745d3306b",
-    "experiments_v07_1/evaluate_confirmatory_v07_1.py": "888b3a385e95bed3886c968d83c874a61f3cf424ae53e764a3870bf857a6ec3c",
+    "tests_v07_1/test_confirmatory_runner_v07_1.py": "6273cad72b66c90d10543e436865f976e60da84852bc925ece323ffd438208fc",
+    "experiments_v07_1/evaluate_confirmatory_v07_1.py": "5c4158edbc4651bd232808de5764ccf9925ac77cd87e3b6c1d543ef9808f6a3d",
     "pyproject.toml": "1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049",
     "pytest_v07_1.ini": "de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98",
-    "experiments_v07_1/verify_seal_v07_1.py": "baa15a9de52d5ca8170567bd618bae44cae38bfc55f27f8ed24c55fdb1ee0339",
+    "experiments_v07_1/verify_seal_v07_1.py": "a382dafb2c219ba953b96a9c03af01bc7bf4b4f50d8e36afef07fd43b6c60d47",
     "tests_v07_1/test_seal_verifier_v07_1.py": "ee38adb0f9f739c499973c82d41eb4219f7aabc3c60cee5ade03fc92fb770f64",
     "research/methodology/v071-confirmatory-statistical-protocol.md": "bound_in_detached_seal_manifest_at_freeze_time",
     "experiments_v07_1/v071_confirmatory_protocol.json": "bound_in_detached_seal_manifest_at_freeze_time"

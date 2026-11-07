@@ -140,8 +140,10 @@ class UnauthorizedSealError(SealVerificationError):
 
 
 # ==============================================================================
-# JSON Loading with Duplicate Key Prevention (SEC-05)
+# JSON Loading with Duplicate Key and Non-Finite Number Prevention (SEC-05)
 # ==============================================================================
+
+MAX_SEAL_SIZE_BYTES: int = 10 * 1024 * 1024  # 10 MB maximum protocol seal file size
 
 
 def _reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -154,8 +156,15 @@ def _reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return res
 
 
-def load_seal_json(seal_path: Path) -> dict[str, Any]:
-    """Reads and parses seal JSON, strictly rejecting duplicate keys and malformed syntax."""
+def _reject_non_finite_constants(val: str) -> None:
+    """Helper for json.loads that strictly rejects RFC 8259-forbidden non-finite numbers (NaN, Infinity)."""
+    raise MalformedSealError(
+        f"MALFORMED SEAL: Non-finite JSON number constant forbidden by RFC 8259: {val!r}"
+    )
+
+
+def load_seal_json(seal_path: Path, max_bytes: int = MAX_SEAL_SIZE_BYTES) -> dict[str, Any]:
+    """Reads and parses seal JSON using bounded reading, strictly rejecting non-finite numbers, duplicate keys, and oversized files."""
     if not seal_path.is_file():
         raise SealNotFoundError(
             f"SEAL NOT FOUND: No valid protocol seal file found at '{seal_path}'. "
@@ -163,12 +172,23 @@ def load_seal_json(seal_path: Path) -> dict[str, Any]:
         )
 
     try:
-        content = seal_path.read_text(encoding="utf-8")
+        with open(seal_path, "r", encoding="utf-8") as f:
+            content = f.read(max_bytes + 1)
+            if len(content) > max_bytes:
+                raise MalformedSealError(
+                    f"MALFORMED SEAL: Seal file at '{seal_path}' exceeds maximum permitted size of {max_bytes} bytes."
+                )
+    except (SealNotFoundError, MalformedSealError):
+        raise
     except Exception as e:
         raise MalformedSealError(f"MALFORMED SEAL: Failed to read file at '{seal_path}': {e}") from e
 
     try:
-        data = json.loads(content, object_pairs_hook=_reject_duplicate_keys)
+        data = json.loads(
+            content,
+            object_pairs_hook=_reject_duplicate_keys,
+            parse_constant=_reject_non_finite_constants,
+        )
     except MalformedSealError:
         raise
     except Exception as e:
@@ -323,7 +343,7 @@ def compute_protocol_seal_digest(seal_data: dict[str, Any]) -> str:
         # Backward-compatible fallback for raw file_hashes mapping in synthetic tests
         payload = seal_data
 
-    canonical_json = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    canonical_json = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False)
     return sha256_bytes(canonical_json.encode("utf-8"))
 
 

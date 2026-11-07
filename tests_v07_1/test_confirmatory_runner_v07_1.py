@@ -236,17 +236,20 @@ def _make_mock_cluster_records(
         comp_auth = {c: 0 for c in comp_utilities}
 
     for i in range(k):
+        cand_r = cand_risk + (0.001 * (i % 3) if cand_risk > 0 else 0.0)
         pm: dict[str, dict[str, Any]] = {
             CANDIDATE_POLICY_NAME: {
                 "mean_utility": cand_utility + 0.001 * (i % 3),
-                "operational_risk": cand_risk,
+                "operational_risk": cand_r,
                 "auth_violations": cand_auth,
             }
         }
         for comp_name, comp_u in comp_utilities.items():
+            base_r = comp_risks.get(comp_name, 0.01)
+            comp_r = base_r + (0.001 * (i % 3) if base_r > 0 else 0.0)
             pm[comp_name] = {
                 "mean_utility": comp_u + 0.001 * (i % 3),
-                "operational_risk": comp_risks.get(comp_name, 0.01),
+                "operational_risk": comp_r,
                 "auth_violations": comp_auth.get(comp_name, 0),
             }
         records.append({"cluster_seed": 70003001 + i, "policy_metrics": pm})

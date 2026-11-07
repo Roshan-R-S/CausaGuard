@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -219,36 +220,65 @@ def compute_clustered_operational_risk(
     """Computes cluster-robust operational risk point estimates and confidence bounds.
 
     - Independent sampling unit is the cluster (K independent seeds).
-    - If standard deviation > 0, applies cluster-level Student-t bound.
-    - If zero events observed across all clusters, applies exact cluster-level
-      Clopper-Pearson bound on cluster failure probability: 1 - alpha^(1/K).
+    - Zero-Event Boundary Standard (mean_risk == 0.0): Under the model assumption that
+      clusters behave as independent Bernoulli trials with parameter p_cluster = P(R_k > 0),
+      applies exact cluster-level Clopper-Pearson bound: 1 - alpha^(1/K).
+    - Standard Nonzero-Variance Regime (std_risk > 0.0): Applies cluster-level Student-t bound.
+      LIMITATION: Finite-sample validity requires Gaussian cluster outcomes. For non-Gaussian
+      bounded rates, CLT-based inference across K=128 clusters is asymptotic and approximate
+      in finite samples; exact coverage is not automatically guaranteed to be strictly conservative.
+    - Degenerate Constant Positive Risk Regime (std_risk == 0.0, mean_risk > 0.0):
+      Degenerate zero-variance data cannot support standard Student-t inference without unverified
+      distributional assumptions. Safety governance mandates a fail-closed INCONCLUSIVE / GATE 1 FAIL
+      outcome. For downstream numeric compatibility, ucb_cluster is set to 1.0 as an explicit
+      worst-case policy bound (not a calculated 95% confidence estimate).
+    - Input Validation: Strictly rejects non-finite, out-of-bounds ([0, 1]), or non-numeric risks.
     """
     k_clusters = len(cluster_risks)
     if k_clusters < 1:
         raise ProtocolValidationError("Cannot compute operational risk on empty cluster list.")
 
+    for idx, r in enumerate(cluster_risks):
+        if not isinstance(r, (int, float)) or isinstance(r, bool):
+            raise ProtocolValidationError(f"Invalid non-numeric risk at cluster {idx}: {r!r}")
+        if not math.isfinite(r):
+            raise ProtocolValidationError(f"Non-finite cluster risk at cluster {idx}: {r}")
+        if r < 0.0 or r > 1.0:
+            raise ProtocolValidationError(f"Cluster risk out of bounds [0, 1] at cluster {idx}: {r}")
+
     mean_risk = float(np.mean(cluster_risks))
-    std_risk = float(np.std(cluster_risks, ddof=1)) if k_clusters > 1 else 0.0
+    raw_std = float(np.std(cluster_risks, ddof=1)) if k_clusters > 1 else 0.0
+    # Numerical stability: treat machine-precision noise on identical cluster risks as exact zero variance
+    std_risk = 0.0 if (k_clusters <= 1 or raw_std <= 1e-12 or min(cluster_risks) == max(cluster_risks)) else raw_std
     se_cluster = std_risk / np.sqrt(k_clusters) if k_clusters > 0 else 0.0
 
-    if std_risk > 0.0:
-        t_crit = float(stats.t.ppf(1.0 - alpha, k_clusters - 1))
-        ucb_cluster = float(mean_risk + t_crit * se_cluster)
-        zero_event = False
-        method = "student_t_clustered"
-    else:
-        # Zero-event regime across all K clusters
-        zero_event = (mean_risk == 0.0)
-        # Exact Clopper-Pearson bound on cluster-level failure probability
+    if mean_risk == 0.0:
+        # Zero-event regime across all K clusters:
+        # Exact cluster-level Clopper-Pearson bound on cluster failure probability
+        zero_event = True
         ucb_cluster = float(1.0 - (alpha ** (1.0 / k_clusters)))
         method = "clopper_pearson_cluster_exact"
+        gate1_passed = (ucb_cluster <= OPERATIONAL_RISK_LIMIT)
+    elif std_risk > 0.0:
+        # Standard Student-t clustered confidence bound
+        zero_event = False
+        t_crit = float(stats.t.ppf(1.0 - alpha, k_clusters - 1))
+        ucb_cluster = float(min(1.0, mean_risk + t_crit * se_cluster))
+        method = "student_t_clustered"
+        gate1_passed = (ucb_cluster <= OPERATIONAL_RISK_LIMIT)
+    else:
+        # Constant positive cluster risk across all K clusters (std_risk == 0.0, mean_risk > 0.0):
+        # Fail-closed INCONCLUSIVE / GATE 1 FAIL outcome.
+        # ucb_cluster is set to 1.0 as an explicit worst-case policy bound, not a 95% confidence estimate.
+        zero_event = False
+        ucb_cluster = 1.0
+        method = "degenerate_constant_positive_risk_fail_closed"
+        gate1_passed = False
 
     # Descriptive case-level Clopper-Pearson for comparison
     total_cases = k_clusters * n_cases_per_cluster
     total_events = int(round(mean_risk * total_cases))
     case_cp_ucb = float(stats.beta.ppf(1.0 - alpha, total_events + 1, total_cases - total_events)) if total_events < total_cases else 1.0
-
-    gate1_passed = (ucb_cluster <= OPERATIONAL_RISK_LIMIT)
 
     return {
         "k_clusters": k_clusters,
