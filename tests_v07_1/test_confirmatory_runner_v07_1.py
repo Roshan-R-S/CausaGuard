@@ -239,7 +239,7 @@ def _make_mock_cluster_records(
         cand_r = cand_risk + (0.001 * (i % 3) if cand_risk > 0 else 0.0)
         pm: dict[str, dict[str, Any]] = {
             CANDIDATE_POLICY_NAME: {
-                "mean_utility": cand_utility + 0.001 * (i % 3),
+                "mean_utility": cand_utility + 0.002 * (i % 3),
                 "operational_risk": cand_r,
                 "auth_violations": cand_auth,
             }

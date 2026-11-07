@@ -487,3 +487,113 @@ def test_protocol_json_and_markdown_consistency():
     assert auth["confirmatory_development_authorized"] is False
     assert auth["authorization_governance_status"] == "UNRESOLVED_GOVERNANCE_DECISION"
     assert "Unresolved Authorization Governance Decision" in md_content
+
+
+# ==============================================================================
+# 5. Statistical Contrast Robustness & Non-Finite Number Tests (CG-VULN-04)
+# ==============================================================================
+
+
+def test_paired_contrast_statistics_rejects_non_finite_and_invalid_utilities():
+    """CG-VULN-04a: compute_paired_contrast_statistics strictly rejects NaN, Inf, and non-numeric inputs."""
+    valid_cand = [1.0 + 0.01 * (i % 3) for i in range(10)]
+    valid_comp = [0.9 + 0.005 * (i % 3) for i in range(10)]
+
+    # Candidate NaN
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics([float("nan")] * 10, valid_comp, "C1", "cand", "comp")
+
+    # Comparator NaN
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics(valid_cand, [float("nan")] * 10, "C1", "cand", "comp")
+
+    # Positive Infinity
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics([float("inf")] * 10, valid_comp, "C1", "cand", "comp")
+
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics(valid_cand, [float("inf")] * 10, "C1", "cand", "comp")
+
+    # Negative Infinity
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics([float("-inf")] * 10, valid_comp, "C1", "cand", "comp")
+
+    # Boolean types (rejected to prevent numeric coercion True -> 1.0)
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics([True] * 10, valid_comp, "C1", "cand", "comp")  # type: ignore
+
+    # String types
+    with pytest.raises(ProtocolValidationError, match="Invalid non-finite or non-numeric"):
+        compute_paired_contrast_statistics(valid_cand, ["invalid"] * 10, "C1", "cand", "comp")  # type: ignore
+
+
+def test_paired_contrast_statistics_degenerate_variance_inconclusive():
+    """CG-VULN-04b: Degenerate zero-variance paired difference is fail-closed / inconclusive.
+
+    When all cluster utility differences are identical (s_D == 0), Student-t inference is degenerate.
+    Must NOT manufacture artificial statistical significance (such as t=999, p=0).
+    """
+    # Constant positive difference: cand = 1.00, comp = 0.95 across all 128 clusters (diff = +0.050 > 0.015)
+    cand_utils = [1.00] * 128
+    comp_utils = [0.95] * 128
+
+    res = compute_paired_contrast_statistics(
+        cand_utilities=cand_utils,
+        comp_utilities=comp_utils,
+        contrast_name="C1_recovery",
+        cand_name="candidate",
+        comp_name="comparator",
+        delta_hurdle=DELTA_HURDLE,
+        alpha=0.0033333333333333335,
+    )
+
+    assert res["sd_diff"] == 0.0
+    assert res["se_diff"] == 0.0
+    assert res["hurdle_achieved"] is False
+    assert res["rejection"] is False
+    assert res["contrast_verdict"] == "INCONCLUSIVE_DEGENERATE_VARIANCE"
+    assert res["t_stat_hurdle"] == 0.0
+    assert res["p_value_one_sided"] == 1.0
+    assert res["lcb_bonferroni"] == -1.0  # Explicit finite worst-case lower bound
+
+
+def test_gatekeeping_degenerate_superiority_variance_yields_inconclusive_study():
+    """CG-VULN-04c: Degenerate zero-variance superiority cannot manufacture CONFIRMATORY_STUDY_SUCCESS.
+
+    Even if Gate 1 passes and all differences are positive, zero variance strictly sets
+    study_verdict to CONFIRMATORY_STUDY_INCONCLUSIVE.
+    """
+    from experiments_v07_1.evaluate_confirmatory_v07_1 import evaluate_two_stage_gatekeeping
+
+    # Construct mock records where candidate passes Gate 1 (cand_risk = 0.0),
+    # but utility differences against all comparators have zero variance
+    records = []
+    for k in range(128):
+        rec = {
+            "cluster_index": k,
+            "seed": 70003001 + k,
+            "domain": "de",
+            "policy_metrics": {
+                "candidate": {"mean_utility": 1.00, "operational_risk": 0.0, "auth_violations": 0},
+                "comp_a": {"mean_utility": 0.90, "operational_risk": 0.0, "auth_violations": 0},
+                "comp_b": {"mean_utility": 0.85, "operational_risk": 0.0, "auth_violations": 0},
+            },
+        }
+        records.append(rec)
+
+    primary_contrasts = [
+        ("C1", "candidate", "comp_a"),
+        ("C2", "candidate", "comp_b"),
+    ]
+
+    verdict_result = evaluate_two_stage_gatekeeping(
+        cluster_records=records,
+        candidate_name="candidate",
+        primary_contrasts=primary_contrasts,
+        delta_hurdle=0.015,
+        alpha_contrast=0.0033333333333333335,
+    )
+
+    assert verdict_result["candidate_gate1_passed"] is True
+    assert verdict_result["all_contrasts_superior"] is False
+    assert verdict_result["study_verdict"] == "CONFIRMATORY_STUDY_INCONCLUSIVE"

@@ -21,6 +21,7 @@ import argparse
 import hashlib
 import hmac
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -204,6 +205,11 @@ def load_seal_json(seal_path: Path, max_bytes: int = MAX_SEAL_SIZE_BYTES) -> dic
 # Path Security Primitives (SEC-05)
 # ==============================================================================
 
+WINDOWS_RESERVED_PATTERN: re.Pattern[str] = re.compile(
+    r"^(?:con|prn|aux|nul|clock\$|conin\$|conout\$|com[1-9\u00b9\u00b2\u00b3]|lpt[1-9\u00b9\u00b2\u00b3])(?:\.|$)",
+    re.IGNORECASE,
+)
+
 
 def safe_resolve_relative_path(root_dir: Path, rel_path: str) -> Path:
     """Safely resolves rel_path against root_dir, strictly preventing path traversal.
@@ -243,6 +249,12 @@ def safe_resolve_relative_path(root_dir: Path, rel_path: str) -> Path:
     if any(part == ".." for part in parts):
         raise SecurityViolationError(f"Path traversal '..' forbidden in manifest: {rel_path!r}")
 
+    for part in parts:
+        if WINDOWS_RESERVED_PATTERN.match(part):
+            raise SecurityViolationError(
+                f"Windows reserved device name forbidden in manifest path: {rel_path!r}"
+            )
+
     resolved_root = root_dir.resolve()
     target = (resolved_root / p).resolve()
 
@@ -251,9 +263,16 @@ def safe_resolve_relative_path(root_dir: Path, rel_path: str) -> Path:
     except ValueError:
         raise SecurityViolationError(f"Manifest path escapes root directory: {rel_path!r}")
 
-    # Symlink protection: ensure neither the unresolved path nor target is a symlink
-    unresolved_target = root_dir / p
-    if unresolved_target.is_symlink() or target.is_symlink():
+    # Symlink protection: ensure neither the leaf nor any intermediate parent component is a symlink
+    curr = root_dir / p
+    while curr != root_dir and curr != curr.parent:
+        if curr.is_symlink():
+            raise SecurityViolationError(
+                f"Symlinks strictly forbidden in sealed manifest (detected at '{curr.name}'): {rel_path!r}"
+            )
+        curr = curr.parent
+
+    if target.is_symlink():
         raise SecurityViolationError(f"Symlinks strictly forbidden in sealed manifest: {rel_path!r}")
 
     return target

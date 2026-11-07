@@ -306,7 +306,16 @@ def compute_paired_contrast_statistics(
     delta_hurdle: float = DELTA_HURDLE,
     alpha: float = ALPHA_CONTRAST,
 ) -> dict[str, Any]:
-    """Computes cluster-level paired Student-t inferential statistics for a contrast."""
+    """Computes cluster-level paired Student-t inferential statistics for a contrast.
+
+    - Input Validation: Rejects mismatched lengths, K < 2, non-numeric, or non-finite (NaN, Inf) utilities.
+    - Degenerate Zero-Variance Regime (se_d <= 1e-12 or identical differences):
+      When cluster-level paired utility differences have zero variance, standard Student-t inference
+      is degenerate. To prevent manufactured rejections (such as artificial t=999, p=0), the contrast is
+      declared inconclusive (hurdle_achieved=False, verdict='INCONCLUSIVE_DEGENERATE_VARIANCE').
+    - Standard Nonzero-Variance Regime (se_d > 1e-12):
+      Calculates cluster-level paired Student-t statistic and Bonferroni lower confidence bound.
+    """
     k = len(cand_utilities)
     if k != len(comp_utilities):
         raise ProtocolValidationError(
@@ -315,28 +324,47 @@ def compute_paired_contrast_statistics(
     if k < 2:
         raise ProtocolValidationError(f"Cannot perform t-test on K={k} clusters (requires K >= 2).")
 
+    for idx, u in enumerate(cand_utilities):
+        if not isinstance(u, (int, float)) or isinstance(u, bool) or not math.isfinite(u):
+            raise ProtocolValidationError(
+                f"Invalid non-finite or non-numeric candidate utility at cluster {idx}: {u!r}"
+            )
+    for idx, u in enumerate(comp_utilities):
+        if not isinstance(u, (int, float)) or isinstance(u, bool) or not math.isfinite(u):
+            raise ProtocolValidationError(
+                f"Invalid non-finite or non-numeric comparator utility at cluster {idx}: {u!r}"
+            )
+
     diffs = np.array(cand_utilities, dtype=np.float64) - np.array(comp_utilities, dtype=np.float64)
     mean_d = float(np.mean(diffs))
-    sd_d = float(np.std(diffs, ddof=1))
-    se_d = sd_d / np.sqrt(k)
+    raw_sd = float(np.std(diffs, ddof=1))
     df = k - 1
-
     t_crit = float(stats.t.ppf(1.0 - alpha, df))
-    lcb = float(mean_d - t_crit * se_d)
 
-    # One-sided t-statistic against null hypothesis H0: mu_d <= delta_hurdle
-    t_stat = float((mean_d - delta_hurdle) / se_d) if se_d > 0.0 else (999.0 if mean_d > delta_hurdle else -999.0)
-    p_value = float(1.0 - stats.t.cdf(t_stat, df)) if se_d > 0.0 else (0.0 if mean_d > delta_hurdle else 1.0)
-
-    hurdle_achieved = (lcb > delta_hurdle)
-    rejection = hurdle_achieved
-
-    if hurdle_achieved:
-        status = "REJECT_NULL_SUPERIOR"
-    elif mean_d > delta_hurdle and lcb <= delta_hurdle:
-        status = "INCONCLUSIVE_POSITIVE_TREND"
+    # Degenerate zero-variance detection (including machine precision tolerance)
+    if raw_sd <= 1e-12 or min(diffs) == max(diffs):
+        sd_d = 0.0
+        se_d = 0.0
+        lcb = -1.0  # Explicit worst-case lower bound, strictly below delta_hurdle
+        t_stat = 0.0
+        p_value = 1.0
+        hurdle_achieved = False
+        rejection = False
+        status = "INCONCLUSIVE_DEGENERATE_VARIANCE"
     else:
-        status = "FAIL_TO_REJECT"
+        sd_d = raw_sd
+        se_d = sd_d / np.sqrt(k)
+        lcb = float(mean_d - t_crit * se_d)
+        t_stat = float((mean_d - delta_hurdle) / se_d)
+        p_value = float(1.0 - stats.t.cdf(t_stat, df))
+        hurdle_achieved = (lcb > delta_hurdle)
+        rejection = hurdle_achieved
+        if hurdle_achieved:
+            status = "REJECT_NULL_SUPERIOR"
+        elif mean_d > delta_hurdle and lcb <= delta_hurdle:
+            status = "INCONCLUSIVE_POSITIVE_TREND"
+        else:
+            status = "FAIL_TO_REJECT"
 
     return {
         "contrast_name": contrast_name,
@@ -508,6 +536,12 @@ def execute_confirmatory_evaluation(
     output_dir: Path | None = None,
 ) -> dict[str, Any]:
     """Orchestrates confirmatory evaluation across clusters with strict pre-freeze locking."""
+    # 0. Strict execution mode validation before any execution or filesystem operations
+    if not isinstance(mode, str) or mode not in ("development", "final"):
+        raise ProtocolValidationError(
+            f"Invalid execution mode '{mode}'. Must be strictly 'development' or 'final'."
+        )
+
     # 1. Enforce pre-freeze execution lock and quarantine
     assert_execution_authorized(
         seeds=seeds,

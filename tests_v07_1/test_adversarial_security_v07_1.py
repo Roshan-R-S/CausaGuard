@@ -35,6 +35,10 @@ from causaguard_v07_1.domain_de import (
 from causaguard_v07_1.escalation import QueueState, execute_escalation_cs
 from causaguard_v07_1.policy_v07_1 import CostRulePolicyV07_1
 
+from experiments_v07_1.evaluate_confirmatory_v07_1 import (
+    ProtocolValidationError,
+    execute_confirmatory_evaluation,
+)
 from experiments_v07_1.verify_seal_v07_1 import (
     FINAL_FREEZE_MANDATORY_FILES,
     MAX_SEAL_SIZE_BYTES,
@@ -107,6 +111,48 @@ def test_budget_exhaustion_blocks_action_execution():
     assert res["allowed"] is False
     assert res["blocked"] == 1
     assert res["reason"] == "operation_budget"
+
+
+def test_invalid_execution_mode_rejected_before_execution_or_fs(tmp_path: Path):
+    """CG-VULN-01: Invalid execution mode is rejected immediately before execution or filesystem operations."""
+    out_dir = tmp_path / "out"
+
+    # Directory traversal in mode
+    with pytest.raises(ProtocolValidationError, match="Invalid execution mode"):
+        execute_confirmatory_evaluation(
+            domain="de",
+            seeds=SAFE_TEST_SEEDS,
+            mode="../../malicious_mode",
+            output_dir=out_dir,
+            allow_synthetic_fixture=True,
+        )
+    assert not out_dir.exists(), "Filesystem directory must not be created on invalid mode!"
+
+    # Unrecognized string
+    with pytest.raises(ProtocolValidationError, match="Invalid execution mode"):
+        execute_confirmatory_evaluation(
+            domain="de",
+            seeds=SAFE_TEST_SEEDS,
+            mode="exploratory",
+            allow_synthetic_fixture=True,
+        )
+
+    # Non-string / invalid types
+    with pytest.raises(ProtocolValidationError, match="Invalid execution mode"):
+        execute_confirmatory_evaluation(
+            domain="de",
+            seeds=SAFE_TEST_SEEDS,
+            mode=None,  # type: ignore
+            allow_synthetic_fixture=True,
+        )
+
+    with pytest.raises(ProtocolValidationError, match="Invalid execution mode"):
+        execute_confirmatory_evaluation(
+            domain="de",
+            seeds=SAFE_TEST_SEEDS,
+            mode="",
+            allow_synthetic_fixture=True,
+        )
 
 
 # ==============================================================================
@@ -403,6 +449,63 @@ def test_symlink_mocked_defense(tmp_path: Path):
     with patch.object(Path, "is_symlink", return_value=True):
         with pytest.raises(SecurityViolationError, match="Symlinks strictly forbidden in sealed manifest"):
             safe_resolve_relative_path(root, "real.py")
+
+
+def test_intermediate_parent_symlinks_rejected(tmp_path: Path):
+    """CG-VULN-02: Intermediate parent directory symlinks are strictly detected and rejected."""
+    root = tmp_path / "repo"
+    root.mkdir()
+    sub = root / "subdir"
+    sub.mkdir()
+    child_file = sub / "real.py"
+    child_file.write_text("print('safe')", encoding="utf-8")
+
+    # Mock is_symlink such that intermediate directory 'subdir' reports is_symlink() == True,
+    # but the leaf file 'real.py' reports is_symlink() == False.
+    def mock_intermediate_symlink(self):
+        return self.name == "subdir"
+
+    with patch.object(Path, "is_symlink", mock_intermediate_symlink):
+        with pytest.raises(SecurityViolationError, match="Symlinks strictly forbidden.*detected at 'subdir'"):
+            safe_resolve_relative_path(root, "subdir/real.py")
+
+
+def test_windows_reserved_device_names_rejected(tmp_path: Path):
+    """CG-VULN-03: Windows DOS device names and superscripts are rejected to prevent hangs and DoS."""
+    root = tmp_path / "repo"
+    root.mkdir()
+
+    reserved_names = [
+        "CON",
+        "con",
+        "CON.txt",
+        "con.ini",
+        "NUL",
+        "nul.py",
+        "AUX",
+        "aux.json",
+        "PRN",
+        "prn.dat",
+        "COM1",
+        "com1.log",
+        "COM9",
+        "LPT1",
+        "CLOCK$",
+        "CONIN$",
+        "CONOUT$",
+        "COM\u00b9",  # COM¹
+        "COM\u00b2",  # COM²
+        "COM\u00b3",  # COM³
+        "LPT\u00b9",  # LPT¹
+        "LPT\u00b2",  # LPT²
+        "LPT\u00b3",  # LPT³
+        "nested/path/to/CON.txt",
+        "deep/dir/NUL",
+    ]
+
+    for name in reserved_names:
+        with pytest.raises(SecurityViolationError, match="Windows reserved device name forbidden"):
+            safe_resolve_relative_path(root, name)
 
 
 def test_json_duplicate_keys_strictly_rejected(tmp_path: Path):

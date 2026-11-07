@@ -248,17 +248,17 @@ In accordance with Package 6K security remediations, the prospective protocol ma
   tests_v07_1/test_identity_preservation_v07_1.py: 43967d063971e0b902f0000b8daa90d320bff019efb7e439c9b98157cd915bd1
   tests_v07_1/test_policy_fairness_v07_1.py:    ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94
   tests_v07_1/test_study_v07_1.py:              a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f
-  tests_v07_1/test_confirmatory_runner_v07_1.py: 6273cad72b66c90d10543e436865f976e60da84852bc925ece323ffd438208fc
+  tests_v07_1/test_confirmatory_runner_v07_1.py: 8553f75b874d143de127f3133b6a8c8bff2b57def0c0af9c1b19a5b45f09f032
 
   [CONFIRMATORY RUNNER ENGINE]
-  experiments_v07_1/evaluate_confirmatory_v07_1.py: 5c4158edbc4651bd232808de5764ccf9925ac77cd87e3b6c1d543ef9808f6a3d
+  experiments_v07_1/evaluate_confirmatory_v07_1.py: 2bda830e0536f50405af9a3797ba6c3365db6a4dfd20c367fadfb93f55c2599a
 
   [CONFIGURATION & RUNTIME SPECIFICATIONS]
   pyproject.toml:                               1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049
   pytest_v07_1.ini (LF normalized):             de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98
 
   [SECURITY VERIFIER INFRASTRUCTURE]
-  experiments_v07_1/verify_seal_v07_1.py:       a382dafb2c219ba953b96a9c03af01bc7bf4b4f50d8e36afef07fd43b6c60d47
+  experiments_v07_1/verify_seal_v07_1.py:       eb8bd927fad0c612af4ba1ffe1ede956b7343339e7beaa33382d2c6f515e1295
   tests_v07_1/test_seal_verifier_v07_1.py:      ee38adb0f9f739c499973c82d41eb4219f7aabc3c60cee5ade03fc92fb770f64
 
   [AUTHORITATIVE PROTOCOL SPECIFICATIONS]
