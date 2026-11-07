@@ -67,11 +67,11 @@ $$d_{j, k} = U_{\text{cand}, k} - U_{\text{comparator}_j, k}$$
 ========================================================================================
   ID  CONTRAST NAME                           SCIENTIFIC COMPARISON TESTED
   --------------------------------------------------------------------------------------
-  C1  cost_rule_v07_1 vs always_recovery      Value of Bayesian selective action over 
+  C1  cost_rule_v07_1 vs always_recovery      Value of Bayesian selective action over
                                               universal automated checkpoint restoration.
-  C2  cost_rule_v07_1 vs always_escalate      Value of autonomous intelligence over 
+  C2  cost_rule_v07_1 vs always_escalate      Value of autonomous intelligence over
                                               universal on-call engineer delegation.
-  C3  cost_rule_v07_1 vs cost_sensitive_     Value of analytical Bayesian VOI over 
+  C3  cost_rule_v07_1 vs cost_sensitive_     Value of analytical Bayesian VOI over
       symmetric_heuristic                     the strongest symmetric cost-benefit heuristic.
 ========================================================================================
 ```
@@ -304,7 +304,6 @@ In accordance with Package 6K security remediations, the prospective protocol ma
 
 ---
 
-*Authored on behalf of the Methodological Planning Group,*  
-**CausaGuard PhD Programme**  
+*Authored on behalf of the Methodological Planning Group,*
+**CausaGuard PhD Programme**
 November 2026
-
