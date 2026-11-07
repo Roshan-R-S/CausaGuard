@@ -79,6 +79,10 @@ $$d_{j, k} = U_{\text{cand}, k} - U_{\text{comparator}_j, k}$$
 - Decision Rule: Reject $\mathcal{H}_{0, j}$ if:
   $$\bar{d}_j - 2.7584 \cdot \frac{S_{D, j}}{\sqrt{128}} > +0.015$$
 
+> [!NOTE]
+> ### Methodological Note on Student-$t$ Exactness vs. CLT Approximation
+> Exact finite-sample validity of the Student-$t$ distribution strictly requires the underlying cluster-level paired differences $d_{j, k}$ to be normally distributed. For non-Gaussian or bounded cluster utilities, inference relies on the Central Limit Theorem (CLT) across $K = 128$ independent clusters, which provides an **asymptotic approximation**. CLT-based inference in finite samples ($K = 128$) is **approximate and not automatically guaranteed to be strictly conservative** in the presence of severe skewness, heavy tails, or discrete probability mass at boundaries.
+
 ### 2.3 Critical Defense of Comparator Fairness (Why Heuristic C3 is Mandatory)
 In Package 6G, it was proposed to replace `cost_sensitive_symmetric_heuristic` with an obsolete historical macro (`fixed_verify_repair_macro`) because the heuristic exhibited an exploratory risk of $R = 0.0633 > 0.050$.
 **This draft formally rejects that substitution:**
@@ -128,9 +132,13 @@ In automated data engineering and AI agent supervision, a policy that achieves h
   - Upper 95% one-sided Student-$t$ confidence bound ($df = 127$, $s_R > 0$):
     $$\text{UCB}_{0.95}^{\text{cluster}} = \bar{R} + t_{0.95, 127} \times \text{SE}_{\text{cluster}}(\bar{R}) \le 0.050 \quad (t_{0.95, 127} \approx 1.6570)$$
   - **Zero-Event Boundary Standard ($R_k = 0 \ \forall k$, $s_R = 0$):**
-    When zero catastrophic failures occur across all $51{,}200$ cases, $s_R = 0$, rendering $t$-bounds degenerate. Since clusters are independent Bernoulli draws, exact cluster-level Clopper-Pearson bounding yields:
-    $$\text{UCB}_{0.95}(p_{\text{cluster}}) = 1 - 0.05^{1/K} = 1 - 0.05^{1/128} \approx \mathbf{0.02314} \quad (2.314\%)$$
-    Because $\theta = \mathbb{E}[R_k] \le P(R_k > 0) = p_{\text{cluster}}$, this represents an assumption-free upper bound that does not require case-level independence ($\rho = 0$). Since $0.02314 \le 0.050$, Gate 1 is satisfied under zero events. Case-level independence formulas (yielding $0.0000585$) are strictly forbidden for formal gate certification.
+    When zero catastrophic failures occur across all $51{,}200$ cases, $s_R = 0$, rendering $t$-bounds degenerate. Under the model assumption that clusters behave as independent Bernoulli trials with parameter $p_{\text{cluster}} = P(R_k > 0)$, exact one-sided $95\%$ Clopper-Pearson binomial tail bounding yields:
+    $$\text{UCB}_{0.95}(p_{\text{cluster}}) = 1 - 0.05^{1/K} = 1 - 0.05^{1/128} = 0.0231324053\dots \approx \mathbf{0.023132405}$$
+    The reported threshold value **$0.02314$** ($2.314\%$) represents an explicit **conservative upward rounding** of this exact value, preserving the nominal $\ge 95\%$ confidence coverage.
+    Because $\theta = \mathbb{E}[R_k] \le P(R_k > 0) = p_{\text{cluster}}$, this represents an upper bound on population operational risk that does not require case-level independence ($\rho = 0$). Since $0.02314 \le 0.050$, Gate 1 is satisfied under zero events. Unadjusted case-level independence formulas (yielding $0.0000585$) are strictly forbidden for formal gate certification.
+- **Methodological Assumptions & Limitations on Cluster Sampling:**
+  1. *PRNG Cluster Independence Assumption:* In simulation experiments, clusters are instantiated with distinct integer seeds. Distinct PRNG seeds alone do not establish independent sampling clusters in a physical or measure-theoretic sense. Algorithmic pseudo-random sequences may exhibit unobserved inter-sequence cross-talk or generator cycle overlaps. The statistical inference model *assumes* that the generator produces sequences with negligible inter-cluster correlation under the designated simulators. This is an explicit operational modeling assumption and limitation, not an empirically verified physical property.
+  2. *Student-$t$ Finite-Sample Coverage:* Exact finite-sample validity under Student-$t$ requires Gaussian cluster outcomes. For non-Gaussian bounded rates or utilities, CLT-based inference across $K = 128$ is asymptotic and approximate; finite-sample $t$-intervals are not automatically guaranteed to be strictly conservative.
 - **Authorization Violations:** Absolute zero tolerance ($\text{Total Violations} == 0$).
 - If a comparator policy fails Gate 1, it is formally recorded as **Operationally Reckless / Safety-Disqualified**.
 - The candidate policy `cost_rule_v07_1` **must pass Gate 1** as an absolute prerequisite. If `cost_rule_v07_1` violates either criterion ($\text{UCB}_{0.95} > 0.050$ or $\text{Violations} > 0$), the confirmatory evaluation is declared an **immediate catastrophic failure**, regardless of utility gains.
