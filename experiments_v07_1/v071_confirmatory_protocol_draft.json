@@ -6,7 +6,9 @@
   "sealed": false,
   "created_at": "2026-11-06T23:15:00Z",
   "author": "CausaGuard Research Methodology & Statistical Planning Group",
-  "git_commit_baseline": "3450d6e5e20bd77e9557e056108fc2a5df242983",
+  "git_commit_baseline": "5e1d05be1703cf2be8beea266150247657ad51cf",
+  "reconciled_at": "2026-11-07T10:20:00Z",
+  "manifest_status": "PROPOSED_DRAFT_PRE_FREEZE",
   "historical_seal_dependencies": {
     "v052_identity_seal": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
     "v06_protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
@@ -29,7 +31,8 @@
     "operational_risk_threshold_r_limit": 0.050,
     "authorization_violation_tolerance": 0,
     "degrees_of_freedom": 127,
-    "critical_t_value_primary": 2.76007
+    "critical_t_value_primary": 2.758398,
+    "critical_t_value_rounded": 2.7584
   },
   "sample_allocation": {
     "cases_per_cluster": 400,
@@ -44,7 +47,9 @@
     "conditional_power_estimates_de_contrast_c1": {
       "point_variance_sd_00260": 0.999899,
       "upper_95_bound_sd_00403": 0.925253,
-      "mde_80_power_upper_sd": 0.027014
+      "mde_80_power_upper_sd": 0.027014,
+      "frechet_bonferroni_joint_power_conservative": 0.9252,
+      "frechet_bonferroni_joint_power_point": 0.9999
     }
   },
   "confirmatory_contrasts": {
@@ -99,8 +104,15 @@
   },
   "two_stage_gatekeeping_rules": {
     "gate_1_safety_compliance": {
-      "metric": "operational_risk",
+      "metric": "clustered_operational_risk",
       "threshold": 0.050,
+      "estimator": "cluster_sample_mean_r_bar",
+      "variance_method": "cluster_sample_variance_sr_squared",
+      "standard_error": "sr_over_sqrt_k",
+      "confidence_bound": "one_sided_95_percent_student_t_df_127",
+      "zero_event_bound_method": "clopper_pearson_cluster_exact",
+      "zero_event_cluster_ucb_095": 0.02314,
+      "authorization_violation_limit": 0,
       "mandatory_candidate_pass": true,
       "comparator_failure_consequence": "Recorded as Operationally Disqualified / Safety Violation"
     },
@@ -171,6 +183,8 @@
     "tests_v07_1/test_identity_preservation_v07_1.py": "43967d063971e0b902f0000b8daa90d320bff019efb7e439c9b98157cd915bd1",
     "tests_v07_1/test_policy_fairness_v07_1.py": "ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94",
     "tests_v07_1/test_study_v07_1.py": "a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f",
+    "tests_v07_1/test_confirmatory_runner_v07_1.py": "92b6135a5386b31161d23777d689fb59862b1c9f0604bcc591d3196745d3306b",
+    "experiments_v07_1/evaluate_confirmatory_v07_1.py": "b0aae881171a849e466848280737457f3093e9eed457a125158a33d8dc2b237a",
     "pyproject.toml": "1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049",
     "pytest_v07_1.ini": "de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98"
   }
