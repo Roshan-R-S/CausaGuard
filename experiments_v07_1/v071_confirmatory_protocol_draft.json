@@ -6,13 +6,25 @@
   "sealed": false,
   "created_at": "2026-11-06T23:15:00Z",
   "author": "CausaGuard Research Methodology & Statistical Planning Group",
-  "git_commit_baseline": "5e1d05be1703cf2be8beea266150247657ad51cf",
-  "reconciled_at": "2026-11-07T10:20:00Z",
-  "manifest_status": "PROPOSED_DRAFT_PRE_FREEZE",
+  "git_commit_baseline": "f7eb5e7e37a21b18881f9e912c4cb063b087fce3",
+  "git_commit_baseline_note": "Pre-freeze preparation baseline; not an approved final freeze commit.",
+  "reconciled_at": "2026-11-07T12:00:00Z",
+  "manifest_status": "PROPOSED_DRAFT_21_ASSET_MANIFEST",
   "historical_seal_dependencies": {
     "v052_identity_seal": "053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6",
     "v06_protocol_seal": "c0f217cae474758b216f052c317e52732011d77d31e28f32106d3321447c4ac0",
     "v06_amendment_01_seal": "a5cb7ab963f8e02c2e1fa850e17cfd6611dc63d39f91aa8b7140619fc615a781"
+  },
+  "authorization": {
+    "confirmatory_development_authorized": false,
+    "authorized_by": null,
+    "authorized_at": null,
+    "gate_decision_reference": "PRE-FREEZE-NO-GO",
+    "signer_identity": null,
+    "signature": null,
+    "signature_algorithm": null,
+    "authorization_governance_status": "UNRESOLVED_GOVERNANCE_DECISION",
+    "authorization_mechanism_note": "The production authorization mechanism (asymmetric signature vs multi-party threshold, key distribution, trusted signer identity registry) is an unresolved security/governance decision to be decided by independent scientific oversight. Production authorization is strictly disabled."
   },
   "scientific_architecture": {
     "primary_confirmatory_domain": "data_engineering",
@@ -128,7 +140,8 @@
   "methodological_assumptions_and_limitations": {
     "zero_event_bound_rounding": "Exact zero-event cluster upper bound 1 - 0.05^(1/128) is approximately 0.023132405; value 0.02314 is explicitly labeled conservative upward rounding.",
     "prng_cluster_independence": "Distinct PRNG seeds alone do not establish independent sampling clusters; inter-cluster independence is an operational simulation modeling assumption, not physically verified random sampling.",
-    "student_t_finite_sample_exactness_vs_clt": "Exact finite-sample Student-t coverage requires Gaussian cluster outcomes. For non-Gaussian bounded utilities, CLT-based inference across K=128 is approximate and not automatically conservative in finite samples."
+    "student_t_finite_sample_exactness_vs_clt": "Exact finite-sample Student-t coverage requires Gaussian cluster outcomes. For non-Gaussian bounded utilities, CLT-based inference across K=128 is approximate and not automatically conservative in finite samples.",
+    "historical_v052_dynamic_provenance": "Historical v0.5.2 dynamic regeneration remains unresolved due to an exact hash mismatch on historical tests/test_v052_study.py; v0.5.2 is bound exclusively via identity seal 053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6 as an immutable frozen benchmark only."
   },
   "seed_allocation_registry": {
     "historical_exploratory_v07": {
@@ -176,6 +189,12 @@
       "status": "reserved_external_lab_replication"
     }
   },
+  "manifest_architecture": {
+    "total_mandatory_assets": 21,
+    "core_codebase_assets": 19,
+    "protocol_specification_assets": 2,
+    "detached_seal_file": "experiments_v07_1/v071_protocol_seal.json"
+  },
   "codebase_immutability_bindings": {
     "src_v07_1/causaguard_v07_1/__init__.py": "1056a3635a314a1317eee1f52757f6804f65d6fa4f3c7a74a4eb9518116d6507",
     "src_v07_1/causaguard_v07_1/domain_cs.py": "6098fadf98345bcf02d69c0c2d68829800e0346598fac8629efe1113d879995c",
@@ -191,9 +210,13 @@
     "tests_v07_1/test_policy_fairness_v07_1.py": "ea5cba067fe4e3f487d282f9d8ad2f580eae975e29e05cf1e119bdfb7e2e2e94",
     "tests_v07_1/test_study_v07_1.py": "a4cc83527c34bdbbf8f8890a8bd3e03eaaa4de6b41029f615ef2f6c42758590f",
     "tests_v07_1/test_confirmatory_runner_v07_1.py": "92b6135a5386b31161d23777d689fb59862b1c9f0604bcc591d3196745d3306b",
-    "experiments_v07_1/evaluate_confirmatory_v07_1.py": "b0aae881171a849e466848280737457f3093e9eed457a125158a33d8dc2b237a",
+    "experiments_v07_1/evaluate_confirmatory_v07_1.py": "888b3a385e95bed3886c968d83c874a61f3cf424ae53e764a3870bf857a6ec3c",
     "pyproject.toml": "1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049",
-    "pytest_v07_1.ini": "de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98"
+    "pytest_v07_1.ini": "de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98",
+    "experiments_v07_1/verify_seal_v07_1.py": "baa15a9de52d5ca8170567bd618bae44cae38bfc55f27f8ed24c55fdb1ee0339",
+    "tests_v07_1/test_seal_verifier_v07_1.py": "ee38adb0f9f739c499973c82d41eb4219f7aabc3c60cee5ade03fc92fb770f64",
+    "research/methodology/v071-confirmatory-statistical-protocol-draft.md": "bound_in_detached_seal_manifest_at_freeze_time",
+    "experiments_v07_1/v071_confirmatory_protocol_draft.json": "bound_in_detached_seal_manifest_at_freeze_time"
   }
 }
 

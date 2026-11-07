@@ -3,7 +3,7 @@
 **Document ID:** `PROT-CG-071-DRAFT-01`  
 **Study Version:** `0.7.1-confirmatory-draft`  
 **Protocol Status:** PROSPECTIVE DRAFT — RECONCILED PRE-FREEZE SPECIFICATION (PACKAGE 6J-A)
-**Commit Baseline:** [`5e1d05b`](file:///d:/causaguard) (Post-Package 6I-ENG / v0.7.1-alpha.1 baseline; previously [`3450d6e`](file:///d:/causaguard))
+**Commit Baseline:** [`f7eb5e7`](file:///d:/causaguard) (`security(v071): add fail-closed protocol seal verification` — Pre-freeze preparation baseline; not an approved final freeze commit; previously [`5e1d05b`](file:///d:/causaguard) and [`3450d6e`](file:///d:/causaguard))
 **Target Evaluation Engine:** Isolated v0.7.1 CausaGuard Engine (`src_v07_1/causaguard_v07_1/`)  
 **Primary Confirmatory Domain:** Data Engineering Batch Pipeline Supervision (`de`)  
 **Secondary Boundary Domain:** Customer Support Record Resolution (`cs`)  
@@ -139,6 +139,7 @@ In automated data engineering and AI agent supervision, a policy that achieves h
 - **Methodological Assumptions & Limitations on Cluster Sampling:**
   1. *PRNG Cluster Independence Assumption:* In simulation experiments, clusters are instantiated with distinct integer seeds. Distinct PRNG seeds alone do not establish independent sampling clusters in a physical or measure-theoretic sense. Algorithmic pseudo-random sequences may exhibit unobserved inter-sequence cross-talk or generator cycle overlaps. The statistical inference model *assumes* that the generator produces sequences with negligible inter-cluster correlation under the designated simulators. This is an explicit operational modeling assumption and limitation, not an empirically verified physical property.
   2. *Student-$t$ Finite-Sample Coverage:* Exact finite-sample validity under Student-$t$ requires Gaussian cluster outcomes. For non-Gaussian bounded rates or utilities, CLT-based inference across $K = 128$ is asymptotic and approximate; finite-sample $t$-intervals are not automatically guaranteed to be strictly conservative.
+  3. *Historical v0.5.2 Dynamic Provenance Limitation:* Dynamic regeneration of v0.5.2 from scratch remains unresolved due to an exact hash mismatch on historical `tests/test_v052_study.py` documented in Package 6B/6C. The confirmatory study binds v0.5.2 exclusively via identity seal `053dea360aeae5917ea8c5e24eec04781479ccc455d5f1657d142437987218e6` as an immutable frozen benchmark only.
 - **Authorization Violations:** Absolute zero tolerance ($\text{Total Violations} == 0$).
 - If a comparator policy fails Gate 1, it is formally recorded as **Operationally Reckless / Safety-Disqualified**.
 - The candidate policy `cost_rule_v07_1` **must pass Gate 1** as an absolute prerequisite. If `cost_rule_v07_1` violates either criterion ($\text{UCB}_{0.95} > 0.050$ or $\text{Violations} > 0$), the confirmatory evaluation is declared an **immediate catastrophic failure**, regardless of utility gains.
@@ -249,7 +250,7 @@ A future formal protocol freeze will bind the exact code, runner, test, and conf
 
 ```
 ========================================================================================
-             PROPOSED PRE-FREEZE IMMUTABILITY MANIFEST (17 BOUND FILES)
+             PROPOSED PRE-FREEZE IMMUTABILITY MANIFEST (21 ASSETS)
 ========================================================================================
   [CORE POLICY & SIMULATOR ENGINE]
   src_v07_1/causaguard_v07_1/__init__.py:       1056a3635a314a1317eee1f52757f6804f65d6fa4f3c7a74a4eb9518116d6507
@@ -270,11 +271,19 @@ A future formal protocol freeze will bind the exact code, runner, test, and conf
   tests_v07_1/test_confirmatory_runner_v07_1.py: 92b6135a5386b31161d23777d689fb59862b1c9f0604bcc591d3196745d3306b
 
   [CONFIRMATORY EVALUATION RUNNER]
-  experiments_v07_1/evaluate_confirmatory_v07_1.py: b0aae881171a849e466848280737457f3093e9eed457a125158a33d8dc2b237a
+  experiments_v07_1/evaluate_confirmatory_v07_1.py: 888b3a385e95bed3886c968d83c874a61f3cf424ae53e764a3870bf857a6ec3c
 
   [CONFIGURATION & RUNTIME SPECIFICATIONS]
   pyproject.toml:                               1141251febe3c6fed044f1a8a77df2dafd4ad3ecc1bca3e0df4a9daa38430049
   pytest_v07_1.ini (LF normalized):             de3933f9821209828c85d2b201d3a69cef9dcfcf8560e5afe5bae27c2c854a98
+
+  [SECURITY VERIFIER INFRASTRUCTURE]
+  experiments_v07_1/verify_seal_v07_1.py:       baa15a9de52d5ca8170567bd618bae44cae38bfc55f27f8ed24c55fdb1ee0339
+  tests_v07_1/test_seal_verifier_v07_1.py:      ee38adb0f9f739c499973c82d41eb4219f7aabc3c60cee5ade03fc92fb770f64
+
+  [PROSPECTIVE PROTOCOL SPECIFICATIONS]
+  research/methodology/v071-confirmatory-statistical-protocol-draft.md: (Bound in detached seal experiments_v07_1/v071_protocol_seal.json at freeze time)
+  experiments_v07_1/v071_confirmatory_protocol_draft.json:              (Bound in detached seal experiments_v07_1/v071_protocol_seal.json at freeze time)
 ========================================================================================
 ```
 
@@ -301,6 +310,14 @@ The confirmatory experiment is designed with complete decisional symmetry:
 2. **Negative Boundary Finding (Heuristic Equivalence):** If candidate fails to reject $H_{0, 3}$ against `cost_sensitive_symmetric_heuristic` while passing Gate 1, the result is reported as a **Negative Finding for VOI Complexity**: proving that simple deterministic heuristics capture the economic value of sequential intervention without Bayesian computation.
 3. **Negative Safety Finding (Overconfidence):** If candidate fails Gate 1 ($R > 0.050$), the result is reported as a **Safety Disqualification**: proving that analytical VOI overestimates model certainty in high-hazard environments.
 4. **Inconclusive Finding:** If $\bar{d}_j > +0.015$ but the lower confidence bound fails to clear $+0.015$ due to observed variance, the finding is reported as **Statistically Underpowered / Inconclusive**.
+
+---
+
+## 9. Independent Approval & Prospective Sealing Governance (Unresolved)
+
+1. **Production Authorization Disabled:** Production execution remains fail-closed locked (`confirmatory_development_authorized: false`, `PRODUCTION_AUTHORIZATION_ENABLED = False`).
+2. **Unresolved Governance Decision:** The specific production cryptographic authorization mechanism (e.g., asymmetric Ed25519 digital signature, multi-party threshold key management, trusted signer identity registry) is an unresolved security and governance decision to be formally established by independent scientific oversight. No production signing keys are provisioned, hardcoded, or committed.
+3. **Detached Seal Architecture:** At formal freeze time, a detached seal file (`experiments_v07_1/v071_protocol_seal.json`) will bind all 21 manifest assets and the canonical digest, preventing circular self-hashing.
 
 ---
 
