@@ -107,58 +107,50 @@ def get_git_commit_hash() -> str:
         return "UNKNOWN_COMMIT"
 
 
-def verify_protocol_seal(seal_path: Path | None = None) -> dict[str, Any]:
+def verify_protocol_seal(
+    seal_path: Path | None = None,
+    allow_synthetic_fixture: bool = False,
+    trusted_signers: dict[str, dict[str, str]] | None = None,
+    pre_freeze_mode: bool = False,
+) -> dict[str, Any]:
     """Verifies that an authoritative prospective protocol seal exists and is valid.
 
-    Raises ExecutionLockError if the seal is missing, invalid, or unverified.
+    Delegates strictly to the authoritative verifier module (experiments_v07_1.verify_seal_v07_1),
+    eliminating the weaker duplicate validation path (SEC-04).
+
+    Raises:
+        ExecutionLockError: If seal is missing, malformed, incomplete, mismatched,
+                            unauthorized, or forged.
+        SecurityViolationError: If path traversal or directory escape is attempted.
     """
+    from experiments_v07_1.verify_seal_v07_1 import (
+        SealVerificationError,
+        verify_seal,
+    )
+    from experiments_v07_1.verify_seal_v07_1 import (
+        SecurityViolationError as VerifierSecurityViolationError,
+    )
+
     if seal_path is None:
         seal_path = ROOT / "experiments_v07_1" / "v071_protocol_seal.json"
 
-    if not seal_path.exists():
-        raise ExecutionLockError(
-            f"EXECUTION LOCK: Confirmatory evaluation blocked. No valid protocol seal file "
-            f"found at '{seal_path}'. Actual confirmatory evaluation seeds cannot be executed "
-            f"without an independently verified cryptographic protocol seal."
-        )
-
     try:
-        with open(seal_path, "r", encoding="utf-8") as f:
-            seal_data = json.load(f)
+        return verify_seal(
+            seal_path=seal_path,
+            root_dir=ROOT,
+            require_authorized=True,
+            enforce_mandatory_manifest=True,
+            pre_freeze_mode=pre_freeze_mode,
+            trusted_signers=trusted_signers,
+            allow_synthetic_fixture=allow_synthetic_fixture,
+            raise_on_error=True,
+        )
+    except VerifierSecurityViolationError as e:
+        raise SecurityViolationError(f"EXECUTION LOCK SECURITY VIOLATION: {e}") from e
+    except SealVerificationError as e:
+        raise ExecutionLockError(f"EXECUTION LOCK: {e}") from e
     except Exception as e:
-        raise ExecutionLockError(
-            f"EXECUTION LOCK: Failed to read protocol seal at '{seal_path}': {e}"
-        ) from e
-
-    # Verify authorization
-    auth = seal_data.get("authorization", {})
-    if not auth.get("confirmatory_development_authorized", False):
-        raise ExecutionLockError(
-            "EXECUTION LOCK: Protocol seal exists but explicit confirmatory development "
-            "authorization token is missing or false."
-        )
-
-    # Verify file hashes bound in seal
-    file_hashes = seal_data.get("file_hashes", {})
-    if not file_hashes:
-        raise ExecutionLockError(
-            "EXECUTION LOCK: Protocol seal manifest does not contain required file hashes."
-        )
-
-    for rel_path, expected_hash in file_hashes.items():
-        target = ROOT / rel_path
-        if not target.exists():
-            raise ExecutionLockError(
-                f"EXECUTION LOCK: Sealed dependency '{rel_path}' is missing on disk."
-            )
-        actual_hash = sha256_file(target)
-        if actual_hash != expected_hash:
-            raise ExecutionLockError(
-                f"EXECUTION LOCK: Sealed dependency '{rel_path}' hash mismatch! "
-                f"Expected: {expected_hash}, Actual: {actual_hash}"
-            )
-
-    return seal_data
+        raise ExecutionLockError(f"EXECUTION LOCK UNEXPECTED ERROR: {e}") from e
 
 
 def assert_execution_authorized(
@@ -166,6 +158,7 @@ def assert_execution_authorized(
     domain: str,
     seal_path: Path | None = None,
     allow_synthetic_fixture: bool = False,
+    trusted_signers: dict[str, dict[str, str]] | None = None,
 ) -> None:
     """Enforces execution lock and strict seed quarantine rules.
 
@@ -211,7 +204,11 @@ def assert_execution_authorized(
             )
 
     # Attempting to execute actual confirmatory development seeds requires formal seal verification
-    verify_protocol_seal(seal_path=seal_path)
+    verify_protocol_seal(
+        seal_path=seal_path,
+        allow_synthetic_fixture=allow_synthetic_fixture,
+        trusted_signers=trusted_signers,
+    )
 
 
 def compute_clustered_operational_risk(
