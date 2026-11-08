@@ -83,6 +83,7 @@ class AuthToken:
     revoke_after_attempts: int | None = None
     max_attempts: int = 32
     expiration_step: int | None = None
+    repair_authorized: bool = False  # Explicit authorization for state-modifying escalation repair
 
 
 @dataclass(frozen=True)
@@ -189,6 +190,8 @@ def evaluate_independent_contract(
         pass
     elif request.action not in token.allowed_actions:
         return GateOutcome(PolicyDecision.DENY, f"action_{request.action}_not_in_allowlist", "AUTH-09-ACTION-ALLOWLIST")
+    elif request.action == "escalate" and request.escalation_is_repair and not getattr(token, "repair_authorized", False):
+        return GateOutcome(PolicyDecision.DENY, "repair_authority_denied", "AUTH-09B-REPAIR-AUTHORITY")
 
     # 10. Attempt quota limit
     if attempt >= token.max_attempts:
