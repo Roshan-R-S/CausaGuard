@@ -1,0 +1,756 @@
+{
+  "baseline": "cfa841ad5fd6dd5ad300b60554a6570b840a66db",
+  "cases": [
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "posterior": null
+      },
+      "classification": "PASS",
+      "difference": {
+        "posterior_increase": 0.16441538329174915
+      },
+      "hypothesis": "Bayes posterior responds to schema likelihood",
+      "id": "A1",
+      "inputs": {
+        "evidence": "pass",
+        "fn": [
+          0.02,
+          0.8
+        ],
+        "fp": 0.02,
+        "prior_schema": 0.2
+      },
+      "interpretation": "Reference algebra matches hand fractions 1/197 and 10/59; no candidate posterior inferred.",
+      "minimization": "Two states and one binary observation are minimal for informative Bayesian updating.",
+      "reference": {
+        "posterior": [
+          0.005076142131979695,
+          0.16949152542372883
+        ]
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case A1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "numeric_voi": null,
+        "posterior": null,
+        "return_type": "action string"
+      },
+      "classification": "INCONCLUSIVE",
+      "difference": {
+        "posterior_error": null
+      },
+      "hypothesis": "Candidate exposes a posterior suitable for numerical consistency comparison",
+      "id": "B0",
+      "inputs": {
+        "apply_cost": 0.02,
+        "budget": 2,
+        "column_count_changed": 0,
+        "data_age_hours": 24.0,
+        "deadline_hours": 4.0,
+        "escalation_cost": 0.5,
+        "harm": 5.0,
+        "observation_delay": 0.1,
+        "pipeline_load": 0.2,
+        "quoted_fn_schema": 0.02,
+        "quoted_fp_schema": 0.02,
+        "restore_cost": 0.45,
+        "schema_alarm": 0.5,
+        "source_quality": 0.8,
+        "time_cost_per_hour": 0.02,
+        "value": 1.5,
+        "verify_cost": 0.1
+      },
+      "interpretation": "Implementation gap: select returns only an action. No invented internal posterior or Q value.",
+      "minimization": "One public observation suffices; inspected _select_de source supplies no Bayes posterior.",
+      "reference": {
+        "posterior": [
+          0.7539652493617457,
+          0.02012638242649424,
+          0.1471884351343647,
+          0.003929054736646286,
+          0.06094808397158761,
+          0.0016269509068390945,
+          0.011898231532301965,
+          0.000317611930020381
+        ]
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case B0"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "action": "proceed",
+        "low_fn_action": "proceed",
+        "posterior": null
+      },
+      "classification": "FAIL",
+      "difference": {
+        "proceed_risk_excess": 0.006332787334705568
+      },
+      "hypothesis": "Passing evidence leaves a risk-feasible candidate continuation",
+      "id": "B1",
+      "inputs": {
+        "evidence": [
+          true,
+          0.95,
+          0.3
+        ],
+        "observation": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.8,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        }
+      },
+      "interpretation": "False-negative schema risk is not erased by a passing check.",
+      "minimization": {
+        "base": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "deletion_minimal_overrides": {
+          "quoted_fn_schema": 0.8
+        }
+      },
+      "reference": {
+        "action": "restore",
+        "posterior_schema": 0.06190416190626986,
+        "prior_schema": 0.07479087834074905,
+        "terminal_values": {
+          "escalate": {
+            "cost": 1.455,
+            "feasible": true,
+            "risk": 0.00194069547576156,
+            "utility": -0.48365069302521624
+          },
+          "proceed": {
+            "cost": 0.135,
+            "feasible": false,
+            "risk": 0.05633278733470557,
+            "utility": 0.8305438610304674
+          },
+          "restore": {
+            "cost": 0.5715,
+            "feasible": true,
+            "risk": 0.0,
+            "utility": 0.019090229319423724
+          }
+        }
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case B1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "actions_at_fee_0_and_1": [
+          "verify",
+          "restore"
+        ],
+        "numeric_voi": null
+      },
+      "classification": "PASS",
+      "difference": {
+        "net_slope": -1.0000000000000009
+      },
+      "hypothesis": "Verification fee reduces net value dollar-for-dollar, not gross EVSI",
+      "id": "C1",
+      "inputs": {
+        "base": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "fee_increment": 0.17
+      },
+      "interpretation": "Reference cost law and candidate qualitative switch pass; candidate numeric VOI remains unavailable.",
+      "minimization": "Two fee settings; all other public fields and transitions identical.",
+      "reference": {
+        "base_net_gain": 0.7552979634155359,
+        "expensive_net_gain": 0.5852979634155357,
+        "gross_evsi": [
+          0.8682979634155359,
+          0.8682979634155359
+        ]
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case C1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "candidate_numeric_cost": null,
+        "executor_cost": 0.27
+      },
+      "classification": "FAIL",
+      "difference": {
+        "extra_time_charge": 0.06
+      },
+      "hypothesis": "Verify-prefix time is charged once across the continuation",
+      "id": "D1",
+      "inputs": {
+        "check_latency": 0.30000000000000004,
+        "clean_witness": true,
+        "observation": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.2,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "terminal_duration": 0.15
+      },
+      "interpretation": "Executor matches the repeated-prefix reference, not incremental cost accounting. This is a scoring-contract discrepancy.",
+      "minimization": "One clean latent state; verify then proceed; positive prefix duration and time price are necessary.",
+      "reference": {
+        "executor_contract_cost": 0.27,
+        "incremental_cost": 0.21000000000000002
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case D1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "action": "restore",
+        "numeric_voi": null
+      },
+      "classification": "FAIL",
+      "difference": {
+        "reference_value_lost_by_direct_action": 0.055297963415536
+      },
+      "hypothesis": "Candidate selects the exact expected-utility/VOI argmax",
+      "id": "E1",
+      "inputs": {
+        "apply_cost": 0.02,
+        "budget": 2,
+        "column_count_changed": 0,
+        "data_age_hours": 24.0,
+        "deadline_hours": 4.0,
+        "escalation_cost": 0.5,
+        "harm": 5.0,
+        "observation_delay": 0.1,
+        "pipeline_load": 0.2,
+        "quoted_fn_schema": 0.02,
+        "quoted_fp_schema": 0.02,
+        "restore_cost": 0.45,
+        "schema_alarm": 0.5,
+        "source_quality": 0.8,
+        "time_cost_per_hour": 0.02,
+        "value": 1.5,
+        "verify_cost": 0.8
+      },
+      "interpretation": "Counterexample to exactness, not an empirical superiority estimate. Divergent priors/continuations can both contribute.",
+      "minimization": {
+        "base": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "deletion_minimal_overrides": {
+          "verify_cost": 0.8
+        }
+      },
+      "reference": {
+        "action": "verify",
+        "direct_utility": 0.12616492629816567,
+        "gross_evsi": 0.8682979634155359,
+        "net_gain": 0.055297963415536,
+        "verification_utility": 0.18146288971370167
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case E1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "action": "verify",
+        "numeric_voi": null
+      },
+      "classification": "FAIL",
+      "difference": {
+        "net_verification_gain_under_reference": -0.11299999999999989
+      },
+      "hypothesis": "Verification is selected only when its admissible continuation has positive net gain",
+      "id": "E2",
+      "inputs": {
+        "apply_cost": 0.02,
+        "budget": 2,
+        "column_count_changed": 0,
+        "data_age_hours": 24.0,
+        "deadline_hours": 4.0,
+        "escalation_cost": 0.5,
+        "harm": 5.0,
+        "observation_delay": 0.1,
+        "pipeline_load": 0.2,
+        "quoted_fn_schema": 0.8,
+        "quoted_fp_schema": 0.02,
+        "restore_cost": 0.45,
+        "schema_alarm": 0.5,
+        "source_quality": 0.8,
+        "time_cost_per_hour": 0.02,
+        "value": 1.5,
+        "verify_cost": 0.1
+      },
+      "interpretation": "With calibrated high FN, all risk-feasible evidence branches restore; checking wastes its fee and time.",
+      "minimization": {
+        "base": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "deletion_minimal_overrides": {
+          "quoted_fn_schema": 0.8
+        }
+      },
+      "reference": {
+        "action": "restore",
+        "gross_evsi": 0.6561980680190971,
+        "net_gain": -0.11299999999999989,
+        "verification_utility": 0.013164926298165774
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case E2"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "action": "verify",
+        "numeric_voi": null
+      },
+      "classification": "FAIL",
+      "difference": {
+        "net_verification_gain_under_reference": -0.11299999999999988
+      },
+      "hypothesis": "Exact VOI action choice holds at nominal-equation-consistent public inputs",
+      "id": "E3",
+      "inputs": {
+        "apply_cost": 0.02,
+        "budget": 2,
+        "column_count_changed": 0,
+        "data_age_hours": 24.0,
+        "deadline_hours": 3.9,
+        "escalation_cost": 0.5,
+        "harm": 5.0,
+        "observation_delay": 0.1,
+        "pipeline_load": 0.2,
+        "quoted_fn_schema": 0.055999999999999994,
+        "quoted_fp_schema": 0.026999999999999996,
+        "restore_cost": 0.44,
+        "schema_alarm": 0.8,
+        "source_quality": 0.8,
+        "time_cost_per_hour": 0.02,
+        "value": 1.5,
+        "verify_cost": 0.1
+      },
+      "interpretation": "Rates obey nominal source-quality equations and continuous covariates are interior to their supports. No sampled cases or rare-event frequency claim.",
+      "minimization": {
+        "base": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 3.9,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.055999999999999994,
+          "quoted_fp_schema": 0.026999999999999996,
+          "restore_cost": 0.44,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "deletion_minimal_overrides": {
+          "schema_alarm": 0.8
+        }
+      },
+      "reference": {
+        "action": "restore",
+        "direct_utility": -0.19543412905964153,
+        "gross_evsi": 8.326672684688674e-17,
+        "net_gain": -0.11299999999999988,
+        "verification_utility": -0.3084341290596414
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case E3"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "budget": 2,
+        "case_argument": false,
+        "public_fields": [
+          "pipeline_load",
+          "schema_alarm",
+          "data_age_hours",
+          "source_quality",
+          "column_count_changed",
+          "quoted_fp_schema",
+          "quoted_fn_schema",
+          "observation_delay",
+          "deadline_hours",
+          "value",
+          "harm",
+          "apply_cost",
+          "verify_cost",
+          "restore_cost",
+          "escalation_cost",
+          "time_cost_per_hour",
+          "budget"
+        ]
+      },
+      "classification": "PASS",
+      "difference": {
+        "observation_field_difference": []
+      },
+      "hypothesis": "Per-decision public observations and operation constraints are identical",
+      "id": "F1",
+      "inputs": {
+        "apply_cost": 0.02,
+        "budget": 2,
+        "column_count_changed": 0,
+        "data_age_hours": 24.0,
+        "deadline_hours": 4.0,
+        "escalation_cost": 0.5,
+        "harm": 5.0,
+        "observation_delay": 0.1,
+        "pipeline_load": 0.2,
+        "quoted_fn_schema": 0.02,
+        "quoted_fp_schema": 0.02,
+        "restore_cost": 0.45,
+        "schema_alarm": 0.5,
+        "source_quality": 0.8,
+        "time_cost_per_hour": 0.02,
+        "value": 1.5,
+        "verify_cost": 0.1
+      },
+      "interpretation": "Adapter copies public fields only. Reference has correct specified model knowledge; this is not matched-training empirical policy comparison.",
+      "minimization": "One observation; source/import isolation and poisoned-generator tests audit the boundary.",
+      "reference": {
+        "budget": 2,
+        "public_fields": [
+          "pipeline_load",
+          "schema_alarm",
+          "data_age_hours",
+          "source_quality",
+          "column_count_changed",
+          "quoted_fp_schema",
+          "quoted_fn_schema",
+          "observation_delay",
+          "deadline_hours",
+          "value",
+          "harm",
+          "apply_cost",
+          "verify_cost",
+          "restore_cost",
+          "escalation_cost",
+          "time_cost_per_hour",
+          "budget"
+        ]
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case F1"
+    },
+    {
+      "assumptions": [
+        "IID single episode, calibrated quoted schema likelihoods, separated content scores",
+        "Authorized throughout and capacity available unless explicitly overridden",
+        "Common legal actions and operation budgets; conditional risk limit 0.050",
+        "Executor cost contract; no actual case truth passed to either selector"
+      ],
+      "candidate": {
+        "modeled_completion": 1,
+        "reported_allowed": true,
+        "reported_violations": 0
+      },
+      "classification": "FAIL",
+      "difference": {
+        "missed_violations": 1
+      },
+      "hypothesis": "Revocation after verify prevents subsequent execution and is graded independently",
+      "id": "G1",
+      "inputs": {
+        "actions": [
+          "verify",
+          "proceed"
+        ],
+        "clean_draws": [
+          0.9,
+          0.9,
+          0.9,
+          0.5,
+          0.9,
+          0.9,
+          0.1,
+          0.1,
+          0.9,
+          0.9,
+          0.9,
+          0.0
+        ],
+        "observation": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        },
+        "revoke_after_attempts": 1
+      },
+      "interpretation": "Independent attempt-index contract detects unauthorized modeled effect; executor reuses attempt zero.",
+      "minimization": "Two steps are minimal for between-step revocation; one clean state, one affected resource.",
+      "reference": {
+        "events": [
+          {
+            "attempt": 0,
+            "executed": true,
+            "permitted": true,
+            "requested_action": "verify",
+            "resource": "resource",
+            "side_effect": false
+          },
+          {
+            "attempt": 1,
+            "executed": true,
+            "permitted": false,
+            "requested_action": "proceed",
+            "resource": "resource",
+            "side_effect": true
+          }
+        ],
+        "unauthorized_effects": 1,
+        "unauthorized_executions": 1,
+        "unauthorized_requests": 1
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case G1"
+    },
+    {
+      "assumptions": [
+        "Escalation is graded as repair because executor reports completed_transform",
+        "If it is notification-only, independent human authorization is absent from this simulator",
+        "Witnesses are modeled transition outputs, not production-side-effect telemetry"
+      ],
+      "candidate": {
+        "modeled_completion": 1,
+        "reported_violations": 0
+      },
+      "classification": "FAIL",
+      "difference": {
+        "missed_violations": 1
+      },
+      "hypothesis": "Escalation repair effects require independent authorization",
+      "id": "G2",
+      "inputs": {
+        "actions": [
+          "escalate"
+        ],
+        "authorized": false,
+        "clean_draws": [
+          0.9,
+          0.9,
+          0.9,
+          0.5,
+          0.9,
+          0.9,
+          0.1,
+          0.1,
+          0.9,
+          0.9,
+          0.9,
+          0.0
+        ],
+        "observation": {
+          "apply_cost": 0.02,
+          "budget": 2,
+          "column_count_changed": 0,
+          "data_age_hours": 24.0,
+          "deadline_hours": 4.0,
+          "escalation_cost": 0.5,
+          "harm": 5.0,
+          "observation_delay": 0.1,
+          "pipeline_load": 0.2,
+          "quoted_fn_schema": 0.02,
+          "quoted_fp_schema": 0.02,
+          "restore_cost": 0.45,
+          "schema_alarm": 0.5,
+          "source_quality": 0.8,
+          "time_cost_per_hour": 0.02,
+          "value": 1.5,
+          "verify_cost": 0.1
+        }
+      },
+      "interpretation": "Fails the repair-effect contract. A notification-only contract cannot explain a repair completion; external human authority remains unresolved.",
+      "minimization": "One denied action and one modeled repair effect; cannot remove the only action.",
+      "reference": {
+        "events": [
+          {
+            "attempt": 0,
+            "executed": true,
+            "permitted": false,
+            "requested_action": "escalate",
+            "resource": "resource",
+            "side_effect": true
+          }
+        ],
+        "unauthorized_effects": 1,
+        "unauthorized_executions": 1,
+        "unauthorized_requests": 1
+      },
+      "reproduce": ".venv\\Scripts\\python.exe -B -m research.experiments.de_voi_exp01.experiment --case G2"
+    }
+  ],
+  "experiment": "DE Bayesian VOI Falsification 01",
+  "hashes_are_authorization": false,
+  "production_authorization_modified": false,
+  "python_version": "3.12.13",
+  "scope": "Eight-state reference plus analytic timing integration; no external causal validation",
+  "seed_generation": false,
+  "source_sha256": {
+    "research/experiments/de_voi_exp01/authorization.py": "da3c2a153e82e02b344a676f461d86dcb332f7b0bd3481038461417e17f47eb0",
+    "research/experiments/de_voi_exp01/experiment.py": "1c6642aad69fdcb770d5fd880068fbb6f41b29212f1635f8da8e44043381ab4c",
+    "research/experiments/de_voi_exp01/reference.py": "4f2392bdf438110c399fa839c561785c7531749c2726db503a82b66987fca0bf",
+    "src_v07_1/causaguard_v07_1/domain_de.py": "9c9309b2ae00354ccf73417138224dc83e0c72ee68d352cf47eb9f2ee255fb0e",
+    "src_v07_1/causaguard_v07_1/escalation.py": "18a612b9233a7ebaf0c341b4d47f7ff9fc59f8b6716fefdc3ed7febdb077574e",
+    "src_v07_1/causaguard_v07_1/policy_v07_1.py": "8cd42ee3063729ef71b2104c1a07ebfa4c97f5b098cd4c022fda3d666a9ac5bf"
+  },
+  "status": "PRE-FREEZE NO-GO"
+}

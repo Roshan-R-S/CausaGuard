@@ -1,0 +1,178 @@
+{
+  "benchmark_comparisons": {
+    "A_correct_point": {
+      "description": "Point-estimate Bayes with correctly specified likelihood (generating_inside)",
+      "false_safety_qualification": false,
+      "inconclusive": false,
+      "qualifies": false,
+      "risk": {
+        "exact": "21/400",
+        "value": 0.0525
+      },
+      "scenario": "A_correct_point_estimate",
+      "unnecessary_rejection": false
+    },
+    "B_misspecified_point": {
+      "assumed_qualifies": true,
+      "assumed_risk": {
+        "exact": "91/2060",
+        "value": 0.0441747572815534
+      },
+      "description": "Point-estimate Bayes with assumed FN=0.20 vs true FN=0.24",
+      "false_safety_qualification": true,
+      "inconclusive": false,
+      "scenario": "B_misspecified_point_estimate",
+      "true_qualifies": false,
+      "true_risk": {
+        "exact": "21/400",
+        "value": 0.0525
+      },
+      "unnecessary_rejection": false
+    },
+    "C_credal_inside": {
+      "bounds": {
+        "disqualified": false,
+        "inconclusive": true,
+        "lower_posterior": {
+          "exact": "17/413",
+          "value": 0.04116222760290557
+        },
+        "lower_risk": {
+          "exact": "221/5900",
+          "value": 0.03745762711864407
+        },
+        "qualifies": false,
+        "status": "defined",
+        "upper_posterior": {
+          "exact": "25/413",
+          "value": 0.06053268765133172
+        },
+        "upper_risk": {
+          "exact": "13/236",
+          "value": 0.05508474576271186
+        },
+        "width": {
+          "exact": "26/1475",
+          "value": 0.017627118644067796
+        }
+      },
+      "description": "Credal inference with true generating model inside [0.01, 0.03] x [0.17, 0.25]",
+      "encloses_truth": true,
+      "false_safety_qualification": false,
+      "inconclusive": true,
+      "scenario": "C_credal_true_model_inside",
+      "true_risk": {
+        "exact": "21/400",
+        "value": 0.0525
+      },
+      "unnecessary_rejection": false
+    },
+    "D_credal_outside": {
+      "bounds": {
+        "disqualified": false,
+        "inconclusive": false,
+        "lower_posterior": {
+          "exact": "1/23",
+          "value": 0.043478260869565216
+        },
+        "lower_risk": {
+          "exact": "91/2300",
+          "value": 0.03956521739130435
+        },
+        "qualifies": true,
+        "status": "defined",
+        "upper_posterior": {
+          "exact": "11/205",
+          "value": 0.05365853658536585
+        },
+        "upper_risk": {
+          "exact": "1001/20500",
+          "value": 0.04882926829268293
+        },
+        "width": {
+          "exact": "1092/117875",
+          "value": 0.009264050901378579
+        }
+      },
+      "description": "Credal inference with true model FN=0.24 outside [0.18, 0.22]",
+      "encloses_truth": false,
+      "false_safety_qualification": true,
+      "inconclusive": false,
+      "scenario": "D_credal_true_model_outside",
+      "true_risk": {
+        "exact": "21/400",
+        "value": 0.0525
+      },
+      "unnecessary_rejection": false
+    },
+    "E_dependence_aware_credal": {
+      "bounds": {
+        "disqualified": false,
+        "inconclusive": true,
+        "lower_posterior": {
+          "exact": "5/212",
+          "value": 0.02358490566037736
+        },
+        "lower_risk": {
+          "exact": "91/4240",
+          "value": 0.021462264150943395
+        },
+        "qualifies": false,
+        "status": "defined",
+        "upper_posterior": {
+          "exact": "5/68",
+          "value": 0.07352941176470588
+        },
+        "upper_risk": {
+          "exact": "91/1360",
+          "value": 0.06691176470588235
+        },
+        "width": {
+          "exact": "819/18020",
+          "value": 0.04544950055493896
+        }
+      },
+      "description": "Frechet copula bounds given marginals (no independence assumed)",
+      "encloses_truth": true,
+      "false_safety_qualification": false,
+      "inconclusive": true,
+      "scenario": "E_dependence_aware_frechet_credal",
+      "true_risk": {
+        "exact": "1183/21640",
+        "value": 0.05466728280961183
+      },
+      "unnecessary_rejection": false
+    },
+    "F_incorrect_independence": {
+      "description": "Naive multiplication of marginal likelihoods under shared latent cause",
+      "false_safety_qualification": true,
+      "inconclusive": false,
+      "naive_qualifies": true,
+      "naive_risk": {
+        "exact": "91/2216",
+        "value": 0.041064981949458484
+      },
+      "scenario": "F_incorrect_independence_point_estimate",
+      "true_qualifies": false,
+      "true_risk": {
+        "exact": "1183/21640",
+        "value": 0.05466728280961183
+      },
+      "unnecessary_rejection": false
+    }
+  },
+  "experiment": "Experiment 04: Robust Bayesian Risk Bounds",
+  "grid_coverage_summary": {
+    "enclosed_count": 96,
+    "false_safety_qualifications": 0,
+    "inconclusive_count": 20,
+    "max_risk_bound_width": {
+      "exact": "91/100",
+      "value": 0.91
+    },
+    "scenarios_evaluated": 98,
+    "unnecessary_rejections": 0
+  },
+  "status": "EXPLORATORY PRE-FREEZE NO-GO",
+  "theorem_guarantee_verified": true
+}

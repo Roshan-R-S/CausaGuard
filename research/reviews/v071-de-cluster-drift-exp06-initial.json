@@ -1,0 +1,393 @@
+{
+  "metadata": {
+    "experiment": "Experiment 06: Cluster-Robust Calibration and Sequential Drift Detection",
+    "version": "1.0.0-PROSPECTIVE",
+    "status": "EXPLORATORY RESEARCH ONLY - PRE-FREEZE NO-GO",
+    "seed_base": 50200001,
+    "runtime_seconds": 12.34
+  },
+  "calibration_benchmark": {
+    "method_a": {
+      "param_coverage": 0.4167,
+      "param_coverage_ci": [
+        0.3623,
+        0.4732
+      ],
+      "risk_coverage": 0.6833,
+      "fsq_rate": 0.1067,
+      "abstain_rate": 0.6633,
+      "disqualify_rate": 0.23,
+      "mean_fp_width": 0.0202,
+      "mean_fn_width": 0.0869,
+      "mean_utility": -10.9983,
+      "mean_runtime_ms": 0.182
+    },
+    "method_b": {
+      "param_coverage": 0.88,
+      "param_coverage_ci": [
+        0.8383,
+        0.912
+      ],
+      "risk_coverage": 0.9967,
+      "fsq_rate": 0.0,
+      "abstain_rate": 0.99,
+      "disqualify_rate": 0.01,
+      "mean_fp_width": 0.0488,
+      "mean_fn_width": 0.2116,
+      "mean_utility": -0.495,
+      "mean_runtime_ms": 0.167
+    },
+    "method_c": {
+      "param_coverage": 0.8133,
+      "param_coverage_ci": [
+        0.7654,
+        0.8534
+      ],
+      "risk_coverage": 0.9867,
+      "fsq_rate": 0.0033,
+      "abstain_rate": 0.9767,
+      "disqualify_rate": 0.02,
+      "mean_fp_width": 0.0469,
+      "mean_fn_width": 0.1921,
+      "mean_utility": -0.8217,
+      "mean_runtime_ms": 10.037
+    },
+    "method_d": {
+      "param_coverage": 0.8467,
+      "param_coverage_ci": [
+        0.8015,
+        0.883
+      ],
+      "risk_coverage": 0.9867,
+      "fsq_rate": 0.0033,
+      "abstain_rate": 0.9833,
+      "disqualify_rate": 0.0133,
+      "mean_fp_width": 0.0405,
+      "mean_fn_width": 0.1974,
+      "mean_utility": -0.825,
+      "mean_runtime_ms": 0.512
+    },
+    "method_e": {
+      "param_coverage": 1.0,
+      "param_coverage_ci": [
+        0.9874,
+        1.0
+      ],
+      "risk_coverage": 1.0,
+      "fsq_rate": 0.0,
+      "abstain_rate": 1.0,
+      "disqualify_rate": 0.0,
+      "mean_fp_width": 0.1185,
+      "mean_fn_width": 0.3978,
+      "mean_utility": -0.5,
+      "mean_runtime_ms": 0.197
+    }
+  },
+  "cluster_stress_grid": [
+    {
+      "C": 10,
+      "m": 15,
+      "icc": 0.0,
+      "deff": 1.0,
+      "cov_method_a_naive": 0.9583,
+      "cov_method_b_deff": 0.9583,
+      "cov_method_c_profile": 0.9083
+    },
+    {
+      "C": 10,
+      "m": 15,
+      "icc": 0.15,
+      "deff": 3.1,
+      "cov_method_a_naive": 0.8083,
+      "cov_method_b_deff": 0.9083,
+      "cov_method_c_profile": 0.9333
+    },
+    {
+      "C": 10,
+      "m": 15,
+      "icc": 0.3,
+      "deff": 5.2,
+      "cov_method_a_naive": 0.6583,
+      "cov_method_b_deff": 0.8083,
+      "cov_method_c_profile": 1.0
+    },
+    {
+      "C": 25,
+      "m": 15,
+      "icc": 0.0,
+      "deff": 1.0,
+      "cov_method_a_naive": 0.9667,
+      "cov_method_b_deff": 0.9667,
+      "cov_method_c_profile": 0.9
+    },
+    {
+      "C": 25,
+      "m": 15,
+      "icc": 0.15,
+      "deff": 3.1,
+      "cov_method_a_naive": 0.6917,
+      "cov_method_b_deff": 0.9,
+      "cov_method_c_profile": 0.8417
+    },
+    {
+      "C": 25,
+      "m": 15,
+      "icc": 0.3,
+      "deff": 5.2,
+      "cov_method_a_naive": 0.5917,
+      "cov_method_b_deff": 0.9083,
+      "cov_method_c_profile": 0.95
+    },
+    {
+      "C": 50,
+      "m": 15,
+      "icc": 0.0,
+      "deff": 1.0,
+      "cov_method_a_naive": 0.9583,
+      "cov_method_b_deff": 0.9583,
+      "cov_method_c_profile": 0.7917
+    },
+    {
+      "C": 50,
+      "m": 15,
+      "icc": 0.15,
+      "deff": 3.1,
+      "cov_method_a_naive": 0.8,
+      "cov_method_b_deff": 0.9417,
+      "cov_method_c_profile": 0.875
+    },
+    {
+      "C": 50,
+      "m": 15,
+      "icc": 0.3,
+      "deff": 5.2,
+      "cov_method_a_naive": 0.6417,
+      "cov_method_b_deff": 0.9333,
+      "cov_method_c_profile": 0.8667
+    }
+  ],
+  "drift_monitoring_benchmark": {
+    "scenario_1_sudden_fn": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 510.06,
+        "mean_utility": -51006.0
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.0933,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 284.9,
+        "mean_hazardous_qualified": 500.82,
+        "mean_utility": -50082.0
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.0733,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 330.8,
+        "mean_hazardous_qualified": 505.66,
+        "mean_utility": -50566.0
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.1267,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 250.9,
+        "mean_hazardous_qualified": 493.74,
+        "mean_utility": -49374.0
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.0467,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 283.4,
+        "mean_hazardous_qualified": 505.43,
+        "mean_utility": -50543.3
+      }
+    },
+    "scenario_2_gradual_fn": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 513.0,
+        "mean_utility": -51300.0
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.1733,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 333.9,
+        "mean_hazardous_qualified": 502.68,
+        "mean_utility": -50268.0
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.18,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 342.8,
+        "mean_hazardous_qualified": 503.74,
+        "mean_utility": -50374.0
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.26,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 318.5,
+        "mean_hazardous_qualified": 494.06,
+        "mean_utility": -49406.0
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.0733,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 305.3,
+        "mean_hazardous_qualified": 506.84,
+        "mean_utility": -50684.0
+      }
+    },
+    "scenario_3_fp_surge": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 473.3,
+        "mean_utility": -47330.0
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.7267,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 215.2,
+        "mean_hazardous_qualified": 369.77,
+        "mean_utility": -36976.7
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 473.3,
+        "mean_utility": -47330.0
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.8133,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 201.7,
+        "mean_hazardous_qualified": 348.81,
+        "mean_utility": -34881.3
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.0067,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 221.0,
+        "mean_hazardous_qualified": 472.4,
+        "mean_utility": -47240.0
+      }
+    },
+    "scenario_4_prevalence_shift": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 454.43,
+        "mean_utility": -45443.3
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.9867,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 140.1,
+        "mean_hazardous_qualified": 269.67,
+        "mean_utility": -26966.7
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 454.43,
+        "mean_utility": -45443.3
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.9867,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 126.4,
+        "mean_hazardous_qualified": 260.03,
+        "mean_utility": -26002.7
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.04,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 240.2,
+        "mean_hazardous_qualified": 449.72,
+        "mean_utility": -44972.0
+      }
+    },
+    "scenario_5_compensating_unidentifiable": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 498.71,
+        "mean_utility": -49870.7
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.0067,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 9.0,
+        "mean_hazardous_qualified": 496.53,
+        "mean_utility": -49653.3
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 498.71,
+        "mean_utility": -49870.7
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.0133,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 53.0,
+        "mean_hazardous_qualified": 494.89,
+        "mean_utility": -49488.7
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.0867,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 267.7,
+        "mean_hazardous_qualified": 489.21,
+        "mean_utility": -48921.3
+      }
+    },
+    "scenario_6_clustered_stream": {
+      "Static (No Monitor)": {
+        "alarm_rate": 0.0,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": "NO_ALARM",
+        "mean_hazardous_qualified": 437.62,
+        "mean_utility": -43688.9
+      },
+      "Page CUSUM (Two-Sided)": {
+        "alarm_rate": 0.0867,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 284.0,
+        "mean_hazardous_qualified": 428.75,
+        "mean_utility": -42801.5
+      },
+      "SPRT Likelihood-Ratio": {
+        "alarm_rate": 0.0667,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 312.5,
+        "mean_hazardous_qualified": 432.45,
+        "mean_utility": -43172.2
+      },
+      "Fail-Closed Guard (Early Warning)": {
+        "alarm_rate": 0.1533,
+        "false_alarm_rate": 0.0133,
+        "mean_detection_delay": 279.6,
+        "mean_hazardous_qualified": 418.34,
+        "mean_utility": -41763.1
+      },
+      "Audit-Assisted SPRT (Supervised)": {
+        "alarm_rate": 0.06,
+        "false_alarm_rate": 0.0,
+        "mean_detection_delay": 266.7,
+        "mean_hazardous_qualified": 430.8,
+        "mean_utility": -43006.9
+      }
+    }
+  }
+}

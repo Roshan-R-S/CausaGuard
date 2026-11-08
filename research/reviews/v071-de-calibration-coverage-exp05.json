@@ -1,0 +1,255 @@
+{
+  "assumption_violations": {
+    "scenario_1_independent_baseline": {
+      "description": "Nominal independent i.i.d. calibration trials",
+      "empirical_coverage": 0.969,
+      "false_safety_qual_rate": 0.0
+    },
+    "scenario_2_clustered_calibration": {
+      "coverage_degradation": 0.331,
+      "description": "Clustered calibration trials (ICC=0.25, m=10) with standard Clopper-Pearson",
+      "empirical_coverage": 0.638,
+      "false_safety_qual_rate": 0.039
+    },
+    "scenario_3_prevalence_drift": {
+      "description": "Defect prevalence drifts from 0.20 to 0.35 post-calibration",
+      "false_safety_qual_rate": 0.0,
+      "risk_bound_coverage": 0.988
+    },
+    "scenario_4_sensor_drift": {
+      "description": "Sensor error rates degrade post-calibration (FN from 0.24 to 0.32)",
+      "false_safety_qual_rate": 0.003,
+      "risk_bound_coverage": 0.045
+    }
+  },
+  "experiment": "Experiment 05: Prospective Calibration and Statistical Coverage",
+  "five_arm_benchmark": {
+    "arm_a_point": {
+      "abstention": false,
+      "arm": "Arm A (Point-Estimate Bayes)",
+      "assumed_risk": 0.04417,
+      "false_safety_qualification": true,
+      "qualifies": true,
+      "true_risk": 0.0525,
+      "utility": -100.0
+    },
+    "arm_b_oracle": {
+      "arm": "Arm B (Oracle Credal Bayes)",
+      "false_safety_qualification": false,
+      "inconclusive": true,
+      "lower_risk": 0.04375,
+      "qualifies": false,
+      "risk_enclosed": true,
+      "upper_risk": 0.06125,
+      "utility": -0.5
+    },
+    "arm_c_calibrated": {
+      "abstention_rate": 0.959,
+      "arm": "Arm C (Finite-Sample Calibrated Credal, N=1000/500)",
+      "false_safety_qualification_rate": 0.001,
+      "mean_utility": -0.5795,
+      "parameter_coverage": 0.96
+    },
+    "arm_d_undersampled": {
+      "abstention_rate": 0.99,
+      "arm": "Arm D (Undersampled Credal, N=50/25)",
+      "false_safety_qualification_rate": 0.002,
+      "mean_utility": -0.695,
+      "parameter_coverage": 0.981
+    },
+    "arm_e_frechet": {
+      "arm": "Arm E (Dependence-Aware Frechet Credal)",
+      "false_safety_qualification": false,
+      "inconclusive": true,
+      "lower_risk": 0.02146,
+      "risk_enclosed": true,
+      "upper_risk": 0.06691,
+      "utility": -0.5
+    }
+  },
+  "runtime_seconds": 0.0388,
+  "sample_size_sensitivity": [
+    {
+      "abstention_ci_95": [
+        0.9817,
+        0.9946
+      ],
+      "abstention_rate": 0.99,
+      "false_safety_qual_ci_95": [
+        0.0005,
+        0.0073
+      ],
+      "false_safety_qual_rate": 0.002,
+      "mean_decision_utility": -0.695,
+      "mean_fn_width": 0.3907,
+      "mean_fp_width": 0.1171,
+      "mean_risk_width": 0.0891,
+      "n_cal": 50,
+      "n_clean": 50,
+      "n_schema": 25,
+      "param_coverage": 0.981,
+      "param_coverage_ci_95": [
+        0.9705,
+        0.9878
+      ],
+      "risk_coverage": 0.99,
+      "risk_coverage_ci_95": [
+        0.9817,
+        0.9946
+      ],
+      "unnecessary_reject_rate": 0.0
+    },
+    {
+      "abstention_ci_95": [
+        0.9804,
+        0.9938
+      ],
+      "abstention_rate": 0.989,
+      "false_safety_qual_ci_95": [
+        0.001,
+        0.0088
+      ],
+      "false_safety_qual_rate": 0.003,
+      "mean_decision_utility": -0.7945,
+      "mean_fn_width": 0.2786,
+      "mean_fp_width": 0.0745,
+      "mean_risk_width": 0.0621,
+      "n_cal": 100,
+      "n_clean": 100,
+      "n_schema": 50,
+      "param_coverage": 0.978,
+      "param_coverage_ci_95": [
+        0.9669,
+        0.9854
+      ],
+      "risk_coverage": 0.99,
+      "risk_coverage_ci_95": [
+        0.9817,
+        0.9946
+      ],
+      "unnecessary_reject_rate": 0.0
+    },
+    {
+      "abstention_ci_95": [
+        0.9729,
+        0.9894
+      ],
+      "abstention_rate": 0.983,
+      "false_safety_qual_ci_95": [
+        0.001,
+        0.0088
+      ],
+      "false_safety_qual_rate": 0.003,
+      "mean_decision_utility": -0.7915,
+      "mean_fn_width": 0.1762,
+      "mean_fp_width": 0.0439,
+      "mean_risk_width": 0.0387,
+      "n_cal": 250,
+      "n_clean": 250,
+      "n_schema": 125,
+      "param_coverage": 0.966,
+      "param_coverage_ci_95": [
+        0.9529,
+        0.9756
+      ],
+      "risk_coverage": 0.987,
+      "risk_coverage_ci_95": [
+        0.9779,
+        0.9924
+      ],
+      "unnecessary_reject_rate": 0.0
+    },
+    {
+      "abstention_ci_95": [
+        0.9598,
+        0.9806
+      ],
+      "abstention_rate": 0.972,
+      "false_safety_qual_ci_95": [
+        0.0005,
+        0.0073
+      ],
+      "false_safety_qual_rate": 0.002,
+      "mean_decision_utility": -0.686,
+      "mean_fn_width": 0.1241,
+      "mean_fp_width": 0.0302,
+      "mean_risk_width": 0.0272,
+      "n_cal": 500,
+      "n_clean": 500,
+      "n_schema": 250,
+      "param_coverage": 0.967,
+      "param_coverage_ci_95": [
+        0.954,
+        0.9764
+      ],
+      "risk_coverage": 0.983,
+      "risk_coverage_ci_95": [
+        0.9729,
+        0.9894
+      ],
+      "unnecessary_reject_rate": 0.0
+    },
+    {
+      "abstention_ci_95": [
+        0.9449,
+        0.9696
+      ],
+      "abstention_rate": 0.959,
+      "false_safety_qual_ci_95": [
+        0.0002,
+        0.0056
+      ],
+      "false_safety_qual_rate": 0.001,
+      "mean_decision_utility": -0.5795,
+      "mean_fn_width": 0.0873,
+      "mean_fp_width": 0.0208,
+      "mean_risk_width": 0.0191,
+      "n_cal": 1000,
+      "n_clean": 1000,
+      "n_schema": 500,
+      "param_coverage": 0.96,
+      "param_coverage_ci_95": [
+        0.946,
+        0.9705
+      ],
+      "risk_coverage": 0.985,
+      "risk_coverage_ci_95": [
+        0.9754,
+        0.9909
+      ],
+      "unnecessary_reject_rate": 0.0
+    },
+    {
+      "abstention_ci_95": [
+        0.9026,
+        0.9362
+      ],
+      "abstention_rate": 0.921,
+      "false_safety_qual_ci_95": [
+        0.0002,
+        0.0056
+      ],
+      "false_safety_qual_rate": 0.001,
+      "mean_decision_utility": -0.5605,
+      "mean_fn_width": 0.0615,
+      "mean_fp_width": 0.0145,
+      "mean_risk_width": 0.0134,
+      "n_cal": 2000,
+      "n_clean": 2000,
+      "n_schema": 1000,
+      "param_coverage": 0.947,
+      "param_coverage_ci_95": [
+        0.9313,
+        0.9593
+      ],
+      "risk_coverage": 0.979,
+      "risk_coverage_ci_95": [
+        0.9681,
+        0.9862
+      ],
+      "unnecessary_reject_rate": 0.0
+    }
+  ],
+  "status": "EXPLORATORY PRE-FREEZE NO-GO",
+  "target_confidence": 0.95
+}

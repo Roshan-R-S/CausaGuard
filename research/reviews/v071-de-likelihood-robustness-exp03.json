@@ -1,0 +1,879 @@
+{
+  "boundary": {
+    "critical_fn": {
+      "exact": "49/215",
+      "value": 0.22790697674418606
+    },
+    "epsilon": "1/1000000",
+    "equality_engine_audit": {
+      "absolute_error": {
+        "exact": "0",
+        "value": 0.0
+      },
+      "assumed_posterior": {
+        "exact": "5/91",
+        "value": 0.054945054945054944
+      },
+      "assumed_qualifies": true,
+      "assumed_rates": {
+        "fn": "49/215",
+        "fp": "1/50"
+      },
+      "assumed_risk": {
+        "exact": "1/20",
+        "value": 0.05
+      },
+      "engine": {
+        "posterior_schema": "0.054945054945054945054945054945054945054945054945054945054945054945054945054945056",
+        "qualifies": false,
+        "risk": "0.050000000000000000000000000000000000000000000000000000000000000000000000000000001",
+        "status": "ok"
+      },
+      "engine_vs_exact_qualification_disagreement": true,
+      "evidence_passed": true,
+      "false_safety_qualification": false,
+      "generating_rates": {
+        "fn": "49/215",
+        "fp": "1/50"
+      },
+      "prior_schema": "1/5",
+      "relative_error": {
+        "exact": "0",
+        "value": 0.0
+      },
+      "relative_error_undefined_reason": null,
+      "signed_error": {
+        "exact": "0",
+        "value": 0.0
+      },
+      "status": "defined",
+      "true_evidence_mass": {
+        "exact": "4459/5375",
+        "value": 0.8295813953488372
+      },
+      "true_posterior": {
+        "exact": "5/91",
+        "value": 0.054945054945054944
+      },
+      "true_qualifies": true,
+      "true_risk": {
+        "exact": "1/20",
+        "value": 0.05
+      },
+      "unnecessary_rejection": false
+    },
+    "rows": [
+      {
+        "absolute_error": {
+          "exact": "0",
+          "value": 0.0
+        },
+        "assumed_posterior": {
+          "exact": "9799957/178359957",
+          "value": 0.05494482710600788
+        },
+        "assumed_qualifies": true,
+        "assumed_rates": {
+          "fn": "9799957/43000000",
+          "fp": "1/50"
+        },
+        "assumed_risk": {
+          "exact": "891796087/17835995700",
+          "value": 0.049999792666467174
+        },
+        "engine": {
+          "posterior_schema": "0.054944827106007880457158890209869247725822225893449839752988951438242385312976949",
+          "qualifies": true,
+          "risk": "0.049999792666467171216014590090981015430498225563039354175219945808800570634809024",
+          "status": "ok"
+        },
+        "engine_vs_exact_qualification_disagreement": false,
+        "evidence_passed": true,
+        "false_safety_qualification": false,
+        "generating_rates": {
+          "fn": "9799957/43000000",
+          "fp": "1/50"
+        },
+        "prior_schema": "1/5",
+        "relative_error": {
+          "exact": "0",
+          "value": 0.0
+        },
+        "relative_error_undefined_reason": null,
+        "signed_error": {
+          "exact": "0",
+          "value": 0.0
+        },
+        "status": "defined",
+        "true_evidence_mass": {
+          "exact": "178359957/215000000",
+          "value": 0.8295811953488372
+        },
+        "true_posterior": {
+          "exact": "9799957/178359957",
+          "value": 0.05494482710600788
+        },
+        "true_qualifies": true,
+        "true_risk": {
+          "exact": "891796087/17835995700",
+          "value": 0.049999792666467174
+        },
+        "unnecessary_rejection": false
+      },
+      {
+        "absolute_error": {
+          "exact": "1849/8917997850",
+          "value": 2.0733353282878398e-07
+        },
+        "assumed_posterior": {
+          "exact": "9799957/178359957",
+          "value": 0.05494482710600788
+        },
+        "assumed_qualifies": true,
+        "assumed_rates": {
+          "fn": "9799957/43000000",
+          "fp": "1/50"
+        },
+        "assumed_risk": {
+          "exact": "891796087/17835995700",
+          "value": 0.049999792666467174
+        },
+        "engine": {
+          "posterior_schema": "0.054944827106007880457158890209869247725822225893449839752988951438242385312976949",
+          "qualifies": true,
+          "risk": "0.049999792666467171216014590090981015430498225563039354175219945808800570634809024",
+          "status": "ok"
+        },
+        "engine_vs_exact_qualification_disagreement": false,
+        "evidence_passed": true,
+        "false_safety_qualification": false,
+        "generating_rates": {
+          "fn": "49/215",
+          "fp": "1/50"
+        },
+        "prior_schema": "1/5",
+        "relative_error": {
+          "exact": "3698/891799785",
+          "value": 4.14667065657568e-06
+        },
+        "relative_error_undefined_reason": null,
+        "signed_error": {
+          "exact": "-1849/8917997850",
+          "value": -2.0733353282878398e-07
+        },
+        "status": "defined",
+        "true_evidence_mass": {
+          "exact": "4459/5375",
+          "value": 0.8295813953488372
+        },
+        "true_posterior": {
+          "exact": "5/91",
+          "value": 0.054945054945054944
+        },
+        "true_qualifies": true,
+        "true_risk": {
+          "exact": "1/20",
+          "value": 0.05
+        },
+        "unnecessary_rejection": false
+      },
+      {
+        "absolute_error": {
+          "exact": "13191505600/31812289599998151",
+          "value": 4.1466696568739794e-07
+        },
+        "assumed_posterior": {
+          "exact": "9799957/178359957",
+          "value": 0.05494482710600788
+        },
+        "assumed_qualifies": true,
+        "assumed_rates": {
+          "fn": "9799957/43000000",
+          "fp": "1/50"
+        },
+        "assumed_risk": {
+          "exact": "891796087/17835995700",
+          "value": 0.049999792666467174
+        },
+        "engine": {
+          "posterior_schema": "0.054944827106007880457158890209869247725822225893449839752988951438242385312976949",
+          "qualifies": true,
+          "risk": "0.049999792666467171216014590090981015430498225563039354175219945808800570634809024",
+          "status": "ok"
+        },
+        "engine_vs_exact_qualification_disagreement": false,
+        "evidence_passed": true,
+        "false_safety_qualification": true,
+        "generating_rates": {
+          "fn": "9800043/43000000",
+          "fp": "1/50"
+        },
+        "prior_schema": "1/5",
+        "relative_error": {
+          "exact": "14496160000/1747935248078151",
+          "value": 8.293304924160366e-06
+        },
+        "relative_error_undefined_reason": null,
+        "signed_error": {
+          "exact": "-13191505600/31812289599998151",
+          "value": -4.1466696568739794e-07
+        },
+        "status": "defined",
+        "true_evidence_mass": {
+          "exact": "178360043/215000000",
+          "value": 0.8295815953488372
+        },
+        "true_posterior": {
+          "exact": "9800043/178360043",
+          "value": 0.054945282783992154
+        },
+        "true_qualifies": false,
+        "true_risk": {
+          "exact": "891803913/17836004300",
+          "value": 0.050000207333432856
+        },
+        "unnecessary_rejection": false
+      }
+    ]
+  },
+  "config": {
+    "availability": "91/100",
+    "grid_selection": "fixed before first grid execution; no population distribution",
+    "prior_schema": "1/5",
+    "rates": [
+      "0",
+      "1/50",
+      "1/20",
+      "1/5",
+      "6/25",
+      "4/5",
+      "1"
+    ],
+    "risk_definition": "on-time available proceed with known clean content: availability * posterior schema",
+    "risk_limit": "1/20"
+  },
+  "h1_summary": {
+    "comparable_rows": 4608,
+    "engine_threshold_disagreements": 0,
+    "false_safety_qualifications": 847,
+    "grid_rows": 4802,
+    "matched_defined_rows": 96,
+    "max_weighted_pair_assumed_fp_fn_true_fp_fn": [
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    "max_within_parameter_pair_false_qualification_event_probability": {
+      "exact": "1",
+      "value": 1.0
+    },
+    "parameter_pairs": 2401,
+    "scenario_distribution": null,
+    "status_counts": {
+      "assumed_impossible": 96,
+      "both_impossible": 2,
+      "defined": 4608,
+      "true_impossible": 96
+    },
+    "unnecessary_rejections": 847,
+    "worst_absolute_error": {
+      "exact": "91/100",
+      "value": 0.91
+    },
+    "worst_case": {
+      "absolute_error": {
+        "exact": "91/100",
+        "value": 0.91
+      },
+      "assumed_posterior": {
+        "exact": "1",
+        "value": 1.0
+      },
+      "assumed_qualifies": false,
+      "assumed_rates": {
+        "fn": "0",
+        "fp": "0"
+      },
+      "assumed_risk": {
+        "exact": "91/100",
+        "value": 0.91
+      },
+      "engine": {
+        "posterior_schema": "1",
+        "qualifies": false,
+        "risk": "0.91",
+        "status": "ok"
+      },
+      "engine_vs_exact_qualification_disagreement": false,
+      "evidence_passed": false,
+      "false_safety_qualification": false,
+      "generating_rates": {
+        "fn": "1",
+        "fp": "1/50"
+      },
+      "prior_schema": "1/5",
+      "relative_error": null,
+      "relative_error_undefined_reason": "zero_true_risk",
+      "signed_error": {
+        "exact": "91/100",
+        "value": 0.91
+      },
+      "status": "defined",
+      "true_evidence_mass": {
+        "exact": "2/125",
+        "value": 0.016
+      },
+      "true_posterior": {
+        "exact": "0",
+        "value": 0.0
+      },
+      "true_qualifies": true,
+      "true_risk": {
+        "exact": "0",
+        "value": 0.0
+      },
+      "unnecessary_rejection": true
+    },
+    "worst_interior_absolute_error": {
+      "exact": "3549/4505",
+      "value": 0.7877913429522753
+    },
+    "worst_interior_case": {
+      "absolute_error": {
+        "exact": "3549/4505",
+        "value": 0.7877913429522753
+      },
+      "assumed_posterior": {
+        "exact": "49/53",
+        "value": 0.9245283018867925
+      },
+      "assumed_qualifies": false,
+      "assumed_rates": {
+        "fn": "1/50",
+        "fp": "1/50"
+      },
+      "assumed_risk": {
+        "exact": "4459/5300",
+        "value": 0.8413207547169811
+      },
+      "engine": {
+        "posterior_schema": "0.92452830188679245283018867924528301886792452830188679245283018867924528301886792",
+        "qualifies": false,
+        "risk": "0.84132075471698113207547169811320754716981132075471698113207547169811320754716981",
+        "status": "ok"
+      },
+      "engine_vs_exact_qualification_disagreement": false,
+      "evidence_passed": false,
+      "false_safety_qualification": false,
+      "generating_rates": {
+        "fn": "4/5",
+        "fp": "4/5"
+      },
+      "prior_schema": "1/5",
+      "relative_error": {
+        "exact": "780/53",
+        "value": 14.716981132075471
+      },
+      "relative_error_undefined_reason": null,
+      "signed_error": {
+        "exact": "3549/4505",
+        "value": 0.7877913429522753
+      },
+      "status": "defined",
+      "true_evidence_mass": {
+        "exact": "17/25",
+        "value": 0.68
+      },
+      "true_posterior": {
+        "exact": "1/17",
+        "value": 0.058823529411764705
+      },
+      "true_qualifies": false,
+      "true_risk": {
+        "exact": "91/1700",
+        "value": 0.05352941176470588
+      },
+      "unnecessary_rejection": false
+    }
+  },
+  "h2": {
+    "control_tables": {
+      "clean": [
+        "529/625",
+        "46/625",
+        "46/625",
+        "4/625"
+      ],
+      "schema": [
+        "9/25",
+        "6/25",
+        "6/25",
+        "4/25"
+      ]
+    },
+    "dependent": [
+      {
+        "audited_mode": "joint_required",
+        "evidence": [
+          true,
+          true
+        ],
+        "false_safety_qualification": true,
+        "joint_engine": {
+          "posterior_schema": "0.060073937153419593345656192236598890942698706099815157116451016635859519408502773",
+          "qualifies": false,
+          "risk": "0.054667282809611829944547134935304990757855822550831792975970425138632162661737523",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/554",
+          "value": 0.04512635379061372
+        },
+        "naive_risk": {
+          "exact": "91/2216",
+          "value": 0.041064981949458484
+        },
+        "true_evidence_mass": {
+          "exact": "541/625",
+          "value": 0.8656
+        },
+        "true_posterior": {
+          "exact": "65/1082",
+          "value": 0.06007393715341959
+        },
+        "true_risk": {
+          "exact": "1183/21640",
+          "value": 0.05466728280961183
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.045126353790613718411552346570397111913357400722021660649819494584837545126353791",
+          "qualifies": true,
+          "risk": "0.041064981949458483754512635379061371841155234657039711191335740072202166064981950",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "joint_required",
+        "evidence": [
+          true,
+          false
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.35714285714285714285714285714285714285714285714285714285714285714285714285714286",
+          "qualifies": false,
+          "risk": "0.32500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "naive_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "true_evidence_mass": {
+          "exact": "14/625",
+          "value": 0.0224
+        },
+        "true_posterior": {
+          "exact": "5/14",
+          "value": 0.35714285714285715
+        },
+        "true_risk": {
+          "exact": "13/40",
+          "value": 0.325
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255320",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872341",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "joint_required",
+        "evidence": [
+          false,
+          true
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.35714285714285714285714285714285714285714285714285714285714285714285714285714286",
+          "qualifies": false,
+          "risk": "0.32500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "naive_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "true_evidence_mass": {
+          "exact": "14/625",
+          "value": 0.0224
+        },
+        "true_posterior": {
+          "exact": "5/14",
+          "value": 0.35714285714285715
+        },
+        "true_risk": {
+          "exact": "13/40",
+          "value": 0.325
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255320",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872341",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "joint_required",
+        "evidence": [
+          false,
+          false
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.35714285714285714285714285714285714285714285714285714285714285714285714285714286",
+          "qualifies": false,
+          "risk": "0.32500000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/34",
+          "value": 0.7352941176470589
+        },
+        "naive_risk": {
+          "exact": "91/136",
+          "value": 0.6691176470588235
+        },
+        "true_evidence_mass": {
+          "exact": "56/625",
+          "value": 0.0896
+        },
+        "true_posterior": {
+          "exact": "5/14",
+          "value": 0.35714285714285715
+        },
+        "true_risk": {
+          "exact": "13/40",
+          "value": 0.325
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.73529411764705882352941176470588235294117647058823529411764705882352941176470588",
+          "qualifies": false,
+          "risk": "0.66911764705882352941176470588235294117647058823529411764705882352941176470588235",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      }
+    ],
+    "dependent_tables": {
+      "clean": [
+        "113/125",
+        "2/125",
+        "2/125",
+        "8/125"
+      ],
+      "schema": [
+        "13/25",
+        "2/25",
+        "2/25",
+        "8/25"
+      ]
+    },
+    "independent_control": [
+      {
+        "audited_mode": "independence_verified",
+        "evidence": [
+          true,
+          true
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.045126353790613718411552346570397111913357400722021660649819494584837545126353791",
+          "qualifies": true,
+          "risk": "0.041064981949458483754512635379061371841155234657039711191335740072202166064981950",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/554",
+          "value": 0.04512635379061372
+        },
+        "naive_risk": {
+          "exact": "91/2216",
+          "value": 0.041064981949458484
+        },
+        "true_evidence_mass": {
+          "exact": "2493/3125",
+          "value": 0.79776
+        },
+        "true_posterior": {
+          "exact": "25/554",
+          "value": 0.04512635379061372
+        },
+        "true_risk": {
+          "exact": "91/2216",
+          "value": 0.041064981949458484
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.045126353790613718411552346570397111913357400722021660649819494584837545126353791",
+          "qualifies": true,
+          "risk": "0.041064981949458483754512635379061371841155234657039711191335740072202166064981950",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "independence_verified",
+        "evidence": [
+          true,
+          false
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255319",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872340",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "naive_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "true_evidence_mass": {
+          "exact": "282/3125",
+          "value": 0.09024
+        },
+        "true_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "true_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255320",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872341",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "independence_verified",
+        "evidence": [
+          false,
+          true
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255319",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872340",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "naive_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "true_evidence_mass": {
+          "exact": "282/3125",
+          "value": 0.09024
+        },
+        "true_posterior": {
+          "exact": "25/94",
+          "value": 0.26595744680851063
+        },
+        "true_risk": {
+          "exact": "91/376",
+          "value": 0.24202127659574468
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.26595744680851063829787234042553191489361702127659574468085106382978723404255320",
+          "qualifies": false,
+          "risk": "0.24202127659574468085106382978723404255319148936170212765957446808510638297872341",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      },
+      {
+        "audited_mode": "independence_verified",
+        "evidence": [
+          false,
+          false
+        ],
+        "false_safety_qualification": false,
+        "joint_engine": {
+          "posterior_schema": "0.73529411764705882352941176470588235294117647058823529411764705882352941176470588",
+          "qualifies": false,
+          "risk": "0.66911764705882352941176470588235294117647058823529411764705882352941176470588235",
+          "status": "ok"
+        },
+        "naive_posterior": {
+          "exact": "25/34",
+          "value": 0.7352941176470589
+        },
+        "naive_risk": {
+          "exact": "91/136",
+          "value": 0.6691176470588235
+        },
+        "true_evidence_mass": {
+          "exact": "68/3125",
+          "value": 0.02176
+        },
+        "true_posterior": {
+          "exact": "25/34",
+          "value": 0.7352941176470589
+        },
+        "true_risk": {
+          "exact": "91/136",
+          "value": 0.6691176470588235
+        },
+        "unaudited_naive_engine": {
+          "posterior_schema": "0.73529411764705882352941176470588235294117647058823529411764705882352941176470588",
+          "qualifies": false,
+          "risk": "0.66911764705882352941176470588235294117647058823529411764705882352941176470588235",
+          "status": "ok"
+        },
+        "unsupported_second_update": {
+          "posterior_schema": null,
+          "qualifies": null,
+          "risk": null,
+          "status": "dependency_rejected"
+        }
+      }
+    ],
+    "outcome_order": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        false
+      ],
+      [
+        false,
+        true
+      ],
+      [
+        false,
+        false
+      ]
+    ]
+  },
+  "one_rate_counterexample": {
+    "absolute_error": {
+      "exact": "343/41200",
+      "value": 0.008325242718446603
+    },
+    "assumed_posterior": {
+      "exact": "5/103",
+      "value": 0.04854368932038835
+    },
+    "assumed_qualifies": true,
+    "assumed_rates": {
+      "fn": "1/5",
+      "fp": "1/50"
+    },
+    "assumed_risk": {
+      "exact": "91/2060",
+      "value": 0.0441747572815534
+    },
+    "engine": {
+      "posterior_schema": "0.048543689320388349514563106796116504854368932038834951456310679611650485436893204",
+      "qualifies": true,
+      "risk": "0.044174757281553398058252427184466019417475728155339805825242718446601941747572816",
+      "status": "ok"
+    },
+    "engine_vs_exact_qualification_disagreement": false,
+    "evidence_passed": true,
+    "false_safety_qualification": true,
+    "generating_rates": {
+      "fn": "6/25",
+      "fp": "1/50"
+    },
+    "prior_schema": "1/5",
+    "relative_error": {
+      "exact": "49/309",
+      "value": 0.15857605177993528
+    },
+    "relative_error_undefined_reason": null,
+    "signed_error": {
+      "exact": "-343/41200",
+      "value": -0.008325242718446603
+    },
+    "status": "defined",
+    "true_evidence_mass": {
+      "exact": "104/125",
+      "value": 0.832
+    },
+    "true_posterior": {
+      "exact": "3/52",
+      "value": 0.057692307692307696
+    },
+    "true_qualifies": false,
+    "true_risk": {
+      "exact": "21/400",
+      "value": 0.0525
+    },
+    "unnecessary_rejection": false
+  },
+  "seed_free": true,
+  "status": "EXPLORATORY PRE-FREEZE NO-GO"
+}
