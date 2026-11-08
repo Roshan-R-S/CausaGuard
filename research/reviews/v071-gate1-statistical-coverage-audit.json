@@ -1,0 +1,1292 @@
+{
+  "baseline_commit": "cfa841ad5fd6dd5ad300b60554a6570b840a66db",
+  "cluster_sample_size_sweep": {
+    "k_128": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9578217881410582,
+        "expected_ucb": 0.09392230078141874,
+        "fsq": 0.04217821185894181,
+        "mean_width": 0.04382230078141874,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0,
+        "expected_ucb": 0.15145978899059676,
+        "fsq": 0.0,
+        "mean_width": 0.10135978899059675,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8882421569881149,
+        "expected_ucb": 0.0814873488897117,
+        "fsq": 0.1117578430118851,
+        "mean_width": 0.031387348889711696,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9578217881410582,
+        "expected_ucb": 0.08902112275832832,
+        "fsq": 0.04217821185894181,
+        "mean_width": 0.038921122758328326,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "k_256": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9741550226356885,
+        "expected_ucb": 0.0784935130507653,
+        "fsq": 0.025844977364311534,
+        "mean_width": 0.028393513050765297,
+        "non_monotonic": false,
+        "ucb_z0": 0.011633876163163248,
+        "ucb_z1": 0.018395769886273644,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9997967819560349,
+        "expected_ucb": 0.11059554224114747,
+        "fsq": 0.00020321804396514334,
+        "mean_width": 0.06049554224114747,
+        "non_monotonic": false,
+        "ucb_z0": 0.027411929300494034,
+        "ucb_z1": 0.040879690357840975,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8979744139203163,
+        "expected_ucb": 0.07241283596825077,
+        "fsq": 0.10202558607968382,
+        "mean_width": 0.022312835968250767,
+        "non_monotonic": true,
+        "ucb_z0": 0.011633876163163248,
+        "ucb_z1": 0.0103548870800729,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.945316286067182,
+        "expected_ucb": 0.07617688632784118,
+        "fsq": 0.05468371393281808,
+        "mean_width": 0.026076886327841185,
+        "non_monotonic": false,
+        "ucb_z0": 0.011633876163163248,
+        "ucb_z1": 0.01450542245055099,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "k_32": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9999999999999999,
+        "expected_ucb": 0.1639401511181248,
+        "fsq": 0.0,
+        "mean_width": 0.11384015111812479,
+        "non_monotonic": false,
+        "ucb_z0": 0.0893681989862648,
+        "ucb_z1": 0.13984946027422598,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999999999999999,
+        "expected_ucb": 0.3580102155258335,
+        "fsq": 0.0,
+        "mean_width": 0.30791021552583353,
+        "non_monotonic": false,
+        "ucb_z0": 0.2254852248911606,
+        "ucb_z1": 0.3332273133499361,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.9999999999999999,
+        "expected_ucb": 0.12444802599100185,
+        "fsq": 0.0,
+        "mean_width": 0.07434802599100185,
+        "non_monotonic": true,
+        "ucb_z0": 0.0893681989862648,
+        "ucb_z1": 0.08423496195455828,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9999999999999999,
+        "expected_ucb": 0.14851636390575043,
+        "fsq": 0.0,
+        "mean_width": 0.09841636390575043,
+        "non_monotonic": false,
+        "ucb_z0": 0.0893681989862648,
+        "ucb_z1": 0.11616193406177877,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "k_64": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9627278185980901,
+        "expected_ucb": 0.11960795533794001,
+        "fsq": 0.037272181401909604,
+        "mean_width": 0.06950795533794002,
+        "non_monotonic": false,
+        "ucb_z0": 0.045729702330762456,
+        "ucb_z1": 0.07198975489470939,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999999999999998,
+        "expected_ucb": 0.22464510756038863,
+        "fsq": 0.0,
+        "mean_width": 0.17454510756038863,
+        "non_monotonic": false,
+        "ucb_z0": 0.11095304716866633,
+        "ucb_z1": 0.1648240913980541,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8369150778389756,
+        "expected_ucb": 0.0951752411265732,
+        "fsq": 0.1630849221610242,
+        "mean_width": 0.045075241126573205,
+        "non_monotonic": true,
+        "ucb_z0": 0.045729702330762456,
+        "ucb_z1": 0.04170940971416895,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9627278185980901,
+        "expected_ucb": 0.10971038879607488,
+        "fsq": 0.037272181401909604,
+        "mean_width": 0.05961038879607488,
+        "non_monotonic": false,
+        "ucb_z0": 0.045729702330762456,
+        "ucb_z1": 0.05803459250968292,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    }
+  },
+  "confirmatory_seeds_used": false,
+  "counterexample_reproduction": {
+    "alpha": 0.05,
+    "delta_ucb_z1_minus_z0": -0.0023750588178243805,
+    "exact_coverage": 0.8882421569881149,
+    "exact_fsq": 0.1117578430118851,
+    "k_clusters": 128,
+    "non_monotonicity_detected": true,
+    "tau_safe": 0.05,
+    "theta": 0.0501,
+    "ucb_z0": 0.023132405251746757,
+    "ucb_z1": 0.020757346433922377,
+    "z_fail_threshold": 3
+  },
+  "exact_theta_grid_comparison": {
+    "theta_0.0100": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9999999999999998,
+        "expected_ucb": 0.03924061540737593,
+        "fsq": 0.0,
+        "mean_width": 0.02924061540737593,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.1374780855766266
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999999999999998,
+        "expected_ucb": 0.08280730778671838,
+        "fsq": 0.0,
+        "mean_width": 0.07280730778671839,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9999999999999998
+      },
+      "existing_gate1": {
+        "coverage": 0.9999999999999998,
+        "expected_ucb": 0.028417698113313107,
+        "fsq": 0.0,
+        "mean_width": 0.018417698113313105,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": false,
+        "unnecessary_rejection": 0.04028568476771613
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9999999999999998,
+        "expected_ucb": 0.03431909743696329,
+        "fsq": 0.0,
+        "mean_width": 0.02431909743696329,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.1374780855766266
+      }
+    },
+    "theta_0.0200": {
+      "cluster_clopper_pearson": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.05391589158910536,
+        "fsq": 0.0,
+        "mean_width": 0.033915891589105365,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.47291499594685366
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.10319902542061042,
+        "fsq": 0.0,
+        "mean_width": 0.08319902542061042,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0000000000000002
+      },
+      "existing_gate1": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.040804185758994305,
+        "fsq": 0.0,
+        "mean_width": 0.020804185758994304,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": false,
+        "unnecessary_rejection": 0.2543490816929076
+      },
+      "hall_skewness_corrected": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.048222778021196164,
+        "fsq": 0.0,
+        "mean_width": 0.028222778021196163,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.47291499594685366
+      }
+    },
+    "theta_0.0230": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9999999999999997,
+        "expected_ucb": 0.05813299956734177,
+        "fsq": 0.0,
+        "mean_width": 0.03513299956734177,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.5666549583030825
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999999999999997,
+        "expected_ucb": 0.10862080281407016,
+        "fsq": 0.0,
+        "mean_width": 0.08562080281407017,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9999999999999997
+      },
+      "existing_gate1": {
+        "coverage": 0.846698149248057,
+        "expected_ucb": 0.04487796454304809,
+        "fsq": 0.0,
+        "mean_width": 0.021877964543048092,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.34006693109759883
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9999999999999997,
+        "expected_ucb": 0.05245127051564709,
+        "fsq": 0.0,
+        "mean_width": 0.02945127051564709,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.5666549583030825
+      }
+    },
+    "theta_0.0250": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9608627046752632,
+        "expected_ucb": 0.0609068027990584,
+        "fsq": 0.0,
+        "mean_width": 0.0359068027990584,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.6232681519727337
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.11211786844645068,
+        "fsq": 0.0,
+        "mean_width": 0.08711786844645067,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0000000000000002
+      },
+      "existing_gate1": {
+        "coverage": 0.832412094378691,
+        "expected_ucb": 0.04761984466062817,
+        "fsq": 0.0,
+        "mean_width": 0.02261984466062817,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.3980362139970873
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9608627046752632,
+        "expected_ucb": 0.05525803618818021,
+        "fsq": 0.0,
+        "mean_width": 0.03025803618818021,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.6232681519727337
+      }
+    },
+    "theta_0.0350": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.989540856826955,
+        "expected_ucb": 0.07440494777517001,
+        "fsq": 0.0,
+        "mean_width": 0.03940494777517001,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.829153663064878
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000007,
+        "expected_ucb": 0.1285867534352321,
+        "fsq": 0.0,
+        "mean_width": 0.0935867534352321,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0000000000000007
+      },
+      "existing_gate1": {
+        "coverage": 0.829153663064878,
+        "expected_ucb": 0.061335398197601324,
+        "fsq": 0.0,
+        "mean_width": 0.02633539819760132,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.658800074586491
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9409844201272204,
+        "expected_ucb": 0.0690463618212109,
+        "fsq": 0.0,
+        "mean_width": 0.0340463618212109,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": true,
+        "unnecessary_rejection": 0.829153663064878
+      }
+    },
+    "theta_0.0400": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9659317225623998,
+        "expected_ucb": 0.08096503185839188,
+        "fsq": 0.0,
+        "mean_width": 0.04096503185839188,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.8900252096751149
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0,
+        "expected_ucb": 0.13636478162982066,
+        "fsq": 0.0,
+        "mean_width": 0.09636478162982065,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8900252096751149,
+        "expected_ucb": 0.06809840289688301,
+        "fsq": 0.0,
+        "mean_width": 0.028098402896883014,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.7571888121223664
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9659317225623998,
+        "expected_ucb": 0.07576810854696059,
+        "fsq": 0.0,
+        "mean_width": 0.03576810854696059,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.8900252096751149
+      }
+    },
+    "theta_0.0450": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9806146249323711,
+        "expected_ucb": 0.08742407989056371,
+        "fsq": 0.0,
+        "mean_width": 0.04242407989056371,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9308599902256534
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999999999999992,
+        "expected_ucb": 0.14392695400948313,
+        "fsq": 0.0,
+        "mean_width": 0.09892695400948313,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9999999999999992
+      },
+      "existing_gate1": {
+        "coverage": 0.9308599902256534,
+        "expected_ucb": 0.07477214212688667,
+        "fsq": 0.0,
+        "mean_width": 0.02977214212688667,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.8323927026908927
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9308599902256534,
+        "expected_ucb": 0.08237998029258123,
+        "fsq": 0.0,
+        "mean_width": 0.03737998029258123,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": true,
+        "unnecessary_rejection": 0.9308599902256534
+      }
+    },
+    "theta_0.0490": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9530005935804512,
+        "expected_ucb": 0.09252780538900063,
+        "fsq": 0.0,
+        "mean_width": 0.043527805389000626,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9530005935804512
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.14984882796093268,
+        "fsq": 0.0,
+        "mean_width": 0.10084882796093268,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0000000000000002
+      },
+      "existing_gate1": {
+        "coverage": 0.8777714976663066,
+        "expected_ucb": 0.08004659805735012,
+        "fsq": 0.0,
+        "mean_width": 0.03104659805735012,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.8777714976663066
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9530005935804512,
+        "expected_ucb": 0.08759696025231113,
+        "fsq": 0.0,
+        "mean_width": 0.03859696025231113,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9530005935804512
+      }
+    },
+    "theta_0.0500": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9574032287035233,
+        "expected_ucb": 0.09379568258058668,
+        "fsq": 0.0,
+        "mean_width": 0.04379568258058668,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9574032287035233
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.15131363318428614,
+        "fsq": 0.0,
+        "mean_width": 0.10131363318428614,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 1.0000000000000002
+      },
+      "existing_gate1": {
+        "coverage": 0.8873232986888914,
+        "expected_ucb": 0.08135654082548205,
+        "fsq": 0.0,
+        "mean_width": 0.031356540825482046,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.8873232986888914
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9574032287035233,
+        "expected_ucb": 0.08889183379530846,
+        "fsq": 0.0,
+        "mean_width": 0.03889183379530846,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.9574032287035233
+      }
+    },
+    "theta_0.0501": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9578217881410582,
+        "expected_ucb": 0.09392230078141874,
+        "fsq": 0.04217821185894181,
+        "mean_width": 0.04382230078141874,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0,
+        "expected_ucb": 0.15145978899059676,
+        "fsq": 0.0,
+        "mean_width": 0.10135978899059675,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8882421569881149,
+        "expected_ucb": 0.0814873488897117,
+        "fsq": 0.1117578430118851,
+        "mean_width": 0.031387348889711696,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9578217881410582,
+        "expected_ucb": 0.08902112275832832,
+        "fsq": 0.04217821185894181,
+        "mean_width": 0.038921122758328326,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "theta_0.0510": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9614206254231251,
+        "expected_ucb": 0.0950605006839429,
+        "fsq": 0.038579374576874964,
+        "mean_width": 0.0440605006839429,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.15277259255248557,
+        "fsq": 0.0,
+        "mean_width": 0.10177259255248558,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8962247581342204,
+        "expected_ucb": 0.0826631139335232,
+        "fsq": 0.10377524186577972,
+        "mean_width": 0.0316631139335232,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9614206254231251,
+        "expected_ucb": 0.0901831246892667,
+        "fsq": 0.038579374576874964,
+        "mean_width": 0.039183124689266706,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "theta_0.0550": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9742154542913878,
+        "expected_ucb": 0.10009064402337925,
+        "fsq": 0.02578454570861248,
+        "mean_width": 0.04509064402337925,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 1.0000000000000002,
+        "expected_ucb": 0.15855357995591318,
+        "fsq": 0.0,
+        "mean_width": 0.10355357995591319,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.9259876913540721,
+        "expected_ucb": 0.08785682081229497,
+        "fsq": 0.07401230864592816,
+        "mean_width": 0.03285682081229497,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9259876913540721,
+        "expected_ucb": 0.09531405554546561,
+        "fsq": 0.02578454570861248,
+        "mean_width": 0.04031405554546561,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "theta_0.0600": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9523737880413149,
+        "expected_ucb": 0.10631769119949565,
+        "fsq": 0.015365909379574987,
+        "mean_width": 0.04631769119949565,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9996366164521675,
+        "expected_ucb": 0.16566802971025132,
+        "fsq": 0.0,
+        "mean_width": 0.10566802971025133,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8880247802372391,
+        "expected_ucb": 0.09427997358174235,
+        "fsq": 0.04762621195868507,
+        "mean_width": 0.034279973581742354,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9523737880413149,
+        "expected_ucb": 0.10165631352476906,
+        "fsq": 0.015365909379574987,
+        "mean_width": 0.04165631352476906,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "theta_0.0700": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9813053897809529,
+        "expected_ucb": 0.11859543973636509,
+        "fsq": 0.005239239289829566,
+        "mean_width": 0.048595439736365084,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999075690503855,
+        "expected_ucb": 0.1795817271051005,
+        "fsq": 0.0,
+        "mean_width": 0.1095817271051005,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8905780902806267,
+        "expected_ucb": 0.10692298431848737,
+        "fsq": 0.01869461021904738,
+        "mean_width": 0.03692298431848737,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9496563318157228,
+        "expected_ucb": 0.11413388303536937,
+        "fsq": 0.005239239289829566,
+        "mean_width": 0.04413388303536936,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      }
+    },
+    "theta_0.0800": {
+      "cluster_clopper_pearson": {
+        "coverage": 0.9789657982840994,
+        "expected_ucb": 0.13067311329655903,
+        "fsq": 0.001704745198834966,
+        "mean_width": 0.05067311329655903,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.03652382505354843,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage": 0.9999768344881672,
+        "expected_ucb": 0.19314804703534236,
+        "fsq": 0.0,
+        "mean_width": 0.11314804703534236,
+        "non_monotonic": false,
+        "ucb_z0": 0.055039700563984086,
+        "ucb_z1": 0.08197522267867796,
+        "undercovered": false,
+        "unnecessary_rejection": 0.0
+      },
+      "existing_gate1": {
+        "coverage": 0.8941767961287349,
+        "expected_ucb": 0.11933551217061003,
+        "fsq": 0.006904482039683346,
+        "mean_width": 0.03933551217061003,
+        "non_monotonic": true,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.020757346433922377,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage": 0.9484947506345153,
+        "expected_ucb": 0.12637927837993668,
+        "fsq": 0.001704745198834966,
+        "mean_width": 0.046379278379936675,
+        "non_monotonic": false,
+        "ucb_z0": 0.023132405251746757,
+        "ucb_z1": 0.02901198760689105,
+        "undercovered": true,
+        "unnecessary_rejection": 0.0
+      }
+    }
+  },
+  "formal_estimands": {
+    "cluster_any_harm": "P(sum_{i=1}^N Y_ki >= 1) = 1 - P(Y_k1 = 0, ..., Y_kN = 0): Probability that cluster k encounters at least one harmful failure.",
+    "gate1_safety_standard": "Operational Safety Standard: Policy passes Gate 1 if UCB_{1 - alpha}(theta) <= 0.050 with alpha = 0.050 and zero authorization violations.",
+    "mean_cluster_rate": "theta = E[R_k] = E[(1/N) sum_{i=1}^N Y_ki]: Expected fraction of failed cases per cluster workload.",
+    "per_case_risk": "P(Y_ki = 1): Unconditional probability that an individual transaction or pipeline run experiences unmitigated catastrophic harm."
+  },
+  "intraclass_correlation_sweep": {
+    "rho_0.00": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 5.97735,
+        "mean_ucb": 1.0,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.3114,
+        "mean_ucb": 0.10747570697556381,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.9433703066271119,
+          0.9618909314887917
+        ],
+        "empirical_coverage": 0.9535,
+        "fsq_rate": 0.0365,
+        "mean_overhead_us": 51.39795,
+        "mean_ucb": 0.05167667205941857,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9444626753715425,
+          0.9627947286497985
+        ],
+        "empirical_coverage": 0.9545,
+        "fsq_rate": 0.0355,
+        "mean_overhead_us": 56.56765,
+        "mean_ucb": 0.051694480797323236,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_0.05": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 45.6444,
+        "mean_ucb": 0.9764289617612977,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.4907,
+        "mean_ucb": 0.11576947184323337,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.9115560319521683,
+          0.9348183119533293
+        ],
+        "empirical_coverage": 0.924,
+        "fsq_rate": 0.072,
+        "mean_overhead_us": 53.9785,
+        "mean_ucb": 0.05726974049908431,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9335871935538151,
+          0.9537085514131509
+        ],
+        "empirical_coverage": 0.9445,
+        "fsq_rate": 0.0535,
+        "mean_overhead_us": 58.0152,
+        "mean_ucb": 0.057959294011085856,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_0.10": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 46.72105,
+        "mean_ucb": 0.88013417163393,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.45665,
+        "mean_ucb": 0.12025034234548414,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.9120900214010068,
+          0.9352824054572093
+        ],
+        "empirical_coverage": 0.9245,
+        "fsq_rate": 0.074,
+        "mean_overhead_us": 53.85975,
+        "mean_ucb": 0.060371397783746734,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9341286162883299,
+          0.9541652116313549
+        ],
+        "empirical_coverage": 0.945,
+        "fsq_rate": 0.052,
+        "mean_overhead_us": 56.95525,
+        "mean_ucb": 0.06166269127540272,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_0.25": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 44.4051,
+        "mean_ucb": 0.6095478982484472,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.07375,
+        "mean_ucb": 0.12846589842233683,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.890832875631817,
+          0.9166162331176492
+        ],
+        "empirical_coverage": 0.9045,
+        "fsq_rate": 0.095,
+        "mean_overhead_us": 53.0667,
+        "mean_ucb": 0.06586573577986185,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9325050206793213,
+          0.9527945583822073
+        ],
+        "empirical_coverage": 0.9435,
+        "fsq_rate": 0.056,
+        "mean_overhead_us": 53.49505,
+        "mean_ucb": 0.06872687966122841,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_0.50": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 42.2576,
+        "mean_ucb": 0.3545494056704691,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 9.67045,
+        "mean_ucb": 0.13780669619085736,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.8913619885095446,
+          0.9170852031926405
+        ],
+        "empirical_coverage": 0.905,
+        "fsq_rate": 0.0945,
+        "mean_overhead_us": 51.26715,
+        "mean_ucb": 0.07216085276702706,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9346702670259668,
+          0.9546216438464368
+        ],
+        "empirical_coverage": 0.9455,
+        "fsq_rate": 0.0545,
+        "mean_overhead_us": 54.23295,
+        "mean_ucb": 0.07702149192044962,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_0.80": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 43.57195,
+        "mean_ucb": 0.17930801312616187,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.05405,
+        "mean_ucb": 0.1470461187250413,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.890832875631817,
+          0.9166162331176492
+        ],
+        "empirical_coverage": 0.9045,
+        "fsq_rate": 0.094,
+        "mean_overhead_us": 53.13525,
+        "mean_ucb": 0.07857151819034301,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9373820458455553,
+          0.956900279790442
+        ],
+        "empirical_coverage": 0.948,
+        "fsq_rate": 0.0515,
+        "mean_overhead_us": 54.48325,
+        "mean_ucb": 0.08518236815197934,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    },
+    "rho_1.00": {
+      "cluster_clopper_pearson": {
+        "coverage_95_ci": [
+          0.9390120477558316,
+          0.958264526738322
+        ],
+        "empirical_coverage": 0.9495,
+        "fsq_rate": 0.0505,
+        "mean_overhead_us": 44.85245,
+        "mean_ucb": 0.09256057787990936,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "empirical_bernstein": {
+        "coverage_95_ci": [
+          0.9980829527187469,
+          0.9999999999999998
+        ],
+        "empirical_coverage": 1.0,
+        "fsq_rate": 0.0,
+        "mean_overhead_us": 10.24865,
+        "mean_ucb": 0.149887302514105,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "existing_gate1": {
+        "coverage_95_ci": [
+          0.8639757776437693,
+          0.8925711005170409
+        ],
+        "empirical_coverage": 0.879,
+        "fsq_rate": 0.121,
+        "mean_overhead_us": 52.0831,
+        "mean_ucb": 0.08007890791426249,
+        "replications": 2000,
+        "undercovered": true,
+        "unnecessary_rejection_rate": 0.0
+      },
+      "hall_skewness_corrected": {
+        "coverage_95_ci": [
+          0.9390120477558316,
+          0.958264526738322
+        ],
+        "empirical_coverage": 0.9495,
+        "fsq_rate": 0.0505,
+        "mean_overhead_us": 54.73645,
+        "mean_ucb": 0.08762974265769857,
+        "replications": 2000,
+        "undercovered": false,
+        "unnecessary_rejection_rate": 0.0
+      }
+    }
+  },
+  "production_authorization_modified": false,
+  "python_version": "3.12.13",
+  "source_hashes": {
+    "research/experiments/gate1_coverage_audit/__init__.py": "166c6df4f064ae77199cd68fde45fd5097c187e4b419714002ef1194bb2091f1",
+    "research/experiments/gate1_coverage_audit/counterexample.py": "510842605cc9c99a2868a3f4e4828ef75449b453fd46ca9d8860752e4050b18f",
+    "research/experiments/gate1_coverage_audit/estimand.py": "906b3f8359b1f1e3b016969c1949a9daab7bccfbfe1d417bba66fb39c6ccf376",
+    "research/experiments/gate1_coverage_audit/experiment.py": "e36eaf9209515ed670a80e3b763710ed38c73cdb4d40c1ff4058899fd03ec228",
+    "research/experiments/gate1_coverage_audit/methods.py": "8d540ab5e7b07f60a8e0b89cb64eda5bfc398106a5db4dd91068e1de41b13694"
+  },
+  "status": "EXPLORATORY SCIENTIFIC RESEARCH \u2014 PRE-FREEZE NO-GO",
+  "title": "CausaGuard Gate 1 Statistical Safety-Bound Falsification Audit"
+}
