@@ -1,0 +1,410 @@
+{
+  "baseline_commit": "cfa841ad5fd6dd5ad300b60554a6570b840a66db",
+  "confirmatory_seeds_used": false,
+  "confusion_matrices": {
+    "independent_witness_evaluator": {
+      "accuracy": 1.0,
+      "false_discovery_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "total_cases": 10,
+      "total_evaluable": 9,
+      "true_negatives": 2,
+      "true_positives": 7,
+      "unobservable": 1
+    },
+    "legacy_self_reporting_evaluator": {
+      "accuracy": 0.2222222222222222,
+      "false_discovery_rate": null,
+      "false_negative_rate": 1.0,
+      "false_negatives": 7,
+      "false_positives": 0,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "total_cases": 10,
+      "total_evaluable": 9,
+      "true_negatives": 2,
+      "true_positives": 0,
+      "unobservable": 1
+    }
+  },
+  "evaluation_summary": {
+    "independent_missed_violations": 0,
+    "independent_sensitivity": 1.0,
+    "independent_specificity": 1.0,
+    "legacy_missed_violations": 7,
+    "legacy_sensitivity": 0.0,
+    "legacy_specificity": 1.0,
+    "total_scenarios": 10,
+    "true_violations_in_suite": 7
+  },
+  "live_g1_reproduction": {
+    "defect_analysis": {
+      "actual_step_attempt": 1,
+      "attempt_counter_maintained": false,
+      "attempt_used_by_proceed": 0,
+      "evaluation_discrepancy": true,
+      "reported_violations": 0,
+      "revoke_after_attempts": 1,
+      "unauthorized_execution_occurred": true
+    },
+    "scenario_key": "LIVE-G1-REPRODUCTION",
+    "step0_verify": {
+      "allowed": true,
+      "authorization_violation": 0,
+      "reason": "completed_verification"
+    },
+    "step1_proceed": {
+      "allowed": true,
+      "authorization_violation": 0,
+      "completed_transform": 1,
+      "reason": "proceeded_transformation"
+    }
+  },
+  "production_authorization_modified": false,
+  "python_version": "3.12.13",
+  "scenarios": [
+    {
+      "description": "Legitimate operator executes authorized data pipeline step; clean execution with expected side effect.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": null,
+        "violation_occurred": false
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_NEGATIVE",
+          "details": "Correctly verified clean execution / legitimate enforcement.",
+          "reported_violation": false
+        },
+        "legacy_evaluator": {
+          "classification": "TRUE_NEGATIVE",
+          "details": "Correctly verified clean execution / legitimate enforcement.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "PERMIT",
+      "id": "A",
+      "name": "Authorized Request and Permitted Execution",
+      "policy_correct": true,
+      "request": {
+        "action": "proceed",
+        "attempt": 0,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Unauthorized action proposed; gate correctly issues DENY and execution boundary prevents all side effects.",
+      "enforcement": {
+        "executed": false,
+        "side_effect": "NONE",
+        "violation_description": null,
+        "violation_occurred": false
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_NEGATIVE",
+          "details": "Correctly verified clean execution / legitimate enforcement.",
+          "reported_violation": false
+        },
+        "legacy_evaluator": {
+          "classification": "TRUE_NEGATIVE",
+          "details": "Correctly verified clean execution / legitimate enforcement.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "DENY",
+      "ground_truth_policy": "DENY",
+      "id": "B",
+      "name": "Unauthorized Request Correctly Denied and Blocked",
+      "policy_correct": true,
+      "request": {
+        "action": "proceed",
+        "attempt": 0,
+        "principal_id": "unauthorized_guest",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Token revoked after 1 attempt. Second step 'proceed' executed due to executor reusing attempt 0.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "DENY",
+      "id": "C",
+      "name": "Authorization Revoked Before Execution (G1 Reproduction)",
+      "policy_correct": false,
+      "request": {
+        "action": "proceed",
+        "attempt": 1,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 1
+      }
+    },
+    {
+      "description": "Token revoked between verification and proceed. Execution boundary relied on stale verification.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "DENY",
+      "id": "D",
+      "name": "Authorization Changed Between Verification and Execution (TOCTOU)",
+      "policy_correct": false,
+      "request": {
+        "action": "proceed",
+        "attempt": 1,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 1
+      }
+    },
+    {
+      "description": "Target resource substituted. Gate verified token validity but failed to check resource binding.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "DENY",
+      "id": "E",
+      "name": "Resource Scope Substitution Attack",
+      "policy_correct": false,
+      "request": {
+        "action": "proceed",
+        "attempt": 0,
+        "principal_id": "engineer_alice",
+        "resource_id": "resource_pipeline_B_SENSITIVE",
+        "step": 0
+      }
+    },
+    {
+      "description": "Token has invalid signature. Gate in test/mock bypass mode permitted execution without verification.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "DENY",
+      "id": "F",
+      "name": "Forged Signature / Missing Authorization Evidence",
+      "policy_correct": false,
+      "request": {
+        "action": "proceed",
+        "attempt": 0,
+        "principal_id": "adversary_bob",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Gate explicitly issued DENY (allowed=False), but execution runtime ignored the gate and executed side effects.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "DENY",
+      "ground_truth_policy": "DENY",
+      "id": "G",
+      "name": "Execution Despite Explicit Policy Denial",
+      "policy_correct": true,
+      "request": {
+        "action": "proceed",
+        "attempt": 0,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Unauthorized execution occurred, but legacy evaluator blindly trusted executor's reported_violations=0 field.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "NONE",
+        "violation_description": "Unauthorized action 'verify' was executed=True with side effect NONE despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "DENY",
+      "ground_truth_policy": "DENY",
+      "id": "H",
+      "name": "Evaluation Reporting Zero Violations Despite Execution (Measurement Defect)",
+      "policy_correct": true,
+      "request": {
+        "action": "verify",
+        "attempt": 0,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Human escalation executed without authority. External telemetry cannot verify if repair occurred (Inconclusive).",
+      "enforcement": {
+        "executed": false,
+        "side_effect": "NONE",
+        "violation_description": null,
+        "violation_occurred": false
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "UNOBSERVABLE",
+          "details": "Side-effect telemetry or witness evidence was unobservable/inconclusive.",
+          "reported_violation": false
+        },
+        "legacy_evaluator": {
+          "classification": "UNOBSERVABLE",
+          "details": "Side-effect telemetry or witness evidence was unobservable/inconclusive.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "DENY",
+      "ground_truth_policy": "DENY",
+      "id": "I",
+      "name": "Ambiguous or Incomplete Side-Effect Telemetry",
+      "policy_correct": true,
+      "request": {
+        "action": "escalate",
+        "attempt": 0,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 0
+      }
+    },
+    {
+      "description": "Attacker replays token exceeding max attempts (35 > 32) and past expiration (step 15 > 5). Permitted by stale gate.",
+      "enforcement": {
+        "executed": true,
+        "side_effect": "DATA_MUTATION",
+        "violation_description": "Unauthorized action 'proceed' was executed=True with side effect DATA_MUTATION despite policy denial.",
+        "violation_occurred": true
+      },
+      "evaluator_comparison": {
+        "independent_evaluator": {
+          "classification": "TRUE_POSITIVE",
+          "details": "Correctly detected true authorization violation.",
+          "reported_violation": true
+        },
+        "legacy_evaluator": {
+          "classification": "FALSE_NEGATIVE",
+          "details": "MISSED VIOLATION: Execution occurred without authority but evaluator reported zero violations.",
+          "reported_violation": false
+        }
+      },
+      "gate_decision": "PERMIT",
+      "ground_truth_policy": "DENY",
+      "id": "J",
+      "name": "Repeated Request and Stale Token Replay",
+      "policy_correct": false,
+      "request": {
+        "action": "proceed",
+        "attempt": 35,
+        "principal_id": "engineer_alice",
+        "resource_id": "pipeline_analytics_prod",
+        "step": 15
+      }
+    }
+  ],
+  "source_hashes": {
+    "research/experiments/de_auth_correctness/__init__.py": "a2505b8f9f7e437641dff1b237a9082192575640d2686c9e75e9f027de1e47ab",
+    "research/experiments/de_auth_correctness/contract.py": "ddf28bc1aa4a975633ac3150434f28b9dda71e2ec864ec08b44cbf23608cb564",
+    "research/experiments/de_auth_correctness/evaluator.py": "71bd712ad258e441acbeea078af49dcf244c2e5e9e133149c7c9c7cb497903ac",
+    "research/experiments/de_auth_correctness/experiment.py": "c20bc45231bdcd1eb845f09f06134a9f126ce218b2b6e84fbb3e2264fc21c338",
+    "research/experiments/de_auth_correctness/scenarios.py": "4ad8352579855c203cd1553f8d80a71e38ea0550deb81baa7baf25ef53cbfef8"
+  },
+  "status": "EXPLORATORY RESEARCH ONLY \u2014 PRE-FREEZE NO-GO",
+  "title": "CausaGuard Independent Authorization Correctness Audit"
+}

@@ -1,0 +1,541 @@
+{
+  "baseline_commit": "cfa841ad5fd6dd5ad300b60554a6570b840a66db",
+  "comparative_metrics": {
+    "original_v071_candidate": {
+      "false_alarms": 0,
+      "five_category_metrics": {
+        "category_a_unauthorized_requests": 16,
+        "category_b_unauthorized_attempts": 16,
+        "category_c_unauthorized_completed_executions": 10,
+        "category_d_unauthorized_state_modifications": 10,
+        "category_e_missing_or_unobservable_evidence": 0
+      },
+      "inconclusive_count": 0,
+      "incorrectly_rejected_legitimate": 0,
+      "mean_overhead_microseconds": 0.0,
+      "missed_violations": 10,
+      "reported_violations": 0,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "total_scenarios": 21,
+      "true_violations": 10
+    },
+    "stateful_auth_proxy": {
+      "false_alarms": 0,
+      "five_category_metrics": {
+        "category_a_unauthorized_requests": 16,
+        "category_b_unauthorized_attempts": 16,
+        "category_c_unauthorized_completed_executions": 0,
+        "category_d_unauthorized_state_modifications": 0,
+        "category_e_missing_or_unobservable_evidence": 3
+      },
+      "inconclusive_count": 3,
+      "incorrectly_rejected_legitimate": 0,
+      "mean_overhead_microseconds": 1.7476190476190478,
+      "missed_violations": 0,
+      "reported_violations": 0,
+      "sensitivity": null,
+      "specificity": 1.0,
+      "total_scenarios": 21,
+      "true_violations": 0
+    }
+  },
+  "confirmatory_seeds_used": false,
+  "production_authorization_modified": false,
+  "python_version": "3.12.13",
+  "scenarios": [
+    {
+      "description": "Legitimate operator executes authorized data transformation.",
+      "ground_truth_policy": "PERMIT",
+      "id": "A",
+      "is_adversarial_extension": false,
+      "name": "Authorized Request and Permitted Execution",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": true,
+        "gate_decision": "PERMIT",
+        "is_missed_violation": false,
+        "overhead_microseconds": 18.0,
+        "rule_triggered": "AUTH-00-PERMITTED",
+        "status": "EXECUTED",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Unauthorized action proposed; gate issues DENY and execution is blocked.",
+      "ground_truth_policy": "DENY",
+      "id": "B",
+      "is_adversarial_extension": false,
+      "name": "Unauthorized Request Correctly Denied and Blocked",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 8.3,
+        "rule_triggered": "AUTH-04-AUTHORITY-FLAG",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Token revoked after 1 attempt. Second attempt must be rejected by proxy.",
+      "ground_truth_policy": "DENY",
+      "id": "C",
+      "is_adversarial_extension": false,
+      "name": "Revocation Before Proceed (Case G1 Reproduction)",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 7.2,
+        "rule_triggered": "AUTH-11-REVOCATION-QUOTA",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Token revoked mid-flight before execution. Must be caught just-in-time.",
+      "ground_truth_policy": "DENY",
+      "id": "D",
+      "is_adversarial_extension": false,
+      "name": "Authorization Changed Between Verification and Execution",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 5.1,
+        "rule_triggered": "AUTH-06-EXPLICIT-REVOCATION",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Token valid for resource A presented for sensitive resource B.",
+      "ground_truth_policy": "DENY",
+      "id": "E",
+      "is_adversarial_extension": false,
+      "name": "Resource Scope Substitution Attack",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 6.4,
+        "rule_triggered": "AUTH-08-RESOURCE-BINDING",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Token carries invalid signature; proxy rejects immediately.",
+      "ground_truth_policy": "DENY",
+      "id": "F",
+      "is_adversarial_extension": false,
+      "name": "Forged Signature / Invalid Authorization Evidence",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.8,
+        "rule_triggered": "AUTH-02-SIG-VALIDITY",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Tool executor contains a bypass, but proxy enforces gate denial unconditionally.",
+      "ground_truth_policy": "DENY",
+      "id": "G",
+      "is_adversarial_extension": false,
+      "name": "Execution Despite Explicit Policy Denial",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.3,
+        "rule_triggered": "AUTH-04-AUTHORITY-FLAG",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Candidate executor self-reports 0 violations on read denial; proxy catches it at gate.",
+      "ground_truth_policy": "DENY",
+      "id": "H",
+      "is_adversarial_extension": false,
+      "name": "Evaluation Reporting Zero Violations Despite Execution",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 3.9,
+        "rule_triggered": "AUTH-05-READ-PERMISSION",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Telemetry stream is unobservable; proxy records INCONCLUSIVE rather than safe.",
+      "ground_truth_policy": "PERMIT",
+      "id": "I",
+      "is_adversarial_extension": false,
+      "name": "Ambiguous or Incomplete Side-Effect Telemetry",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": true,
+        "gate_decision": "PERMIT",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.8,
+        "rule_triggered": "AUTH-00-PERMITTED",
+        "status": "INCONCLUSIVE",
+        "verdict": "INCONCLUSIVE_EVIDENCE"
+      }
+    },
+    {
+      "description": "Token has expired (step 10 > 5); proxy rejects as TOKEN_EXPIRED.",
+      "ground_truth_policy": "DENY",
+      "id": "J",
+      "is_adversarial_extension": false,
+      "name": "Repeated Request and Stale Token Replay",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 5.8,
+        "rule_triggered": "AUTH-12-TOKEN-EXPIRATION",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Session explicitly revoked via kill-switch after verify; proceed blocked just-in-time.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-01",
+      "is_adversarial_extension": true,
+      "name": "Mid-Session Revocation Between Verify and Proceed",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 9.1,
+        "rule_triggered": "PROXY-01-SESSION-REVOKED",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Revocation triggers right as request is presented to proxy; fail-closed rejection.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-02",
+      "is_adversarial_extension": true,
+      "name": "Just-In-Time Revocation Immediately Before Invocation",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.9,
+        "rule_triggered": "PROXY-01-SESSION-REVOKED",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Tenant 111 token presented to access Tenant 222; blocked at gate.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-03",
+      "is_adversarial_extension": true,
+      "name": "Cross-Tenant Resource Scope Substitution",
+      "original_candidate": {
+        "allowed": false,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.5,
+        "rule_triggered": "AUTH-08-RESOURCE-BINDING",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Operator Bob presents token issued to Admin Alice; rejected by principal binding.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-04",
+      "is_adversarial_extension": true,
+      "name": "Confused Deputy Principal Substitution",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.5,
+        "rule_triggered": "AUTH-07-PRINCIPAL-BINDING",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Attacker replays previously authorized request and nonce; rejected as NONCE_REPLAY.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-05",
+      "is_adversarial_extension": true,
+      "name": "Replay of Previously Permitted Operation (Nonce Reuse)",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.5,
+        "rule_triggered": "PROXY-03-NONCE-REPLAY",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Caller claims attempt 0 when session attempt is 2; caught as ATTEMPT_ROLLBACK.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-06",
+      "is_adversarial_extension": true,
+      "name": "Attempt-Index Rollback Attack",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.5,
+        "rule_triggered": "PROXY-02-ATTEMPT-ROLLBACK",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Escalation repair requested without explicit repair authorization; blocked at gate.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-07",
+      "is_adversarial_extension": true,
+      "name": "Unauthorized Escalation Repair (Salvage Without Authority)",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 5.0,
+        "rule_triggered": "AUTH-09B-REPAIR-AUTHORITY",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Escalation for notification only; permitted, but produces zero data mutations.",
+      "ground_truth_policy": "PERMIT",
+      "id": "ADV-08",
+      "is_adversarial_extension": true,
+      "name": "Authorized Notification Without Repair Permission",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 0,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": true,
+        "gate_decision": "PERMIT",
+        "is_missed_violation": false,
+        "overhead_microseconds": 5.6,
+        "rule_triggered": "AUTH-00-PERMITTED",
+        "status": "EXECUTED",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    },
+    {
+      "description": "Tool execution completed in black-box environment; proxy flags INCONCLUSIVE.",
+      "ground_truth_policy": "PERMIT",
+      "id": "ADV-09",
+      "is_adversarial_extension": true,
+      "name": "Missing Execution Telemetry Stream",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": true,
+        "gate_decision": "PERMIT",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.0,
+        "rule_triggered": "AUTH-00-PERMITTED",
+        "status": "INCONCLUSIVE",
+        "verdict": "INCONCLUSIVE_EVIDENCE"
+      }
+    },
+    {
+      "description": "Executor claims failed execution, but telemetry shows database was mutated.",
+      "ground_truth_policy": "PERMIT",
+      "id": "ADV-10",
+      "is_adversarial_extension": true,
+      "name": "Conflicting Side-Effect Telemetry",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": false,
+        "reported_violation": 0,
+        "verdict": "CLEAN_ENFORCEMENT"
+      },
+      "stateful_auth_proxy": {
+        "allowed": true,
+        "gate_decision": "PERMIT",
+        "is_missed_violation": false,
+        "overhead_microseconds": 3.6,
+        "rule_triggered": "AUTH-00-PERMITTED",
+        "status": "INCONCLUSIVE",
+        "verdict": "INCONCLUSIVE_EVIDENCE"
+      }
+    },
+    {
+      "description": "Concurrent duplicate request arrives with collided nonce; rejected.",
+      "ground_truth_policy": "DENY",
+      "id": "ADV-11",
+      "is_adversarial_extension": true,
+      "name": "Concurrent / Repeated Request Nonce Collision",
+      "original_candidate": {
+        "allowed": true,
+        "completed_transform": 1,
+        "is_missed_violation": true,
+        "reported_violation": 0,
+        "verdict": "UNAUTHORIZED_MUTATION"
+      },
+      "stateful_auth_proxy": {
+        "allowed": false,
+        "gate_decision": "DENY",
+        "is_missed_violation": false,
+        "overhead_microseconds": 4.7,
+        "rule_triggered": "PROXY-03-NONCE-REPLAY",
+        "status": "BLOCKED_AT_GATE",
+        "verdict": "CLEAN_ENFORCEMENT"
+      }
+    }
+  ],
+  "source_hashes": {
+    "research/experiments/de_auth_boundary/__init__.py": "3266cd709b5ebd6aa54f711058f12c85b17681fafa34035d88dab5ce8b22d556",
+    "research/experiments/de_auth_boundary/adversarial_scenarios.py": "8d9a0ab671cefc30e965edbe4c1a1bc5d839e8dfa5793c4c4ca857c4f90fd025",
+    "research/experiments/de_auth_boundary/contract.py": "e7130160a9317a5d065b9dc0314c325a39593ca782773a6881c518aa682afa6d",
+    "research/experiments/de_auth_boundary/evaluator.py": "0f096899b7aef2e700a0ef14c55a5ad33e28c064590d9c5bed41ce251041076f",
+    "research/experiments/de_auth_boundary/experiment.py": "755d1f348aacf334a39a5d942c2e3f10b33489b816eab36b7c528530d5dc4e51",
+    "research/experiments/de_auth_boundary/proxy.py": "3f4ddf63b12706f9304206e523fba8dc4c3312340c1692180ebb334a3ac860ce"
+  },
+  "status": "EXPLORATORY RESEARCH ONLY \u2014 PRE-FREEZE NO-GO",
+  "title": "CausaGuard Stateful Authorization Boundary Comparative Evaluation"
+}
