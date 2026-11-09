@@ -130,11 +130,27 @@ class IndependentMeasurementOracle:
         candidate_reported_violation: int = 0,
         current_attempt: int | None = None,
         current_step: int | None = None,
+        session_revoked: bool = False,
+        revoked_token_ids: frozenset[str] | set[str] | None = None,
+        expected_attempt: int | None = None,
+        seen_nonces: frozenset[str] | set[str] | None = None,
+        target_resource_tenant: str | None = None,
     ) -> OracleEvaluationVerdict:
-        """Evaluate a single operation against independent ground truth and observable witness."""
-        # 1. Evaluate ground-truth policy contract
+        """Evaluate a single operation against independent ground truth and observable witness.
+
+        CRITICAL: Never accepts a pre-computed contract outcome from the system under test.
+        Computes ground truth independently using evaluate_independent_contract.
+        """
+        # 1. Evaluate ground-truth policy contract independently
         contract_outcome: GateOutcome = evaluate_independent_contract(
-            request, current_attempt=current_attempt, current_step=current_step
+            request,
+            current_attempt=current_attempt,
+            current_step=current_step,
+            session_revoked=session_revoked,
+            revoked_token_ids=revoked_token_ids,
+            expected_attempt=expected_attempt,
+            seen_nonces=seen_nonces,
+            target_resource_tenant=target_resource_tenant,
         )
         decision = contract_outcome.decision
 

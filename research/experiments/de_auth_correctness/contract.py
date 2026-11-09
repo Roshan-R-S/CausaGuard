@@ -98,6 +98,8 @@ class RequestedAction:
     attempt: int = 0
     token: AuthToken | None = None
     escalation_is_repair: bool = True
+    nonce: str | None = None
+    tenant_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -141,12 +143,44 @@ def evaluate_independent_contract(
     request: RequestedAction,
     current_attempt: int | None = None,
     current_step: int | None = None,
+    session_revoked: bool = False,
+    revoked_token_ids: frozenset[str] | set[str] | None = None,
+    expected_attempt: int | None = None,
+    seen_nonces: frozenset[str] | set[str] | None = None,
+    target_resource_tenant: str | None = None,
 ) -> GateOutcome:
     """Authoritative reference implementation of authorization contract rules.
 
     Evaluates permissions strictly without calling domain access helpers
     or trusting candidate executor state.
     """
+    # 0a. Session-level administrative revocation
+    if session_revoked:
+        return GateOutcome(PolicyDecision.DENY, "session_explicitly_revoked", "AUTH-06B-SESSION-REVOCATION")
+
+    # 0b. Global token registry revocation
+    if request.token is not None and revoked_token_ids is not None and request.token.token_id in revoked_token_ids:
+        return GateOutcome(PolicyDecision.DENY, "token_globally_revoked", "AUTH-06C-GLOBAL-TOKEN-REVOCATION")
+
+    # 0c. Attempt sequence monotonicity (anti-rollback / anti-gap)
+    if expected_attempt is not None and request.attempt != expected_attempt:
+        return GateOutcome(
+            PolicyDecision.DENY,
+            f"attempt_mismatch_{request.attempt}_ne_{expected_attempt}",
+            "AUTH-10B-ATTEMPT-SEQUENCE",
+        )
+
+    # 0d. Nonce freshness check (anti-replay)
+    nonce = getattr(request, "nonce", None)
+    if nonce is not None and seen_nonces is not None and nonce in seen_nonces:
+        return GateOutcome(PolicyDecision.DENY, f"nonce_replay_detected_{nonce}", "AUTH-13-NONCE-REPLAY")
+
+    # 0e. Tenant scope check
+    if target_resource_tenant is not None:
+        principal_tenant = getattr(request, "tenant_id", None)
+        if principal_tenant is not None and principal_tenant != target_resource_tenant:
+            return GateOutcome(PolicyDecision.DENY, "tenant_scope_mismatch", "AUTH-08B-TENANT-SCOPE")
+
     attempt = request.attempt if current_attempt is None else current_attempt
     step = request.step if current_step is None else current_step
 
