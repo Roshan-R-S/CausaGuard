@@ -146,18 +146,19 @@ def ucb_betting_fixed_time(
     has been identified across all continuous points m in [0, 1].
     """
     thresh = 1.0 / alpha
+    x_seq = x.tolist() if isinstance(x, np.ndarray) else list(x)
     # Check if upper boundary cannot be rejected
-    w_high, _ = compute_wealth_path(0.9999, x, c=c, strategy=strategy)
+    w_high, _ = compute_wealth_path(0.9999, x_seq, c=c, strategy=strategy)
     if w_high < thresh:
         return 1.0
 
     def obj(m: float) -> float:
-        w, _ = compute_wealth_path(m, x, c=c, strategy=strategy)
+        w, _ = compute_wealth_path(m, x_seq, c=c, strategy=strategy)
         return w - thresh
 
     # Heuristic grid scan to find the highest crossing bracket [m_left, m_right]
     grid = np.linspace(0.0, 0.9999, n_grid)
-    w_vals = [compute_wealth_path(m, x, c=c, strategy=strategy)[0] for m in grid]
+    w_vals = [compute_wealth_path(m, x_seq, c=c, strategy=strategy)[0] for m in grid]
     below_thresh_indices = [i for i, w in enumerate(w_vals) if w < thresh]
 
     if not below_thresh_indices:
@@ -195,16 +196,17 @@ def ucb_betting_anytime_cs(
     WARNING: Finite grid search is an exploratory numerical approximation.
     """
     thresh = 1.0 / alpha
-    _, max_w_high = compute_wealth_path(0.9999, x, c=c, strategy=strategy)
+    x_seq = x.tolist() if isinstance(x, np.ndarray) else list(x)
+    _, max_w_high = compute_wealth_path(0.9999, x_seq, c=c, strategy=strategy)
     if max_w_high < thresh:
         return 1.0
 
     def obj(m: float) -> float:
-        _, max_w = compute_wealth_path(m, x, c=c, strategy=strategy)
+        _, max_w = compute_wealth_path(m, x_seq, c=c, strategy=strategy)
         return max_w - thresh
 
     grid = np.linspace(0.0, 0.9999, n_grid)
-    max_w_vals = [compute_wealth_path(m, x, c=c, strategy=strategy)[1] for m in grid]
+    max_w_vals = [compute_wealth_path(m, x_seq, c=c, strategy=strategy)[1] for m in grid]
     below_thresh_indices = [i for i, w in enumerate(max_w_vals) if w < thresh]
 
     if not below_thresh_indices:
