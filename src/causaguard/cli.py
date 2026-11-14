@@ -1,6 +1,7 @@
 """Train, evaluate, inspect and serve the offline MVP."""
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from causaguard.conservative import ConservativeConfig, ConservativePolicy
@@ -16,6 +17,20 @@ from causaguard.policy import LearnedPolicy
 from causaguard.research import ExperimentConfig, run_development, run_final, write_report
 from causaguard.sandbox import CASES, replay_trace, run_agent
 from causaguard.validation import add_validation_commands, run_validation_command
+
+# Ensure repository root is accessible for research integration packages
+_repo_root = str(Path(__file__).resolve().parents[2])
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
+
+try:
+    from research.experiments.wp7_integration import (
+        add_wp7_commands,
+        run_wp7_command,
+    )
+except ImportError:
+    add_wp7_commands = None  # type: ignore[assignment]
+    run_wp7_command = None  # type: ignore[assignment]
 
 MODEL = Path("artifacts/policy.joblib")
 
@@ -41,6 +56,8 @@ def main(argv: list[str] | None = None) -> None:
     add_validation_commands(commands)
     add_intervention_commands(commands)
     add_factorial_commands(commands)
+    if add_wp7_commands is not None:
+        add_wp7_commands(commands)
     train = commands.add_parser("train", help="train on synthetic paired outcomes")
     train.add_argument("--n", type=int, default=2000)
     train.add_argument("--seed", type=int, default=42)
@@ -76,7 +93,10 @@ def main(argv: list[str] | None = None) -> None:
 
 
 def _run(args) -> None:
-    if args.command in ("factorial-study", "factorial-replay"):
+    if args.command in ("wp7-demo", "wp7-replay"):
+        if run_wp7_command is not None:
+            run_wp7_command(args)
+    elif args.command in ("factorial-study", "factorial-replay"):
         run_factorial_command(args)
     elif args.command in ("intervention-study", "intervention-replay"):
         run_intervention_command(args)
