@@ -3,7 +3,10 @@
 import pytest
 from causaguard_v07_1.domain_cs import (
     OP_COSTS_CS_V07_1,
+    PROFILES_CS_V07_1,
+    CSEvidenceV07_1,
     CSObservationV07_1,
+    _check_independent_access,
     execute_cs_step_v07_1,
     make_cs_cases_v07_1,
 )
@@ -98,3 +101,71 @@ def test_cs_verification_step_non_terminal_at_b2():
     assert r["b_rem"] == 1
     assert r["evidence"] is not None
     assert isinstance(r["evidence"].flagged, bool)
+
+
+def test_cs_profile_distribution_validation():
+    """WP2 distribution-validation test: exercises and verifies all 4 profile distribution shifts."""
+    # 1. Invalid profile raises ValueError
+    with pytest.raises(ValueError, match="Unknown profile"):
+        make_cs_cases_v07_1(5, seed=123, profile="invalid_profile")
+
+    # 2. Iterate across all authorized profiles
+    assert PROFILES_CS_V07_1 == ("iid", "verifier_shift", "outage_shift", "cost_shift")
+    for prof in PROFILES_CS_V07_1:
+        cases = make_cs_cases_v07_1(10, seed=42, profile=prof)
+        assert len(cases) == 10
+        for c in cases:
+            assert c.profile == prof
+            assert c.latent_state in ("clean", "stale", "fraud")
+            assert isinstance(c.defect, bool)
+
+            # Profile-specific distribution assertions:
+            if prof == "cost_shift":
+                # Cost multiplier 2.5x applied to action costs
+                assert c.observation.apply_cost >= 0.025
+                assert c.observation.verify_cost >= 0.15
+                assert c.observation.retry_cost >= 0.20
+                assert c.observation.escalation_cost >= 0.375
+            elif prof == "verifier_shift":
+                # Shift of +0.24 on actual_fn and +0.12 on actual_fp
+                assert c.actual_fn >= c.observation.quoted_fn + 0.20
+                assert c.actual_fp >= c.observation.quoted_fp + 0.10
+            elif prof == "outage_shift":
+                # Outage shift of +0.30 applied to source outage probability
+                assert c.source_outage >= 0.30
+
+
+def test_cs_verification_asymmetric_errors_and_delay():
+    """WP2 test: verifies asymmetric error rate mechanics and observation delay in CS domain."""
+    cases = make_cs_cases_v07_1(20, seed=555, profile="iid")
+    accessible = [c for c in cases if _check_independent_access(c, 0)]
+    assert len(accessible) > 0
+    case = accessible[0]
+
+    res = execute_cs_step_v07_1(case, action="verify", b_rem=2, current_latency=0.2, prior_cost=0.05)
+    assert res["allowed"] is True
+    assert res["terminal"] is False
+    assert res["b_rem"] == 1
+    assert res["blocked"] == 0
+
+    ev = res["evidence"]
+    assert isinstance(ev, CSEvidenceV07_1)
+    assert isinstance(ev.flagged, bool)
+
+    # Delay latency: current_latency + observation_delay + verification_lag
+    expected_latency = 0.2 + case.observation.observation_delay + case.verification_lag
+    assert pytest.approx(res["latency"]) == expected_latency
+    assert pytest.approx(ev.evidence_age_hours) == expected_latency
+
+    # Cost accounting: prior_cost + verify_cost + time_cost * latency
+    expected_cost = 0.05 + case.observation.verify_cost + case.observation.time_cost_per_hour * expected_latency
+    assert pytest.approx(res["cost"]) == expected_cost
+    assert pytest.approx(res["utility"]) == -expected_cost
+
+    # Asymmetric error invariant:
+    # If defect: flagged == (draws[0] >= actual_fn), flag rate = 1 - FN
+    # If not defect: flagged == (draws[0] < actual_fp), flag rate = FP
+    if case.defect:
+        assert ev.flagged == (case.draws[0] >= case.actual_fn)
+    else:
+        assert ev.flagged == (case.draws[0] < case.actual_fp)

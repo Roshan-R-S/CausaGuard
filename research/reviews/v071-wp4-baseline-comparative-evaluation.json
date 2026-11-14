@@ -1,0 +1,1090 @@
+{
+  "status": "EXPLORATORY_EVALUATION_ONLY_PRE_FREEZE_NO_GO",
+  "n_cases_per_profile": 100,
+  "domains": {
+    "customer_support": {
+      "iid": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": 0.013280393420698075,
+          "std_utility": 1.0282939685922978,
+          "safe_completion_rate": 0.45,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.4028776699931317,
+          "mean_latency": 1.1788067903773554,
+          "verification_burden": 0.91,
+          "escalation_burden": 0.01,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 1,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.0507273691317363
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.34492081711967626,
+          "std_utility": 0.50573999668506,
+          "safe_completion_rate": 0.54,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.8619957241321701,
+          "mean_latency": 1.2540098047561516,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.61,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 11,
+            "human_errors": 3
+          },
+          "contrast_vs_rules_repair": -0.4089285796721106
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.11534245416921177,
+          "std_utility": 1.7935420401595028,
+          "safe_completion_rate": 0.48,
+          "actual_unsafe_rate": 0.17,
+          "mean_cost": 0.03682907754319029,
+          "mean_latency": 0.15242659476725456,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.17935021672164614
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": 0.06400776255243437,
+          "std_utility": 1.1966372719082472,
+          "safe_completion_rate": 0.48,
+          "actual_unsafe_rate": 0.04,
+          "mean_cost": 0.3222916017892208,
+          "mean_latency": 0.8991928808832685,
+          "verification_burden": 0.56,
+          "escalation_burden": 0.04,
+          "false_blocking_rate": 0.03,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 4,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.02860283722826657,
+          "std_utility": 1.0177374126029712,
+          "safe_completion_rate": 0.43,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.4184495169490722,
+          "mean_latency": 1.2022152282427812,
+          "verification_burden": 0.9,
+          "escalation_burden": 0.03,
+          "false_blocking_rate": 0.02,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 3,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.09261059978070094
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.11153672017624945,
+          "std_utility": 0.981407182451952,
+          "safe_completion_rate": 0.41,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.46779525063682903,
+          "mean_latency": 1.2625768445929912,
+          "verification_burden": 0.91,
+          "escalation_burden": 0.09,
+          "false_blocking_rate": 0.08,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 9,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.17554448272868384
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.40073469297074965,
+          "std_utility": 0.5782905913939237,
+          "safe_completion_rate": 0.55,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.22547973409596342,
+          "mean_latency": 0.6965758253444012,
+          "verification_burden": 0.14,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.33672693041831525
+        }
+      },
+      "verifier_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.17801221705348996,
+          "std_utility": 1.200659011864688,
+          "safe_completion_rate": 0.38,
+          "actual_unsafe_rate": 0.05,
+          "mean_cost": 0.41656006581372884,
+          "mean_latency": 1.218727128365379,
+          "verification_burden": 0.9,
+          "escalation_burden": 0.03,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 3,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.13201270217434663
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.4537601199937249,
+          "std_utility": 0.48901360452618375,
+          "safe_completion_rate": 0.46,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.8781185679935538,
+          "mean_latency": 1.3227514415318138,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.63,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 9,
+            "human_errors": 4
+          },
+          "contrast_vs_rules_repair": -0.40776060511458156
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.050737780578419746,
+          "std_utility": 1.7181652141453585,
+          "safe_completion_rate": 0.47,
+          "actual_unsafe_rate": 0.14,
+          "mean_cost": 0.03826353563708657,
+          "mean_latency": 0.14797249909362725,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.004738265699276427
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.04599951487914332,
+          "std_utility": 1.338993504244636,
+          "safe_completion_rate": 0.44,
+          "actual_unsafe_rate": 0.06,
+          "mean_cost": 0.30939574235319167,
+          "mean_latency": 0.8726560280689009,
+          "verification_burden": 0.51,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.03,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.2424632352603629,
+          "std_utility": 1.1871217737663569,
+          "safe_completion_rate": 0.35,
+          "actual_unsafe_rate": 0.05,
+          "mean_cost": 0.4473780645025,
+          "mean_latency": 1.2524786032087132,
+          "verification_burden": 0.89,
+          "escalation_burden": 0.07,
+          "false_blocking_rate": 0.04,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 7,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.19646372038121956
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.2789127401941868,
+          "std_utility": 1.1582938654073924,
+          "safe_completion_rate": 0.35,
+          "actual_unsafe_rate": 0.05,
+          "mean_cost": 0.47683183119930306,
+          "mean_latency": 1.3017928102481355,
+          "verification_burden": 0.9,
+          "escalation_burden": 0.1,
+          "false_blocking_rate": 0.07,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 10,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.2329132253150435
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.24924093828296126,
+          "std_utility": 0.566427528020197,
+          "safe_completion_rate": 0.43,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.23201637152185853,
+          "mean_latency": 0.7263398616821486,
+          "verification_burden": 0.13,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.29524045316210457
+        }
+      },
+      "outage_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.17854682872323355,
+          "std_utility": 0.8504434426776843,
+          "safe_completion_rate": 0.29,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 0.41527903033023233,
+          "mean_latency": 1.1482163478782494,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.01,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 1,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.057278806190486656
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.4382300199300185,
+          "std_utility": 0.7333725144446362,
+          "safe_completion_rate": 0.56,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 0.8653091004910176,
+          "mean_latency": 1.2300218679384471,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.67,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 9,
+            "human_errors": 10
+          },
+          "contrast_vs_rules_repair": -0.3169619973972716
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.01107289578781676,
+          "std_utility": 1.4514351993254206,
+          "safe_completion_rate": 0.36,
+          "actual_unsafe_rate": 0.09,
+          "mean_cost": 0.03731395343193945,
+          "mean_latency": 0.15014146315408483,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.11019512674493014
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.12126802253274689,
+          "std_utility": 1.2069280211272442,
+          "safe_completion_rate": 0.36,
+          "actual_unsafe_rate": 0.04,
+          "mean_cost": 0.31867664705264004,
+          "mean_latency": 0.8512436628425868,
+          "verification_burden": 0.51,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.03,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.18045389332049858,
+          "std_utility": 0.8432320442631308,
+          "safe_completion_rate": 0.33,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 0.45565774368193473,
+          "mean_latency": 1.2004248278789726,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.04,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.059185870787751685
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.18978466669261668,
+          "std_utility": 0.8466360722614432,
+          "safe_completion_rate": 0.34,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 0.4718350307045033,
+          "mean_latency": 1.2169999301250625,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.08,
+          "false_blocking_rate": 0.05,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 8,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.06851664415986979
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.09639205620926575,
+          "std_utility": 0.7022115120450962,
+          "safe_completion_rate": 0.34,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.21429451283665713,
+          "mean_latency": 0.6056573432289449,
+          "verification_burden": 0.09,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.21766007874201265
+        }
+      },
+      "cost_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.4645657270069485,
+          "std_utility": 0.9964005418888708,
+          "safe_completion_rate": 0.44,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.9087896009777571,
+          "mean_latency": 1.2342814707219845,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.16988891211653806
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.7687176365916087,
+          "std_utility": 0.48818654911747317,
+          "safe_completion_rate": 0.64,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 1.3274148654685165,
+          "mean_latency": 1.2751969894433606,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.62,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 8,
+            "human_errors": 5
+          },
+          "contrast_vs_rules_repair": -0.4740408217011983
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.11985018210315816,
+          "std_utility": 1.6096194314319903,
+          "safe_completion_rate": 0.45,
+          "actual_unsafe_rate": 0.15,
+          "mean_cost": 0.08664583043669255,
+          "mean_latency": 0.15026311930291605,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.17482663278725225
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.2946768148904104,
+          "std_utility": 1.1849037157391953,
+          "safe_completion_rate": 0.47,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.7050019773048071,
+          "mean_latency": 0.9562526279365073,
+          "verification_burden": 0.64,
+          "escalation_burden": 0.02,
+          "false_blocking_rate": 0.01,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 2,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.4995991730230848,
+          "std_utility": 0.9668889377784179,
+          "safe_completion_rate": 0.45,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.9482226874915699,
+          "mean_latency": 1.2640141387983674,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.03,
+          "false_blocking_rate": 0.02,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 3,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.2049223581326744
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.5277704917863094,
+          "std_utility": 0.9477435588518577,
+          "safe_completion_rate": 0.46,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.9794991507701636,
+          "mean_latency": 1.29522977464347,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.05,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.233093676895899
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.03545976031069784,
+          "std_utility": 0.5802277357427345,
+          "safe_completion_rate": 0.49,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.4953333894407704,
+          "mean_latency": 0.6413052456524558,
+          "verification_burden": 0.08,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.3301365752011083
+        }
+      }
+    },
+    "data_engineering": {
+      "iid": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.11547356845445185,
+          "std_utility": 1.279466410773709,
+          "safe_completion_rate": 0.63,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.4997576515632558,
+          "mean_latency": 1.0786443569044992,
+          "verification_burden": 0.93,
+          "escalation_burden": 0.02,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 2,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.2566245992359231
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.8895752753911813,
+          "std_utility": 0.6308233961852864,
+          "safe_completion_rate": 0.51,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 1.3065293792273593,
+          "mean_latency": 1.832338049716941,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.55,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 6,
+            "human_errors": 5
+          },
+          "contrast_vs_rules_repair": -0.5174771077008063
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -1.2308309556206771,
+          "std_utility": 2.876611936069824,
+          "safe_completion_rate": 0.44,
+          "actual_unsafe_rate": 0.36,
+          "mean_cost": 0.04503799792266614,
+          "mean_latency": 0.14811694001142636,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.8587327879303022
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.37209816769037496,
+          "std_utility": 1.8960012937283137,
+          "safe_completion_rate": 0.59,
+          "actual_unsafe_rate": 0.11,
+          "mean_cost": 0.3570651299971349,
+          "mean_latency": 0.7545447680679003,
+          "verification_burden": 0.54,
+          "escalation_burden": 0.05,
+          "false_blocking_rate": 0.01,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 5,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.009495639842733005,
+          "std_utility": 0.8833044745591482,
+          "safe_completion_rate": 0.65,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.5357696749666624,
+          "mean_latency": 1.1272876847623863,
+          "verification_burden": 0.93,
+          "escalation_burden": 0.05,
+          "false_blocking_rate": 0.01,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 5,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.36260252784764196
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.05169686420843755,
+          "std_utility": 0.8703020508811709,
+          "safe_completion_rate": 0.64,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.5601519410853967,
+          "mean_latency": 1.1562600290592386,
+          "verification_burden": 0.93,
+          "escalation_burden": 0.07,
+          "false_blocking_rate": 0.03,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 7,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.3204013034819374
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.12976597452543218,
+          "std_utility": 0.7660229196400452,
+          "safe_completion_rate": 0.74,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.32977877461917915,
+          "mean_latency": 0.8354736342837612,
+          "verification_burden": 0.5,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.5018641422158071
+        }
+      },
+      "verifier_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.038831915941878646,
+          "std_utility": 1.0471902658691057,
+          "safe_completion_rate": 0.61,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 0.5163929703522565,
+          "mean_latency": 1.1503541516578901,
+          "verification_burden": 0.91,
+          "escalation_burden": 0.02,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 2,
+            "queue_drops": 1,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.11913622876531019
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -1.0423756875932755,
+          "std_utility": 0.9012155288994237,
+          "safe_completion_rate": 0.43,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 1.3169469478583276,
+          "mean_latency": 1.8823739139138806,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.57,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 9,
+            "human_errors": 9
+          },
+          "contrast_vs_rules_repair": -1.122680000416707
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.7692482838190774,
+          "std_utility": 2.6325982912175454,
+          "safe_completion_rate": 0.48,
+          "actual_unsafe_rate": 0.28,
+          "mean_cost": 0.04094043718219595,
+          "mean_latency": 0.14518591328508493,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.8495525966425089
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": 0.08030431282343153,
+          "std_utility": 1.2366609858266373,
+          "safe_completion_rate": 0.62,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.38573698486136343,
+          "mean_latency": 0.8569730804399773,
+          "verification_burden": 0.59,
+          "escalation_burden": 0.04,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 4,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.030410574365436368,
+          "std_utility": 0.9533192288513862,
+          "safe_completion_rate": 0.61,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.5518308420239384,
+          "mean_latency": 1.2023958301869313,
+          "verification_burden": 0.91,
+          "escalation_burden": 0.05,
+          "false_blocking_rate": 0.01,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 5,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.1107148871888679
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.10690897841331586,
+          "std_utility": 0.9314130470112264,
+          "safe_completion_rate": 0.6,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.6069008641713832,
+          "mean_latency": 1.2761054059118608,
+          "verification_burden": 0.91,
+          "escalation_burden": 0.09,
+          "false_blocking_rate": 0.05,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 9,
+            "queue_drops": 2,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.1872132912367474
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": 0.10675441762850509,
+          "std_utility": 0.7957376710894181,
+          "safe_completion_rate": 0.71,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.34338934112045627,
+          "mean_latency": 0.8773367726984906,
+          "verification_burden": 0.46,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.02645010480507355
+        }
+      },
+      "outage_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.07143891418776274,
+          "std_utility": 0.8069826342500477,
+          "safe_completion_rate": 0.5,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.4899653199811331,
+          "mean_latency": 0.9757305975915128,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.04513422520697464
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -0.8738245765293287,
+          "std_utility": 0.8073990793213683,
+          "safe_completion_rate": 0.56,
+          "actual_unsafe_rate": 0.02,
+          "mean_cost": 1.3099804021403743,
+          "mean_latency": 1.8381607284023453,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.64,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 7,
+            "human_errors": 4
+          },
+          "contrast_vs_rules_repair": -0.8475198875485406
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.40097704618534585,
+          "std_utility": 2.141784503808305,
+          "safe_completion_rate": 0.39,
+          "actual_unsafe_rate": 0.18,
+          "mean_cost": 0.04298656726109298,
+          "mean_latency": 0.15515708312907733,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.37467235720455777
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.026304688980788103,
+          "std_utility": 1.1584062471388492,
+          "safe_completion_rate": 0.5,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 0.36856404046471397,
+          "mean_latency": 0.7569200645345182,
+          "verification_burden": 0.52,
+          "escalation_burden": 0.05,
+          "false_blocking_rate": 0.04,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 5,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.15805346509111357,
+          "std_utility": 0.7963188702856717,
+          "safe_completion_rate": 0.5,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.5658442624758115,
+          "mean_latency": 1.0739625313002208,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.05,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.13174877611032546
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.15805346509111357,
+          "std_utility": 0.7963188702856717,
+          "safe_completion_rate": 0.5,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 0.5658442624758115,
+          "mean_latency": 1.0739625313002208,
+          "verification_burden": 0.94,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.05,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.13174877611032546
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": -0.0051926018799869555,
+          "std_utility": 0.46697809908533694,
+          "safe_completion_rate": 0.52,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.37781587372675896,
+          "mean_latency": 0.8216680899990914,
+          "verification_burden": 0.56,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.021112087100801147
+        }
+      },
+      "cost_shift": {
+        "always_verify": {
+          "n_cases": 100,
+          "mean_utility": -0.6429767666049928,
+          "std_utility": 1.3548750170740655,
+          "safe_completion_rate": 0.65,
+          "actual_unsafe_rate": 0.04,
+          "mean_cost": 1.065395037378456,
+          "mean_latency": 1.0242204839878233,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.18735375088957473
+        },
+        "always_escalate": {
+          "n_cases": 100,
+          "mean_utility": -1.3765625640523877,
+          "std_utility": 0.7045210983800536,
+          "safe_completion_rate": 0.56,
+          "actual_unsafe_rate": 0.01,
+          "mean_cost": 1.8383637495447709,
+          "mean_latency": 1.8627792281596747,
+          "verification_burden": 0.0,
+          "escalation_burden": 1.0,
+          "false_blocking_rate": 0.62,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 100,
+            "queue_drops": 5,
+            "human_errors": 6
+          },
+          "contrast_vs_rules_repair": -0.9209395483369697
+        },
+        "rules_proceed": {
+          "n_cases": 100,
+          "mean_utility": -0.904247751381088,
+          "std_utility": 2.6832989027457934,
+          "safe_completion_rate": 0.51,
+          "actual_unsafe_rate": 0.3,
+          "mean_cost": 0.09486402398416356,
+          "mean_latency": 0.14925611876292388,
+          "verification_burden": 0.0,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": -0.44862473566566996
+        },
+        "rules_repair": {
+          "n_cases": 100,
+          "mean_utility": -0.4556230157154181,
+          "std_utility": 1.7380636653851291,
+          "safe_completion_rate": 0.65,
+          "actual_unsafe_rate": 0.06,
+          "mean_cost": 0.7885172514398677,
+          "mean_latency": 0.7453166955172815,
+          "verification_burden": 0.52,
+          "escalation_burden": 0.05,
+          "false_blocking_rate": 0.03,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 5,
+            "queue_drops": 0,
+            "human_errors": 1
+          },
+          "contrast_vs_rules_repair": 0.0
+        },
+        "original_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.7063013548066962,
+          "std_utility": 1.285584504012775,
+          "safe_completion_rate": 0.65,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 1.1701181087550796,
+          "mean_latency": 1.120299412633463,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.06,
+          "false_blocking_rate": 0.04,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 6,
+            "queue_drops": 0,
+            "human_errors": 1
+          },
+          "contrast_vs_rules_repair": -0.2506783390912781
+        },
+        "conservative_causaguard": {
+          "n_cases": 100,
+          "mean_utility": -0.7541058497860574,
+          "std_utility": 1.2607973298077895,
+          "safe_completion_rate": 0.64,
+          "actual_unsafe_rate": 0.03,
+          "mean_cost": 1.2036654780244564,
+          "mean_latency": 1.156259008653631,
+          "verification_burden": 0.92,
+          "escalation_burden": 0.08,
+          "false_blocking_rate": 0.06,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 8,
+            "queue_drops": 0,
+            "human_errors": 1
+          },
+          "contrast_vs_rules_repair": -0.29848283407063936
+        },
+        "cost_rule_v07_1": {
+          "n_cases": 100,
+          "mean_utility": -0.1992231345982561,
+          "std_utility": 0.5338116891134121,
+          "safe_completion_rate": 0.77,
+          "actual_unsafe_rate": 0.0,
+          "mean_cost": 0.6932429985259112,
+          "mean_latency": 0.73796019335728,
+          "verification_burden": 0.31,
+          "escalation_burden": 0.0,
+          "false_blocking_rate": 0.0,
+          "auth_violations": 0,
+          "queue_diagnostics": {
+            "total_escalations": 0,
+            "queue_drops": 0,
+            "human_errors": 0
+          },
+          "contrast_vs_rules_repair": 0.25639988111716194
+        }
+      }
+    }
+  }
+}
