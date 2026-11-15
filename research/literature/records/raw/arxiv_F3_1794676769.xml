@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Ci81tpNbG0pZlmXbsMwsKKAvPqk</id>
+  <title>arXiv Query: search_query=(all:"safe policy improvement" OR all:"constrained MDP" OR all:"contextual bandit") AND (all:"baseline" OR all:"risk" OR all:"cost")&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-14T17:18:51Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22safe+policy+improvement%22+OR+(all:%22constrained+MDP%22+OR+all:%22contextual+bandit%22))+AND+(all:%22baseline%22+OR+(all:%22risk%22+OR+all:%22cost%22))&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>394</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1909.05236v2</id>
+    <title>Safe Policy Improvement with an Estimated Baseline Policy</title>
+    <updated>2020-12-28T20:25:07Z</updated>
+    <link href="https://arxiv.org/abs/1909.05236v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1909.05236v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Previous work has shown the unreliability of existing algorithms in the batch Reinforcement Learning setting, and proposed the theoretically-grounded Safe Policy Improvement with Baseline Bootstrapping (SPIBB) fix: reproduce the baseline policy in the uncertain state-action pairs, in order to control the variance on the trained policy performance. However, in many real-world applications such as dialogue systems, pharmaceutical tests or crop management, data is collected under human supervision and the baseline remains unknown. In this paper, we apply SPIBB algorithms with a baseline estimate built from the data. We formally show safe policy improvement guarantees over the true baseline even without direct access to it. Our empirical experiments on finite and continuous states tasks support the theoretical findings. It shows little loss of performance in comparison with SPIBB when the baseline policy is given, and more importantly, drastically and significantly outperforms competing algorithms both in safe policy improvement, and in average performance.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-09-11T17:48:00Z</published>
+    <arxiv:comment>Published at AAMAS 2020</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Thiago D. Simão</name>
+    </author>
+    <author>
+      <name>Romain Laroche</name>
+    </author>
+    <author>
+      <name>Rémi Tachet des Combes</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1712.06924v5</id>
+    <title>Safe Policy Improvement with Baseline Bootstrapping</title>
+    <updated>2019-06-07T17:45:54Z</updated>
+    <link href="https://arxiv.org/abs/1712.06924v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1712.06924v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper considers Safe Policy Improvement (SPI) in Batch Reinforcement Learning (Batch RL): from a fixed dataset and without direct access to the true environment, train a policy that is guaranteed to perform at least as well as the baseline policy used to collect the data. Our approach, called SPI with Baseline Bootstrapping (SPIBB), is inspired by the knows-what-it-knows paradigm: it bootstraps the trained policy with the baseline when the uncertainty is high. Our first algorithm, $Π_b$-SPIBB, comes with SPI theoretical guarantees. We also implement a variant, $Π_{\leq b}$-SPIBB, that is even more efficient in practice. We apply our algorithms to a motivational stochastic gridworld domain and further demonstrate on randomly generated MDPs the superiority of SPIBB with respect to existing algorithms, not only in safety but also in mean performance. Finally, we implement a model-free version of SPIBB and show its benefits on a navigation task with deep RL implementation called SPIBB-DQN, which is, to the best of our knowledge, the first RL algorithm relying on a neural network representation able to train efficiently and reliably from batch data, without any interaction with the environment.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-12-19T13:43:41Z</published>
+    <arxiv:comment>accepted as a long oral at ICML2019</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Romain Laroche</name>
+    </author>
+    <author>
+      <name>Paul Trichelair</name>
+    </author>
+    <author>
+      <name>Rémi Tachet des Combes</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1907.05079v1</id>
+    <title>Safe Policy Improvement with Soft Baseline Bootstrapping</title>
+    <updated>2019-07-11T09:59:10Z</updated>
+    <link href="https://arxiv.org/abs/1907.05079v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1907.05079v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Batch Reinforcement Learning (Batch RL) consists in training a policy using trajectories collected with another policy, called the behavioural policy. Safe policy improvement (SPI) provides guarantees with high probability that the trained policy performs better than the behavioural policy, also called baseline in this setting. Previous work shows that the SPI objective improves mean performance as compared to using the basic RL objective, which boils down to solving the MDP with maximum likelihood. Here, we build on that work and improve more precisely the SPI with Baseline Bootstrapping algorithm (SPIBB) by allowing the policy search over a wider set of policies. Instead of binarily classifying the state-action pairs into two sets (the \textit{uncertain} and the \textit{safe-to-train-on} ones), we adopt a softer strategy that controls the error in the value estimates by constraining the policy change according to the local model uncertainty. The method can take more risks on uncertain actions all the while remaining provably-safe, and is therefore less conservative than the state-of-the-art methods. We propose two algorithms (one optimal and one approximate) to solve this constrained optimization problem and empirically show a significant improvement over existing SPI algorithms both on finite MDPs and on infinite MDPs with a neural network function approximation.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-07-11T09:59:10Z</published>
+    <arxiv:comment>Accepted paper at ECML-PKDD2019</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Kimia Nadjahi</name>
+    </author>
+    <author>
+      <name>Romain Laroche</name>
+    </author>
+    <author>
+      <name>Rémi Tachet des Combes</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1610.05129v1</id>
+    <title>Risk-Aware Algorithms for Adversarial Contextual Bandits</title>
+    <updated>2016-10-17T14:14:43Z</updated>
+    <link href="https://arxiv.org/abs/1610.05129v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1610.05129v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work we consider adversarial contextual bandits with risk constraints. At each round, nature prepares a context, a cost for each arm, and additionally a risk for each arm. The learner leverages the context to pull an arm and then receives the corresponding cost and risk associated with the pulled arm. In addition to minimizing the cumulative cost, the learner also needs to satisfy long-term risk constraints -- the average of the cumulative risk from all pulled arms should not be larger than a pre-defined threshold. To address this problem, we first study the full information setting where in each round the learner receives an adversarial convex loss and a convex constraint. We develop a meta algorithm leveraging online mirror descent for the full information setting and extend it to contextual bandit with risk constraints setting using expert advice. Our algorithms can achieve near-optimal regret in terms of minimizing the total cost, while successfully maintaining a sublinear growth of cumulative risk constraint violation.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-10-17T14:14:43Z</published>
+    <arxiv:comment>28 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wen Sun</name>
+    </author>
+    <author>
+      <name>Debadeepta Dey</name>
+    </author>
+    <author>
+      <name>Ashish Kapoor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.13573v2</id>
+    <title>Conditionally Risk-Averse Contextual Bandits</title>
+    <updated>2023-07-08T15:33:53Z</updated>
+    <link href="https://arxiv.org/abs/2210.13573v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.13573v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Contextual bandits with average-case statistical guarantees are inadequate in risk-averse situations because they might trade off degraded worst-case behaviour for better average performance. Designing a risk-averse contextual bandit is challenging because exploration is necessary but risk-aversion is sensitive to the entire distribution of rewards; nonetheless we exhibit the first risk-averse contextual bandit algorithm with an online regret guarantee. We conduct experiments from diverse scenarios where worst-case outcomes should be avoided, from dynamic pricing, inventory management, and self-tuning software; including a production exascale data processing system.</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-24T19:49:37Z</published>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Mónika Farsang</name>
+    </author>
+    <author>
+      <name>Paul Mineiro</name>
+    </author>
+    <author>
+      <name>Wangda Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2208.00724v1</id>
+    <title>Safe Policy Improvement Approaches and their Limitations</title>
+    <updated>2022-08-01T10:13:03Z</updated>
+    <link href="https://arxiv.org/abs/2208.00724v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2208.00724v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Safe Policy Improvement (SPI) is an important technique for offline reinforcement learning in safety critical applications as it improves the behavior policy with a high probability. We classify various SPI approaches from the literature into two groups, based on how they utilize the uncertainty of state-action pairs. Focusing on the Soft-SPIBB (Safe Policy Improvement with Soft Baseline Bootstrapping) algorithms, we show that their claim of being provably safe does not hold. Based on this finding, we develop adaptations, the Adv-Soft-SPIBB algorithms, and show that they are provably safe. A heuristic adaptation, Lower-Approx-Soft-SPIBB, yields the best performance among all SPIBB algorithms in extensive experiments on two benchmarks. We also check the safety guarantees of the provably safe algorithms and show that huge amounts of data are necessary such that the safety bounds become useful in practice.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-08-01T10:13:03Z</published>
+    <arxiv:comment>27 pages. arXiv admin note: substantial text overlap with arXiv:2201.12175</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Philipp Scholl</name>
+    </author>
+    <author>
+      <name>Felix Dietrich</name>
+    </author>
+    <author>
+      <name>Clemens Otte</name>
+    </author>
+    <author>
+      <name>Steffen Udluft</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.08612v1</id>
+    <title>Neural Risk-sensitive Satisficing in Contextual Bandits</title>
+    <updated>2025-01-15T06:20:25Z</updated>
+    <link href="https://arxiv.org/abs/2501.08612v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.08612v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The contextual bandit problem, which is a type of reinforcement learning tasks, provides an effective framework for solving challenges in recommendation systems, such as satisfying real-time requirements, enabling personalization, addressing cold-start problems. However, contextual bandit algorithms face challenges since they need to handle large state-action spaces sequentially. These challenges include the high costs for learning and balancing exploration and exploitation, as well as large variations in performance that depend on the domain of application. To address these challenges, Tsuboya et~al. proposed the Regional Linear Risk-sensitive Satisficing (RegLinRS) algorithm. RegLinRS switches between exploration and exploitation based on how well the agent has achieved the target. However, the reward expectations in RegLinRS are linearly approximated based on features, which limits its applicability when the relationship between features and reward expectations is non-linear. To handle more complex environments, we proposed Neural Risk-sensitive Satisficing (NeuralRS), which incorporates neural networks into RegLinRS, and demonstrated its utility.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-15T06:20:25Z</published>
+    <arxiv:comment>Accepted by AROB-ISBC 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Shogo Ito</name>
+    </author>
+    <author>
+      <name>Tatsuji Takahashi</name>
+    </author>
+    <author>
+      <name>Yu Kono</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1802.04064v5</id>
+    <title>A Contextual Bandit Bake-off</title>
+    <updated>2021-06-04T21:46:07Z</updated>
+    <link href="https://arxiv.org/abs/1802.04064v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1802.04064v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Contextual bandit algorithms are essential for solving many real-world interactive machine learning problems. Despite multiple recent successes on statistically and computationally efficient methods, the practical behavior of these algorithms is still poorly understood. We leverage the availability of large numbers of supervised learning datasets to empirically evaluate contextual bandit algorithms, focusing on practical methods that learn by relying on optimization oracles from supervised learning. We find that a recent method (Foster et al., 2018) using optimism under uncertainty works the best overall. A surprisingly close second is a simple greedy baseline that only explores implicitly through the diversity of contexts, followed by a variant of Online Cover (Agarwal et al., 2014) which tends to be more conservative but robust to problem specification by design. Along the way, we also evaluate various components of contextual bandit algorithm design such as loss estimators. Overall, this is a thorough study and review of contextual bandit methodology.</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-02-12T14:30:56Z</published>
+    <arxiv:comment>JMLR</arxiv:comment>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Alberto Bietti</name>
+    </author>
+    <author>
+      <name>Alekh Agarwal</name>
+    </author>
+    <author>
+      <name>John Langford</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1901.08159v1</id>
+    <title>Meta-Learning for Contextual Bandit Exploration</title>
+    <updated>2019-01-23T22:52:13Z</updated>
+    <link href="https://arxiv.org/abs/1901.08159v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1901.08159v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We describe MELEE, a meta-learning algorithm for learning a good exploration policy in the interactive contextual bandit setting. Here, an algorithm must take actions based on contexts, and learn based only on a reward signal from the action taken, thereby generating an exploration/exploitation trade-off. MELEE addresses this trade-off by learning a good exploration strategy for offline tasks based on synthetic data, on which it can simulate the contextual bandit setting. Based on these simulations, MELEE uses an imitation learning strategy to learn a good exploration policy that can then be applied to true contextual bandit tasks at test time. We compare MELEE to seven strong baseline contextual bandit algorithms on a set of three hundred real-world datasets, on which it outperforms alternatives in most settings, especially when differences in rewards are large. Finally, we demonstrate the importance of having a rich feature representation for learning how to explore.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-01-23T22:52:13Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Amr Sharaf</name>
+    </author>
+    <author>
+      <name>Hal Daumé</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2312.09961v1</id>
+    <title>Risk-Aware Continuous Control with Neural Contextual Bandits</title>
+    <updated>2023-12-15T17:16:04Z</updated>
+    <link href="https://arxiv.org/abs/2312.09961v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2312.09961v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advances in learning techniques have garnered attention for their applicability to a diverse range of real-world sequential decision-making problems. Yet, many practical applications have critical constraints for operation in real environments. Most learning solutions often neglect the risk of failing to meet these constraints, hindering their implementation in real-world contexts. In this paper, we propose a risk-aware decision-making framework for contextual bandit problems, accommodating constraints and continuous action spaces. Our approach employs an actor multi-critic architecture, with each critic characterizing the distribution of performance and constraint metrics. Our framework is designed to cater to various risk levels, effectively balancing constraint satisfaction against performance. To demonstrate the effectiveness of our approach, we first compare it against state-of-the-art baseline methods in a synthetic environment, highlighting the impact of intrinsic environmental noise across different risk configurations. Finally, we evaluate our framework in a real-world use case involving a 5G mobile network where only our approach consistently satisfies the system constraint (a signal processing reliability target) with a small performance toll (8.5% increase in power consumption).</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-12-15T17:16:04Z</published>
+    <arxiv:comment>12 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jose A. Ayala-Romero</name>
+    </author>
+    <author>
+      <name>Andres Garcia-Saavedra</name>
+    </author>
+    <author>
+      <name>Xavier Costa-Perez</name>
+    </author>
+    <arxiv:doi>10.1609/aaai.v38i19.30083</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1609/aaai.v38i19.30083" title="doi"/>
+  </entry>
+</feed>

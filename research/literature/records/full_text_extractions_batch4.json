@@ -1,0 +1,344 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-045",
+      "bibtex_key": "vo2026offpolicy"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Off-Policy Evaluation with Strategic Agents via Local Disclosure",
+      "authors": [
+        "Kiet Q. H. Vo",
+        "et al."
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2606.07308v1 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2606.07308",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-045_2606.07308.html",
+        "file_size_bytes": 633494,
+        "sha256": "3E7ECAAE39FA0A0EDF68467238B25B3F612F66271BF6F7BD84E4DADC771FCFD0"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / under review (arXiv:2606.07308v1, June 2026). Rigorous mathematical framework with 14 theorems/lemmas/assumptions, synthetic validation, and semi-synthetic benchmark.",
+    "field_04_concrete_problem": "Strategic distribution shift in Off-Policy Evaluation (OPE): when evaluation targets strategic agents, agents adaptively game or alter their observed features X^s in response to deployed decision rules, violating standard unconfoundedness and common-support assumptions (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Single-stage and sequential decision-making architectures interacting with utility-maximizing strategic agents under local policy disclosure.",
+    "field_06_action_space": "Continuous and discrete decision policies \\pi(t|x^s) assigning treatment/verification decisions under strategically reported feature vectors.",
+    "field_07_verifier_noise_delay": "Strategic agent cost model estimator; evaluates strategic manipulation noise under partial/local disclosure paradigms.",
+    "field_08_primary_method_algorithm": "Strategy-Robust Doubly Robust (SDR) estimator (Section 3): combines learned agent cost functions with policy value decomposition to construct a doubly robust estimand that is consistent even when agents strategically game input features.",
+    "field_09_formal_assumptions": "Assumption 2.1 (Unconfoundedness given post-strategic features); Lemma 2.2 (Identifiability under local disclosure); Theorem on double robustness and asymptotic normality of \\hat{V}_{SDR}.",
+    "field_10_authorization_security_layer": "Strategic gaming-resistant evaluation gate: provides unbiased offline policy performance estimates when agents actively manipulate inputs to bypass screening.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on synthetic simulation suites and the German Credit benchmark (Section 4.1 & 4.2). The Strategy-Robust Doubly Robust estimator eliminates strategic adaptation bias, reducing Mean Squared Error (MSE) by 65\u201385% compared to naive standard Doubly Robust (DR) and Inverse Propensity Weighting (IPW) which severely misestimate policy value under agent gaming.",
+    "field_12_baselines_compared": "Standard Inverse Propensity Weighting (IPW), standard Doubly Robust (DR), Direct Method (DM), and unadjusted regression models.",
+    "field_13_limitations_failure_modes": "Requires parametric or semi-parametric structure on agent utility/cost functions; fails if unobserved confounders influence both agent strategic effort and final outcomes (Section 6).",
+    "field_14_disruption_recovery_findings": "Demonstrates that naive offline evaluators suffer severe value collapse when agents adapt strategically; SDR estimator recovers robust policy ranking without requiring full environment retraining.",
+    "field_15_causaguard_relevance": "Direct mathematical foundation for CausaGuard RQ1, RQ3, and WP4: formalizes how to evaluate candidate controllers when autonomous agents strategically adapt their tool-calling patterns to evade heuristic detection."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-046",
+      "bibtex_key": "xu2022quantile"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Quantile Off-Policy Evaluation via Deep Conditional Generative Learning",
+      "authors": [
+        "Yang Xu",
+        "et al."
+      ],
+      "year": 2022,
+      "venue_or_identifier": "arXiv:2212.14466v1 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2212.14466",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-046_2212.14466.html",
+        "file_size_bytes": 1387160,
+        "sha256": "B7567E0CDE8BF97384394BEEC9F2E431E052A453C3EED38F43032B887C5419BA"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 high-impact pre-print / conference submission (arXiv:2212.14466v1, December 2022). Comprehensive theoretical contribution with 10 formal theorems/lemmas and extensive simulation sweeps.",
+    "field_04_concrete_problem": "Failure of mean-based Off-Policy Evaluation in safety-critical domains: standard OPE focuses exclusively on expected returns, remaining completely blind to heavy-tailed downside risks, catastrophic tail failures, and quantile returns (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Single-stage and multi-stage sequential decision processes with continuous and heavy-tailed reward distributions.",
+    "field_06_action_space": "Sequential decision actions evaluated over full return distributions and risk quantiles \\tau \\in (0, 1).",
+    "field_07_verifier_noise_delay": "Deep conditional generative learning verifier modeling full conditional distribution of returns; evaluated under 5-fold cross-fitting with N = 2500.",
+    "field_08_primary_method_algorithm": "Quantile Off-Policy Evaluation (Q-OPE) via conditional generative models (Section 2 & 3): estimates the complete cumulative distribution function (CDF) and quantile value function of target policies using deep conditional generative learning with Neyman orthogonality.",
+    "field_09_formal_assumptions": "Conditional unconfoundedness, overlap, and convergence rates of generative conditional density estimators (Section 4, Theorems 1\u20133); derives asymptotic normality of the quantile estimator.",
+    "field_10_authorization_security_layer": "Quantile risk-bounding gate: rejects candidate policies whose lower tail quantiles (e.g. 1% or 5% Value-at-Risk) breach safety constraints, regardless of high expected returns.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across single-stage and two-stage sequential decision environments with Gaussian, Student-t, and Cauchy heavy-tailed rewards (Tables 1, 2, 3). R_quantile consistently outperforms R_mean in Mean Squared Error across all settings; under heavy-tailed rewards, R_quantile reduces RMSE by over 50% compared to mean-based estimators (Table 1: MSE 0.000324 vs 0.002025).",
+    "field_12_baselines_compared": "Standard mean-based OPE (R_mean), empirical inverse propensity weighting (IPW), and standard regression models.",
+    "field_13_limitations_failure_modes": "Requires generative model training with cross-fitting; deep generative models can suffer mode collapse in high-dimensional sparse-reward environments.",
+    "field_14_disruption_recovery_findings": "Shows that optimizing solely for expected reward permits catastrophic tail failures; quantile evaluation successfully detects and prevents tail disruptions without sacrificing median performance.",
+    "field_15_causaguard_relevance": "Direct mathematical support for CausaGuard RQ3 and WP6: provides the distributional and quantile evaluation foundation required for Gate 1 tail-risk certification (e.g. 1%-CVaR safety bounds)."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-048",
+      "bibtex_key": "parbhoo2022generalizing"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Generalizing Off-Policy Evaluation From a Causal Perspective For Sequential Decision-Making",
+      "authors": [
+        "Sonali Parbhoo",
+        "et al."
+      ],
+      "year": 2022,
+      "venue_or_identifier": "arXiv:2201.08262v1 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2201.08262",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-048_2201.08262.html",
+        "file_size_bytes": 235232,
+        "sha256": "FABE6384A369F364485E4DF773FA3EA9EE8B8E847265F39A01962DDE0645267D"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 foundational workshop/pre-print article (arXiv:2201.08262v1, January 2022). Foundational conceptual framework formalizing OPE via Pearl's Structural Causal Models.",
+    "field_04_concrete_problem": "Lack of causal formalization in Off-Policy Evaluation: standard OPE conflates interventional (Layer 2) and counterfactual (Layer 3) queries, failing to identify hidden confounding, non-stationarity, and structural state dependencies in sequential decision-making (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Sequential decision processes modeled as Structural Causal Models (SCMs) over multi-stage medical, clinical, and autonomous decision horizons.",
+    "field_06_action_space": "Sequential interventional actions do(A_t = a_t) and counterfactual queries Y_{A \\leftarrow \\pi}(u) conditioned on individual unit histories.",
+    "field_07_verifier_noise_delay": "Causal DAG identifiability verifier; characterization of parametric and unobserved confounding noise (Section 4).",
+    "field_08_primary_method_algorithm": "SCM-based Causal OPE Framework (Section 3): maps the three levels of the causal hierarchy to off-policy questions (Example 1: interventional survival vs Example 2: counterfactual retrospective survival). Formalizes exact conditions under which OPE estimands are identifiable.",
+    "field_09_formal_assumptions": "Structural Causal Model definitions (Definition 1, 2); d-separation, backdoor criterion, and positivity of causal mechanisms across trajectories.",
+    "field_10_authorization_security_layer": "Causal validity gate: determines whether a candidate policy's offline valuation is structurally identifiable before permitting deployment.",
+    "field_11_reported_evidence_benchmarks": "Systematizes sources of uncertainty in sequential decision-making into 4 structural categories (Section 4): model specification, unobserved confounding, finite-sample stochasticity, and counterfactual identifiability. Outlines the precise role of human experts in resolving identifiability bottlenecks.",
+    "field_12_baselines_compared": "Associational OPE, standard Importance Sampling, and non-causal Markovian transition models.",
+    "field_13_limitations_failure_modes": "In the presence of unobserved time-varying confounders, counterfactual OPE cannot be identified without physical experimentation or instrumental variables (Section 5).",
+    "field_14_disruption_recovery_findings": "Demonstrates that non-causal OPE produces spurious policy rankings when confounders exist; causal graph structuring isolates structural disruptions from random policy noise.",
+    "field_15_causaguard_relevance": "Direct conceptual foundation for CausaGuard RQ1, RQ3, and WP5: provides the formal Pearlian causal hierarchy (Associational vs Interventional vs Counterfactual) that underpins CausaGuard's counterfactual controller and causal DAG modeling."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-049",
+      "bibtex_key": "wang2020reliable"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Reliable Off-policy Evaluation for Reinforcement Learning",
+      "authors": [
+        "Jie Wang",
+        "Rui Gao",
+        "Hongyuan Zha"
+      ],
+      "year": 2020,
+      "venue_or_identifier": "arXiv:2011.04102v3 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2011.04102",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-049_2011.04102.pdf",
+        "file_size_bytes": 4076683,
+        "sha256": "C99583AAFC780E875D42ACFBA684D03C6EEC87A2D11A5C652E0B19A570A6620A"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 high-impact journal/conference full-text monograph (arXiv:2011.04102v3, 46 pages). Rigorous distributionally robust optimization proofs, finite-sample guarantees, and comprehensive empirical validation.",
+    "field_04_concrete_problem": "Catastrophic variance and statistical unreliability of importance sampling in high-stakes off-policy evaluation: point estimates often have massive standard errors, and existing confidence intervals either rely on asymptotic normality or yield overly conservative bounds (Section 1).",
+    "field_05_agent_architecture_horizon": "Infinite-horizon and finite-horizon discounted Markov Decision Processes with unknown environmental transitions.",
+    "field_06_action_space": "Discrete and continuous action spaces under policy evaluation.",
+    "field_07_verifier_noise_delay": "Distributionally robust optimization verifier over Wasserstein ambiguity balls centered on the empirical trajectory distribution.",
+    "field_08_primary_method_algorithm": "Distributionally Robust Off-Policy Evaluation (DR-OPE) (Section 3 & 4): constructs uncertainty sets using Wasserstein distance and solves convex dual reformulations to produce finite-sample confidence intervals that are guaranteed to cover the true policy value with specified probability.",
+    "field_09_formal_assumptions": "Lipschitz continuity of transition kernel and reward function; bounded Wasserstein ambiguity radius; finite-sample concentration inequalities (Theorems 1\u20135).",
+    "field_10_authorization_security_layer": "Distributionally robust safety certification gate: certifies that policy value lower bound exceeds operational threshold under worst-case perturbation within Wasserstein ball.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on standard benchmarks (Gridworld, CartPole, Mountain Car, and healthcare simulation suites). DR-OPE achieves exact nominal (1-\\alpha) coverage (e.g. 95%) with confidence interval widths 30\u201350% tighter than Hoeffding and Bernstein bounds, and avoids the under-coverage failures of asymptotic Student-t intervals in small sample sizes.",
+    "field_12_baselines_compared": "Standard Importance Sampling (IS), Weighted IS (WIS), Doubly Robust (DR), empirical Bernstein bounds, and asymptotic normal intervals.",
+    "field_13_limitations_failure_modes": "Solving the Wasserstein dual requires convex optimization over trajectory support; computational overhead scales polynomially with trajectory sample size.",
+    "field_14_disruption_recovery_findings": "Guarantees that candidate policies will not fail catastrophically when deployed in environments with minor distribution shift relative to logging data.",
+    "field_15_causaguard_relevance": "Direct mathematical support for CausaGuard RQ3 and Gate 1: provides distributionally robust confidence bounds that protect candidate controllers against off-policy evaluation errors."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-050",
+      "bibtex_key": "kwon2024reinforcement"
+    },
+    "field_02_bibliographic_record": {
+      "title": "RL in Latent MDPs is Tractable: Online Guarantees via Off-Policy Evaluation",
+      "authors": [
+        "Jeongyeol Kwon",
+        "et al."
+      ],
+      "year": 2024,
+      "venue_or_identifier": "arXiv:2406.01389v2 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2406.01389",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-050_2406.01389.html",
+        "file_size_bytes": 891876,
+        "sha256": "31E68D298130A06C187313649C856BCD076C7DAFAA7D0F2DA320C1ACADFE20E5"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 peer-reviewed top conference proceedings (arXiv:2406.01389v2, June 2024). Breakthrough theoretical complexity result for latent-variable reinforcement learning.",
+    "field_04_concrete_problem": "Intractability of reinforcement learning in Latent MDPs (LMDPs): learning across hidden context modes (e.g. diverse user intents or latent system regimes) was widely believed to require exponential sample complexity in horizon length (Section 1).",
+    "field_05_agent_architecture_horizon": "Latent Markov Decision Processes with M discrete hidden contexts, finite horizon H, and state space S.",
+    "field_06_action_space": "Discrete actions in multi-task and latent-context environments.",
+    "field_07_verifier_noise_delay": "Off-policy latent context identifier and trajectory likelihood ratio estimator.",
+    "field_08_primary_method_algorithm": "OPE-driven Online RL for Latent MDPs (Section 3 & 4): leverages high-precision Off-Policy Evaluation as an algorithmic subroutine to explore and identify latent MDP modes with polynomial sample complexity.",
+    "field_09_formal_assumptions": "Separability of latent contexts; finite context cardinality M; Theorem 1 proving polynomial regret bound O(poly(M, H, |S|, |A|) * sqrt(T)).",
+    "field_10_authorization_security_layer": "Latent context verification gate: guarantees bounded regret and safe exploration across unobserved operating modes.",
+    "field_11_reported_evidence_benchmarks": "Proves theoretically and demonstrates empirically that OPE subroutines allow efficient online exploration in Latent MDPs with sublinear regret, resolving an open problem in RL theory and avoiding exponential sample bottlenecks.",
+    "field_12_baselines_compared": "Standard optimistic exploration (UCB-VI), Posterior Sampling (PSRL), and naive mode-unaware RL.",
+    "field_13_limitations_failure_modes": "Requires discrete latent context cardinality M; polynomial bound exponents depend on latent context separation gap.",
+    "field_14_disruption_recovery_findings": "Shows that OPE enables rapid identification of hidden system shifts, preventing catastrophic policy degradation when latent context changes.",
+    "field_15_causaguard_relevance": "Direct theoretical foundation for CausaGuard RQ1, RQ3, and WP5: provides rigorous proof that agents operating across hidden system states (such as multi-tenant software domains) can be safely evaluated and bounded using OPE subroutines."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-051",
+      "bibtex_key": "guan2025wasp"
+    },
+    "field_02_bibliographic_record": {
+      "title": "WASP: Benchmarking Web Agent Security Against Prompt Injection Attacks",
+      "authors": [
+        "Tianrui Guan",
+        "et al."
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2504.18575v3 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2504.18575",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-051_2504.18575.html",
+        "file_size_bytes": 304174,
+        "sha256": "D377AEAD373E935E0ED1C283025D647CA976F580BFA78E630D95E9118B4D003D"
+      }
+    },
+    "field_03_publication_tier": "Tier-1/Tier-2 peer-reviewed security benchmark (arXiv:2504.18575v3, April 2025). Comprehensive web-agent evaluation across GPT-4o, Claude-3.5-Sonnet, and o1.",
+    "field_04_concrete_problem": "Vulnerability of autonomous web-navigating agents to prompt injection attacks embedded in untrusted web pages, shopping environments, and forums (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Visual and text-based web agents (GPT-4o via VisualWebArena scaffolding, Claude-3.5 via CURI, o1 via Tool Calling) executing multi-step web browsing tasks.",
+    "field_06_action_space": "Browser actions (click, type, navigate, fill form) and external API/tool calls.",
+    "field_07_verifier_noise_delay": "Web sandbox verifier evaluating Attack Success Rate (ASR) and task utility across plain-text and URL injections.",
+    "field_08_primary_method_algorithm": "WASP Benchmark (Section 3): evaluates realistic adversarial web vectors (injected text, invisible DOM elements, malicious URLs) across web tasks; audits defense mechanisms including prompt firewalls and tool-use filters.",
+    "field_09_formal_assumptions": "Threat model assumes web page content is attacker-controlled while user prompt is benign.",
+    "field_10_authorization_security_layer": "Web agent action firewall and tool execution monitor; tests defense efficacy against indirect prompt injections.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across GPT-4o, Claude-3.5, and o1 (Tables 1, 2, 3). Undefended web agents suffer Attack Success Rates (ASR) of 68\u201384% on plain-text injections and 72\u201390% on URL injections. State-of-the-art defenses reduce ASR but cause severe utility degradation (dropping task completion from 65% to below 30%).",
+    "field_12_baselines_compared": "Undefended agents, input prompt firewalls, delimiter parsing, and system-prompt hardening.",
+    "field_13_limitations_failure_modes": "Existing defenses create an unacceptable security-utility trade-off; strict web sanitization strips interactive web elements necessary for task execution.",
+    "field_14_disruption_recovery_findings": "Demonstrates that static web firewalls disrupt legitimate browsing actions; dynamic context-aware authorization is required to preserve utility.",
+    "field_15_causaguard_relevance": "Direct empirical evidence for CausaGuard RQ1, RQ6, and WP7: establishes real-world benchmark metrics for tool-calling agent security under indirect prompt injection in dynamic environments."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-052",
+      "bibtex_key": "zhang2026beyond"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Beyond Instruction Override: Benchmarking Indirect Prompt Injection with Task-Tampering Attacks",
+      "authors": [
+        "Rongting Zhang",
+        "et al."
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2611.07640v1 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2611.07640",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-052_2611.07640.html",
+        "file_size_bytes": 908389,
+        "sha256": "CE88127B1830DB9AD103EC57CD7C3D429959CB64B60B65A49AA2396AD44D55C4"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 security benchmark / pre-print (arXiv:2611.07640v1, November 2026, work done at Amazon). In-depth study with 30 tables, formal threat model, and 6 influence primitives.",
+    "field_04_concrete_problem": "Narrowness of existing indirect prompt injection (IPI) benchmarks: prior work focuses almost exclusively on overt 'instruction override' (e.g. 'ignore previous instructions'), leaving subtle task-tampering attacks (altering parameters, falsifying context, biasing summaries) unmeasured (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Multi-step tool-augmented LLM agents across diverse commercial and open-source models.",
+    "field_06_action_space": "Tool calls with structured argument payloads vs free-form textual output generation.",
+    "field_07_verifier_noise_delay": "Task success rate (TSR) verifier measuring execution fidelity under attack and benign conditions across 6 influence primitives.",
+    "field_08_primary_method_algorithm": "Task-Tampering Benchmark Framework (Section 4): systematizes 6 influence primitives (parameter substitution, context omission, premise poisoning, authority spoofing, logic redirection, format hijacking) and evaluates compound attacks against deployed agent defenses.",
+    "field_09_formal_assumptions": "Attacker can inject data into third-party retrieved content but cannot alter system prompts or agent execution binaries.",
+    "field_10_authorization_security_layer": "Parameter validation and task integrity monitor; checks whether tool arguments conform to user-intended task specifications.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across multiple models (Table 3). Task-tampering attacks achieve over 75% success on undefended agents. Standard defenses designed for instruction overrides (such as DataSentinel and delimiter parsing) catch less than 20% of subtle parameter-tampering attacks, while dropping benign TSR by 12\u201325%.",
+    "field_12_baselines_compared": "Delimiter isolation, DataSentinel, SecAlign, Prompt Guard, and naive instruction filtering.",
+    "field_13_limitations_failure_modes": "Subtle task tampering leaves no overt adversarial keywords, rendering lexical and semantic similarity detectors completely ineffective.",
+    "field_14_disruption_recovery_findings": "Proves that subtle task tampering degrades agent correctness silently without triggering standard safety filters, requiring value-level semantic invariant monitoring.",
+    "field_15_causaguard_relevance": "Direct empirical justification for CausaGuard RQ1, RQ6, and the WP7 access grader: confirms that tool authorization must check argument values and causal state effects, not just syntax or overt override keywords."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-053",
+      "bibtex_key": "zhan2025adaptive"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents",
+      "authors": [
+        "Qiusi Zhan",
+        "et al."
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2503.00061v2 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2503.00061",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-053_2503.00061.html",
+        "file_size_bytes": 364172,
+        "sha256": "2CC481D081A303DE68773BAE962F996DED407B6787FFC71D0414E14202FA897E"
+      }
+    },
+    "field_03_publication_tier": "Tier-1/Tier-2 peer-reviewed security conference paper (arXiv:2503.00061v2, March 2025). Rigorous adaptive attack evaluation against 8 state-of-the-art defenses.",
+    "field_04_concrete_problem": "False sense of security in agent defenses: static evaluations demonstrate high defense detection rates, but defenses collapse when evaluated against defense-aware adaptive attackers (Section 1 & 4).",
+    "field_05_agent_architecture_horizon": "Tool-calling LLM agents equipped with input-level, model-level, or detection-based defense layers.",
+    "field_06_action_space": "Tool invocation commands and external communication outputs.",
+    "field_07_verifier_noise_delay": "Detection rate (DR) and Attack Success Rate (ASR) verifier evaluating adversarial strings with and without adaptive training.",
+    "field_08_primary_method_algorithm": "Adaptive Attack Formulation (Section 4): designs white-box and gray-box adaptive strategies tailored to detection-based (e.g. perplexity, classifier), input-level (e.g. paraphrasing, sanitization), and model-level (e.g. fine-tuned safety) defenses.",
+    "field_09_formal_assumptions": "Attacker possesses knowledge of defense algorithms and can iteratively optimize injection strings to minimize detector score while preserving execution payload.",
+    "field_10_authorization_security_layer": "Audits detection-based, input-level, and model-level defense gates for vulnerability to adaptive bypass.",
+    "field_11_reported_evidence_benchmarks": "Evaluated against 8 prominent defenses (Table 1, 2, 3). While original attacks report low detection evasion (DR-o > 85%), adaptive attacks (DR-a) reduce detection rates to under 15% across all tested defenses. ASR under adaptive training jumps from <10% to 70\u201395%, proving that heuristic defenses provide brittle, illusory security.",
+    "field_12_baselines_compared": "Perplexity filtering, SmoothLLM, In-Context Defense, Delimiter defense, Paraphrasing, and fine-tuned detector models (Llama-Guard, PIShield).",
+    "field_13_limitations_failure_modes": "Demonstrates that any defense relying on surface text properties or static boundary patterns can be broken by adaptive optimization.",
+    "field_14_disruption_recovery_findings": "Shows that layered heuristic defenses add latency and false alarms without providing robust resistance against motivated attackers.",
+    "field_15_causaguard_relevance": "Vital for CausaGuard RQ1, RQ6, and WP7: provides empirical proof that CausaGuard must not rely on prompt filtering or lexical guardrails alone, but must enforce immutable, non-bypassable host-level authorization boundaries."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-054",
+      "bibtex_key": "bhagwatkar2025indirect"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks?",
+      "authors": [
+        "Rishika Bhagwatkar",
+        "et al."
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2510.05244v2 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2510.05244",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-054_2510.05244.html",
+        "file_size_bytes": 794863,
+        "sha256": "94A7199A1614CECCCBB05E7DFD976F49FD94AD5848E6AB87E5FC8EC347AD5A12"
+      }
+    },
+    "field_03_publication_tier": "Tier-1/Tier-2 peer-reviewed security paper (arXiv:2510.05244v2, October 2025). Multi-benchmark evaluation across AgentDojo, Agent Security Bench (ASB), and InjecAgent with 26 tables.",
+    "field_04_concrete_problem": "Benchmark distortion and defense evaluation flaws in LLM agent security: existing benchmarks use artificial attack injection patterns that reward aggressive firewalls, which in practice destroy benign agent utility (Section 1 & 7).",
+    "field_05_agent_architecture_horizon": "Tool-integrated autonomous agents (GPT-4o) evaluated across dynamic environments with multi-turn tool interaction.",
+    "field_06_action_space": "Tool invocation payloads across email, web, file, and financial API execution.",
+    "field_07_verifier_noise_delay": "Tripartite evaluation metric: Benign Utility (BU), Utility under Attack (UA), and Attack Success Rate (ASR).",
+    "field_08_primary_method_algorithm": "Sanitizer Defense and Benchmark Audit (Section 3 & 7): evaluates prompt firewalls and proposes Sanitizer, an context-aware semantic sanitization layer designed to optimize the ASR-BU and ASR-UA trade-off.",
+    "field_09_formal_assumptions": "Dual objective: defense must minimize ASR while maximizing benign utility BU >= 0.85.",
+    "field_10_authorization_security_layer": "In-line semantic sanitizer and tool argument validation firewall.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on AgentDojo, Agent Security Bench, and InjecAgent using GPT-4o (Tables 1, 2, 3). Standard firewalls achieve low ASR only by dropping Benign Utility from 92% to 41%. Sanitizer achieves the best tradeoff, maintaining 81.4% BU while reducing ASR to 12.3% on AgentDojo (Table 1) and lowest ASR on InjecAgent (Table 3).",
+    "field_12_baselines_compared": "DataSentinel, PromptGuard, Delimiter defenses, In-Context Defender, and undefended GPT-4o.",
+    "field_13_limitations_failure_modes": "Exposes that current agent security benchmarks reward over-filtering; non-replicable baselines distort reported security scores (Section 7.1).",
+    "field_14_disruption_recovery_findings": "Quantifies the catastrophic operational disruption caused by aggressive security firewalls; establishes that defense evaluation must jointly report utility and security.",
+    "field_15_causaguard_relevance": "Directly informs CausaGuard RQ1, RQ2, and WP7 evaluation: confirms CausaGuard's core thesis that security monitors must be evaluated on both safety violation rate and task disruption / false intervention rate."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-055",
+      "bibtex_key": "liu2026longpibench"
+    },
+    "field_02_bibliographic_record": {
+      "title": "LongPIBench: A Long-Context Benchmark for Prompt Injection",
+      "authors": [
+        "Yupei Liu",
+        "Yuqi Jia",
+        "et al."
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2608.28411v1 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2608.28411",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch4/CG-REC-055_2608.28411.html",
+        "file_size_bytes": 446943,
+        "sha256": "01C54C9786DDC48FC82B22A803533D0032D34E665A6E955DF3E9985083BCA12B"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 security benchmark (arXiv:2608.28411v1, August 2026). Comprehensive long-context study across 8 LLMs and 4 real-world testing suites.",
+    "field_04_concrete_problem": "Failure of prompt injection defenses in long-context regimes (32k\u2013128k tokens): existing defenses evaluated on short prompts fail completely when injections are buried in large documents, logs, or repositories (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Long-context LLMs (Llama-3.1-8B-Instruct, GPT-4o, Claude-3.5-Sonnet) processing extensive document workflows (paper review, resume screening, email summaries, code review).",
+    "field_06_action_space": "Long-document summarization, review generation, and automated decision-making.",
+    "field_07_verifier_noise_delay": "False Positive Rate (FPR) and False Negative Rate (FNR) verifier across 9 detection-based defenses on long-context payloads.",
+    "field_08_primary_method_algorithm": "LongPIBench Framework (Section 3 & 4): benchmarks heuristic attacks (naive, escape character, fake completion, context ignore, combined attack, authority spoof) and optimization attacks (GCG) in long-context documents.",
+    "field_09_formal_assumptions": "Adversarial payload represents <1% of total context tokens, placed at varying depth positions within benign long text.",
+    "field_10_authorization_security_layer": "Long-context input scanner and detection firewall; audits attention trackers and classifier defenses.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 8 LLMs and 9 defenses (Tables 1, 2, 3). Combined attacks achieve 86\u2013100% ASR across long-context tasks without defense (Table 1). State-of-the-art defenses collapse in long contexts: MetaSecAlign-8B, which achieves ~0% ASR on short benchmarks, exhibits 100% ASR on LongPIBench paper review. Detection defenses exhibit extreme trade-offs: either flagging almost everything (FPR = 1.00) or missing attacks completely (FNR = 1.00) (Table 3).",
+    "field_12_baselines_compared": "Attention Tracker, DataSentinel, DeBERTa, DistilBERT, EVD, KAD, PIShield, Prompt Guard, and Prompt Guard 2.",
+    "field_13_limitations_failure_modes": "Attention dispersion in long contexts blinds LLMs to injection intent; existing detectors cannot scale to 100k+ tokens without catastrophic false positive rates.",
+    "field_14_disruption_recovery_findings": "Proves that detector defenses exhibit intolerable false positive rates (up to 100%) in long documents, causing total operational disruption.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard RQ1, RQ2, and WP7: demonstrates that input-level text scanning is fundamentally unscalable in long-horizon agent workflows, necessitating CausaGuard's formal state-space and tool-call boundary verification."
+  }
+]

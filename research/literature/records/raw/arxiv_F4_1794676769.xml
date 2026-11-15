@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/UQAk3v9lx3usLmrYADACw0cChtI</id>
+  <title>arXiv Query: search_query=(all:"value of information" OR all:"selective prediction" OR all:"learning to defer") AND (all:"verification" OR all:"human oversight")&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-14T17:18:52Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22value+of+information%22+OR+(all:%22selective+prediction%22+OR+all:%22learning+to+defer%22))+AND+(all:%22verification%22+OR+all:%22human+oversight%22)&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>24</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31446v1</id>
+    <title>When Is a Memory Safe Enough to Act On? Action-Conditioned Verification for Long-Lived Agents</title>
+    <updated>2026-10-22T15:43:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.31446v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31446v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-lived agents act on memory carried across sessions, and many of their actions are irreversible, so a stale memory can turn directly into harm. Existing work improves the memory itself --- retrieving, refreshing, or reconciling entries --- yet whether an entry must be re-checked before acting is not a property of the entry: the same remembered address can be used unchecked for a routine shipment but should be re-confirmed before a valuable one. We therefore study \emph{action-conditioned memory verification}: given a candidate action, decide which of its memory premises to re-verify and when to proceed or abstain, balancing execution risk, abstention, and verification cost. We formulate this as a sequential stopping problem, in which a verification is worth its cost only if it can change what the agent does next; under suitable verifier reliability and cost conditions, increasing action consequence can move the same memory through proceed, verify, and direct-abstention regimes. Building on this formulation, \textsc{AMV-Guard} is a practical verification gate that extracts the premises a candidate action rests on, calibrates beliefs about whether they are wrong, and selects checks by bounded value of information (VOI). On ToolSandbox, relative to a static policy given the same inputs, it lowers mean verification cost by 33.9\% while keeping 100\% safe-proceed recall and 0\% Gate harmful, and raises Proceed coverage from 38.83\% to 44.17\%; in a gate-core transfer to AppWorld, which carries over the stopping/VOI core but not the full structured pipeline, it lowers verification cost by 21.3\% at a small cost in safe-proceed recall and task success. These results suggest that verification effort should be set by what an agent is about to do, not only by how reliable a memory appears.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T15:43:50Z</published>
+    <arxiv:comment>22 Pages, 5 Figures, 12 Tables</arxiv:comment>
+    <arxiv:primary_category term="cs.MA"/>
+    <author>
+      <name>Yiqi Wang</name>
+    </author>
+    <author>
+      <name>Yifei Wang</name>
+    </author>
+    <author>
+      <name>Jiaqi Zhang</name>
+    </author>
+    <author>
+      <name>Zhangkai Wu</name>
+    </author>
+    <author>
+      <name>Yiqun Duan</name>
+    </author>
+    <author>
+      <name>Taotao Cai</name>
+    </author>
+    <author>
+      <name>Mingkai Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.02915v1</id>
+    <title>When Should a Language Model Trust Itself? Same-Model Self-Verification as a Conditional Confidence Signal</title>
+    <updated>2026-04-08T20:15:33Z</updated>
+    <link href="https://arxiv.org/abs/2605.02915v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.02915v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Same-model self-verification, prompting a model to audit its own predicted answer, is a plausible confidence signal for selective prediction, but its practical value remains unclear once strong likelihood-based baselines are taken seriously. We evaluate self-verification against two such baselines, LL-AVG and LL-SUM, on ARC-Challenge and TruthfulQA-MC across multiple model families, scales, and prompt variants. We measure not only correctness ranking, but also abstention quality through AURC and operating-point analyses. The results are sharply task- and model-dependent. On ARC-Challenge, self-verification substantially improves over LL-AVG for Phi-2 and the Qwen models, with the largest gains appearing in Qwen-7B. On TruthfulQA-MC, however, the signal is less reliable: smaller models can become prompt-sensitive, DeepSeek-R1-Distill-8B degrades relative to LL-AVG, and LL-SUM often remains the stronger practical baseline. We therefore do not treat self-verification as a general-purpose uncertainty estimator. In this setting, it is better understood as a conditional confidence signal whose value depends on task type, model family, prompt formulation, and, crucially, the baseline it must beat.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-08T20:15:33Z</published>
+    <arxiv:comment>30 pages, 13 figures, 8 tables. Code available on GitHub</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Aditya Ajay Phalod</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1907.00713v1</id>
+    <title>Verifying that a compiler preserves concurrent value-dependent information-flow security</title>
+    <updated>2019-07-01T12:34:15Z</updated>
+    <link href="https://arxiv.org/abs/1907.00713v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1907.00713v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is common to prove by reasoning over source code that programs do not leak sensitive data. But doing so leaves a gap between reasoning and reality that can only be filled by accounting for the behaviour of the compiler. This task is complicated when programs enforce value-dependent information-flow security properties (in which classification of locations can vary depending on values in other locations) and complicated further when programs exploit shared-variable concurrency.
+  Prior work has formally defined a notion of concurrency-aware refinement for preserving value-dependent security properties. However, that notion is considerably more complex than standard refinement definitions typically applied in the verification of semantics preservation by compilers. To date it remains unclear whether it can be applied to a realistic compiler, because there exist no general decomposition principles for separating it into smaller, more familiar, proof obligations.
+  In this work, we provide such a decomposition principle, which we show can almost halve the complexity of proving secure refinement. Further, we demonstrate its applicability to secure compilation, by proving in Isabelle/HOL the preservation of value-dependent security by a proof-of-concept compiler from an imperative While language to a generic RISC-style assembly language, for programs with shared-memory concurrency mediated by locking primitives. Finally, we execute our compiler in Isabelle on a While language model of the Cross Domain Desktop Compositor, demonstrating to our knowledge the first use of a compiler verification result to carry an information-flow security property down to the assembly-level model of a non-trivial concurrent program.</summary>
+    <category term="cs.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.PL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-07-01T12:34:15Z</published>
+    <arxiv:comment>To appear in the 10th International Conference on Interactive Theorem Proving (ITP 2019). Extended version with appendix. For supplement material, see https://covern.org/itp19.html</arxiv:comment>
+    <arxiv:primary_category term="cs.LO"/>
+    <author>
+      <name>Robert Sison</name>
+      <arxiv:affiliation>Data61, CSIRO and UNSW Sydney</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Toby Murray</name>
+      <arxiv:affiliation>University of Melbourne</arxiv:affiliation>
+    </author>
+    <arxiv:doi>10.4230/LIPIcs.ITP.2019.27</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4230/LIPIcs.ITP.2019.27" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38850v2</id>
+    <title>Beyond Outcome Rewards: Post-Rationale Distribution Optimization for Selective Prediction in Reasoning Models</title>
+    <updated>2026-11-01T19:28:31Z</updated>
+    <link href="https://arxiv.org/abs/2609.38850v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38850v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reasoning models are trained to produce correct answers, yet selective deployment requires ranking which answers to accept or defer, and outcome-reward training does not directly optimize the post-rationale distribution used for that decision. We identify two mismatches: expected correctness is mode-seeking rather than distribution-eliciting, and scoring an average across rationales rewards disagreement unavailable to a single-rationale decision. We introduce Post-Rationale Distribution Optimization (PRDO), which applies a proper score to the answer distribution after each sampled rationale, without target rationales or separate confidence labels. Across four 0.6--3.8-billion-parameter models on MMLU-Pro, PRDO improves Brier score, error ranking and secondary accuracy relative to budget-matched, temperature-scaled GRPO. At 20\% realized error, oracle coverage rises by \npj{Q3a_vs_grpo.qwen3-0.6b.mp.oracle_cov@0.2.ppabs}--\npj{Q3a_vs_grpo.phi-4-mini.mp.oracle_cov@0.2.ppabs} percentage points, and ranking gains transfer to unseen tasks. Matched controls identify proper, per-rationale scoring as the active design choices, while verification tasks show the boundary: better selective ranking can coexist with lower full-coverage accuracy. Code is available at https://github.com/ZimmyGao/openjev-rlcd</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T03:08:45Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zhimin Gao</name>
+    </author>
+    <author>
+      <name>Meibo Hu</name>
+    </author>
+    <author>
+      <name>Jiamian Wang</name>
+    </author>
+    <author>
+      <name>Zhiqiang Tao</name>
+    </author>
+    <author>
+      <name>Pichao Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.08919v1</id>
+    <title>Oversight Has a Capacity: Calibrating Agent Guards to a Subjective, Fatiguing Human</title>
+    <updated>2026-06-08T01:52:22Z</updated>
+    <link href="https://arxiv.org/abs/2606.08919v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.08919v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As LLM agents begin to take real, irreversible actions (shell commands, file edits, deploys), the standard safety pattern is a human-in-the-loop approval gate: risky actions pause and wait for a person. We argue the gate is the easy part; the hard part is the judgment - which actions to stop - which the field evaluates against two false assumptions: that there is a ground-truth notion of "risky," and that the human reviewer is a perfect, infinitely-available oracle. On a hand-labeled set of 125 adversarially-weighted agent actions we show that (i) reviewers only moderately agree on what is risky (Fleiss' kappa = 0.52), so there is no single correct label; (ii) framing the guard as selective classification under asymmetric cost makes its operating limits measurable, and on hard inputs the guard cannot safely auto-decide; and (iii) when the reviewer is modeled as endogenous (fatiguing as escalation load grows), realized safety becomes an inverted-U in the escalation rate: more human oversight can make a system less safe, and the safety-optimal guard escalates below full escalation - a setting a load-aware policy also uses to resist a flooding attack that slips a malicious action past a fatigued reviewer. Agent oversight, framed this way, is not only a classification problem but a resource-allocation one: human attention is finite, and the guard's escalation policy spends it. We claim none of these mechanisms as novel - fatigue-aware learning-to-defer (FALCON), cost-sensitive deferral under workload constraints (DeCCaF), trajectory-level guarding, and reviewer-fatigue/flooding attacks are all prior art we cite. Our contribution is an open-source agent-oversight system that operationalizes and measures them in the LLM-agent action-gating setting, turning "is my guard good?" from a guess into a curve. The inverted-U and the flooding attack are modeling results that motivate a human study.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-08T01:52:22Z</published>
+    <arxiv:comment>12 pages, 4 figures. Code and interactive demo: https://github.com/turangenesis/headroom</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Emre Turan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.06708v1</id>
+    <title>SAFE-MR: Evidence Sufficiency Learning for Selective Multimodal Rumor Detection</title>
+    <updated>2026-10-05T17:02:35Z</updated>
+    <link href="https://arxiv.org/abs/2610.06708v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.06708v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal rumor detectors increasingly rely on retrieved evidence, yet relevant evidence is not necessarily sufficient for verification. Missing provenance, duplicated reports, and unresolved contradictions can produce confident predictions without adequate support. We introduce SAFE-MR, a framework that separates claim veracity from evidence sufficiency. The method decomposes image-text posts into verifiable claims, constructs a relation-aware claim-evidence graph, and aggregates evidence using provenance and contextual compatibility. Separate veracity and sufficiency heads support selective prediction, while evidence interventions encourage stability under irrelevant additions and sensitivity to evidence removal. On NewsCLIPpings, VERITE, and XFacta, SAFE-MR achieves macro-F1 scores of 91.2%, 75.8%, and 85.2%, respectively. Against the matched backbone with evidence, its macro-F1 gains are 2.2, 4.9, and 4.8 percentage points. On the diagnostic selection set, SAFE-MR reduces AURC from 0.105 for maximum-probability rejection to 0.075 and lowers error at 80% coverage from 13.8% to 8.5%. Evidence-perturbation and ablation results support the role of sufficiency learning and intervention training in improving selective verification.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T17:02:35Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Shiwen Ni</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.10252v2</id>
+    <title>Audit-of-Understanding: Posterior-Constrained Inference for Mathematical Reasoning in Language Models</title>
+    <updated>2025-10-18T10:20:04Z</updated>
+    <link href="https://arxiv.org/abs/2510.10252v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.10252v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) often generate reasoning traces that appear coherent but rest on unsupported assumptions, leading to hallucinated conclusions. Prior work mainly addresses factual hallucinations or relies on post-hoc verification, leaving reasoning-induced hallucinations largely unaddressed. We propose Audit-of-Understanding (AoU), a framework that constrains inference to validated premises through three phases: (1) decomposing a query into candidate assumptions, (2) auditing their support, and (3) conditioning inference only on the validated subset. Formally, AoU is \emph{posterior-constrained inference}, connecting to selective prediction and rejection learning. Our contributions are threefold: (i) theoretical guarantees under perfect validation, (ii) excess-risk bounds under imperfect audits, and (iii) tractability analysis. Empirically, AoU improves both accuracy and faithfulness on GSM8K, MultiArith, and SVAMP, achieving up to +30% gains on GSM8K, +45% on MultiArith, and consistent +20--28% improvements on SVAMP over Chain-of-Thought, Self-Consistency, and CoT-Decoding. Code is available at https://anonymous.4open.science/r/audit-of-understanding-E28B.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-11T15:10:28Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Samir Abdaljalil</name>
+    </author>
+    <author>
+      <name>Erchin Serpedin</name>
+    </author>
+    <author>
+      <name>Khalid Qaraqe</name>
+    </author>
+    <author>
+      <name>Hasan Kurban</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32193v1</id>
+    <title>Evidence-Grounded SLM Behavioral Prediction Architecture for Future Assistance Use</title>
+    <updated>2026-10-23T05:39:31Z</updated>
+    <link href="https://arxiv.org/abs/2610.32193v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32193v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Users often exhibit changes in interaction behavior before explicitly seeking assistance, enabling systems to anticipate future assistance use. This is especially important in high-stakes environments, where delayed assistance can have operational, financial, or safety consequences. However, conventional Large Language Models (LLMs) are often unsuitable for continuous on-device behavioral prediction because of their computational and memory demands. Behavioral patterns are also highly individual and device-specific, motivating local processing that preserves privacy and data sovereignty. Small Language Models (SLMs) offer a promising alternative, but their ability to reason reliably over low-level sequential interaction events remains underexplored. This study introduces Evidence-Grounded Local Behavioral Prediction (ELBP), a four-layer architecture combining deterministic interaction processing, dual-view behavioral representation, SLM-based prediction, and evidence verification with abstention. Three instruction-tuned models of 3B parameters or fewer were evaluated using raw, structured, dual-view, and complete ELBP configurations. The best-performing model, Qwen2.5-3B with ELBP, achieved a full-set F1-score of 0.80 and PR-AUC of 0.84, representing a 15.9\% relative improvement over raw-event prompting and 17.6\% over XGBoost, while full-set ECE decreased by 43.2\% relative to raw-event prompting. With evidence verification and abstention, selective F1 increased to 0.84 at 91\% coverage and evidence support reached 96\%. These results show that structured behavioral representation and evidence-verified selective prediction can improve the reliability of behavioral forecasting in SLMs.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T05:39:31Z</published>
+    <arxiv:comment>Accepted for publication at the 2027 International Conference on Artificial Intelligence and Applied Intelligent Systems (AIAIS 2027), to be held in Hong Kong from 22 to 24 January 2027</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Adeyemi Adeseye</name>
+    </author>
+    <author>
+      <name>Aisvarya Adeseye</name>
+    </author>
+    <author>
+      <name>Hannu Tenhunen</name>
+    </author>
+    <author>
+      <name>Jouni Isoaho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.09762v1</id>
+    <title>BatteryLake: Agentic, Physics-Grounded Curation of Heterogeneous Battery Aging Data and Benchmarking</title>
+    <updated>2026-07-06T16:49:19Z</updated>
+    <link href="https://arxiv.org/abs/2607.09762v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.09762v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Public battery aging datasets are a critical asset for advanced health management, but their practical use is often limited by inconsistent formats, unclear schemas, and metadata scattered across repositories and publications. Current curation remains largely manual and hard to reproduce, while general-purpose data integration tools miss the domain-specific semantics of electrochemical time-series data. We present BatteryLake, a governed data lakehouse that turns raw public battery data into benchmark-ready assets through an agentic, physics-grounded curation framework, with three contributions. First, LLM agents extract metadata and synthesize dataset-specific converters, grounding every output in verbatim evidence and abstaining when none supports a value. Second, a human-in-the-loop mechanism frames verification as selective prediction and gates admitted data through 26 schema, statistical, and physical-plausibility rules. Third, we release an open benchmark of 41 datasets from over 25 institutions, with standardized SOH and RUL tasks, three split protocols, and eight baseline model families. The platform, benchmark, and curation protocol are publicly available at https://tianwen1209.github.io/batterylake/.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-06T16:49:19Z</published>
+    <arxiv:comment>The platform, benchmark, and curation protocol are publicly available at https://tianwen1209.github.io/batterylake/</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Tianwen Zhu</name>
+    </author>
+    <author>
+      <name>Hao Wang</name>
+    </author>
+    <author>
+      <name>Yonggang Wen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.09824v1</id>
+    <title>ProGAL-VLA: Grounded Alignment through Prospective Reasoning in Vision-Language-Action Models</title>
+    <updated>2026-04-10T18:56:48Z</updated>
+    <link href="https://arxiv.org/abs/2604.09824v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.09824v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision language action (VLA) models enable generalist robotic agents but often exhibit language ignorance, relying on visual shortcuts and remaining insensitive to instruction changes. We present Prospective Grounding and Alignment VLA (ProGAL-VLA), which constructs a 3D entity-centric graph (GSM), uses a slow planner to produce symbolic sub-goals, and aligns them with grounded entities via a Grounding Alignment Contrastive (GAC) loss. All actions are conditioned on a verified goal embedding $g_t$, whose attention entropy provides an intrinsic ambiguity signal. On LIBERO-Plus, ProGAL-VLA increases robustness under robot perturbations from 30.3 to 71.5 percent, reduces language ignorance by 3x-4x, and improves entity retrieval from 0.41 to 0.71 Recall@1. On the Custom Ambiguity Benchmark, it reaches AUROC 0.81 (vs. 0.52), AUPR 0.79, and raises clarification on ambiguous inputs from 0.09 to 0.81 without harming unambiguous success. The verification bottleneck increases mutual information of language-actions, the GAC loss imposes an entity-level InfoNCE bound, and attention entropy yields calibrated selective prediction, indicating that explicit verified grounding is an effective path toward instruction-sensitive, ambiguity-aware agents.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-10T18:56:48Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Nastaran Darabi</name>
+    </author>
+    <author>
+      <name>Amit Ranjan Trivedi</name>
+    </author>
+  </entry>
+</feed>

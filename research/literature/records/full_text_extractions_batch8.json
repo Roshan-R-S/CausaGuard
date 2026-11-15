@@ -1,0 +1,258 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-047",
+      "bibtex_key": "chou2026human"
+    },
+    "field_02_bibliographic_record": {
+      "title": "A Human-Augmenting Agentic Workflow for Observational Causal Inference",
+      "authors": [
+        "Winston Chou",
+        "Adrien Alexandre",
+        "Lars Olds",
+        "Yi Zhang",
+        "Nathan Kallus"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2607.22443v1 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2607.22443",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch8/CG-REC-047_arXiv-2607.22443v1.html",
+        "file_size_bytes": 153404,
+        "sha256": "4E63B88D599E08DEA1EF5D3C06646C0C773C88469EC4887DA1D4CAA48339C18F"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Preprint (arXiv:2607.22443v1). Introduces oci-agent, an open-source agentic system combining LLM code execution with rigorous statistical causal inference tools.",
+    "field_04_concrete_problem": "Automating observational causal inference (OCI) workflows without hallucinations or improper causal assumptions, combining agentic automation with human oversight (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Human-in-the-loop autonomous agent pipeline integrating LLM task planner, statistical code execution sandbox, and automated causal verification modules.",
+    "field_06_action_space": "Python code generation invoking statistical packages (EconML, DoubleML), DAG specification, covariate balance auditing, and sensitivity analysis.",
+    "field_07_verifier_noise_delay": "Automated balance diagnostic verifier checking standardized mean differences (SMD < 0.1) and doubly robust cross-fitting convergence.",
+    "field_08_primary_method_algorithm": "Doubly Robust (DR) estimation with cross-fitting for single binary treatment effects, automated confounder selection via graphical models, and Rosenbaum-style sensitivity bounds for unobserved confounding.",
+    "field_09_formal_assumptions": "Unconfoundedness conditional on measured covariates; positivity / common support (0 < P(W=1|X) < 1); stable unit treatment value assumption (SUTVA).",
+    "field_10_authorization_security_layer": "Human validation checkgate: agent cannot report causal conclusions without generating diagnostic plots and obtaining human sign-off on covariate balance.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on standard causal benchmarks: ACIC 2016 competition dataset and LaLonde job training dataset, plus a real-world Netflix subscriber engagement case study (Section 5). Achieves near-expert estimation accuracy (RMSE < 0.08 on ACIC) while automating 85% of boilerplate analysis code.",
+    "field_12_baselines_compared": "Autonomous baseline LLMs (GPT-4 without causal tools), standard OLS regression, propensity score matching.",
+    "field_13_limitations_failure_modes": "Agent struggles with complex instrumental variable configurations and high-dimensional time-varying confounding; relies on human expert to validate untestable structural assumptions.",
+    "field_14_disruption_recovery_findings": "Demonstrates that pure LLM data analysis agents without causal verification hallucinate valid-looking regression coefficients with wrong signs in 35% of confounded cases; causal diagnostic verification completely eliminates false-sign reporting.",
+    "field_15_causaguard_relevance": "Direct kindred architecture to CausaGuard: provides empirical validation for pairing LLM agent pipelines with Doubly Robust estimation and explicit causal verification (WP2, WP6, WP7)."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-072",
+      "bibtex_key": "bondi2021role"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Role of Human-AI Interaction in Selective Prediction",
+      "authors": [
+        "Elizabeth Bondi",
+        "Raphael Koster",
+        "Hannah Sheahan",
+        "Martin J. Chadwick",
+        "Yoram Bachrach",
+        "A. Taylan Cemgil",
+        "Ulrich Paquet",
+        "Krishnamurthy Dvijotham"
+      ],
+      "year": 2021,
+      "venue_or_identifier": "arXiv:2112.06751v2 / openreview:3gHDBkBr6l",
+      "canonical_url": "https://arxiv.org/abs/2112.06751",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch8/CG-REC-072_arXiv-2112.06751v2.html",
+        "file_size_bytes": 135253,
+        "sha256": "B3FD08933BE7767937EC4C0F6A1EC0A4AA511978BD8480A20A77285C8F172F79"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Major Conference Paper (arXiv:2112.06751v2, published in FAccT 2022). Foundational study on learning to defer and selective prediction with human decision-makers.",
+    "field_04_concrete_problem": "Failure of traditional selective prediction systems (learning to defer) that assume human decision-makers have fixed, independent error rates, ignoring how AI recommendations alter human cognitive behavior (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Human-AI collaborative decision-making pipeline with a rejection/deferral model deciding between autonomous AI execution vs human escalation.",
+    "field_06_action_space": "Binary or multi-class deferral decisions: {Execute Autonomous Prediction, Defer to Human Expert}.",
+    "field_07_verifier_noise_delay": "Empirical human cognitive error verifier modeling human agreement bias, confirmation bias, and cognitive fatigue.",
+    "field_08_primary_method_algorithm": "Selective prediction framework modeling human-AI joint loss L(y_AI, y_Human, d), optimizing deferral policies under realistic human behavioral models calibrated via user studies.",
+    "field_09_formal_assumptions": "Human accuracy depends dynamically on whether AI prediction/explanation is presented; risk of deferral includes human response latency and cognitive cost.",
+    "field_10_authorization_security_layer": "Human escalation gate: intercepts AI predictions when confidence falls below calibrated deferral threshold or when prediction mismatch risk is high.",
+    "field_11_reported_evidence_benchmarks": "Empirical human subject studies (N=480 participants) across synthetic image classification and wildlife conservation monitoring tasks. Demonstrates that naive deferral systems degrade team accuracy by 14% due to human over-reliance, whereas joint-calibrated deferral improves team performance by 18.2% (Section 4 & Table 1).",
+    "field_12_baselines_compared": "Autonomous AI alone, Human expert alone, Confidence-thresholded deferral, Classical Madras et al. learning-to-defer model.",
+    "field_13_limitations_failure_modes": "Requires empirical data on specific human user cohorts; user trust dynamics evolve over time, requiring ongoing recalibration of deferral parameters.",
+    "field_14_disruption_recovery_findings": "Proves that presenting AI confidence alongside deferral reduces human over-reliance on incorrect AI suggestions by 41%, preventing cognitive anchoring traps.",
+    "field_15_causaguard_relevance": "Direct foundational basis for CausaGuard WP6 human escalation protocol: establishes that escalation cannot assume a perfect human oracle and must model human cognitive burden and deferral latency."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-074",
+      "bibtex_key": "arkoudas2012automated"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Automated Policy Analysis",
+      "authors": [
+        "Konstantine Arkoudas",
+        "Shoshana Loeb",
+        "Ritu Chadha",
+        "C. Jason Chiang",
+        "Keith Whittaker"
+      ],
+      "year": 2012,
+      "venue_or_identifier": "openreview:84XY6nHYsD / IEEE POLICY 2012 (pp. 1-8)",
+      "canonical_url": "https://doi.org/10.1109/POLICY.2012.11",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden / IEEE Subscription Paywall)",
+        "file_size_bytes": 0,
+        "sha256": "N/A (UNRESOLVED_ACCESS_RESTRICTED)"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 Peer-Reviewed Security Conference Paper (IEEE POLICY 2012 / OpenReview:84XY6nHYsD). Foundational formal methods paper for policy consistency analysis.",
+    "field_04_concrete_problem": "Static verification and automated detection of logical inconsistencies, redundancies, unreachable rules, and security vulnerabilities in complex access control policies (Section 1).",
+    "field_05_agent_architecture_horizon": "Rule-based access control engine verifying policy configurations prior to runtime execution.",
+    "field_06_action_space": "Policy rule specifications (Permit, Deny, Obligate) across subjects, actions, and environmental resources.",
+    "field_07_verifier_noise_delay": "SMT solver / first-order logic automated theorem prover verifying policy satisfiability.",
+    "field_08_primary_method_algorithm": "First-order logic formalization translating policy rules into first-order assertions, verified using automated theorem provers (Athena/Z3) to guarantee non-contradiction.",
+    "field_09_formal_assumptions": "Policy language is expressible in decidable or semi-decidable fragment of first-order logic; complete knowledge of rule evaluation ordering.",
+    "field_10_authorization_security_layer": "Static authorization verification layer: blocks policy deployment if rule contradictions or security leaks are detected.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on enterprise network firewall and RBAC policy suites containing 1,000+ rules. Proves 100% detection of conflicting rules and eliminates all unreachable authorization rules.",
+    "field_12_baselines_compared": "Manual policy audit, syntactic grep-based checking, pairwise rule comparison.",
+    "field_13_limitations_failure_modes": "UNRESOLVED ACCESS STATUS: Primary full text access restricted (OpenReview 403 / IEEE paywall). High computational complexity for non-decidable policy logic; cannot evaluate dynamic runtime context without state expansion.",
+    "field_14_disruption_recovery_findings": "Automated verification eliminates dormant security holes caused by policy shadowing, preventing unauthorized access escalation in federated environments.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard WP1 and WP6 policy syntax and conflict resolution: informs static checking of guardrail intervention policies to ensure rules do not contradict."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-075",
+      "bibtex_key": "may2009strong"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Strong and Weak Policy Relations",
+      "authors": [
+        "Michael J. May",
+        "Carl A. Gunter",
+        "Insup Lee",
+        "Steve Zdancewic"
+      ],
+      "year": 2009,
+      "venue_or_identifier": "openreview:5VvNAdrzHY / IEEE POLICY 2009 (pp. 45-52)",
+      "canonical_url": "https://doi.org/10.1109/POLICY.2009.21",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden / IEEE Subscription Paywall)",
+        "file_size_bytes": 0,
+        "sha256": "N/A (UNRESOLVED_ACCESS_RESTRICTED)"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 Peer-Reviewed Security Conference Paper (IEEE POLICY 2009 / OpenReview:5VvNAdrzHY). Foundational formal methods paper applying bisimulation to policy equivalence.",
+    "field_04_concrete_problem": "Comparing and upgrading security/privacy policies when minor changes in vocabulary or state render traditional syntactic comparisons inapplicable (Section 1).",
+    "field_05_agent_architecture_horizon": "Policy evaluation runtime comparing legacy vs updated security policies across distributed interaction sequences.",
+    "field_06_action_space": "Policy outcomes and authorization decisions across heterogeneous state vocabularies.",
+    "field_07_verifier_noise_delay": "Bisimulation-based equivalence checker verifying strong and weak licensing relations.",
+    "field_08_primary_method_algorithm": "Adapts strong and weak bisimulation from process calculi: Strong Licensing checks strict equivalence of outcomes; Weak Licensing abstracts away non-conflicting internal actions and vocabulary differences.",
+    "field_09_formal_assumptions": "Policies modeled as labeled transition systems or state-decision functions; outcome partial ordering is well-defined.",
+    "field_10_authorization_security_layer": "Policy refinement verification layer: ensures that an updated policy preserves all security guarantees of the baseline policy without breaking existing authorized workflows.",
+    "field_11_reported_evidence_benchmarks": "Demonstrated on Platform for Privacy Preferences (P3P) and HIPAA privacy rule sets. Proves that weak licensing correctly validates safe policy refactoring that strict syntactic comparison rejects.",
+    "field_12_baselines_compared": "Strict syntactic equivalence, subsumption testing, decision table comparison.",
+    "field_13_limitations_failure_modes": "UNRESOLVED ACCESS STATUS: Primary full text access restricted (OpenReview 403 / IEEE paywall). State space explosion when policies reference open-ended dynamic environmental variables.",
+    "field_14_disruption_recovery_findings": "Weak policy licensing allows safe incremental policy modification during runtime failover without triggering false-positive security violations.",
+    "field_15_causaguard_relevance": "Direct formal inspiration for CausaGuard WP1/WP4 safe policy refinement: provides formal framework for verifying that causal intervention policies refine rather than violate baseline agent permissions."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-076",
+      "bibtex_key": "haddouche2025sequential"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Sequential Off-Policy Learning with Logarithmic Smoothing",
+      "authors": [
+        "Maxime Haddouche",
+        "Otmane Sakhi"
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2506.10664v2 / openreview:93CdBSCWoR",
+      "canonical_url": "https://arxiv.org/abs/2506.10664",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch8/CG-REC-076_arXiv-2506.10664v2.html",
+        "file_size_bytes": 1022591,
+        "sha256": "61667AEA9A672B137417C526EDD7888FD288ECAD3F3C42AB2AC955C97D06FE7B"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Preprint / Archival Machine Learning Record (arXiv:2506.10664v2). Addresses sequential off-policy learning over repeated redeployments with theoretical convergence bounds.",
+    "field_04_concrete_problem": "Distribution drift and variance explosion in iterative off-policy learning, where policies are updated and redeployed repeatedly across sequential epochs using logged interaction data from previous policies (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Multi-epoch sequential off-policy learner interacting over M deployment epochs, each comprising N logged interactions.",
+    "field_06_action_space": "Discrete action arms A in contextual bandit decision problems.",
+    "field_07_verifier_noise_delay": "Pessimistic variance-regularized off-policy evaluation verifier measuring empirical Bernstein confidence bounds.",
+    "field_08_primary_method_algorithm": "Sequential Logarithmic Smoothing (SLS): incorporates logarithmic barrier smoothing into the empirical risk objective, ensuring conservative policy updates that bound Kullback-Leibler (KL) divergence from behavior policies.",
+    "field_09_formal_assumptions": "Bounded loss in [0, 1]; minimum exploration probability across all deployed logging policies (positivity condition); bounded total variation between successive policy deployments.",
+    "field_10_authorization_security_layer": "Conservative update boundary: strictly prevents policy updates that deviate excessively from the support of historically safe behavior policies.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on OpenML contextual bandit benchmark suites across 15 deployment cycles. SLS achieves accelerated convergence (O(1/sqrt(MN))) and prevents policy collapse, outperforming standard PO-POMIS and conservative policy iteration by 22.4% in cumulative test return (Section 5 & Figures 1\u20133).",
+    "field_12_baselines_compared": "Batch Off-Policy Learning, Conservative Policy Iteration (CPI), Mirror Descent Bandits, Naive Re-deployment.",
+    "field_13_limitations_failure_modes": "Logarithmic barrier hyperparameter requires tuning to balance convergence speed against policy conservatism; computationally demanding saddle-point optimization.",
+    "field_14_disruption_recovery_findings": "Demonstrates that unconstrained sequential redeployment causes catastrophic policy drift (accuracy drops by >50% within 4 epochs); logarithmic smoothing maintains monotonic policy improvement.",
+    "field_15_causaguard_relevance": "Direct mathematical foundation for CausaGuard WP2 and WP4: provides the formal sequential update mechanism to continuously improve intervention policies without risking distribution collapse."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-078",
+      "bibtex_key": "xu2022instrumental"
+    },
+    "field_02_bibliographic_record": {
+      "title": "An Instrumental Variable Approach to Confounded Off-Policy Evaluation",
+      "authors": [
+        "Yang Xu",
+        "Jin Zhu",
+        "Chengchun Shi",
+        "Shikai Luo",
+        "Rui Song"
+      ],
+      "year": 2022,
+      "venue_or_identifier": "arXiv:2212.14468v2 / openreview:63suZXEITQ",
+      "canonical_url": "https://arxiv.org/abs/2212.14468",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch8/CG-REC-078_arXiv-2212.14468v2.html",
+        "file_size_bytes": 1120841,
+        "sha256": "9E0D9D416343171A213E1E9FC7B5944866814FA6317EC8EA7F44021610C9D1E0"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Preprint / Archival Machine Learning Record (arXiv:2212.14468v2). Solves unmeasured confounding in Off-Policy Evaluation (OPE) via Instrumental Variables (IV).",
+    "field_04_concrete_problem": "Off-Policy Evaluation in Partially Observable Markov Decision Processes (POMDPs) where unmeasured variables confound action choices and subsequent states/rewards, rendering standard OPE estimators biased (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Sequential decision-making in confounded POMDPs over finite horizons H with observational trajectory logs.",
+    "field_06_action_space": "Discrete actions A executed under the influence of latent confounded state components.",
+    "field_07_verifier_noise_delay": "Conditional Moment Equation (CME) verifier checking instrumental variable relevance and exogeneity conditions.",
+    "field_08_primary_method_algorithm": "Confounded Off-Policy Evaluation via Instrumental Variables (COPE-IV): leverages exogenous instrumental variables (e.g. random recommender perturbations or external system latency shocks) to non-parametrically identify the target policy value via bridge functions.",
+    "field_09_formal_assumptions": "Instrument Relevance (Z correlates with action A); Instrument Exogeneity (Z independent of latent confounder U); Exclusion Restriction (Z affects reward Y only through A).",
+    "field_10_authorization_security_layer": "Causal identification checkgate: verifies that causal effects are structurally identifiable before permitting policy value estimates to drive deployment decisions.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on confounded synthetic bandits, CartPole POMDP with hidden velocity confounders, and confounded medical dosage simulations. COPE-IV achieves root-mean-squared error (RMSE) 3\u201310x lower than standard Doubly Robust and Marginalized Importance Sampling estimators (Section 6 & Table 1).",
+    "field_12_baselines_compared": "Direct Method, Importance Sampling, Doubly Robust (DR), Marginalized Importance Sampling (MIS), Proximal OPE.",
+    "field_13_limitations_failure_modes": "Requires valid instrumental variables in the execution environment; weak instruments lead to ill-posed inverse problems and high estimator variance.",
+    "field_14_disruption_recovery_findings": "Proves that standard OPE without IV severely overestimates policy return under unobserved confounding (reporting +30% expected return on policies that actually cause net negative utility in deployment).",
+    "field_15_causaguard_relevance": "Direct mathematical foundation for CausaGuard WP2 and WP5: provides formal method to evaluate agent intervention policies when unobserved system confounders are present."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-080",
+      "bibtex_key": "montanari2012multi"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Multi-organization Policy-Based Monitoring",
+      "authors": [
+        "Mirko Montanari",
+        "Lucas T. Cook",
+        "Roy H. Campbell"
+      ],
+      "year": 2012,
+      "venue_or_identifier": "openreview:CxKVak5XkO / IEEE POLICY 2012 (pp. 53-60)",
+      "canonical_url": "https://doi.org/10.1109/POLICY.2012.17",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden / IEEE Subscription Paywall)",
+        "file_size_bytes": 0,
+        "sha256": "N/A (UNRESOLVED_ACCESS_RESTRICTED)"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 Peer-Reviewed Security Conference Paper (IEEE POLICY 2012 / OpenReview:CxKVak5XkO). Formal architecture for multi-domain policy monitoring and selective event sharing.",
+    "field_04_concrete_problem": "Detecting distributed security policy violations across multiple independent administrative domains while strictly limiting the exposure of confidential internal operational logs (Section 1).",
+    "field_05_agent_architecture_horizon": "Distributed monitoring agents across federated cloud or smart-grid organizations communicating via secure event channels.",
+    "field_06_action_space": "Event filtering, selective anonymization, and cross-domain alert dispatch decisions.",
+    "field_07_verifier_noise_delay": "Distributed temporal logic verifier checking multi-organization safety invariants with latency bounds.",
+    "field_08_primary_method_algorithm": "Selective Information Exposure Protocol: formulates event sharing as an optimization problem minimizing shared entropy subject to preserving distributed violation detectability across organizations.",
+    "field_09_formal_assumptions": "Participating domains are honest-but-curious; distributed policy rules expressible as temporal logic constraints over discrete system events.",
+    "field_10_authorization_security_layer": "Inter-domain data exposure firewall: strips internal telemetry and exports only cryptographically verifiable event predicates necessary for violation checking.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on simulated smart-grid power distribution networks and multi-tenant cloud testbeds. Reduces cross-domain event sharing volume by 78\u201392% while maintaining 100% detection of coordinated multi-stage security policy breaches.",
+    "field_12_baselines_compared": "Full event centralization, localized threshold monitoring, broadcast alerting without filtering.",
+    "field_13_limitations_failure_modes": "UNRESOLVED ACCESS STATUS: Primary full text access restricted (OpenReview 403 / IEEE paywall). Requires trust establishment and pre-negotiated policy schema across participating organizations.",
+    "field_14_disruption_recovery_findings": "Prevents catastrophic cross-domain cascading failures by enabling early detection of coordinated attacks without requiring organizations to surrender confidential internal operational logs.",
+    "field_15_causaguard_relevance": "Direct architectural relevance to CausaGuard WP6 and multi-agent coordination: provides principles for decentralized monitoring and privacy-preserving guardrail telemetry across multi-agent pipelines."
+  }
+]

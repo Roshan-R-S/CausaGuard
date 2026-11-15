@@ -1,0 +1,76 @@
+{
+  "identification": {
+    "pilot_phase_1_2": {
+      "arxiv_api_retrieved": 60,
+      "openreview_api_retrieved_after_note_filter": 20,
+      "openreview_raw_notes_filtered_out_non_paper": 40,
+      "master_roadmap_anchors_sections_4_and_16": 12,
+      "total_records_pilot": 92,
+      "duplicates_removed_pilot": 6,
+      "unique_records_pilot": 86
+    },
+    "broader_database_expansion_phase_1_5a": {
+      "ieee_xplore_crossref_10_1109": 20,
+      "acm_digital_library_crossref_10_1145": 20,
+      "springerlink_crossref_10_1007": 20,
+      "scopus_api_status": "INACCESSIBLE (Institutional Subscription / API Key Gated; Documented in Review Protocol)",
+      "web_of_science_status": "INACCESSIBLE (Institutional Subscription / Enterprise Token Gated; Documented in Review Protocol)",
+      "total_records_phase_1_5a": 60,
+      "internal_duplicates_removed_phase_1_5a": 1,
+      "unique_records_phase_1_5a": 59
+    },
+    "cumulative_identification": {
+      "total_records_identified_all_sources": 152,
+      "total_duplicates_removed": 7,
+      "total_unique_records_screened": 145
+    }
+  },
+  "screening": {
+    "pilot_screening_records": 86,
+    "pilot_excluded_title_abstract": 9,
+    "pilot_advancing_to_full_text": 77,
+    "phase_1_5a_screened_records": 59,
+    "phase_1_5a_provisional_advance": 34,
+    "phase_1_5a_provisional_uncertain": 7,
+    "phase_1_5a_excluded_title_abstract": 18,
+    "cumulative_screening": {
+      "total_unique_screened": 145,
+      "total_excluded_title_abstract": 27,
+      "total_candidates_eligible_or_uncertain_for_full_text": 118
+    },
+    "screening_reviewers": "Single AI Reviewer (Antigravity/Gemini), Reviewer-1 Provisional; Consensus: Pending Independent Human Confirmation"
+  },
+  "retrieval": {
+    "pilot_population": {
+      "reports_planned_pilot": 77,
+      "retrieval_attempts_completed_pilot": 77,
+      "reports_successfully_retrieved_pilot": 70,
+      "reports_unresolved_access_restricted_pilot": 7,
+      "pilot_coverage_rate": "90.9% retrieved, 9.1% unresolved, 0% pending"
+    },
+    "phase_1_5a_population": {
+      "new_candidate_reports_sought_for_retrieval": 41,
+      "retrieval_attempts_completed": 0,
+      "retrieval_status": "PENDING (Searches completed and screened; retrieval deferred to Phase 1.5B per protocol instructions)"
+    },
+    "cumulative_retrieval": {
+      "total_reports_sought_for_retrieval": 118,
+      "total_retrieval_attempts_completed": 77,
+      "total_successfully_retrieved_on_disk": 70,
+      "total_unresolved_access_restricted": 7,
+      "total_pending_retrieval": 41
+    }
+  },
+  "eligibility": {
+    "full_text_reports_assessed_pilot": 70,
+    "full_text_reports_provisionally_eligible_pilot": 70,
+    "full_text_reports_excluded_pilot": 0,
+    "new_candidates_awaiting_full_text_assessment": 41,
+    "reviewer_provenance": "Single AI Reviewer (Antigravity/Gemini), Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  "included": {
+    "studies_finally_included_in_review": 0,
+    "studies_provisionally_eligible_in_dossier": 70,
+    "inclusion_status": "PENDING (Strictly requires independent dual-reviewer concordance and Cohen's kappa verification before final study inclusion)"
+  }
+}

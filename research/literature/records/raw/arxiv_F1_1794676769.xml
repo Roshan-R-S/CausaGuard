@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/IwW+NkXCB83YUgnejysvll79gmI</id>
+  <title>arXiv Query: search_query=all:"LLM agent" AND (all:"tool calling" OR all:"tool execution") AND (all:"authorization" OR all:"runtime security")&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-14T17:18:49Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22LLM+agent%22+AND+((all:%22tool+calling%22+OR+all:%22tool+execution%22)+AND+(all:%22authorization%22+OR+all:%22runtime+security%22))&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>50</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2603.11853v1</id>
+    <title>OpenClaw PRISM: A Zero-Fork, Defense-in-Depth Runtime Security Layer for Tool-Augmented LLM Agents</title>
+    <updated>2026-03-12T12:20:12Z</updated>
+    <link href="https://arxiv.org/abs/2603.11853v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.11853v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool-augmented LLM agents introduce security risks that extend beyond user-input filtering, including indirect prompt injection through fetched content, unsafe tool execution, credential leakage, and tampering with local control files. We present OpenClaw PRISM, a zero-fork runtime security layer for OpenClaw-based agent gateways. PRISM combines an in-process plugin with optional sidecar services and distributes enforcement across ten lifecycle hooks spanning message ingress, prompt construction, tool execution, tool-result persistence, outbound messaging, sub-agent spawning, and gateway startup. Rather than introducing a novel detection model, PRISM integrates a hybrid heuristic-plus-LLM scanning pipeline, conversation- and session-scoped risk accumulation with TTL-based decay, policy-enforced controls over tools, paths, private networks, domain tiers, and outbound secret patterns, and a tamper-evident audit and operations plane with integrity verification and hot-reloadable policy management. We outline an evaluation methodology and benchmark pipeline for measuring security effectiveness, false positives, layer contribution, runtime overhead, and operational recoverability in an agent-runtime setting, and we report current preliminary benchmark results on curated same-slice experiments and operational microbenchmarks. The system targets deployable runtime defense for real agent gateways rather than benchmark-only detection.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-12T12:20:12Z</published>
+    <arxiv:comment>23 pages, 3 figures, 6 tables. Open-source system paper with benchmark artifact pipeline</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Frank Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.01508v1</id>
+    <title>OverAct: Measuring and Mitigating Proactive Over-Authorization in LLM Tool-Calling Agents</title>
+    <updated>2026-10-01T11:44:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.01508v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.01508v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM agents with tool-calling capabilities can access external services and private user data, but they may retrieve more information than a user's request explicitly requires. We study this behavior in structured tool-calling agents and term it proactive over-authorization. This setting differs from filesystem-level coding agents because the main risk is unnecessary access to private data. We introduce OverAct, a controlled benchmark spanning eight privacy-sensitive domains with deterministic, judge-free scoring, together with an interpretive decision-theoretic framework that yields three testable predictions. Across seven models from four families, all models significantly exceed authorized scope. Request specificity is the strongest predictor of severity, over-authorization grows sublinearly with tool-pool size, and decoding temperature has little effect. These patterns are consistent with a cost-asymmetry account, suggesting that over-authorization arises more from structural decision tendencies than from decoding randomness. We also propose SelfAudit, a zero-shot inference-time method that generates request-grounded justifications and filters unjustified calls before execution. Ablation shows that explicit filtering is the main driver of scope reduction. SelfAudit reduces privacy-oriented excess by 43% without oracle knowledge.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T11:44:45Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Taolin Zhang</name>
+    </author>
+    <author>
+      <name>Jiuheng Wan</name>
+    </author>
+    <author>
+      <name>Hanyu Wang</name>
+    </author>
+    <author>
+      <name>Tingyuan Hu</name>
+    </author>
+    <author>
+      <name>Chengyu Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.28679v1</id>
+    <title>Capability Gates Are Not Authorization: Confused-Deputy Failures in LLM Agent Frameworks</title>
+    <updated>2026-06-27T01:33:19Z</updated>
+    <link href="https://arxiv.org/abs/2606.28679v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.28679v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool-using LLM agents increasingly read untrusted content while holding side-effecting tools such as payments, email, CRM, and infrastructure APIs, yet common framework defaults still conflate tool exposure with authorization. We audit whether LangChain/LangGraph, LlamaIndex, and the Stripe Agent Toolkit re-authorize each model-emitted call, with concrete argument values, before execution. Across pinned public-source commits, all three provide capability gating by default, but none provides a deterministic fail-closed per-call value authorization gate by default. We introduce ScopeGate, a five-stage PDP/PEP for agent tool calls: scope, authorization, money ceiling, idempotency, and default deny. Evaluation shows the identical unauthorized payout call executes under LangChain's default dispatch (with a companion LlamaIndex PoC) but is denied by ScopeGate; the tested control reports 0/48 static bypasses, 0/29 unauthorized attempts (40-iteration adaptive run), 0/10 benign false-denies, and Latam-GPT payment-agent containment at 10/10. ASR denotes attempted unauthorized action, containment is not a cure, deployment-tier claims are inference over measured model classes, and no CVE is asserted.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-27T01:33:19Z</published>
+    <arxiv:comment>7 pages, 3 figures, 3 tables. Artifact: https://github.com/raceksd-source/scopegate-runtime (run_proof.sh)</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>David Mellafe Zuvic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.11790v2</id>
+    <title>ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection</title>
+    <updated>2026-05-11T16:09:04Z</updated>
+    <link href="https://arxiv.org/abs/2604.11790v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.11790v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool-augmented Large Language Model (LLM) agents have demonstrated impressive capabilities in automating complex, multi-step real-world tasks, yet remain vulnerable to indirect prompt injection. Adversaries exploit this weakness by embedding malicious instructions within tool-returned content, which agents directly incorporate into their conversation history as trusted observations. To address these vulnerabilities, we introduce \textsc{ClawGuard}, a novel runtime security framework that enforces a user-confirmed rule set at every tool-call boundary, transforming unreliable alignment-dependent defense into a deterministic, auditable mechanism that intercepts adversarial tool calls before any real-world effect is produced. By automatically deriving task-specific access constraints from the user's stated objective prior to any external tool invocation, \textsc{ClawGuard} blocks all three injection pathways without model modification or infrastructure change. Experiments across five state-of-the-art language models on six injection benchmarks covering web, local, MCP, and skill channels, as well as three utility benchmarks covering OS, web, and code tasks, demonstrate that \textsc{ClawGuard} achieves robust protection against indirect prompt injection without compromising agent utility or introducing significant token overhead. This work establishes deterministic tool-call boundary enforcement as an effective defense mechanism for secure agentic AI systems. Code is publicly available at github.com/Claw-Guard/ClawGuard/.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-13T17:55:11Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Wei Zhao</name>
+    </author>
+    <author>
+      <name>Zhe Li</name>
+    </author>
+    <author>
+      <name>Peixin Zhang</name>
+    </author>
+    <author>
+      <name>Jun Sun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.27620v1</id>
+    <title>Local Allow, Global Deny: Why Per-Action Authorization Does Not Compose in LLM Agents</title>
+    <updated>2026-10-20T04:35:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.27620v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.27620v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Autonomous LLM agents act through tools under per-action authorization: a local guard screens each tool call in isolation. We show that local authorization does not compose into global authorization. A compositional authorization failure (CAF) is a locally authorized execution, or a pair of locally authorized executions, that violates a global policy spanning intent, purpose, provenance, consent, and delegation. We characterize CAFs along two axes, expressiveness (single-trace safety versus relational k-safety) and observability (a ladder of monitor profiles). Our central result is an impossibility: relational purpose violations form a 2-safety hyperproperty with no per-trace locus of blame, so a per-action monitor that never raises a false alarm detects none of them, independent of the underlying model or decision procedure; they become visible only under cross-execution monitoring, which none of the six guardrails we survey implements. We make this constructive with AL-SYNTH, a SAT/SMT synthesizer (using no language model) that emits minimal CAF witnesses, each checked against an exhaustive oracle. The empirical signature is sharp: across nine LLM judges the per-action view approves the synthesized witness almost without exception, blocking it at a rate comparable to a benign control, yet the same models flag it when shown the two executions together. Per-action authorization is therefore structurally insufficient for relational policy conjuncts not reducible to single-trace safety: to bound them, a monitor must compare executions or accept false alarms.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-20T04:35:39Z</published>
+    <arxiv:comment>Extended version of a paper accepted at the 8th IEEE International Conference on Trust, Privacy and Security in Intelligent Systems and Applications (IEEE TPS 2026), with full proofs and appendices. 12 pages, 5 figures, 7 tables. Code and data: https://github.com/anmolpandey299/al-synth</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Anmol Pandey</name>
+    </author>
+    <author>
+      <name>Aditya Jain</name>
+    </author>
+    <author>
+      <name>Liang Chen</name>
+    </author>
+    <author>
+      <name>Carsten Maple</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24957v1</id>
+    <title>ToolMinimize: Auditing and Rewriting LLM Agent Tool Calls to Minimize Privacy Exposure</title>
+    <updated>2026-08-25T03:48:16Z</updated>
+    <link href="https://arxiv.org/abs/2608.24957v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24957v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM agents routinely include privacy-sensitive data (PSD) in tool call arguments beyond what the invoked tools require, crossing trust boundaries to third-party services on every invocation. A controlled measurement on three production LLMs (GPT-4o, Claude 3.5 Sonnet, Llama-3.3-70B) shows that 81--88\% of tool calls include unnecessary PSD under default prompts; explicit privacy instructions still leave 36--76\% over-sharing. Existing defenses gate calls (allow/block) or label flows (information-flow control) but cannot \emph{rewrite} argument values, and PII detection tools miss implicit PSD like ``Memorial Sloan Kettering'' (a hospital name that implies a diagnosis). We present \system{}, a middleware that intercepts tool calls and rewrites their arguments to the minimum data necessary for tool functionality, combining schema-aware necessity analysis with four operations: removal, generalization, substitution, and truncation. Live validation on 307 tool calls across the three LLMs above reduces privacy cost by 81.2--92.0\% at 100\% argument-level task validity (TOST equivalence $p{&lt;}0.001$ at $Δ{=}1.0$); on 25 unannotated Model Context Protocol (MCP) schemas, by 79.0\% with no \texttt{minimum\_necessary} metadata. An optional LLM content-necessity layer strips task-irrelevant PSD from otherwise-necessary free-text fields, raising live-LLM reduction to 85.1--95.6\% and author-schema reduction from 71.1\% to 90.9\%. Median latency is 1.77\,ms.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T03:48:16Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Wenbiao Li</name>
+    </author>
+    <author>
+      <name>Yuqiao Xu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.20658v1</id>
+    <title>The Claws in Plain Sight: Unauthorized Context Disclosure through LLM Agent Tool Calls</title>
+    <updated>2026-08-21T01:32:03Z</updated>
+    <link href="https://arxiv.org/abs/2608.20658v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.20658v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM agents routinely construct tool-call arguments from user profiles, conversation history, retrieved documents, and prior tool results. However, legitimate access to contextual information does not imply authorization to transmit that information for every purpose or destination. We present Claw in Plain Sight, an authority- pressure attack in which task-adjacent content frames protected attributes as operationally or procedurally required, causing a model to include them in otherwise valid generated arguments. We evaluate Claw in Plain Sight using a controlled synthetic benchmark that crosses six pressure levels with four privacy-policy levels across five DeepSeek and Claude model configurations, producing 120 calls. Across the complete pressure-policy matrix, session-level disclosure rates range from 20.8% to 75.0% among the tested models. Stronger privacy instructions reduce aggregate disclosure but do not eliminate it consistently across models, showing that prompt-level policies do not provide a portable enforcement boundary. Our experiments use only synthetic profiles and capture proposed arguments locally; they measure policy-violating generation at the context-to-argument boundary, not completed network exfiltration or leakage from deployed users. These findings motivate purpose- and destination-aware inspection of generated tool arguments before execution.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-21T01:32:03Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Ben Dong</name>
+    </author>
+    <author>
+      <name>Zhonghao Guo</name>
+    </author>
+    <author>
+      <name>Tianyi Lu</name>
+    </author>
+    <author>
+      <name>Qian Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.27146v1</id>
+    <title>When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents</title>
+    <updated>2026-08-27T13:59:04Z</updated>
+    <link href="https://arxiv.org/abs/2608.27146v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.27146v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool-augmented LLM agents must rely on untrusted runtime Observations to complete open-ended tasks; however, when tool outputs no longer merely provide data but begin to specify concrete actions, they effectively become ``commands'' that can drive real-world side effects beyond user intent. We argue that this risk arises from conflating action induction with execution authorization. To address this distinction, we propose SARA, which treats action induction and execution authorization as distinct runtime roles and separates action provenance from execution authority. On the Observation side, a context-isolated Action Probe exposes action-inducing semantics and persistently records action-origin provenance across steps as a review signal; on the execution side, actual tool calls are authorized only against the user objective and audited evidence from authorized successful executions, while satisfying goal, execution-chain, and argument-level support. To preserve this separation across multi-step execution, SARA applies No-History-Promotion to prevent historical recurrence from laundering action origins into execution authority. Across AgentDojo and AgentDyn, SARA limits ASR to no more than \(0.63\%\) across four primary evaluation settings while maintaining competitive task utility, and consistently reduces ASR across additional Agent backbones.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-27T13:59:04Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xiaokun Guo</name>
+    </author>
+    <author>
+      <name>Zhen Xu</name>
+    </author>
+    <author>
+      <name>Dongdong Huo</name>
+    </author>
+    <author>
+      <name>Yanqiu Zhang</name>
+    </author>
+    <author>
+      <name>Wei Wang</name>
+    </author>
+    <author>
+      <name>Qinfu Yang</name>
+    </author>
+    <author>
+      <name>Dongjin Yu</name>
+    </author>
+    <author>
+      <name>Yu Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.26497v1</id>
+    <title>Aligning Provenance with Authorization: A Dual-Graph Defense for LLM Agents</title>
+    <updated>2026-05-26T03:20:23Z</updated>
+    <link href="https://arxiv.org/abs/2605.26497v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.26497v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-based agents are increasingly deployed in high-stakes scenarios such as email management, financial transactions, and code execution, where they interact with the external world through tool calling. During execution, these agents must read external data sources (emails, webpages, files) that attackers can control; through indirect prompt injection, attackers embed malicious instructions in this data to manipulate agents into performing unauthorized operations such as transferring funds to attacker-controlled accounts. Existing defenses either perform tool-call-level value checking without tracking where parameter values originate, or analyze execution traces from a single perspective without a clean authorization baseline for comparison. We propose AuthGraph, a dual-graph alignment defense framework that constructs two complementary graphs: an injected reasoning graph that models information provenance from the actual execution trajectory (including potentially manipulated attributions), and an authorization graph derived from the user's intent in an isolated clean context that is information-theoretically impossible to be influenced by injection; a graph alignment checker then structurally compares the two graphs to detect both tool-level and parameter-source-level deviations. On AgentDojo, AuthGraph reduces the attack success rate from 40% to 1% while maintaining 76% task completion rate on GPT-4o; on AgentDyn, it reduces the attack success rate from 39% to 2% while preserving 51% utility, outperforming state-of-the-art defenses including CaMeL, DRIFT, and Progent. To our knowledge, AuthGraph is the first agent security defense to structurally compare authorization specifications against execution provenance at the parameter-source level, achieving fine-grained injection detection without sacrificing agent flexibility.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-26T03:20:23Z</published>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Peiran Wang</name>
+    </author>
+    <author>
+      <name>Ying Li</name>
+    </author>
+    <author>
+      <name>Yuan Tian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28585v1</id>
+    <title>Persistent Billable State: Denial-of-Wallet Attacks and Defenses in Tool-Calling LLM Agents</title>
+    <updated>2026-09-23T13:45:26Z</updated>
+    <link href="https://arxiv.org/abs/2609.28585v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28585v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-step tool-calling LLM agents rely on host runtimes to preserve state across turns. When a runtime carries an external tool return into later model inputs, providers meter it again. An admitted malicious or compromised tool can thereby convert untrusted data into recurring victim-billed processing without victim credentials or local runtime privilege. We call retained content persistent billable state and formalize the host's decision over whether and how it enters later billable context as the persistent billable-state boundary.
+  We present the first systematic security study of this post-admission lifecycle. We derive six denial-of-wallet attack vectors and build DOW-BENCH, an end-to-end harness evaluated across six model families. Across 243 executions, usage telemetry shows that the maximum per-session cumulative input reaches 14,293x the session's first-call input. Controlled history-policy reruns isolate raw retention's contribution: retaining raw history increases mean effective session cost by 21.2-35.9%. Compression succeeds on 10/12 and 11/12 history-dependent tasks, versus 2/12 under deletion for each provider.
+  To govern this boundary, we combine deterministic history transformation with four host-side invariants that bound prompt mass, context growth, recursive opportunity, and cumulative spend before reingestion. The kernel contains every recurring attack in the 123-evaluation replay corpus. Across 24 Mistral Small 4 workflows, a progress-authorized policy achieves 22/24 oracle-verified task successes with no pre-completion interruptions, versus 13/24 under a fixed cap. Only 71 of 3,830 scanned MCP server and transport repositories expose any code-visible safeguard proxy, and none cover all four safeguard families. These results establish persistent billable state as a first-class security object and pre-reingestion as its host-owned control point.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T13:45:26Z</published>
+    <arxiv:comment>22 pages, 14 figures, 13 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Jinqian Zhang</name>
+      <arxiv:affiliation>Institute of Information Engineering, Chinese Academy of Sciences</arxiv:affiliation>
+      <arxiv:affiliation>School of Cyber Security, University of Chinese Academy of Sciences</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Haojun Xia</name>
+      <arxiv:affiliation>Institute of Information Engineering, Chinese Academy of Sciences</arxiv:affiliation>
+      <arxiv:affiliation>School of Cyber Security, University of Chinese Academy of Sciences</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Shujiang Wu</name>
+      <arxiv:affiliation>Beihang University</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Jingkun Yue</name>
+      <arxiv:affiliation>State Key Laboratory of Networking and Switching Technology, Beijing University of Posts and Telecommunications, Beijing, China</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Xia Zhang</name>
+      <arxiv:affiliation>Institute of Information Engineering, Chinese Academy of Sciences</arxiv:affiliation>
+      <arxiv:affiliation>School of Cyber Security, University of Chinese Academy of Sciences</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Zhangpei Cheng</name>
+      <arxiv:affiliation>Institute of Information Engineering, Chinese Academy of Sciences</arxiv:affiliation>
+      <arxiv:affiliation>School of Cyber Security, University of Chinese Academy of Sciences</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Bibo Tu</name>
+      <arxiv:affiliation>Institute of Information Engineering, Chinese Academy of Sciences</arxiv:affiliation>
+      <arxiv:affiliation>School of Cyber Security, University of Chinese Academy of Sciences</arxiv:affiliation>
+    </author>
+  </entry>
+</feed>

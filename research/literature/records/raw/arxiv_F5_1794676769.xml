@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Y6ZwdStnAWpYa6ZURabJotLql4k</id>
+  <title>arXiv Query: search_query=(all:"causal inference" OR all:"off-policy evaluation") AND (all:"sequential decision" OR all:"agent")&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-14T17:18:53Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22causal+inference%22+OR+all:%22off-policy+evaluation%22)+AND+(all:%22sequential+decision%22+OR+all:%22agent%22)&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>184</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2112.06833v3</id>
+    <title>Beyond Ads: Sequential Decision-Making Algorithms in Law and Public Policy</title>
+    <updated>2022-11-29T08:45:50Z</updated>
+    <link href="https://arxiv.org/abs/2112.06833v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2112.06833v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We explore the promises and challenges of employing sequential decision-making algorithms -- such as bandits, reinforcement learning, and active learning -- in law and public policy. While such algorithms have well-characterized performance in the private sector (e.g., online advertising), the tendency to naively apply algorithms motivated by one domain, often online advertisements, can be called the "advertisement fallacy." Our main thesis is that law and public policy pose distinct methodological challenges that the machine learning community has not yet addressed. Machine learning will need to address these methodological problems to move "beyond ads." Public law, for instance, can pose multiple objectives, necessitate batched and delayed feedback, and require systems to learn rational, causal decision-making policies, each of which presents novel questions at the research frontier. We discuss a wide range of potential applications of sequential decision-making algorithms in regulation and governance, including public health, environmental protection, tax administration, occupational safety, and benefits adjudication. We use these examples to highlight research needed to render sequential decision making policy-compliant, adaptable, and effective in the public sector. We also note the potential risks of such deployments and describe how sequential decision systems can also facilitate the discovery of harms. We hope our work inspires more investigation of sequential decision making in law and public policy, which provide unique challenges for machine learning researchers with potential for significant social benefit.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-12-13T17:45:21Z</published>
+    <arxiv:comment>Version 1 presented at Causal Inference Challenges in Sequential Decision Making: Bridging Theory and Practice (2021), a NeurIPS 2021 Workshop; Version 2 presented at the 2nd ACM Symposium on Computer Science and Law (2022) (DOI: https://dl.acm.org/doi/10.1145/3511265.3550439)</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Peter Henderson</name>
+    </author>
+    <author>
+      <name>Ben Chugg</name>
+    </author>
+    <author>
+      <name>Brandon Anderson</name>
+    </author>
+    <author>
+      <name>Daniel E. Ho</name>
+    </author>
+    <arxiv:doi>10.1145/3511265.3550439</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3511265.3550439" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1606.06126v3</id>
+    <title>Bootstrapping with Models: Confidence Intervals for Off-Policy Evaluation</title>
+    <updated>2018-09-24T17:13:08Z</updated>
+    <link href="https://arxiv.org/abs/1606.06126v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1606.06126v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For an autonomous agent, executing a poor policy may be costly or even dangerous. For such agents, it is desirable to determine confidence interval lower bounds on the performance of any given policy without executing said policy. Current methods for exact high confidence off-policy evaluation that use importance sampling require a substantial amount of data to achieve a tight lower bound. Existing model-based methods only address the problem in discrete state spaces. Since exact bounds are intractable for many domains we trade off strict guarantees of safety for more data-efficient approximate bounds. In this context, we propose two bootstrapping off-policy evaluation methods which use learned MDP transition models in order to estimate lower confidence bounds on policy performance with limited data in both continuous and discrete state spaces. Since direct use of a model may introduce bias, we derive a theoretical upper bound on model bias for when the model transition function is estimated with i.i.d. trajectories. This bound broadens our understanding of the conditions under which model-based methods have high bias. Finally, we empirically evaluate our proposed methods and analyze the settings in which different bootstrapping off-policy confidence interval methods succeed and fail.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-06-20T14:06:22Z</published>
+    <arxiv:comment>Published in proceedings of the 16th International Conference on Autonomous Agents and Multi-agent Systems</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Josiah P. Hanna</name>
+    </author>
+    <author>
+      <name>Peter Stone</name>
+    </author>
+    <author>
+      <name>Scott Niekum</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2203.02807v2</id>
+    <title>Off-Policy Evaluation in Embedded Spaces</title>
+    <updated>2023-01-02T23:42:31Z</updated>
+    <link href="https://arxiv.org/abs/2203.02807v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2203.02807v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Off-policy evaluation methods are important in recommendation systems and search engines, where data collected under an existing logging policy is used to estimate the performance of a new proposed policy. A common approach to this problem is weighting, where data is weighted by a density ratio between the probability of actions given contexts in the target and logged policies. In practice, two issues often arise. First, many problems have very large action spaces and we may not observe rewards for most actions, and so in finite samples we may encounter a positivity violation. Second, many recommendation systems are not probabilistic and so having access to logging and target policy densities may not be feasible. To address these issues, we introduce the featurized embedded permutation weighting estimator. The estimator computes the density ratio in an action embedding space, which reduces the possibility of positivity violations. The density ratio is computed leveraging recent advances in normalizing flows and density ratio estimation as a classification problem, in order to obtain estimates which are feasible in practice.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-03-05T19:21:13Z</published>
+    <arxiv:comment>9 pages, appeared at NeurIPS 2021 Workshop "Causal Inference Challenges in Sequential Decision Making: Bridging Theory and Practice", presented virtually Dec 14th 2021</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jaron J. R. Lee</name>
+    </author>
+    <author>
+      <name>David Arbour</name>
+    </author>
+    <author>
+      <name>Georgios Theocharous</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1303.4431v1</id>
+    <title>Generalized Thompson Sampling for Sequential Decision-Making and Causal Inference</title>
+    <updated>2013-03-18T21:34:06Z</updated>
+    <link href="https://arxiv.org/abs/1303.4431v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1303.4431v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recently, it has been shown how sampling actions from the predictive distribution over the optimal action-sometimes called Thompson sampling-can be applied to solve sequential adaptive control problems, when the optimal policy is known for each possible environment. The predictive distribution can then be constructed by a Bayesian superposition of the optimal policies weighted by their posterior probability that is updated by Bayesian inference and causal calculus. Here we discuss three important features of this approach. First, we discuss in how far such Thompson sampling can be regarded as a natural consequence of the Bayesian modeling of policy uncertainty. Second, we show how Thompson sampling can be used to study interactions between multiple adaptive agents, thus, opening up an avenue of game-theoretic analysis. Third, we show how Thompson sampling can be applied to infer causal relationships when interacting with an environment in a sequential fashion. In summary, our results suggest that Thompson sampling might not merely be a useful heuristic, but a principled method to address problems of adaptive sequential decision-making and causal inference.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-03-18T21:34:06Z</published>
+    <arxiv:comment>28 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <arxiv:journal_ref>Complex Adaptive Systems Modeling 2014, 2:2</arxiv:journal_ref>
+    <author>
+      <name>Pedro A. Ortega</name>
+    </author>
+    <author>
+      <name>Daniel A. Braun</name>
+    </author>
+    <arxiv:doi>10.1186/2194-3206-2-2</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1186/2194-3206-2-2" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.07308v1</id>
+    <title>Off-Policy Evaluation with Strategic Agents via Local Disclosure</title>
+    <updated>2026-06-05T14:24:50Z</updated>
+    <link href="https://arxiv.org/abs/2606.07308v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.07308v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study off-policy evaluation (OPE) under strategic behavior where decision subjects (or agents) respond to a decision maker's policy by strategically modifying their covariates. Such behavior induces a policy-dependent covariate shift, breaking the standard assumption in existing methods that covariates are exogenous to the policy. Related work addresses this challenge by imposing strong assumptions such as repeated interactions or full knowledge of agents' response behavior, substantially limiting its applicability to OPE. In contrast, we consider a one-shot OPE setting where the decision maker has only partial knowledge of the agents' response behavior. Our key insight is that disclosing local information through post-hoc explanations reveals agents' pre-strategic covariates prior to adaptation, mitigating the information loss induced by strategic behavior. Leveraging this structure, we estimate a statistical model for the agents' responses and construct a doubly robust estimator for policy value. By assuming that the agents' cost sensitivity follows a conditional log-normal distribution, we establish consistency of the proposed estimator and validate our approach empirically. More broadly, our results highlight how interaction design can mitigate information asymmetry by revealing otherwise hidden structure in agents' strategic responses.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-05T14:24:50Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Kiet Q. H. Vo</name>
+    </author>
+    <author>
+      <name>Abbavaram Gowtham Reddy</name>
+    </author>
+    <author>
+      <name>Julian Rodemann</name>
+    </author>
+    <author>
+      <name>Siu Lun Chau</name>
+    </author>
+    <author>
+      <name>Krikamol Muandet</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2212.14466v1</id>
+    <title>Quantile Off-Policy Evaluation via Deep Conditional Generative Learning</title>
+    <updated>2022-12-29T22:01:43Z</updated>
+    <link href="https://arxiv.org/abs/2212.14466v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2212.14466v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Off-Policy evaluation (OPE) is concerned with evaluating a new target policy using offline data generated by a potentially different behavior policy. It is critical in a number of sequential decision making problems ranging from healthcare to technology industries. Most of the work in existing literature is focused on evaluating the mean outcome of a given policy, and ignores the variability of the outcome. However, in a variety of applications, criteria other than the mean may be more sensible. For example, when the reward distribution is skewed and asymmetric, quantile-based metrics are often preferred for their robustness. In this paper, we propose a doubly-robust inference procedure for quantile OPE in sequential decision making and study its asymptotic properties. In particular, we propose utilizing state-of-the-art deep conditional generative learning methods to handle parameter-dependent nuisance function estimation. We demonstrate the advantages of this proposed estimator through both simulations and a real-world dataset from a short-video platform. In particular, we find that our proposed estimator outperforms classical OPE estimators for the mean in settings with heavy-tailed reward distributions.</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-12-29T22:01:43Z</published>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Yang Xu</name>
+    </author>
+    <author>
+      <name>Chengchun Shi</name>
+    </author>
+    <author>
+      <name>Shikai Luo</name>
+    </author>
+    <author>
+      <name>Lan Wang</name>
+    </author>
+    <author>
+      <name>Rui Song</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.22443v1</id>
+    <title>A Human-Augmenting Agentic Workflow for Observational Causal Inference</title>
+    <updated>2026-07-24T16:04:37Z</updated>
+    <link href="https://arxiv.org/abs/2607.22443v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.22443v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Data analysis agents are becoming increasingly common tools for applied and scientific research. Yet, for highly specialized tasks such as Observational Causal Inference (OCI), human oversight remains necessary to ensure the validity of results. We introduce `oci-agent`, an open-source Python package that implements a human-in-the-loop agentic workflow for observational causal inference. `oci-agent` is designed to automate vital but laborious aspects of applied causal inference, such as covariate balance checking, propensity score trimming, and sensitivity analysis, so that humans can focus on more nuanced tasks, such as framing questions, scrutinizing assumptions, and evaluating diagnostics and results.
+  We initially open-sourced `oci-agent` in June 2026 with support for doubly robust learning of the average treatment effect of a single binary treatment. Since then, we have added support for heterogeneous treatment effect estimation and for multiple continuous treatments via partially linear models. In this paper, we describe the principles behind `oci-agent` and offer internal Netflix case studies and evaluations on public data of its capabilities. Across numerous evaluations, `oci-agent` outperforms less structured baselines while remaining competitive with hand-tuned benchmarks. `oci-agent` is used extensively for causal inference at Netflix and has orchestrated more than 100 analyses per month since its release in June.</summary>
+    <category term="stat.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-24T16:04:37Z</published>
+    <arxiv:primary_category term="stat.CO"/>
+    <author>
+      <name>Winston Chou</name>
+    </author>
+    <author>
+      <name>Adrien Alexandre</name>
+    </author>
+    <author>
+      <name>Lars Olds</name>
+    </author>
+    <author>
+      <name>Yi Zhang</name>
+    </author>
+    <author>
+      <name>Nathan Kallus</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2201.08262v1</id>
+    <title>Generalizing Off-Policy Evaluation From a Causal Perspective For Sequential Decision-Making</title>
+    <updated>2022-01-20T16:13:16Z</updated>
+    <link href="https://arxiv.org/abs/2201.08262v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2201.08262v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Assessing the effects of a policy based on observational data from a different policy is a common problem across several high-stake decision-making domains, and several off-policy evaluation (OPE) techniques have been proposed. However, these methods largely formulate OPE as a problem disassociated from the process used to generate the data (i.e. structural assumptions in the form of a causal graph). We argue that explicitly highlighting this association has important implications on our understanding of the fundamental limits of OPE. First, this implies that current formulation of OPE corresponds to a narrow set of tasks, i.e. a specific causal estimand which is focused on prospective evaluation of policies over populations or sub-populations. Second, we demonstrate how this association motivates natural desiderata to consider a general set of causal estimands, particularly extending the role of OPE for counterfactual off-policy evaluation at the level of individuals of the population. A precise description of the causal estimand highlights which OPE estimands are identifiable from observational data under the stated generative assumptions. For those OPE estimands that are not identifiable, the causal perspective further highlights where more experimental data is necessary, and highlights situations where human expertise can aid identification and estimation. Furthermore, many formalisms of OPE overlook the role of uncertainty entirely in the estimation process.We demonstrate how specifically characterising the causal estimand highlights the different sources of uncertainty and when human expertise can naturally manage this uncertainty. We discuss each of these aspects as actionable desiderata for future OPE research at scale and in-line with practical utility.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-01-20T16:13:16Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Sonali Parbhoo</name>
+    </author>
+    <author>
+      <name>Shalmali Joshi</name>
+    </author>
+    <author>
+      <name>Finale Doshi-Velez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2011.04102v3</id>
+    <title>Reliable Off-policy Evaluation for Reinforcement Learning</title>
+    <updated>2022-11-03T15:59:59Z</updated>
+    <link href="https://arxiv.org/abs/2011.04102v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2011.04102v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In a sequential decision-making problem, off-policy evaluation estimates the expected cumulative reward of a target policy using logged trajectory data generated from a different behavior policy, without execution of the target policy. Reinforcement learning in high-stake environments, such as healthcare and education, is often limited to off-policy settings due to safety or ethical concerns, or inability of exploration. Hence it is imperative to quantify the uncertainty of the off-policy estimate before deployment of the target policy. In this paper, we propose a novel framework that provides robust and optimistic cumulative reward estimates using one or multiple logged trajectories data. Leveraging methodologies from distributionally robust optimization, we show that with proper selection of the size of the distributional uncertainty set, these estimates serve as confidence bounds with non-asymptotic and asymptotic guarantees under stochastic or adversarial environments. Our results are also generalized to batch reinforcement learning and are supported by empirical analysis.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-11-08T23:16:19Z</published>
+    <arxiv:comment>46 pages, 7 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jie Wang</name>
+    </author>
+    <author>
+      <name>Rui Gao</name>
+    </author>
+    <author>
+      <name>Hongyuan Zha</name>
+    </author>
+    <arxiv:doi>10.1287/opre.2022.2382</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1287/opre.2022.2382" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.01389v2</id>
+    <title>RL in Latent MDPs is Tractable: Online Guarantees via Off-Policy Evaluation</title>
+    <updated>2024-06-26T15:42:57Z</updated>
+    <link href="https://arxiv.org/abs/2406.01389v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.01389v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In many real-world decision problems there is partially observed, hidden or latent information that remains fixed throughout an interaction. Such decision problems can be modeled as Latent Markov Decision Processes (LMDPs), where a latent variable is selected at the beginning of an interaction and is not disclosed to the agent. In the last decade, there has been significant progress in solving LMDPs under different structural assumptions. However, for general LMDPs, there is no known learning algorithm that provably matches the existing lower bound (Kwon et al., 2021). We introduce the first sample-efficient algorithm for LMDPs without any additional structural assumptions. Our result builds off a new perspective on the role of off-policy evaluation guarantees and coverage coefficients in LMDPs, a perspective, that has been overlooked in the context of exploration in partially observed environments. Specifically, we establish a novel off-policy evaluation lemma and introduce a new coverage coefficient for LMDPs. Then, we show how these can be used to derive near-optimal guarantees of an optimistic exploration algorithm. These results, we believe, can be valuable for a wide range of interactive learning problems beyond LMDPs, and especially, for partially observed environments.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-03T14:51:27Z</published>
+    <arxiv:comment>Fixed typos + alpha</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jeongyeol Kwon</name>
+    </author>
+    <author>
+      <name>Shie Mannor</name>
+    </author>
+    <author>
+      <name>Constantine Caramanis</name>
+    </author>
+    <author>
+      <name>Yonathan Efroni</name>
+    </author>
+  </entry>
+</feed>

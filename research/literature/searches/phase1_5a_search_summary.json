@@ -1,0 +1,32 @@
+[
+  {
+    "database": "IEEE Xplore",
+    "interface": "CrossRef API (Publisher Prefix 10.1109 / IEEE)",
+    "prefix": "10.1109",
+    "query_string": "\"LLM agent\" OR \"tool calling\" \"runtime security\" OR \"guardrails\" OR \"authorization\" OR \"interception\"",
+    "timestamp_utc": "2026-11-15T10:49:44Z",
+    "total_results_reported": 199728,
+    "records_exported": 20,
+    "raw_file": "research/literature/searches/ieee_xplore_search_results.json"
+  },
+  {
+    "database": "ACM Digital Library",
+    "interface": "CrossRef API (Publisher Prefix 10.1145 / ACM)",
+    "prefix": "10.1145",
+    "query_string": "\"LLM agent\" OR \"tool calling\" \"runtime verification\" OR \"runtime enforcement\" OR \"guardrail\" OR \"authorization\"",
+    "timestamp_utc": "2026-11-15T10:49:45Z",
+    "total_results_reported": 2303,
+    "records_exported": 20,
+    "raw_file": "research/literature/searches/acm_dl_search_results.json"
+  },
+  {
+    "database": "SpringerLink",
+    "interface": "CrossRef API (Publisher Prefix 10.1007 / Springer Nature)",
+    "prefix": "10.1007",
+    "query_string": "\"contextual bandit\" OR \"sequential decision\" \"risk-averse\" OR \"safe policy\" OR \"deferral\"",
+    "timestamp_utc": "2026-11-15T10:49:47Z",
+    "total_results_reported": 352915,
+    "records_exported": 20,
+    "raw_file": "research/literature/searches/springer_search_results.json"
+  }
+]

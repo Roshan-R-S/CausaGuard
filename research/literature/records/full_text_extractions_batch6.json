@@ -1,0 +1,381 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-02",
+      "bibtex_key": "bareinboim2015bandits"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Bandits with Unobserved Confounders: A Causal Approach",
+      "authors": [
+        "Elias Bareinboim",
+        "Andrew Forney",
+        "Judea Pearl"
+      ],
+      "year": 2015,
+      "venue_or_identifier": "NeurIPS 2015 (Vol 28, Paper 5692)",
+      "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2015/file/795c7a7a5ec6b460ec00c5841019b9e9-Paper.pdf",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-02_NeurIPS-2015-Bareinboim.pdf",
+        "file_size_bytes": 321755,
+        "sha256": "2CEB6D14D639F0ADAC5D8D68B43CD6C81AD00F7A136D174775A4A17BCA3234F9"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Landmark Foundation (NeurIPS 2015). Foundational mathematical formulation of Multi-Armed Bandits with Unobserved Confounders (MABUC).",
+    "field_04_concrete_problem": "Multi-Armed Bandit decision-making under unobserved confounding (MABUC), where unmeasured variables U influence both the agent's natural action selection X and the reward payout Y, causing observational P(y|x) and interventional P(y|do(x)) distributions to diverge (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Sequential decision-making agent interacting with an environment subject to unobserved latent confounding across discrete multi-armed bandit rounds.",
+    "field_06_action_space": "Multi-armed action space X in {x_1, ..., x_k}, natural action intent x, interventional decision do(X=x_i), and binary/bounded payoff Y in {0, 1}.",
+    "field_07_verifier_noise_delay": "Unobserved confounder estimator; evaluates regret bounds and convergence rates when balancing observational intuition with interventional exploration.",
+    "field_08_primary_method_algorithm": "Causal Bandit algorithm leveraging counterfactual payoffs E[Y_{x'} | X=x]. Proves that conditioning on the agent's pre-interventional intent enables the agent to combine observational and experimental data to strictly outperform traditional experimental-only bandit algorithms (Section 3).",
+    "field_09_formal_assumptions": "Structural Causal Model (SCM) where unobserved confounder U affects action X and reward Y; reward distributions satisfy bounded counterfactual expectations (Theorem 1).",
+    "field_10_authorization_security_layer": "Causal policy arbitrator: prevents spurious policy optimization caused by unobserved confounding by distinguishing between observational correlation and interventional causation.",
+    "field_11_reported_evidence_benchmarks": "Proves analytically (Theorem 1) that standard bandit algorithms (UCB, Thompson Sampling) that rely solely on experimental P(y|do(x)) suffer strictly suboptimal regret. In empirical simulations across confounded casino payout environments, the causal bandit algorithm converges to zero regret while traditional UCB suffers linear regret or severe regret inflation.",
+    "field_12_baselines_compared": "Standard Upper Confidence Bound (UCB1), Thompson Sampling, purely observational policies, and unconfounded randomized exploration.",
+    "field_13_limitations_failure_modes": "Requires structural knowledge of the causal DAG; assumes stationary confounding distributions; discrete action space.",
+    "field_14_disruption_recovery_findings": "Demonstrates that naive agents ignoring confounding suffer permanent value collapse by falling into spurious correlation traps, whereas conditioning on causal intent recovers optimal reward trajectories without full environment retraining.",
+    "field_15_causaguard_relevance": "Direct mathematical foundation for CausaGuard RQ1 and WP1/WP2: formalizes why observational execution logs cannot identify safe intervention thresholds under latent environmental hazards, proving the necessity of interventional SCM evaluation."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-03",
+      "bibtex_key": "dudik2011doubly"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "authors": [
+        "Miroslav Dud\u00edk",
+        "John Langford",
+        "Lihong Li"
+      ],
+      "year": 2011,
+      "venue_or_identifier": "ICML 2011 / Stat Sci 29(4):519-538 / arXiv:1103.4601v2 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/1103.4601",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-03_arXiv-1103.4601v2.html",
+        "file_size_bytes": 254139,
+        "sha256": "25A1947D46DF16C04D07AB4832E0935E3B06BE57D1CC5BA7FFC38EBE06C2CEA9"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Landmark Foundation (ICML 2011, Statistical Science 2014). Introduced Doubly Robust (DR) estimation to contextual bandits and off-policy evaluation.",
+    "field_04_concrete_problem": "Off-policy evaluation and learning in contextual bandits with partial feedback, overcoming the bias of the Direct Method (DM) and the high variance of Inverse Propensity Scoring (IPS/HT) (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Contextual bandit decision architectures operating over context space X, discrete actions A, and partially observed rewards r.",
+    "field_06_action_space": "Discrete action selection under target policy nu(a|x) evaluated against historical logging policy h(a|x).",
+    "field_07_verifier_noise_delay": "Reward model estimator; analyzes bias-variance trade-offs of reward prediction vs propensity weighting.",
+    "field_08_primary_method_algorithm": "Doubly Robust (DR) Estimator \\hat{V}_{DR} = (1/n) \\sum [ \\hat{\\rho}_{\\nu}(x_i) + (\\mathbb{I}(a_i=\\nu(x_i))/h(a_i|x_i))(r_i - \\hat{\\rho}_{a_i}(x_i)) ]. Combines a baseline reward predictor with importance weighting (Section 2.2).",
+    "field_09_formal_assumptions": "Logging policy satisfies common support (h(a|x) > 0 whenever nu(a|x) > 0); propensity scores are known or consistently estimated (Section 3).",
+    "field_10_authorization_security_layer": "Offline evaluation gate: provides statistically consistent policy value estimation for candidate controllers before live deployment.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on 8 UCI classification datasets converted to contextual bandits and internet portal user visit logs (Section 5). DR achieves strictly lower Mean Squared Error (MSE) than IPS across all datasets and lower bias than DM, accelerating policy optimization convergence by 2-5x.",
+    "field_12_baselines_compared": "Direct Method (DM), Inverse Propensity Scoring (IPS / Horvitz-Thompson), rejection sampling, and Offset Tree algorithms.",
+    "field_13_limitations_failure_modes": "Requires overlap (common support); small propensity scores h(a_i|x_i) can cause variance inflation if the reward model has poor fit.",
+    "field_14_disruption_recovery_findings": "Proves analytically and empirically that DR minimizes variance without introducing bias, preventing policy divergence during off-policy optimization under sparse exploration.",
+    "field_15_causaguard_relevance": "Direct mathematical bedrock for CausaGuard RQ1, WP1, WP4, and Gate 1: establishes the doubly robust estimation framework used throughout CausaGuard's offline policy evaluator and value-of-information intervention thresholds."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-05",
+      "bibtex_key": "zhan2024injecagent"
+    },
+    "field_02_bibliographic_record": {
+      "title": "InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents",
+      "authors": [
+        "Qiusi Zhan",
+        "Zhixiang Liang",
+        "Zifan Rong",
+        "Yuan Shen"
+      ],
+      "year": 2024,
+      "venue_or_identifier": "Findings of ACL 2024 / arXiv:2403.02691v3 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2403.02691",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-05_arXiv-2403.02691v3.html",
+        "file_size_bytes": 1836823,
+        "sha256": "C9E111B1DCC91032B80CF4A43C6CFFE7CA454AE5A04F0A64EC20DFA2B5867071"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Peer-Reviewed Conference (Findings of ACL 2024). Foundational benchmark suite establishing indirect prompt injection vulnerabilities in tool-using LLM agents.",
+    "field_04_concrete_problem": "Indirect Prompt Injection (IPI) in tool-integrated LLM agents, where untrusted third-party tool outputs contain injected instructions that compromise subsequent tool executions (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Tool-integrated autonomous agents (ReAct and function-calling architectures) executing multi-step workflows across 17 user tools and 62 attacker tools across 33 applications.",
+    "field_06_action_space": "Tool invocation calls, parameter bindings, direct harm actions, and data exfiltration payloads.",
+    "field_07_verifier_noise_delay": "Attack Success Rate (ASR) verifier measuring execution of attacker-specified tools and parameters.",
+    "field_08_primary_method_algorithm": "InjecAgent benchmark framework formalizing 1,054 test cases (527 direct harm, 527 data exfiltration). Evaluates attack transmission across user prompt templates with varying Content Freedom levels.",
+    "field_09_formal_assumptions": "Attacker cannot access initial user query or agent system prompt; attacker controls external text returned by legitimate tools (e.g. read_email, search_web).",
+    "field_10_authorization_security_layer": "Evaluates perimeter input/output guards and ReAct agent execution boundaries.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 14 LLMs (GPT-4, GPT-3.5-Turbo, Claude-2, Claude-Instant, Gemini-Pro, Llama-2-Chat, Vicuna). Frontier models exhibit alarming vulnerability: GPT-4 suffers 24.1% ASR (ReAct) and up to 47.1% on high-content-freedom cases; Claude-2 suffers 18.2% ASR; open-source models reach 60-80% ASR.",
+    "field_12_baselines_compared": "14 commercial and open-source LLMs under ReAct and Function Calling prompting strategies.",
+    "field_13_limitations_failure_modes": "Focuses on single-step indirect injections; does not evaluate multi-turn interactive adversarial dialogue.",
+    "field_14_disruption_recovery_findings": "Demonstrates that user prompt design with high content freedom facilitates attacker payload execution, while strict schema constraints partially mitigate transmission at the cost of agent expressiveness.",
+    "field_15_causaguard_relevance": "Direct foundational benchmark for CausaGuard RQ1 and RQ4: provides the primary empirical target dataset for evaluating CausaGuard's intervention policy against real-world tool prompt injections."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-06",
+      "bibtex_key": "qin2024toolllm"
+    },
+    "field_02_bibliographic_record": {
+      "title": "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-World APIs",
+      "authors": [
+        "Yujia Qin",
+        "Shihao Liang",
+        "Yining Ye",
+        "Kunlun Zhu",
+        "Shengding Hu",
+        "Chi-Min Chan",
+        "et al."
+      ],
+      "year": 2024,
+      "venue_or_identifier": "ICLR 2024 / arXiv:2307.16789v2 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2307.16789",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-06_arXiv-2307.16789v2.html",
+        "file_size_bytes": 567794,
+        "sha256": "75152EBC1FF80E22B9443903A448FAE2E702397197B04AE8B1299E2F14DE7F0F"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Peer-Reviewed Conference (ICLR 2024). Landmark large-scale empirical platform for general tool use across 16,000+ real-world APIs.",
+    "field_04_concrete_problem": "Enabling open-source LLMs to master complex multi-tool calling across vast, diverse API ecosystems with documentation understanding, multi-step planning, and error recovery (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Multi-turn tool-calling agents executing multi-step search trees over 16,464 REST APIs across 49 categories.",
+    "field_06_action_space": "API selection, parameter construction, API execution calls, and tree search backtracking actions.",
+    "field_07_verifier_noise_delay": "ToolEval automatic evaluator measuring Pass Rate and Win Rate via ChatGPT/GPT-4 judges.",
+    "field_08_primary_method_algorithm": "Depth-First Search Decision Tree (DFSDT) planning algorithm: enables agents to evaluate multiple execution branches, detect tool execution failures, backtrack to previous decision nodes, and prune unviable paths (Section 2.3).",
+    "field_09_formal_assumptions": "API documentation is accessible in OpenAPI JSON schema format; tools can be called in sandboxed execution environments.",
+    "field_10_authorization_security_layer": "API execution router: maps natural language instructions to validated REST endpoints with parameter checking.",
+    "field_11_reported_evidence_benchmarks": "ToolBench evaluation across 12,657 instructions. ToolLLaMA-7B achieves comparable tool execution capability to text-davinci-003 and ChatGPT. DFSDT improves execution pass rate by 15-25% over standard ReAct Chain-of-Thought across unseen APIs (Table 2 & 5).",
+    "field_12_baselines_compared": "ChatGPT (GPT-3.5-Turbo), text-davinci-003, standard ReAct, and Tree-of-Thought (ToT).",
+    "field_13_limitations_failure_modes": "External APIs suffer frequent rate limits, endpoint deprecation, or server errors; synthetic path generation introduces teacher-model bias.",
+    "field_14_disruption_recovery_findings": "DFSDT demonstrates that search and stateful backtracking are essential for recovering from tool observation errors, improving task completion over linear execution.",
+    "field_15_causaguard_relevance": "Direct architectural foundation for CausaGuard RQ1 and WP4: provides the structural framework for multi-API tool calling environments and empirically demonstrates the necessity of stateful recovery when tool calls fail."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-07",
+      "bibtex_key": "yao2024taubench"
+    },
+    "field_02_bibliographic_record": {
+      "title": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "authors": [
+        "Shunyu Yao",
+        "Noah Shinn",
+        "Pedram Razavi",
+        "Karthik Narasimhan"
+      ],
+      "year": 2024,
+      "venue_or_identifier": "arXiv:2406.12045v1 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2406.12045",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-07_arXiv-2406.12045v1.html",
+        "file_size_bytes": 1743459,
+        "sha256": "FF6267F0519407656A247F62954DEB979053AB495D2C4DC461E536A3F4788534"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Landmark Benchmark Preprint (arXiv:2406.12045v1, Princeton University). Foundational multi-turn benchmark capturing realistic agent-user-tool interactions under domain policies.",
+    "field_04_concrete_problem": "Evaluating LLM agents in realistic, dynamic environments where agents must navigate complex database tools while communicating with simulated users possessing latent goals and adhering to strict policy guidelines (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Multi-turn interactive dialogue and database manipulation agents operating across Retail (e-commerce orders/returns) and Airline (flight reservations/baggage) domains.",
+    "field_06_action_space": "User-facing communication acts, SQL/database tool calls, order modification, reservation cancellation, and policy compliance verification.",
+    "field_07_verifier_noise_delay": "Environment state verification measuring exact database consistency and policy adherence post-interaction.",
+    "field_08_primary_method_algorithm": "Formalizes Pass^k (consistency over k independent trials) and Pass@k metrics. Provides dual-agent simulation framework with realistic policy constraint rules and multi-turn state transitions.",
+    "field_09_formal_assumptions": "User has fixed latent intent that may be revealed incrementally; environment enforces ground-truth relational database integrity constraints.",
+    "field_10_authorization_security_layer": "Domain policy compliance layer: evaluates whether agents adhere to authorization rules (e.g. cancellation deadlines, user verification).",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 115 complex tasks. Frontier models struggle severely with reliability: GPT-4o achieves only 48.7% success on Retail and 36.5% on Airline; Claude-3.5-Sonnet achieves 60.0% on Retail and 38.3% on Airline. Pass^5 drops precipitously to <25% for GPT-4o, showing that consistency over multiple runs collapses rapidly.",
+    "field_12_baselines_compared": "GPT-4o, Claude-3.5-Sonnet, GPT-4-Turbo, Claude-3-Opus, Gemini-1.5-Pro, and open-source models.",
+    "field_13_limitations_failure_modes": "Simulated user behavior may not fully reflect human idiosyncrasies; domain rules are hand-crafted into explicit environment policies.",
+    "field_14_disruption_recovery_findings": "Demonstrates dramatic reliability slippage across multi-turn execution: agents frequently violate domain policy rules or corrupt database states during long horizons, proving that single-turn success does not imply stable sequential execution.",
+    "field_15_causaguard_relevance": "Direct foundational benchmark for CausaGuard RQ1, RQ2, and WP7: establishes that multi-turn tool-using agents suffer severe consistency degradation and policy violations over extended horizons, validating CausaGuard's intervention thresholding and state tracking."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-08",
+      "bibtex_key": "inan2023llamaguard"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations",
+      "authors": [
+        "Hakan Inan",
+        "Kartikeya Upasani",
+        "Jianfeng Chi",
+        "Rashi Rungta",
+        "Krithika Iyer",
+        "Yuning Mao",
+        "et al."
+      ],
+      "year": 2023,
+      "venue_or_identifier": "arXiv:2312.06674v1 [cs.CL]",
+      "canonical_url": "https://arxiv.org/abs/2312.06674",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-08_arXiv-2312.06674v1.html",
+        "file_size_bytes": 159531,
+        "sha256": "C9ED192D298B0E0EFA46FBA7EFBEE4EC30EB9126AF794124D2E58CD22FE1961C"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Landmark Industry Model Preprint (arXiv:2312.06674v1, Meta AI). Foundational open-weights safety classifier for human-AI conversations.",
+    "field_04_concrete_problem": "Input and output content moderation for conversational LLMs across multi-category safety taxonomies with task adaptability (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Single-turn and conversational input/output filtering wrapper positioned at the application perimeter.",
+    "field_06_action_space": "Binary classification (safe vs unsafe) and multi-class safety violation labeling across 6 standardized risk categories.",
+    "field_07_verifier_noise_delay": "Inference latency of a 7B parameter LLM call per prompt and per response; evaluates AUPRC and False Positive Rates.",
+    "field_08_primary_method_algorithm": "Instruction-tuned Llama-2-7B model conditioned on explicit safety guidelines and target text, returning structured safety tokens and violated category tags (Section 3).",
+    "field_09_formal_assumptions": "Safety policy can be articulated in natural language taxonomy guidelines; input text is unencrypted and available in cleartext.",
+    "field_10_authorization_security_layer": "Perimeter gateway firewall: intercepts user prompts before LLM generation and model responses before user delivery.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Anthropic Red-Teaming, OpenAI Moderation, and ToxicChat datasets. Llama Guard achieves 0.88-0.94 AUPRC, matching or outperforming proprietary classifiers (OpenAI Moderation API, Perspective API) while offering zero-shot taxonomy adaptation.",
+    "field_12_baselines_compared": "OpenAI Moderation API, Perspective API, GPT-4 zero-shot moderation, and fine-tuned BERT classifiers.",
+    "field_13_limitations_failure_modes": "Evaluates isolated input/output text strings; blind to internal agent thought traces, tool argument semantics, and multi-turn execution history.",
+    "field_14_disruption_recovery_findings": "Provides strong perimeter filtering against overt conversational toxicity, but incurs severe token latency (~several seconds per full 7B inference) and lacks causal awareness of tool execution side effects.",
+    "field_15_causaguard_relevance": "Direct baseline comparator for CausaGuard RQ2 and RQ3: represents the canonical industry standard for prompt guardrails, illustrating why static input/output classifiers fail to protect sequential tool-using agents against causal and indirect attacks."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-09",
+      "bibtex_key": "rebedea2023nemoguardrails"
+    },
+    "field_02_bibliographic_record": {
+      "title": "NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications",
+      "authors": [
+        "Traian Rebedea",
+        "Razvan Dinu",
+        "Christian Sreedhar",
+        "Christopher Parisien",
+        "Jonathan Cohen"
+      ],
+      "year": 2023,
+      "venue_or_identifier": "EMNLP 2023 System Demonstrations / arXiv:2310.10501v1 [cs.CL]",
+      "canonical_url": "https://arxiv.org/abs/2310.10501",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-ANC-09_arXiv-2310.10501v1.html",
+        "file_size_bytes": 255372,
+        "sha256": "E066B4C61BC1CF339DDDB5CBECED4844BDD985B8539FE859FE87069C58A692E6"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Peer-Reviewed Conference Demonstration (EMNLP 2023 Demos, NVIDIA). Foundational programmable runtime guardrails architecture for LLM applications.",
+    "field_04_concrete_problem": "Enforcing behavioral, topical, and safety constraints on LLM applications through programmable dialogue flows and runtime interception (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Programmable runtime middleware intercepting user input, internal dialogue flow, tool calling, and output generation across conversational horizons.",
+    "field_06_action_space": "Dialogue flow steering, topical redirection, fact-checking validation, hallucination checking, and tool execution blocking.",
+    "field_07_verifier_noise_delay": "Explicit latency profiling (Section 7.2): adds 0.5-2.0 seconds of latency per turn due to secondary LLM verification calls.",
+    "field_08_primary_method_algorithm": "Colang modeling language and runtime dialogue manager enforcing three rail types: Topical Rails (domain scoping), Execution Rails (intermediate tool and fact checks), and Moderation Rails (safety filters).",
+    "field_09_formal_assumptions": "Desired agent conversation paths and tool rules can be codified in Colang flows; secondary LLM evaluator reliably executes prompt templates.",
+    "field_10_authorization_security_layer": "Middleware execution boundary: inspects tool arguments and fact-checking scores before invoking external APIs.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on internal fact-checking and topical benchmark datasets. Fact-checking rail achieves 80% accuracy in verifying claims against retrieved context (Appendix G.2.2).",
+    "field_12_baselines_compared": "Unconstrained LLMs, standard system prompting, and hardcoded heuristic regex filters.",
+    "field_13_limitations_failure_modes": "Relies on secondary LLM prompting which introduces substantial latency overhead and potential hallucination within the guardrail itself; manual scripting of Colang rules scales poorly to open-world tool spaces.",
+    "field_14_disruption_recovery_findings": "Demonstrates that programmable middleware successfully intercepts unauthorized actions, but the 0.5-2.0s latency penalty and secondary LLM costs impose severe operational disruption.",
+    "field_15_causaguard_relevance": "Direct architectural comparator for CausaGuard WP3 and WP4: represents the industry standard for programmable runtime guardrails, highlighting why CausaGuard's closed-form causal VOI and conformal prediction offer superior latency and formal guarantees."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-013",
+      "bibtex_key": "zhang2025gamagent"
+    },
+    "field_02_bibliographic_record": {
+      "title": "GAM-Agent: Game-Theoretic and Uncertainty-Aware Collaboration for Complex Visual Reasoning",
+      "authors": [
+        "Jusheng Zhang",
+        "Yijia Fan",
+        "Wenjun Lin",
+        "Ruiqi Chen",
+        "Haoyi Jiang",
+        "Wenhao Chai",
+        "Jian Wang",
+        "Keze Wang"
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2505.23399v2 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2505.23399",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-REC-013_arXiv-2505.23399v2.html",
+        "file_size_bytes": 1038774,
+        "sha256": "6A598BD1455300BD49BDE67C370B917219C52ADA381E66A0764931F3A8635C51"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2505.23399v2, updated Aug 2026). Rigorous game-theoretic multi-agent collaboration framework with uncertainty quantification.",
+    "field_04_concrete_problem": "Conflict resolution and error accumulation in multi-agent visual reasoning, where diverse specialist agents provide contradictory claims and uncalibrated confidence (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Multi-agent collaborative architecture composed of Base Agents, Critical Agents, and an Aggregator operating over visual and textual reasoning domains.",
+    "field_06_action_space": "Claim generation, visual tool execution, semantic uncertainty quantification, dispute arbitration, and evidence refinement.",
+    "field_07_verifier_noise_delay": "Uncertainty quantification function Phi combining semantic marker analysis (Phi_isem) and claim verification.",
+    "field_08_primary_method_algorithm": "Non-zero-sum game-theoretic arbitration mechanism: models interaction between Base and Critical Agents as a payoff matrix weighted by semantic uncertainty Phi, resolving conflicting evidence via evidence mapping M and claim parsing P (Section 2.2\u20132.5).",
+    "field_09_formal_assumptions": "Agents output natural language rationales with extractable semantic certainty markers; utility functions capture factual accuracy and logical coherence.",
+    "field_10_authorization_security_layer": "Arbitration consensus gate: validates and filters conflicting agent claims before final decision commitment.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on MathVista, MMStar, and ScienceQA benchmarks. GAM-Agent achieves 5-8% accuracy improvements over single-agent baselines and standard multi-agent debate (Table 2 & 3).",
+    "field_12_baselines_compared": "Single-agent VLMs (GPT-4V, LLaVA-1.5), standard multi-agent debate (MAD), and majority voting.",
+    "field_13_limitations_failure_modes": "Absence of shared semantic grounding in ambiguous scenes; Text/OCR expert inclusion introduces tool-specific noise that occasionally misleads the arbitrator.",
+    "field_14_disruption_recovery_findings": "Shows that uncertainty-weighted game-theoretic arbitration prevents hallucination cascades in multi-agent systems, recovering correct reasoning trajectories from flawed individual agent outputs.",
+    "field_15_causaguard_relevance": "Directly informs CausaGuard RQ3 and RQ5: demonstrates game-theoretic arbitration and uncertainty quantification in multi-agent tool execution loops, supporting CausaGuard's multi-agent oversight mechanisms."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-017",
+      "bibtex_key": "liu2026rsureagent"
+    },
+    "field_02_bibliographic_record": {
+      "title": "RSure-Agent: Reliable Use of Tool Observations for Remote Sensing Agents",
+      "authors": [
+        "Fuyuan Liu",
+        "Nayu Liu",
+        "Wenhao Yu",
+        "Peijin Wang",
+        "Yingchao Feng",
+        "Fanglong Yao",
+        "Yue Zhou",
+        "Xue Yang",
+        "Chao Ren",
+        "Liang Wan",
+        "Wei Feng"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2610.04836v2 [cs.CV]",
+      "canonical_url": "https://arxiv.org/abs/2610.04836",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-REC-017_arXiv-2610.04836v2.html",
+        "file_size_bytes": 654905,
+        "sha256": "11898EA2F1D55E97B415E00BF44BB7D9D1C27C950AFAAB219B6E3240D5BF3F5F"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2610.04836v2, Oct 2026). First systematic study of tool observation unreliability and verification in autonomous spatial agents.",
+    "field_04_concrete_problem": "Tool observation unreliability in autonomous domain agents: empirical proof that successful tool execution does not guarantee correct observation, leading to error propagation and catastrophic decision failure (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Autonomous tool-using agents executing multi-step spatial observation, detection, and reasoning workflows.",
+    "field_06_action_space": "Specialized visual tool calling, observation verification, evidence backtracking, and final answer generation.",
+    "field_07_verifier_noise_delay": "Observation verification module evaluating Task-Tool Reliability Priors and online verification consistency.",
+    "field_08_primary_method_algorithm": "Verifiable Observation Protocol (VOP) combining Task-Tool Reliability Prior with online verification and dynamic backtracking, allowing agents to reject corrupted tool observations and re-execute alternatives (Section 4).",
+    "field_09_formal_assumptions": "Tool observation errors can be detected via consistency checks against task constraints; prior reliability distributions can be estimated from validation logs.",
+    "field_10_authorization_security_layer": "Observation validation gate: intercepts raw tool responses and validates integrity before passing them into the agent's context memory.",
+    "field_11_reported_evidence_benchmarks": "Empirical analysis reveals that across 3 benchmarks, at least 88.1% of tasks depend on tool observations, and at least 22.7% of successful tool calls return incorrect observations (Section 3). RSure-Agent improves accuracy by 5.71 percentage points across 11 LLM backbones on CHOICE-420 and reduces unnecessary tool calls by 25.9% on EarthBench.",
+    "field_12_baselines_compared": "11 LLM backbones (GPT-4o, Claude-3.5-Sonnet, Qwen-2.5, etc.) under standard ReAct and direct answering baselines.",
+    "field_13_limitations_failure_modes": "Requires pre-computed reliability priors; cannot recover if all available tools fail simultaneously or if environmental ground truth is intrinsically ambiguous.",
+    "field_14_disruption_recovery_findings": "Provides direct empirical evidence that unverified tool observations cause 22.7% silent error rates, and demonstrates that stateful observation verification successfully restores agent task reliability.",
+    "field_15_causaguard_relevance": "Direct empirical proof for CausaGuard RQ1 and RQ2: confirms that successful tool execution does not imply observation correctness (22.7% error rate), directly validating CausaGuard's core thesis that runtime observation verification and intervention are mandatory."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-020",
+      "bibtex_key": "chu2026agentgrad"
+    },
+    "field_02_bibliographic_record": {
+      "title": "AgentGrad: Intervention-guided Prompt Optimization for Multi-Agent Systems",
+      "authors": [
+        "Jaewon Chu",
+        "Jinwoo Seo",
+        "Jaewon Cho",
+        "Jeehye Na",
+        "Yunyang Xiong",
+        "Youngdae Kim",
+        "Hyunwoo J. Kim"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2609.08572v3 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2609.08572",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch6/CG-REC-020_arXiv-2609.08572v3.html",
+        "file_size_bytes": 1009286,
+        "sha256": "8B7D9A005D564284B73F57AA53D50C1F4E341BADCFFBBCAC239B88DA5A69095D"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2609.08572v3, Sep 2026). Introduces causal intervention-guided prompt optimization for multi-agent systems.",
+    "field_04_concrete_problem": "Failure attribution and credit assignment in Multi-Agent Systems (MAS): standard prompt optimization updates all agent prompts indiscriminately or relies on heuristic blame, causing optimization thrashing and poor generalization (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Multi-agent systems structured as causal communication DAGs over sequential collaborative reasoning tasks.",
+    "field_06_action_space": "Inter-agent message passing, counterfactual state interventions (substituting agent outputs with oracle messages), and textual gradient prompt updates.",
+    "field_07_verifier_noise_delay": "Intervention attribution verifier measuring change in downstream task success under counterfactual message substitution.",
+    "field_08_primary_method_algorithm": "AgentGrad: models MAS communication as a causal DAG, performs Sequential Counterfactual Interventions to identify the exact root-cause failure agent (Target Prompt Identification), and computes targeted textual gradients to optimize only the faulty agent's prompt (Section 4).",
+    "field_09_formal_assumptions": "Multi-agent communication graph is a directed acyclic graph (DAG); counterfactual message substitution isolates individual agent causal effects.",
+    "field_10_authorization_security_layer": "Causal attribution engine: identifies which agent violated task constraints or injected misleading information into shared context.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on HotpotQA, HoVer, IFBench, and MATH benchmarks. AgentGrad outperforms standard multi-agent prompt optimizers (DSPy, ProTeGi) by 6.2-11.4% in task accuracy, while requiring 40% fewer optimization iterations (Table 1 & Figure 3).",
+    "field_12_baselines_compared": "DSPy, ProTeGi, Textual Gradient Optimization (TGO), and unoptimized multi-agent baselines.",
+    "field_13_limitations_failure_modes": "Evaluating counterfactual interventions increases offline evaluation overhead; assumes communication graph does not contain unresolvable cycles.",
+    "field_14_disruption_recovery_findings": "Demonstrates that indiscriminate prompt updates cause destructive interference across agent roles, whereas causal counterfactual attribution accurately isolates and repairs faulty agent behaviors.",
+    "field_15_causaguard_relevance": "Direct foundational support for CausaGuard RQ1 and RQ5: demonstrates the power of causal counterfactual intervention on agent communication DAGs to isolate failure modes, directly validating CausaGuard's Structural Causal Model (SCM) formulation of agent execution traces."
+  }
+]

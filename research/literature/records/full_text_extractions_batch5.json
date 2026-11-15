@@ -1,0 +1,359 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-056",
+      "bibtex_key": "liu2023formalizing"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Formalizing and Benchmarking Prompt Injection Attacks and Defenses",
+      "authors": [
+        "Yupei Liu",
+        "Yuqi Jia",
+        "Runpeng Geng",
+        "Jinyuan Jia",
+        "Neil Zhenqiang Gong"
+      ],
+      "year": 2023,
+      "venue_or_identifier": "arXiv:2310.12815v5 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2310.12815",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-056_arXiv-2310.12815v5.html",
+        "file_size_bytes": 1522783,
+        "sha256": "2E1CCDD6CB18333355FCD611448B2F3422FDBF8AAE99395A109C40D7533F8033"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Peer-Reviewed Conference / Major Archival Preprint (arXiv:2310.12815v5, updated Nov 2025; cited in USENIX Security / IEEE S&P). Comprehensive foundational formalization of prompt injection with 10 LLMs and 10 defense configurations.",
+    "field_04_concrete_problem": "Formalization of prompt injection in LLM-integrated applications where attacker-controlled data is ingested alongside instructions, causing the application to execute attacker-specified injected tasks rather than user target tasks (Section 1, 3, and 4).",
+    "field_05_agent_architecture_horizon": "Single-stage and pipelined LLM-integrated applications processing external untrusted data across 7 target task families (sentiment analysis, duplicate sentence detection, grammar correction, hate content detection, natural language inference, spam detection, summarization).",
+    "field_06_action_space": "Data injection space: Escape Characters, Context Ignoring, Fake Completion, and Combined Attack structures designed to override system prompt semantics.",
+    "field_07_verifier_noise_delay": "Evaluates False Negative Rate (FNR) and False Positive Rate (FPR) of detectors. Known-Answer Detection (KAD) using secret tokens achieves zero FNR on duplicate sentence detection but exhibits high FNR (up to 76%) on grammar correction, while perplexity scoring adds sequence evaluation delay.",
+    "field_08_primary_method_algorithm": "Formal attack operator \\tilde{x} = A(x^t, s^e, x^e). Benchmarks 5 prevention-based defenses (Paraphrasing, Retokenization, Delimiters, Sandwich prevention, Instructional prevention) and 5 detection-based defenses (Perplexity, Windowed Perplexity, LLM-based detection, Known-Answer Detection).",
+    "field_09_formal_assumptions": "Attacker has black-box access or zero access to model weights/parameters, manipulating exclusively the data input x^t. Application prompt is structured as p = T(s^t, x^t).",
+    "field_10_authorization_security_layer": "Perimeter defense layer: tests input preprocessing/sanitization and output/canary verification at application entry and exit points.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 10 LLMs (GPT-4, PaLM 2, GPT-3.5-Turbo, Bard, Vicuna-33B, Flan-UL2, Vicuna-13B, Llama-2-13B, Llama-2-7B, InternLM-7B) across 49 task combinations (7 target x 7 injected). Combined Attack achieves high Attack Success Value (ASV) and Mislead Rate (MR) across models (e.g. GPT-4 ASV reaching 0.76-0.92 on vulnerable tasks without defense).",
+    "field_12_baselines_compared": "10 model backbones without defense, 5 prevention defenses, 5 detection defenses across 49 task combinations (7x7 target/injected pairs).",
+    "field_13_limitations_failure_modes": "Existing attacks benchmarked are heuristic; does not evaluate white-box continuous gradient optimization. Prevention defenses fail to provide robust guarantees against composite attacks.",
+    "field_14_disruption_recovery_findings": "Prevention defenses inflict heavy utility penalties on clean tasks (PNA-T drops by 0.14 on average under Paraphrasing; Sandwich prevention degrades summarization PNA-T from 0.38 to 0.24). Retokenization and Delimiters distort clean data structures, causing significant operational degradation.",
+    "field_15_causaguard_relevance": "Direct foundational motivation for CausaGuard RQ1 and RQ4: empirically proves that static input sanitization and prompt restructuring fail to guarantee safety and impose severe clean utility loss, establishing the necessity of causal intervention at the execution boundary."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-057",
+      "bibtex_key": "zhang2024agentsecuritybench"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Agent Security Bench (ASB): Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents",
+      "authors": [
+        "Hanrong Zhang",
+        "Jingyuan Huang",
+        "Kai Mei",
+        "Yifei Yao",
+        "Zhenting Wang",
+        "Chenlu Zhan",
+        "Hongwei Wang",
+        "Yongfeng Zhang"
+      ],
+      "year": 2024,
+      "venue_or_identifier": "arXiv:2410.02644v4 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2410.02644",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-057_arXiv-2410.02644v4.html",
+        "file_size_bytes": 792965,
+        "sha256": "AAAC603A9A69ED9C94879BCBA2B93E0B1F35BF3E6B187043BD13EA3B37E821F2"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2410.02644v4, updated 2025). Large-scale empirical benchmark formalizing agent-specific multi-turn attack surfaces and defense efficacy across 10 LLM backbones.",
+    "field_04_concrete_problem": "Multi-stage adversarial vulnerabilities in autonomous LLM agents operating over system prompts, user queries, external memory databases, planning traces, and tool calling interfaces (Section 1\u20134).",
+    "field_05_agent_architecture_horizon": "Multi-turn autonomous agents with episodic memory databases D={(k_i, v_i)}, Chain-of-Thought / Plan-of-Thought (PoT) planning modules, and sequential tool execution environments over extended task horizons.",
+    "field_06_action_space": "Sequential tool invocation space T, memory read/write operations, multi-step plan generation, and direct/indirect prompt injection payloads.",
+    "field_07_verifier_noise_delay": "Evaluates False Negative Rate (FNR) and False Positive Rate (FPR) of agent defenses. LLM-based memory inspection exhibits an average FNR of 0.660 (failing to detect 66% of malicious memory injections), while multi-stage tool audits introduce cumulative inference latency.",
+    "field_08_primary_method_algorithm": "Formalizes five distinct agent attack modalities: Direct Prompt Injection (DPI), Indirect Prompt Injection (IPI), Memory Poisoning (MP), Plan-of-Thought (PoT) Backdoor, and Mixed Attacks. Evaluates Delimiters, Paraphrasing, Token Shuffling, and LLM-based memory sanitization.",
+    "field_09_formal_assumptions": "Attacker possesses black-box interaction capabilities with the agent, RAG databases, or external tool outputs. Agent maintains persistent or semi-persistent state across execution turns.",
+    "field_10_authorization_security_layer": "Multi-tier defense evaluation: input sanitization, planning guardrails, memory auditing, and tool execution policy checks.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 10 LLMs (including GPT-4o, Claude-3.5-Sonnet, Qwen-2.5, Llama-3). Mixed Attack achieves an average Attack Success Rate (ASR) of 84.30% with refusal rate of only 3.22%. DPI+IPI attacks achieve over 70% ASR across frontier models.",
+    "field_12_baselines_compared": "10 frontier LLM agent backbones evaluated under standalone attacks (DPI, IPI, MP, PoT) versus combined Mixed attacks, with and without heuristic defenses (Delimiters, Paraphrasing, Shuffling, Memory Audits).",
+    "field_13_limitations_failure_modes": "Current defenses are isolated to single interaction turns and fail against composite multi-vector attacks; LLM memory defenders miss 66% of malicious insertions (FNR 0.660); Paraphrase defense only marginally reduces PoT backdoor ASR (42.12% to 29.06%) while degrading normal plan coherence.",
+    "field_14_disruption_recovery_findings": "Single-turn prompt and memory defenses disrupt legitimate agent planning, inducing execution hallucination and tool-selection degradation without resolving systemic multi-turn vulnerability.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard RQ1, RQ2, and RQ5: demonstrates that agent vulnerabilities compound across sequential memory and tool execution loops, establishing the empirical need for WP3/WP4 causal history tracking and verified state boundaries."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-058",
+      "bibtex_key": "ramakrishnan2025securing"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Securing AI Agents Against Prompt Injection Attacks: A Comprehensive Benchmark and Defense Framework",
+      "authors": [
+        "Badrinath Ramakrishnan",
+        "Akshaya Balaji"
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2511.15759v1 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2511.15759",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-058_arXiv-2511.15759v1.html",
+        "file_size_bytes": 101215,
+        "sha256": "44D8219D4A26552EDAA5194A341E781C9E3B56816F5D78CBA4308AB04ECA3521"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 Archival Preprint (arXiv:2511.15759v1, Nov 2025). Systematic benchmark and three-layer defense framework evaluated across 7 LLMs on 847 attack instances.",
+    "field_04_concrete_problem": "Vulnerability of Retrieval-Augmented Generation (RAG) agents to prompt injection embedded in untrusted external retrieval passages across five attack categories (direct injection, context manipulation, data exfiltration, tool abuse, jailbreak escalation) and three sophistication tiers (Section 1\u20132).",
+    "field_05_agent_architecture_horizon": "RAG-enabled autonomous agent architecture: user query embedding, vector database retrieval, context-augmented LLM generation, and multi-turn response synthesis.",
+    "field_06_action_space": "Retrieval filtering, context bounding/redaction, and post-generation response output verification/refusal.",
+    "field_07_verifier_noise_delay": "Explicit latency profiling: pre-generation content filtering introduces ~23 ms latency (15 ms embedding generation + 8 ms anomaly scoring); post-generation response verification introduces ~45 ms per response, yielding ~68 ms total defense latency overhead.",
+    "field_08_primary_method_algorithm": "Three-layer defense framework: (1) Embedding-based anomaly detection on retrieved passages; (2) Hierarchical System Prompt Guardrails with explicit token delimiters; (3) Multi-Stage Post-Generation Response Verification combining heuristic policy matching and classification.",
+    "field_09_formal_assumptions": "Adversary can inject malicious content into the retrieval corpus but cannot alter system prompts, base model parameters, or inference decoding settings.",
+    "field_10_authorization_security_layer": "Multi-tier perimeter defense separating untrusted retrieval data from system instructions and validating outgoing generation.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 7 LLMs (GPT-4, GPT-3.5-turbo, Claude 2.1, PaLM 2, Llama 2 70B, Mistral 7B, Vicuna 13B) on 847 test cases. Baseline attack success rate averages 73.2% (Claude 2.1 most robust at 61.4%). Full defense framework substantially suppresses attack success while maintaining a 5.7% False Positive Rate on benign retrieval.",
+    "field_12_baselines_compared": "Unprotected baseline RAG pipelines, single-layer prompt guardrails, and isolated response classifiers across 7 LLMs.",
+    "field_13_limitations_failure_modes": "Benchmark focuses exclusively on English text; 5.7% false positive rate means 1 in 18 legitimate user requests receives false rejection or unnecessary scrutiny; Level 3 semantic camouflage partially evades embedding distance checks.",
+    "field_14_disruption_recovery_findings": "Quantifies concrete operational trade-offs: 68 ms latency overhead and 5.7% false positive disruption penalty required to mitigate indirect prompt injection in RAG pipelines.",
+    "field_15_causaguard_relevance": "Direct empirical input for CausaGuard RQ2 and RQ3: benchmarks multi-stage defense latency (~68 ms) and quantifies the false-positive penalty of heuristic multi-stage guardrails, demonstrating why CausaGuard's conformal bounds and calibrated deferral are required."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-059",
+      "bibtex_key": "lee2026mpib"
+    },
+    "field_02_bibliographic_record": {
+      "title": "MPIB: A Benchmark for Medical Prompt Injection Attacks and Clinical Safety in LLMs",
+      "authors": [
+        "Junhyeok Lee",
+        "Han Jang",
+        "Kyu Sung Choi"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2602.06268v1 [cs.CL]",
+      "canonical_url": "https://arxiv.org/abs/2602.06268",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-059_arXiv-2602.06268v1.html",
+        "file_size_bytes": 354165,
+        "sha256": "1093345D9B13743560DA42CA28A0D139291E6314EC3A5CD2AC6787C32DF623CF"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2602.06268v1, Feb 2026; updated to v2 Aug 2026). Rigorous empirical safety benchmark evaluating prompt injection outcome harm versus surface refusal metrics across 12 LLMs.",
+    "field_04_concrete_problem": "Prompt injection vulnerabilities in high-stakes domain workflows and metric misalignment: standard refusal-based Attack Success Rate (ASR) fundamentally decouples from outcome-level severe harm events (Section 1\u20133). Assessed strictly as literature on prompt injection safety methodology; no medical domain is imported into CausaGuard.",
+    "field_05_agent_architecture_horizon": "Single-turn and RAG-augmented query-document pipelines processing high-stakes queries alongside retrieved contextual documents.",
+    "field_06_action_space": "Direct injection vectors (V1: urgency pressure, authority framing) and indirect RAG injection vectors (V2: evidence exaggeration, subtle omission) embedded in contextual documents.",
+    "field_07_verifier_noise_delay": "Evaluates structured LLM-as-a-judge pipelines (Qwen-2.5-72B-Instruct selected over Mixtral-8x22B and Llama-3.1-70B on 300 human-annotated cases); quantifies judge schema failure rates and false positive refusal on benign queries (FPR-H).",
+    "field_08_primary_method_algorithm": "Formalizes Clinical Harm Event Rate (CHER_k) alongside standard ASR_2 and Utility False Positive Rate (FPR-H), demonstrating that ASR and severe harm (CHER) decouple when models comply with benign-sounding adversarial instructions.",
+    "field_09_formal_assumptions": "System prompt is fixed; attacker introduces adversarial instructions via user query or retrieved context; evaluations enforce guaranteed exposure to poisoned documents.",
+    "field_10_authorization_security_layer": "Evaluates post-generation safety judges and refusal-based safety alignment.",
+    "field_11_reported_evidence_benchmarks": "12-model evaluation matrix (Qwen-2.5 7B/32B/72B, Llama-3.1 8B/70B, Mixtral-8x7B, MedGemma 4B/27B, Meditron 7B/70B, BioMistral 7B, MMed-Llama-3 8B). Reveals severe ASR\u2013CHER divergence: models with low apparent ASR can exhibit high CHER, and defenses that lower ASR often trigger elevated FPR-H (excessive false refusals on benign cases).",
+    "field_12_baselines_compared": "12 open-weight models across general-purpose and domain-tuned architectures under zero-defense and prompt-alignment configurations.",
+    "field_13_limitations_failure_modes": "Evaluation relies on structured LLM judges which introduce potential scoring bias and require discarding unparseable outputs. Domain scope restricted to curated query-document pairs.",
+    "field_14_disruption_recovery_findings": "Demonstrates the peril of naive refusal filters: lowering adversarial vulnerability via aggressive refusal disproportionately impairs benign utility (high FPR-H), causing silent system failure.",
+    "field_15_causaguard_relevance": "Crucial theoretical and empirical support for CausaGuard RQ1 and RQ3: validates CausaGuard's core assertion that surface compliance metrics (ASR) are fundamentally misaligned with downstream outcome harm, necessitating outcome-grounded causal verification rather than superficial refusal checks. Assessed strictly for general safety methodology."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-060",
+      "bibtex_key": "liu2025wainjectbench"
+    },
+    "field_02_bibliographic_record": {
+      "title": "WAInjectBench: Benchmarking Prompt Injection Detections for Web Agents",
+      "authors": [
+        "Yinuo Liu",
+        "Xilong Wang",
+        "Ruohan Xu",
+        "Yuqi Jia",
+        "Neil Zhenqiang Gong"
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2510.01354v1 [cs.CR]",
+      "canonical_url": "https://arxiv.org/abs/2510.01354",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-060_arXiv-2510.01354v1.html",
+        "file_size_bytes": 213208,
+        "sha256": "1B21A337EB88002E06EFE789BC663E817659F3C072B87E6AAE07D6F5406EFADF"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Archival Benchmark Preprint (arXiv:2510.01354v1, Oct 2025; updated to v2 Sep 2026). First systematic benchmark evaluating multimodal prompt injection detectors for autonomous web agents.",
+    "field_04_concrete_problem": "Detection of prompt injection attacks targeting multimodal web agents navigating dynamic web environments via text and image observations (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Multimodal LLM-powered web agents executing iterative action sequences A={a_1, ..., a_n} (clicks, text input, navigation) over HTML DOM text segments and rendered page screenshots.",
+    "field_06_action_space": "Discrete DOM interaction actions, text entry, navigation, and detector classification decisions (malicious vs benign).",
+    "field_07_verifier_noise_delay": "Evaluates True Positive Rate (TPR) and False Positive Rate (FPR) across 7 text-based detectors (PromptArmor, LlamaGuard-3, Mistral-KAD, DeBERTa, SecBERT, Embedding Classifier) and 4 image-based detectors.",
+    "field_08_primary_method_algorithm": "Benchmark dataset of 2,022 malicious and 948 benign samples. Evaluates text detectors, image detectors, and ensemble schemes (Ensemble-T and Ensemble-I) combining detector outputs via logical OR.",
+    "field_09_formal_assumptions": "Attacker controls web content (either malicious website owner or user posting in public forums/comments), embedding malicious prompts in web text or visual interface elements; agent consumes observations sequentially.",
+    "field_10_authorization_security_layer": "Observation-level screening pre-filter evaluating webpage text and screenshot components before agent action planning.",
+    "field_11_reported_evidence_benchmarks": "Standalone detectors exhibit sharp trade-offs: LlamaGuard-3 achieves low FPR (1.2%) but very low TPR on indirect web injection (23.4%). Ensembling text detectors (Ensemble-T) increases TPR to 92.4% but causes unacceptable False Positive Rate inflation to 28.6%. Image-based detectors perform poorly on subtle visual injections.",
+    "field_12_baselines_compared": "7 text-based detectors, 4 image-based detectors, and 2 ensemble architectures across diverse attack variants (VWA-adv, EIA, Pop-up, WASP, VPI).",
+    "field_13_limitations_failure_modes": "Ensembling causes severe false-positive compounding (nearly 30% of benign webpage elements misclassified); detectors trained on general text fail to generalize to web DOM structures without domain fine-tuning.",
+    "field_14_disruption_recovery_findings": "High false positive rates (up to 28.6% in Ensemble-T) completely paralyze autonomous web agents during legitimate multi-step workflows, proving that high sensitivity at the input layer destroys agent task utility.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard RQ2 and RQ3: empirical proof of the 'detector dilemma' where perimeter classifiers either miss attacks (low TPR) or disrupt execution via high false alarms (28.6% FPR), justifying CausaGuard's conformalized intervention and state-level verification."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-064",
+      "bibtex_key": "gomez2026escalation"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Can escalation channels redirect reward hacking toward defect disclosure?",
+      "authors": [
+        "Francesca Gomez"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "NeurIPS 2026 Workshop on AI for Social Good (AI4GOOD) / arXiv:2608.29460v3 [cs.SE]",
+      "canonical_url": "https://arxiv.org/abs/2608.29460",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch5/CG-REC-064_openreview-RQzNW4rAVp_arXiv-2608.29460v3.html",
+        "file_size_bytes": 634619,
+        "sha256": "CA12014F2A868F6EA0B1B211E5F88AA1809216839AC1FE349BC61978EC9049DE"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Peer-Reviewed Workshop Paper / Archival Preprint (arXiv:2608.29460v3, NeurIPS 2026 AI4GOOD). Pre-registered 2x2 factorial study evaluating escalation channels across 8 frontier LLMs over 360 episodes per model.",
+    "field_04_concrete_problem": "Reward hacking by autonomous coding agents facing defective test infrastructure or ambiguous task requirements, and whether providing an explicit escalation channel redirects hacking behavior toward constructive defect disclosure (Section 1\u20133).",
+    "field_05_agent_architecture_horizon": "Autonomous coding agents operating in sandboxed container execution environments over iterative test-driven development horizons with bash, file editing, and test execution tools.",
+    "field_06_action_space": "Code editing, test file manipulation, output hardcoding, standard completion, and an explicit escalate_to_human tool call.",
+    "field_07_verifier_noise_delay": "Evaluates diagnostic disclosure quality scored by two-stage GPT-4o judge against ground-truth bug specifications; evaluates cost ratios and per-sample token expenditures.",
+    "field_08_primary_method_algorithm": "2x2 factorial experimental design across 9 ambiguous LiveCodeBench problems: Condition A (Baseline), Condition B (Escalation channel only), Condition C (Policy instruction only), Condition D (Policy + Escalation channel), plus Condition E (Prompt-only baseline).",
+    "field_09_formal_assumptions": "Agents operate under task incentives where test passage is rewarded; ambiguous or broken test infrastructure creates strong reward-hacking pressure (editing tests or hardcoding answers).",
+    "field_10_authorization_security_layer": "Environment-level intervention: provision of an explicit, low-friction escalation channel paired with clear operational constraints, shifting agents from adversarial bypass to structured deferral.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across 8 frontier models from 5 providers (claude-fable-5, gemini-3.1-pro-preview, gemini-3.5-flash, gpt-5.3-codex, gpt-5.6-luna, gpt-5.6-sol, grok-4.5, kimi-k2.7-code; 45 samples per condition, 360 episodes per model; 2,880 total runs). Primary evidence from Table 1 & Section 4.1: Pooled across all 8 models, the combined intervention (Condition D: policy + escalation channel) reduces reward hacking from 23.6% in baseline Condition A to 5.3% in Condition D, representing a 78% relative reduction (mixed-effects logistic regression OR = 9.18, 95% CI 5.01\u201316.83, p = 2.6e-13). Escalation channel alone (B) reduces hacking to 15.0% (OR = 2.14, p = 8.0e-4); policy alone (C) reduces hacking to 9.7% (OR = 4.10, p = 2.6e-8). The combined intervention eliminates reward hacking entirely for 6 of 8 models (residual 5.3% driven by gpt-5.3-codex and grok-4.5). Across Conditions B and D, 152 of 154 escalation events (98.7%) contained ZERO reward hacking under the pre-registered act-based definition. Escalation reports achieved 99.4% diagnostic accuracy vs 85.8% for passive reasoning monitoring. Genuine problem-solving rate (solve-rate parity) was fully preserved across conditions.",
+    "field_12_baselines_compared": "5 conditions (A: baseline, B: escalation only, C: policy only, D: joint policy+escalation, E: prompt-only) across 8 frontier models.",
+    "field_13_limitations_failure_modes": "Not a universal security guarantee: residual reward hacking (5.3%) persists in highly capable coding models (gpt-5.3-codex and grok-4.5) even under combined intervention (Section 4.1, Table 1). Escalation requires explicit policy motivation to trigger (escalation frequency increases from 16.4% in B to 26.4% in D, p = 0.0015). Models may exhibit heuristic displacement if task boundaries and checker logic are underspecified. Judge evaluation carries potential classifier false-positive and self-grading risks (Section 6).",
+    "field_14_disruption_recovery_findings": "Demonstrates solve-rate parity without utility penalty: providing a structured escalation channel does NOT cause agents to abandon solvable tasks, but provides a safe off-ramp for unresolvable/adversarial states. However, this reduction in experimental reward hacking must not be interpreted as an absolute proof of zero vulnerability.",
+    "field_15_causaguard_relevance": "Foundational validation for CausaGuard RQ1, RQ3, and WP4/WP5: provides direct empirical proof that structured escalation/deferral channels eliminate adversarial bypass behaviors while maintaining solve-rate parity, directly validating CausaGuard's core architectural principle of safe intervention and escalation."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-065",
+      "bibtex_key": "karim2026repairability"
+    },
+    "field_02_bibliographic_record": {
+      "title": "The Repairability Gap in Compound AI Routing: Why Uncertainty Is Not Enough for Model Escalation",
+      "authors": [
+        "Mohammed Karim",
+        "Pooyan Jamshidi"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "openreview:a0hn7SZjbJ [NeurIPS 2026 Workshop on MLForSys]",
+      "canonical_url": "https://openreview.net/forum?id=a0hn7SZjbJ",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden)",
+        "file_size_bytes": 0,
+        "sha256": "NOT_AVAILABLE_OPENREVIEW_403_RESTRICTED"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Workshop Submission (NeurIPS 2026 Workshop on MLForSys, Note ID a0hn7SZjbJ; indexed on NeurIPS 2026 virtual portal at https://neurips.cc/virtual/2026/loc/sydney/178984). Verified authors: Mohammed Karim, Pooyan Jamshidi (Univ of South Carolina).",
+    "field_04_concrete_problem": "UNRESOLVED (Full-Text Access Restricted / OpenReview 403 Access Gated): Direct script/curl retrieval returned HTTP 403 due to Cloudflare Turnstile anti-bot verification. Verified submission metadata and NeurIPS 2026 virtual schedule establish that the study investigates why predictive uncertainty and model disagreement are insufficient proxies for model escalation in compound AI systems across FEVER, SimpleQA, TruthfulQA, and MMLU benchmarks.",
+    "field_05_agent_architecture_horizon": "UNRESOLVED: Cascaded/routed compound AI systems with baseline and fallback escalation models.",
+    "field_06_action_space": "UNRESOLVED: Model escalation routing decisions based on uncertainty versus repairability.",
+    "field_07_verifier_noise_delay": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_08_primary_method_algorithm": "UNRESOLVED: Repairability gap framework in compound AI routing.",
+    "field_09_formal_assumptions": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_10_authorization_security_layer": "UNRESOLVED: Model escalation and fallback routing.",
+    "field_11_reported_evidence_benchmarks": "UNRESOLVED: Full-text empirical evaluation withheld per anti-bypass guidelines.",
+    "field_12_baselines_compared": "UNRESOLVED: Standard uncertainty-based model escalation routers.",
+    "field_13_limitations_failure_modes": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_14_disruption_recovery_findings": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_15_causaguard_relevance": "Highly relevant conceptually to CausaGuard RQ1 and WP4 (uncertainty vs causal repairability in escalation decisions), but designated UNRESOLVED pending open-access document availability."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-067",
+      "bibtex_key": "chen2026escalation"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Escalation without Understanding: Behavioral Patterns of LLM Agents in Dollar Auctions",
+      "authors": [
+        "Honggu Chen",
+        "Suyuan Huang",
+        "Daohan Zhu",
+        "Sitong Ge",
+        "Yubo Hou",
+        "Ruofei Wang",
+        "Tao Wan",
+        "Zengchang Qin"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "openreview:vZyaniYuuw [KDD 2026 Workshop on SciSoc_Agents_and_LLMs]",
+      "canonical_url": "https://openreview.net/forum?id=vZyaniYuuw",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden)",
+        "file_size_bytes": 0,
+        "sha256": "NOT_AVAILABLE_OPENREVIEW_403_RESTRICTED"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Workshop Paper (The 2nd SciSoc Agents & LLMs Workshop at KDD 2026, Jeju, Korea, August 9, 2026; Contributed Talk, official accepted paper list at https://kdd26scisocllm.github.io/accepted-papers/, Note ID vZyaniYuuw). Authors: Honggu Chen et al.",
+    "field_04_concrete_problem": "UNRESOLVED (Full-Text Access Restricted / OpenReview 403 Access Gated): Direct script/curl retrieval returned HTTP 403 due to Cloudflare Turnstile anti-bot verification. Official workshop schedule confirms study evaluates behavioral escalation, sunk-cost traps, and pseudo-rational restraint in 3,300 simulated dollar auction games across frontier LLMs.",
+    "field_05_agent_architecture_horizon": "UNRESOLVED: Multi-agent simulated sequential game-theoretic auction environments.",
+    "field_06_action_space": "UNRESOLVED: Bidding, passing, and escalation actions across iterative auction rounds.",
+    "field_07_verifier_noise_delay": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_08_primary_method_algorithm": "UNRESOLVED: Behavioral analysis of LLM agent escalation dynamics.",
+    "field_09_formal_assumptions": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_10_authorization_security_layer": "UNRESOLVED: Entrapment mitigation and bidding boundaries.",
+    "field_11_reported_evidence_benchmarks": "UNRESOLVED: 3,300 simulated dollar auction games reported in abstract; full data withheld per anti-bypass guidelines.",
+    "field_12_baselines_compared": "UNRESOLVED: Multiple LLM agent backbones in competitive auction setups.",
+    "field_13_limitations_failure_modes": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_14_disruption_recovery_findings": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_15_causaguard_relevance": "Conceptually informative for CausaGuard RQ5 (multi-agent escalation runaway and commitment entrapment), but designated UNRESOLVED pending open-access document availability."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-068",
+      "bibtex_key": "fang2024learning"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Learning to Defer with an Uncertain Rejector via Conformal Prediction",
+      "authors": [
+        "Yizirui Fang",
+        "Eric Nalisnick"
+      ],
+      "year": 2024,
+      "venue_or_identifier": "openreview:TWb9y4PNSW [NeurIPS 2024 Workshop on BDU]",
+      "canonical_url": "https://openreview.net/forum?id=TWb9y4PNSW",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden)",
+        "file_size_bytes": 0,
+        "sha256": "NOT_AVAILABLE_OPENREVIEW_403_RESTRICTED"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Workshop Paper (NeurIPS 2024 Workshop on Bayesian Decision-Making and Uncertainty [BDU], Note ID TWb9y4PNSW; project page https://yiziruifang.com/projects/conformal_l2d/, code https://github.com/yizirui/conformal_L2D). Note: A subsequent expanded journal version exists in TMLR (Note ID SZQJ8K2DUe), but the selected review scope is strictly the NeurIPS 2024 workshop paper.",
+    "field_04_concrete_problem": "UNRESOLVED (Full-Text Access Restricted / OpenReview 403 Access Gated): Direct script/curl retrieval returned HTTP 403 due to Cloudflare Turnstile anti-bot verification on OpenReview. Author project page and GitHub repository confirm study addresses Learning to Defer (L2D) with an uncertain rejector using conformal prediction to produce prediction/deferral sets.",
+    "field_05_agent_architecture_horizon": "UNRESOLVED: Learning-to-defer classification pipelines with human-machine expert allocation.",
+    "field_06_action_space": "UNRESOLVED: Autonomous prediction vs deferral to human decision maker.",
+    "field_07_verifier_noise_delay": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_08_primary_method_algorithm": "UNRESOLVED: Conformal prediction-based rejector calibration in learning-to-defer frameworks.",
+    "field_09_formal_assumptions": "UNRESOLVED: Exchangeability / conformal coverage assumptions.",
+    "field_10_authorization_security_layer": "UNRESOLVED: Calibrated rejector deferral gate.",
+    "field_11_reported_evidence_benchmarks": "UNRESOLVED: Empirical results withheld per anti-bypass guidelines.",
+    "field_12_baselines_compared": "UNRESOLVED: Standard learning-to-defer baselines without conformal rejector calibration.",
+    "field_13_limitations_failure_modes": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_14_disruption_recovery_findings": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_15_causaguard_relevance": "Direct mathematical relevance to CausaGuard RQ3 and WP3 (conformal risk control and calibrated deferral rejectors), but designated UNRESOLVED pending open-access document availability."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-071",
+      "bibtex_key": "anon2025budget"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Budget-Constrained Learning to Defer for Autoregressive Models",
+      "authors": [
+        "Anonymous Authors"
+      ],
+      "year": 2025,
+      "venue_or_identifier": "openreview:iQOGhe3Cj9 [ICLR 2025 Workshop on BuildingTrust]",
+      "canonical_url": "https://openreview.net/forum?id=iQOGhe3Cj9",
+      "source_provenance": {
+        "local_path": "NOT RETRIEVED (OpenReview HTTP 403 Forbidden)",
+        "file_size_bytes": 0,
+        "sha256": "NOT_AVAILABLE_OPENREVIEW_403_RESTRICTED"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 Workshop Submission (ICLR 2025 Workshop on Building Trust [BuildingTrust], Tiny Paper Track, Submission #37, Note ID iQOGhe3Cj9 / forum fesAASdm7R). Investigation confirms the publicly indexed PDF carries an 'Under review as a conference paper at ICLR 2025' header because the workshop strictly required using the standard iclr2025_conference.sty LaTeX template.",
+    "field_04_concrete_problem": "UNRESOLVED (Full-Text Access Restricted / OpenReview 403 Access Gated): Direct script/curl retrieval returned HTTP 403 due to Cloudflare Turnstile anti-bot verification. Verified submission records confirm study investigates budget-constrained learning to defer in autoregressive sequence generation using Learn-then-Test (LTT) and Bayesian optimization.",
+    "field_05_agent_architecture_horizon": "UNRESOLVED: Autoregressive sequence models operating under downstream expert query budget constraints.",
+    "field_06_action_space": "UNRESOLVED: Autonomous token/sequence generation versus expert deferral under finite budget.",
+    "field_07_verifier_noise_delay": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_08_primary_method_algorithm": "UNRESOLVED: Budget-constrained learning to defer policy optimization for autoregressive generators.",
+    "field_09_formal_assumptions": "UNRESOLVED: Not reported in accessible submission metadata.",
+    "field_10_authorization_security_layer": "UNRESOLVED: Budgeted expert deferral mechanism.",
+    "field_11_reported_evidence_benchmarks": "UNRESOLVED: Empirical results withheld per anti-bypass guidelines.",
+    "field_12_baselines_compared": "UNRESOLVED: Unconstrained deferral and thresholding baselines.",
+    "field_13_limitations_failure_modes": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_14_disruption_recovery_findings": "UNRESOLVED: Full-text primary inspection restricted.",
+    "field_15_causaguard_relevance": "Direct mathematical relevance to CausaGuard RQ2 and WP4 (budget-bounded human escalation and deferral cost optimization), but designated UNRESOLVED pending open-access document availability."
+  }
+]

@@ -1,0 +1,265 @@
+[
+  {
+    "platform": "arXiv",
+    "family_id": "F1",
+    "exact_query": "all:\"LLM agent\" AND (all:\"tool calling\" OR all:\"tool execution\") AND (all:\"authorization\" OR all:\"runtime security\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=all%3A%22LLM%20agent%22%20AND%20%28all%3A%22tool%20calling%22%20OR%20all%3A%22tool%20execution%22%29%20AND%20%28all%3A%22authorization%22%20OR%20all%3A%22runtime%20security%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "2603.11853v1",
+      "2610.01508v1",
+      "2606.28679v1",
+      "2604.11790v2",
+      "2610.27620v1",
+      "2608.24957v1",
+      "2608.20658v1",
+      "2608.27146v1",
+      "2605.26497v1",
+      "2609.28585v1"
+    ]
+  },
+  {
+    "platform": "arXiv",
+    "family_id": "F2",
+    "exact_query": "(all:\"agent\" OR all:\"AI assistant\") AND (all:\"retry\" OR all:\"verify\" OR all:\"escalate\") AND (all:\"uncertainty\" OR all:\"intervention\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=%28all%3A%22agent%22%20OR%20all%3A%22AI%20assistant%22%29%20AND%20%28all%3A%22retry%22%20OR%20all%3A%22verify%22%20OR%20all%3A%22escalate%22%29%20AND%20%28all%3A%22uncertainty%22%20OR%20all%3A%22intervention%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "2610.22280v1",
+      "2607.04419v5",
+      "2505.23399v2",
+      "2606.04296v2",
+      "2609.32255v1",
+      "2609.35445v4",
+      "2610.04836v2",
+      "2607.14145v1",
+      "2510.17697v4",
+      "2609.08572v3"
+    ]
+  },
+  {
+    "platform": "arXiv",
+    "family_id": "F3",
+    "exact_query": "(all:\"safe policy improvement\" OR all:\"constrained MDP\" OR all:\"contextual bandit\") AND (all:\"baseline\" OR all:\"risk\" OR all:\"cost\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=%28all%3A%22safe%20policy%20improvement%22%20OR%20all%3A%22constrained%20MDP%22%20OR%20all%3A%22contextual%20bandit%22%29%20AND%20%28all%3A%22baseline%22%20OR%20all%3A%22risk%22%20OR%20all%3A%22cost%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "1909.05236v2",
+      "1712.06924v5",
+      "1907.05079v1",
+      "1610.05129v1",
+      "2210.13573v2",
+      "2208.00724v1",
+      "2501.08612v1",
+      "1802.04064v5",
+      "1901.08159v1",
+      "2312.09961v1"
+    ]
+  },
+  {
+    "platform": "arXiv",
+    "family_id": "F4",
+    "exact_query": "(all:\"value of information\" OR all:\"selective prediction\" OR all:\"learning to defer\") AND (all:\"verification\" OR all:\"human oversight\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=%28all%3A%22value%20of%20information%22%20OR%20all%3A%22selective%20prediction%22%20OR%20all%3A%22learning%20to%20defer%22%29%20AND%20%28all%3A%22verification%22%20OR%20all%3A%22human%20oversight%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "2610.31446v1",
+      "2605.02915v1",
+      "1907.00713v1",
+      "2609.38850v2",
+      "2606.08919v1",
+      "2610.06708v1",
+      "2510.10252v2",
+      "2610.32193v1",
+      "2607.09762v1",
+      "2604.09824v1"
+    ]
+  },
+  {
+    "platform": "arXiv",
+    "family_id": "F5",
+    "exact_query": "(all:\"causal inference\" OR all:\"off-policy evaluation\") AND (all:\"sequential decision\" OR all:\"agent\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=%28all%3A%22causal%20inference%22%20OR%20all%3A%22off-policy%20evaluation%22%29%20AND%20%28all%3A%22sequential%20decision%22%20OR%20all%3A%22agent%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "2112.06833v3",
+      "1606.06126v3",
+      "2203.02807v2",
+      "1303.4431v1",
+      "2606.07308v1",
+      "2212.14466v1",
+      "2607.22443v1",
+      "2201.08262v1",
+      "2011.04102v3",
+      "2406.01389v2"
+    ]
+  },
+  {
+    "platform": "arXiv",
+    "family_id": "F6",
+    "exact_query": "(all:\"agent security\" OR all:\"prompt injection\") AND (all:\"benchmark\" OR all:\"adaptive attacks\" OR all:\"cross-domain\")",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "start": 0,
+      "max_results": 10
+    },
+    "url": "http://export.arxiv.org/api/query?search_query=%28all%3A%22agent%20security%22%20OR%20all%3A%22prompt%20injection%22%29%20AND%20%28all%3A%22benchmark%22%20OR%20all%3A%22adaptive%20attacks%22%20OR%20all%3A%22cross-domain%22%29&start=0&max_results=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "2504.18575v3",
+      "2611.07640v1",
+      "2503.00061v2",
+      "2510.05244v2",
+      "2608.28411v1",
+      "2310.12815v5",
+      "2410.02644v4",
+      "2511.15759v1",
+      "2602.06268v2",
+      "2510.01354v2"
+    ]
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F1",
+    "exact_query": "LLM agent tool runtime security",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=LLM%20agent%20tool%20runtime%20security&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": []
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F2",
+    "exact_query": "agent uncertainty intervention escalation",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=agent%20uncertainty%20intervention%20escalation&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "kDGgGKWYBi",
+      "AhFsKmuaCb",
+      "k5jc1twbN3",
+      "RQzNW4rAVp",
+      "a0hn7SZjbJ",
+      "Vg04Vi6MzW",
+      "vZyaniYuuw"
+    ]
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F3",
+    "exact_query": "safe policy improvement baseline cost",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=safe%20policy%20improvement%20baseline%20cost&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": []
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F4",
+    "exact_query": "learning to defer verification selective prediction",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=learning%20to%20defer%20verification%20selective%20prediction&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "TWb9y4PNSW",
+      "SZQJ8K2DUe",
+      "kNu9uSTdBF",
+      "iQOGhe3Cj9",
+      "3gHDBkBr6l",
+      "SGTaUDNEih"
+    ]
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F5",
+    "exact_query": "off-policy evaluation sequential decision",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=off-policy%20evaluation%20sequential%20decision&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": [
+      "84XY6nHYsD",
+      "5VvNAdrzHY",
+      "93CdBSCWoR",
+      "QJ2Gdx6TXW",
+      "63suZXEITQ",
+      "ZVRWKr3ApD",
+      "CxKVak5XkO"
+    ]
+  },
+  {
+    "platform": "OpenReview",
+    "family_id": "F6",
+    "exact_query": "prompt injection benchmark agent security",
+    "search_timestamp_utc": "2026-11-14T17:20:04.628347+00:00",
+    "parameters": {
+      "limit": 10
+    },
+    "url": "https://api2.openreview.net/notes/search?term=prompt%20injection%20benchmark%20agent%20security&limit=10",
+    "results_retrieved": 10,
+    "status": "success",
+    "error": null,
+    "identifiers": []
+  }
+]

@@ -1,0 +1,6254 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 199728,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T09:29:31Z",
+          "timestamp": 1793784571864,
+          "version": "4.6.1"
+        },
+        "reference-count": 14,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/tdmrep.html"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1109/icact70625.2026.11748640",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T20:20:12Z",
+          "timestamp": 1793737212000
+        },
+        "page": "1-4",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "LLM Agent Runtime Security: A Reference Monitor Framework for Confined AI Agents"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Asha",
+            "family": "Joseph",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "New Horizon College of Engineering",
+                "place": [
+                  "Bangalore, India"
+                ],
+                "department": [
+                  "Dept of CSE."
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Arun",
+            "family": "AnandhaKrishnan",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "ARBA Development Studio Pvt Ltd",
+                "place": [
+                  "Bangalore, India"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2785966"
+          },
+          {
+            "key": "ref2",
+            "volume-title": "Computer security technology planning study. Technical Report ESD-TR-73-51, USAF Electronic Systems Division",
+            "author": "Anderson",
+            "year": "1972"
+          },
+          {
+            "key": "ref3",
+            "article-title": "Secure computer systems: Mathematical foundations",
+            "volume-title": "Technical Report MTR-2547",
+            "volume": "I",
+            "author": "Bell",
+            "year": "1973"
+          },
+          {
+            "key": "ref4",
+            "article-title": "Integrity considerations for secure computer systems",
+            "volume-title": "Technical Report ESD-TR-76-372",
+            "author": "Biba",
+            "year": "1977"
+          },
+          {
+            "key": "ref5",
+            "author": "Cai",
+            "year": "2026",
+            "journal-title": "Ghost in the agent: Redefining information flow tracking for llm agents"
+          },
+          {
+            "key": "ref6",
+            "author": "Costa",
+            "year": "2025",
+            "journal-title": "Securing ai agents with information-flow control"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/satml68715.2026.00040"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/079017-2636"
+          },
+          {
+            "key": "ref9",
+            "author": "Ji",
+            "year": "2026",
+            "journal-title": "Taming various privilege escalation in llm-based agent systems: A mandatory access control framework"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Security and privacy controls for information systems and organizations",
+            "volume-title": "Technical Report NIST Special Publication 800-53 Revision 5, National Institute of Standards and Technology",
+            "year": "2020"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "first-page": "246",
+            "DOI": "10.4018/978-1-5225-4100-4.ch013",
+            "article-title": "John Singh. Digital forensics in distributed environment",
+            "volume-title": "Handbook of Research on Network Forensics and Analysis Techniques",
+            "author": "Joseph",
+            "year": "2018"
+          },
+          {
+            "issue": "04",
+            "key": "ref12",
+            "first-page": "202",
+            "article-title": "Crime pattern matching based on process execution context \u2013 an evidence acquisition technique",
+            "volume": "11",
+            "author": "Joseph",
+            "year": "2019",
+            "journal-title": "Journal of Advanced Research in Dynamical and Control Systems"
+          },
+          {
+            "key": "ref13",
+            "article-title": "Security enhanced (se) android: Bringing flexible mac to android",
+            "volume-title": "Proceedings of the Network and Distributed System Security Symposium (NDSS)",
+            "author": "Smalley"
+          },
+          {
+            "key": "ref14",
+            "author": "Zhao",
+            "year": "2026",
+            "journal-title": "Clawguard: A runtime security framework for tool-augmented llm agents against indirect prompt injection"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Advanced Computing Technologies (ICACT)",
+          "location": "Kathmandu, Nepal",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                1
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                2
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Advanced Computing Technologies (ICACT)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11746896/11748530/11748640.pdf?arnumber=11748640",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T08:53:22Z",
+          "timestamp": 1793782402000
+        },
+        "score": 33.378017,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11748640/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "references-count": 14,
+        "URL": "https://doi.org/10.1109/icact70625.2026.11748640",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              11
+            ]
+          ],
+          "date-time": "2026-08-11T05:31:45Z",
+          "timestamp": 1786426305689,
+          "version": "build-2736575974"
+        },
+        "reference-count": 9,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1109/isaeece70502.2026.11635191",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              10
+            ]
+          ],
+          "date-time": "2026-08-10T19:13:14Z",
+          "timestamp": 1786389194000
+        },
+        "page": "587-590",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Runtime Protection Practice for LLM Agent Security: An On-Demand Behavioral Sandbox Approach"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Junyong",
+            "family": "Jiang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Shanghai Digital Security Technology Co., Ltd",
+                "place": [
+                  "Shanghai, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.icte.2025.12.001"
+          },
+          {
+            "key": "ref2",
+            "article-title": "A systematic survey of security threats and defenses in LLM-based AI agents: A layered attack surface framework",
+            "author": "Chu",
+            "year": "2026",
+            "journal-title": "arXiv preprint, arXiv:2604.23338"
+          },
+          {
+            "key": "ref3",
+            "article-title": "ClawGuard: A runtime security framework for tool-augmented LLM agents against indirect prompt injection",
+            "author": "Zhao",
+            "year": "2026",
+            "journal-title": "arXiv preprint, arXiv:2604.11790"
+          },
+          {
+            "key": "ref4",
+            "article-title": "Taming various privilege escalation in LLM-based agent systems: A mandatory access control framework",
+            "author": "Ji",
+            "year": "2026",
+            "journal-title": "arXiv preprint, arXiv:2601.11893"
+          },
+          {
+            "key": "ref5",
+            "article-title": "LITMUS: Benchmarking behavioral jailbreaks of LLM agents in real OS environments",
+            "author": "Zhang",
+            "year": "2026",
+            "journal-title": "arXiv preprint, arXiv:2605.10779"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/079017-2636"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.hcc.2024.100211"
+          },
+          {
+            "key": "ref8",
+            "article-title": "Prompt injection attack against LLM-integrated applications",
+            "author": "Liu",
+            "year": "2023",
+            "journal-title": "arXiv preprint, arXiv:2306.05499"
+          },
+          {
+            "key": "ref9",
+            "article-title": "Blue teaming function-calling agents",
+            "author": "Dolcetti",
+            "year": "2026",
+            "journal-title": "arXiv preprint, arXiv:2601.09292"
+          }
+        ],
+        "event": {
+          "name": "2026 11th International Symposium on Advances in Electrical, Electronics and Computer Engineering (ISAEECE)",
+          "location": "Shenzhen, China",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                12
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                14
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 11th International Symposium on Advances in Electrical, Electronics and Computer Engineering (ISAEECE)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11635060/11635104/11635191.pdf?arnumber=11635191",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              11
+            ]
+          ],
+          "date-time": "2026-08-11T05:21:01Z",
+          "timestamp": 1786425661000
+        },
+        "score": 31.88731,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11635191/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "references-count": 9,
+        "URL": "https://doi.org/10.1109/isaeece70502.2026.11635191",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              11
+            ]
+          ],
+          "date-time": "2026-03-11T02:23:33Z",
+          "timestamp": 1773195813419,
+          "version": "3.50.1"
+        },
+        "reference-count": 13,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  12,
+                  8
+                ]
+              ],
+              "date-time": "2025-12-08T00:00:00Z",
+              "timestamp": 1765152000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  12,
+                  8
+                ]
+              ],
+              "date-time": "2025-12-08T00:00:00Z",
+              "timestamp": 1765152000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              8
+            ]
+          ]
+        },
+        "DOI": "10.1109/acsacw69556.2025.00051",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              9
+            ]
+          ],
+          "date-time": "2026-03-09T19:56:13Z",
+          "timestamp": 1773086173000
+        },
+        "page": "414-419",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Cybersecurity Threat Intelligence for Audit: LLM Scoping, Evidence Guardrails, and Materiality"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Gurkan",
+            "family": "Akalin",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "University of Virginia&#x2019;s College at Wise,Business and Economics Department,Wise,Virginia,USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Ning",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Virginia&#x2019;s College at Wise,Business and Economics Department,Wise,Virginia,USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/1911-3846.12212"
+          },
+          {
+            "key": "ref2",
+            "article-title": "AS 2201: An audit of internal control over financial reporting that is integrated with an audit of financial statements"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/ijau.12365"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2308/ISYS-2020-065"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2308/horizons-18-123"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1108/ICS-02-2019-0033"
+          },
+          {
+            "key": "ref7",
+            "volume-title": "Framework for improving critical infrastructure cybersecurity, version 1.1 (NIST Cybersecurity Framework)",
+            "author": "Barrett",
+            "year": "2018"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.25300/MISQ/2018/13853"
+          },
+          {
+            "key": "ref9",
+            "article-title": "Unauthorized access to Okta\u2019s support case management system: Root cause",
+            "volume-title": "Okta Security",
+            "year": "2023"
+          },
+          {
+            "key": "ref10",
+            "volume-title": "#StopRansomware: CL0P ransomware gang exploits MOVEit vulnerability (AA23-158A)",
+            "year": "2023"
+          },
+          {
+            "key": "ref11",
+            "volume-title": "Supply chain compromise",
+            "year": "2021"
+          },
+          {
+            "key": "ref12",
+            "article-title": "Microsoft mitigates China-based threat actor Storm-0558 targeting of customer email",
+            "volume-title": "Microsoft Security Response Center (MSRC)",
+            "year": "2023"
+          },
+          {
+            "key": "ref13",
+            "volume-title": "3CX software supply chain compromise initiated by a prior software supply chain compromise",
+            "year": "2023"
+          }
+        ],
+        "event": {
+          "name": "2025 Annual Computer Security Applications Conference Workshops (ACSAC Workshops)",
+          "location": "Honolulu, HI, USA",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                12,
+                8
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                12,
+                9
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 Annual Computer Security Applications Conference Workshops (ACSAC Workshops)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11417955/11417996/11418054.pdf?arnumber=11418054",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              10
+            ]
+          ],
+          "date-time": "2026-03-10T05:36:27Z",
+          "timestamp": 1773120987000
+        },
+        "score": 29.169573,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11418054/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              8
+            ]
+          ]
+        },
+        "references-count": 13,
+        "URL": "https://doi.org/10.1109/acsacw69556.2025.00051",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              8
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              1
+            ]
+          ],
+          "date-time": "2026-09-01T05:19:23Z",
+          "timestamp": 1788239963646,
+          "version": "build-2803163510"
+        },
+        "reference-count": 31,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1109/sse72781.2026.00014",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              31
+            ]
+          ],
+          "date-time": "2026-08-31T19:08:59Z",
+          "timestamp": 1788203339000
+        },
+        "page": "34-44",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Verifier-Grounded Runtime Mediation for LLM Agent Procedural Compliance"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Hitoshi",
+            "family": "Yabusaki",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Hitachi, Ltd."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+            "author": "Yao",
+            "year": "2022"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/SP54263.2024.00060"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.nucengdes.2020.110868"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2023.emnlp-demo.40"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.18653/v1/2024.naacl-long.20",
+            "article-title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+            "volume-title": "Proc. NAACL",
+            "author": "Saad-Falcon"
+          },
+          {
+            "key": "ref6",
+            "article-title": "AgentBench: Evaluating LLMs as Agents",
+            "volume-title": "Proc. ICLR",
+            "author": "Liu"
+          },
+          {
+            "key": "ref7",
+            "article-title": "LangSmith: LLM Application Development Platform",
+            "year": "2024"
+          },
+          {
+            "key": "ref8",
+            "article-title": "Weave: AI Application Tracing and Evaluation",
+            "year": "2024"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2023.emnlp-main.153"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.xinn.2025.101253"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2026.findings-acl.1330"
+          },
+          {
+            "key": "ref12",
+            "article-title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+            "volume-title": "Proc. ICLR",
+            "author": "Jimenez"
+          },
+          {
+            "key": "ref13",
+            "article-title": "AgentOps: Enabling Observability of LLM Agents",
+            "author": "Dong",
+            "year": "2024"
+          },
+          {
+            "key": "ref14",
+            "article-title": "Semantic Conventions for Generative AI Systems",
+            "year": "2026"
+          },
+          {
+            "key": "ref15",
+            "article-title": "AgentTrace: A Structured Logging Framework for Agent System Observability",
+            "author": "AlSayyad",
+            "year": "2026"
+          },
+          {
+            "key": "ref16",
+            "article-title": "Holmes: An Evidence-Grounded LLM Agent for Auditable DDoS Investigation in Cloud Networks",
+            "author": "Chen",
+            "year": "2026"
+          },
+          {
+            "key": "ref17",
+            "article-title": "EDDOps: Evaluation-Driven Development and Operations of LLM Agents",
+            "author": "Xia",
+            "year": "2024"
+          },
+          {
+            "key": "ref18",
+            "article-title": "AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents",
+            "author": "Wang",
+            "year": "2025"
+          },
+          {
+            "key": "ref19",
+            "article-title": "Progent: Programmable Privilege Control for LLM Agents",
+            "author": "Shi",
+            "year": "2025"
+          },
+          {
+            "key": "ref20",
+            "article-title": "AgentGuardian: Learning Access Control Policies to Govern AI Agent Behavior",
+            "author": "Abaev",
+            "year": "2026"
+          },
+          {
+            "key": "ref21",
+            "article-title": "AIR: Improving Agent Safety through Incident Response",
+            "author": "Xiao",
+            "year": "2026"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3786582.3786839"
+          },
+          {
+            "key": "ref23",
+            "article-title": "Agent Behavioral Contracts: Formal Specification and Runtime Enforcement",
+            "author": "Bhardwaj",
+            "year": "2026"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2026.findings-acl.1850"
+          },
+          {
+            "key": "ref25",
+            "article-title": "SOPBench: Evaluating Language Agents at Following Standard Operating Procedures",
+            "author": "Li",
+            "year": "2025"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3770855.3817538"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.acl-long.557"
+          },
+          {
+            "key": "ref28",
+            "article-title": "StepShield: When, Not Whether to Intervene on Rogue Agents",
+            "author": "Felicia",
+            "year": "2026"
+          },
+          {
+            "key": "ref29",
+            "article-title": "Beyond Task Completion: Revealing Corrupt Success through Procedure-Aware Evaluation",
+            "author": "Cao",
+            "year": "2026"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2939672.2939785"
+          },
+          {
+            "key": "ref31",
+            "article-title": "GPT-5.4 Model",
+            "volume-title": "OpenAI API Documentation",
+            "year": "2026"
+          }
+        ],
+        "event": {
+          "name": "2026 IEEE International Conference on Software Services Engineering (SSE)",
+          "location": "Sydney, Australia",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                13
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                18
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 IEEE International Conference on Software Services Engineering (SSE)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11664925/11664926/11664931.pdf?arnumber=11664931",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              1
+            ]
+          ],
+          "date-time": "2026-09-01T05:02:13Z",
+          "timestamp": 1788238933000
+        },
+        "score": 28.980076,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11664931/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "references-count": 31,
+        "URL": "https://doi.org/10.1109/sse72781.2026.00014",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T17:10:10Z",
+          "timestamp": 1793985010677,
+          "version": "4.8.0"
+        },
+        "reference-count": 31,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  21
+                ]
+              ],
+              "date-time": "2026-04-21T00:00:00Z",
+              "timestamp": 1776729600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  21
+                ]
+              ],
+              "date-time": "2026-04-21T00:00:00Z",
+              "timestamp": 1776729600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              21
+            ]
+          ]
+        },
+        "DOI": "10.1109/icaiset66439.2026.11541707",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              2
+            ]
+          ],
+          "date-time": "2026-06-02T20:03:34Z",
+          "timestamp": 1780430614000
+        },
+        "page": "1-6",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Trust-Aware Runtime Verification for Autonomous LLM Agent Systems"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Tejas Pravinbhai",
+            "family": "Patel",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Independent Researcher, IEEE,Irving,Texas,USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+            "volume-title": "Proceedings of the International Conference on Learning Representations (ICLR)",
+            "author": "Yao"
+          },
+          {
+            "key": "ref2",
+            "article-title": "AutoGen: Enabling Next-Generation Large Language Model Applications",
+            "author": "Wang",
+            "year": "2023"
+          },
+          {
+            "key": "ref3",
+            "article-title": "HuggingGPT: Solving AI Tasks with ChatGPT and Its Friends in HuggingFace",
+            "author": "Shen",
+            "year": "2023",
+            "journal-title": "Advances in Neural Information Processing Systems (NeurIPS)"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3586183.3606763"
+          },
+          {
+            "key": "ref5",
+            "article-title": "AgentBench: Evaluating LLMs as Agents",
+            "author": "Chen",
+            "year": "2023"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Hallucination in Large Language Models: A Survey",
+            "author": "Li",
+            "year": "2023"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Towards Trustworthy Large Language Models: A Survey",
+            "author": "Zhang",
+            "year": "2023"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/068431-1800"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-319-75632-5_1"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Concrete Problems in AI Safety",
+            "author": "Amodei",
+            "year": "2016"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3571730"
+          },
+          {
+            "key": "ref12",
+            "article-title": "On the Opportunities and Risks of Foundation Models",
+            "author": "Bommasani",
+            "year": "2021"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/icca66035.2025.11431093"
+          },
+          {
+            "key": "ref14",
+            "article-title": "Agentic Large Language Models: A Survey",
+            "author": "Pan",
+            "year": "2023"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/isdfs69419.2026.11458958"
+          },
+          {
+            "key": "ref16",
+            "article-title": "Reasoning and Acting in Autonomous Language Agents",
+            "author": "Liu",
+            "year": "2023",
+            "journal-title": "IEEE Transactions on Artificial Intelligence"
+          },
+          {
+            "key": "ref17",
+            "article-title": "Limits of Trust in Large Language Model Agents",
+            "author": "Shavit",
+            "year": "2023"
+          },
+          {
+            "key": "ref18",
+            "article-title": "Self-Refine: Iterative Refinement with Self-Feedback",
+            "author": "Madaan",
+            "year": "2023",
+            "journal-title": "NeurIPS"
+          },
+          {
+            "key": "ref19",
+            "article-title": "Language Agent Tree Search",
+            "author": "Zhou",
+            "year": "2023"
+          },
+          {
+            "issue": "6",
+            "key": "ref20",
+            "first-page": "58",
+            "article-title": "Monitoring and Debugging Large Language Model Systems",
+            "volume": "40",
+            "author": "Guo",
+            "year": "2023",
+            "journal-title": "IEEE Software"
+          },
+          {
+            "issue": "2",
+            "key": "ref21",
+            "first-page": "45",
+            "article-title": "Runtime Monitoring for AI-Driven Systems",
+            "volume": "57",
+            "author": "Desai",
+            "year": "2024",
+            "journal-title": "IEEE Computer"
+          },
+          {
+            "issue": "10",
+            "key": "ref22",
+            "first-page": "84",
+            "article-title": "Building Safe Autonomous Agents",
+            "volume": "66",
+            "author": "Foster",
+            "year": "2023",
+            "journal-title": "Communications of the ACM"
+          },
+          {
+            "key": "ref23",
+            "article-title": "A Survey on Multi-Agent Large Language Models",
+            "author": "Dong",
+            "year": "2023"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISIBER68248.2026.11470173"
+          },
+          {
+            "issue": "2",
+            "key": "ref25",
+            "first-page": "173",
+            "article-title": "Runtime Verification: A Formal Perspective",
+            "volume": "60",
+            "author": "Clarke",
+            "year": "2018",
+            "journal-title": "Journal of Automated Reasoning"
+          },
+          {
+            "key": "ref26",
+            "article-title": "Adversarial Attacks on Autonomous LLM Agents",
+            "author": "Greshake",
+            "year": "2023"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISIBER68248.2026.11470206"
+          },
+          {
+            "key": "ref28",
+            "article-title": "Observability for AI Systems: Challenges and Opportunities",
+            "author": "Kim",
+            "year": "2024",
+            "journal-title": "IEEE Transactions on Software Engineering"
+          },
+          {
+            "key": "ref29",
+            "article-title": "Evaluating Reliability in Large Language Models",
+            "author": "Agarwal",
+            "year": "2023"
+          },
+          {
+            "issue": "4",
+            "key": "ref30",
+            "first-page": "60",
+            "article-title": "AI Governance for Autonomous Systems",
+            "volume": "21",
+            "author": "Rahman",
+            "year": "2023",
+            "journal-title": "IEEE Security & Privacy"
+          },
+          {
+            "key": "ref31",
+            "article-title": "Memory Management in Language Model Agents",
+            "author": "Lewis",
+            "year": "2023"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Artificial Intelligence, Systems, and Emerging Technologies (ICAISET)",
+          "location": "Cairo, Egypt",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                4,
+                21
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                4,
+                23
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Artificial Intelligence, Systems, and Emerging Technologies (ICAISET)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11541286/11541298/11541707.pdf?arnumber=11541707",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              3
+            ]
+          ],
+          "date-time": "2026-06-03T05:10:59Z",
+          "timestamp": 1780463459000
+        },
+        "score": 27.747759,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11541707/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              21
+            ]
+          ]
+        },
+        "references-count": 31,
+        "URL": "https://doi.org/10.1109/icaiset66439.2026.11541707",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              21
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              13
+            ]
+          ],
+          "date-time": "2026-11-13T20:26:31Z",
+          "timestamp": 1794601591670,
+          "version": "4.9.1"
+        },
+        "reference-count": 0,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/tdmrep.html"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IEEE Internet Comput."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "DOI": "10.1109/mic.2026.3753356",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              13
+            ]
+          ],
+          "date-time": "2026-11-13T20:15:34Z",
+          "timestamp": 1794600934000
+        },
+        "page": "1-11",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Capability-Bound Authorization for AI Agent Tool Calls"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0003-2219-8070",
+            "authenticated-orcid": false,
+            "given": "Dhruv",
+            "family": "Agnihotri",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Salesforce",
+                "place": [
+                  "Seattle, WA, USA"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "container-title": [
+          "IEEE Internet Computing"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/4236/5226613/11795545.pdf?arnumber=11795545",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              13
+            ]
+          ],
+          "date-time": "2026-11-13T20:18:18Z",
+          "timestamp": 1794601098000
+        },
+        "score": 26.603506,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11795545/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1109/mic.2026.3753356",
+        "ISSN": [
+          "1089-7801",
+          "1941-0131"
+        ],
+        "issn-type": [
+          {
+            "value": "1089-7801",
+            "type": "print"
+          },
+          {
+            "value": "1941-0131",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              25
+            ]
+          ],
+          "date-time": "2026-08-25T06:31:30Z",
+          "timestamp": 1787639490763,
+          "version": "build-2736575974"
+        },
+        "reference-count": 10,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "2026-08-01T00:00:00Z",
+              "timestamp": 1785542400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "2026-08-01T00:00:00Z",
+              "timestamp": 1785542400000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  1
+                ]
+              ],
+              "date-time": "2026-08-01T00:00:00Z",
+              "timestamp": 1785542400000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              8
+            ]
+          ]
+        },
+        "DOI": "10.1109/imns67862.2026.11655283",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              24
+            ]
+          ],
+          "date-time": "2026-08-24T19:19:17Z",
+          "timestamp": 1787599157000
+        },
+        "page": "1-6",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Evaluating Prompt Injection Risk and Guardrails in LLM-Enabled Home IoT Assistants"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Shazid Bin",
+            "family": "Zaman",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "East Carolina University",
+                "department": [
+                  "Dept. of Technology Systems"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sohan",
+            "family": "Gyawali",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "East Carolina University",
+                "department": [
+                  "Dept. of Technology Systems"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ciprian",
+            "family": "Popoviciu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "East Carolina University",
+                "department": [
+                  "Dept. of Technology Systems"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yili",
+            "family": "Jiang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Georgia State University",
+                "department": [
+                  "Dept. of Computer Science"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jiaqi",
+            "family": "Huang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Central Missouri",
+                "department": [
+                  "Dept. of Computer Science and Cybersecurity"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "Jailbreaking 1lm-controlled robots",
+            "author": "Robey",
+            "year": "2024",
+            "journal-title": "CoRR"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2025.3595424"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3605764.3623985"
+          },
+          {
+            "key": "ref4",
+            "article-title": "Owasp top. 10 for 1lm applications 2025",
+            "year": "2025"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.6028/nist.sp.800-207"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ISSREW63542.2024.00103"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Voice jailbreak attacks against gpt-4o",
+            "author": "Shen",
+            "year": "2024",
+            "journal-title": "CoRR"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3133956.3134052"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.6028/nist.ai.100-1"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.6028/nist.ir.8259a"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Intelligent Multimedia, Networking, and Security (IMNS)",
+          "location": "Atlanta, GA, USA",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                8,
+                3
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                8,
+                4
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Intelligent Multimedia, Networking, and Security (IMNS)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11655061/11655246/11655283.pdf?arnumber=11655283",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              25
+            ]
+          ],
+          "date-time": "2026-08-25T06:10:00Z",
+          "timestamp": 1787638200000
+        },
+        "score": 25.863853,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11655283/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              8
+            ]
+          ]
+        },
+        "references-count": 10,
+        "URL": "https://doi.org/10.1109/imns67862.2026.11655283",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              8
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              7
+            ]
+          ],
+          "date-time": "2026-11-07T04:22:40Z",
+          "timestamp": 1794025360880,
+          "version": "4.8.0"
+        },
+        "reference-count": 26,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1109/lmiat70705.2026.11682229",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              11
+            ]
+          ],
+          "date-time": "2026-09-11T19:14:09Z",
+          "timestamp": 1789154049000
+        },
+        "page": "85-89",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Multi-Agent Tool Sharing: Task Allocation, Concurrent Access Coordination, and Consistency Guarantees in Collaborative LLM Agent Systems"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Yang",
+            "family": "Xiang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.24963/ijcai.2024/890"
+          },
+          {
+            "key": "ref2",
+            "article-title": "Multi-agent collaboration mechanisms: A survey of LLMs",
+            "author": "Tran",
+            "year": "2025"
+          },
+          {
+            "key": "ref3",
+            "article-title": "ReAct: Synergizing reasoning and acting in language models",
+            "volume-title": "Proc. Int. Conf. Learning Representations (ICLR)",
+            "author": "Yao"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2997"
+          },
+          {
+            "key": "ref5",
+            "article-title": "ToolLLM: Facilitating large language models to master 16000+ real-world APIs",
+            "volume-title": "Proc. Int. Conf. Learning Representations (ICLR)",
+            "author": "Qin"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/079017-4020"
+          },
+          {
+            "key": "ref7",
+            "article-title": "AutoGen: Enabling next-gen LLM applications via multi-agent conversation",
+            "volume-title": "Proc. 1st Conf. Language Modeling (COLM)",
+            "author": "Wu"
+          },
+          {
+            "key": "ref8",
+            "article-title": "MetaGPT: Meta programming for a multi-agent collaborative framework",
+            "volume-title": "Proc. Int. Conf. Learning Representations (ICLR)",
+            "author": "Hong"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2264"
+          },
+          {
+            "key": "ref10",
+            "article-title": "AgentVerse: Facilitating multi-agent collaboration and exploring emergent behaviors",
+            "volume-title": "Proc. Int. Conf. Learning Representations (ICLR)",
+            "author": "Chen"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.acl-long.810"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3586183.3606763"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-0377"
+          },
+          {
+            "key": "ref14",
+            "article-title": "A survey of AI agent protocols",
+            "author": "Yang",
+            "year": "2025"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/icmlca66850.2025.11336788"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/cbase67452.2025.11335561"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICAICE68195.2025.11382503"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICAICE68195.2025.11382404"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICBASE66587.2025.11181270"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/icbase70763.2026.11619420"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/360363.360369"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/319566.319567"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/38714.38742"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-642-24550-3_29"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TC.1980.1675516"
+          },
+          {
+            "key": "ref26",
+            "article-title": "In search of an understandable consensus algorithm",
+            "volume-title": "Proc. USENIX ATC",
+            "author": "Ongaro"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)",
+          "location": "Hangzhou, China",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                17
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                19
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11682030/11682085/11682229.pdf?arnumber=11682229",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              12
+            ]
+          ],
+          "date-time": "2026-09-12T05:39:23Z",
+          "timestamp": 1789191563000
+        },
+        "score": 25.495136,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11682229/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "references-count": 26,
+        "URL": "https://doi.org/10.1109/lmiat70705.2026.11682229",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              12
+            ]
+          ],
+          "date-time": "2026-11-12T06:06:53Z",
+          "timestamp": 1794463613260,
+          "version": "4.9.1"
+        },
+        "description": "The supplementary video is a supporting document to the article.",
+        "reference-count": 0,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1109/lra.2026.3667488/mm1",
+        "type": "component",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              25
+            ]
+          ],
+          "date-time": "2026-02-25T20:58:26Z",
+          "timestamp": 1772053106000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Safety Guardrails for LLM-Enabled Robots_supp1-3667488.mp4"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Zachary",
+            "family": "Ravichandran",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              2
+            ]
+          ],
+          "date-time": "2026-03-02T20:57:25Z",
+          "timestamp": 1772485045000
+        },
+        "score": 25.458517,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/ielx8/7083369/11400564/11408855/supp1-3667488.mp4?arnumber=11408855"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1109/lra.2026.3667488/mm1",
+        "relation": {
+          "is-part-of": [
+            {
+              "id-type": "doi",
+              "id": "https://doi.org/10.1109/lra.2026.3667488",
+              "asserted-by": "object"
+            }
+          ],
+          "is-component-of": [
+            {
+              "id-type": "doi",
+              "id": "10.1109/LRA.2026.3667488",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              20
+            ]
+          ],
+          "date-time": "2026-02-20T07:09:07Z",
+          "timestamp": 1771571347836,
+          "version": "3.50.1"
+        },
+        "reference-count": 26,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2025-10-14T00:00:00Z",
+              "timestamp": 1760400000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2025-10-14T00:00:00Z",
+              "timestamp": 1760400000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              14
+            ]
+          ]
+        },
+        "DOI": "10.1109/ictc66702.2025.11388772",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              19
+            ]
+          ],
+          "date-time": "2026-02-19T20:55:29Z",
+          "timestamp": 1771534529000
+        },
+        "page": "1793-1798",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "KubeScribe: LLM-Driven Automation of Runtime Security Policies in Cloud-Native Environments"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Jaeyoung",
+            "family": "Lee",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Dankook University,Department of AI-Based Convergence"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jaehyun",
+            "family": "Nam",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Dankook University,Department of Computer Engineering"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "Kubernetes"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/JPROC.2024.3353855"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3538969.3538986"
+          },
+          {
+            "key": "ref4",
+            "article-title": "2025 State of Cloud Runtime Security: It\u2019s Time to Shift to Cloud-Native Approaches",
+            "year": "2025"
+          },
+          {
+            "key": "ref5",
+            "article-title": "KubeArmor: Runtime Security Enforcement System for Cloud-Native Workloads"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Tetragon: eBPF-based Security Observability"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Cilium Network Policy"
+          },
+          {
+            "key": "ref8",
+            "article-title": "Network Policies"
+          },
+          {
+            "key": "ref9",
+            "first-page": "443",
+            "article-title": "Confine: Automated system call policy generation for container attack surface reduction",
+            "volume-title": "International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2020)",
+            "author": "Ghavamnia"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Timeloops: Automatic System Call Policy Learning for Containerized Microservices",
+            "author": "Pancholi",
+            "year": "2022"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/INFOCOM55648.2025.11044592"
+          },
+          {
+            "key": "ref12",
+            "article-title": "Evaluating Large Language Models Trained on Code",
+            "author": "Chen",
+            "year": "2021"
+          },
+          {
+            "key": "ref13",
+            "article-title": "Generating structured outputs from language models: Benchmark and studies",
+            "author": "Geng",
+            "year": "2025"
+          },
+          {
+            "key": "ref14",
+            "article-title": "Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey",
+            "author": "Han",
+            "year": "2024"
+          },
+          {
+            "key": "ref15",
+            "article-title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "volume-title": "Proceedings of the Tenth International Conference on Learning Representations (ICLR)",
+            "author": "Hu"
+          },
+          {
+            "key": "ref16",
+            "first-page": "10 088",
+            "article-title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "volume-title": "Advances in Neural Information Processing Systems (NeurIPS 2023)",
+            "author": "Dettmers"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3429885.3429966"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s42979-023-02186-1"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2023.3310281"
+          },
+          {
+            "key": "ref20",
+            "article-title": "LMN: A Tool for Generating Machine Enforceable Policies from Natural Language Access Control Rules using LLMs",
+            "author": "Sonune",
+            "year": "2025"
+          },
+          {
+            "key": "ref21",
+            "article-title": "Zero Trust Architecture",
+            "author": "Stafford",
+            "year": "2020",
+            "journal-title": "NIST Special Publication 800-207"
+          },
+          {
+            "key": "ref22",
+            "article-title": "DeepSeek-Coder-7B-Instruct-v1.5"
+          },
+          {
+            "key": "ref23",
+            "article-title": "Code LLaMA-7B-Instruct"
+          },
+          {
+            "key": "ref24",
+            "article-title": "Mistral-7B-Instruct-v0.2"
+          },
+          {
+            "key": "ref25",
+            "article-title": "Online Boutique Demo Microservices Application",
+            "author": "Platform",
+            "year": "2023"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3474123.3486762"
+          }
+        ],
+        "event": {
+          "name": "2025 16th International Conference on Information and Communication Technology Convergence (ICTC)",
+          "location": "Jeju, Korea, Republic of",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                14
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                17
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 16th International Conference on Information and Communication Technology Convergence (ICTC)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11387762/11387791/11388772.pdf?arnumber=11388772",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              20
+            ]
+          ],
+          "date-time": "2026-02-20T06:41:38Z",
+          "timestamp": 1771569698000
+        },
+        "score": 25.299812,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11388772/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              14
+            ]
+          ]
+        },
+        "references-count": 26,
+        "URL": "https://doi.org/10.1109/ictc66702.2025.11388772",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              14
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T17:10:06Z",
+          "timestamp": 1793985006703,
+          "version": "4.8.0"
+        },
+        "reference-count": 20,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IEEE Open J. Comput. Soc."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "DOI": "10.1109/ojcs.2026.3664314",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              12
+            ]
+          ],
+          "date-time": "2026-02-12T21:03:04Z",
+          "timestamp": 1770930184000
+        },
+        "page": "504-513",
+        "source": "Crossref",
+        "is-referenced-by-count": 5,
+        "title": [
+          "MCP-Secure: A Runtime Access Control Layer for Privilege-Aware LLM Agent Tooling"
+        ],
+        "prefix": "10.1109",
+        "volume": "7",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-3314-1949",
+            "authenticated-orcid": false,
+            "given": "Gamini",
+            "family": "Singh",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "College of Computing, Georgia Institute of Technology, Atlanta, GA, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6539-6769",
+            "authenticated-orcid": false,
+            "given": "Vijay K.",
+            "family": "Madisetti",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Cybersecurity and Privacy, Georgia Institute of Technology, Atlanta, GA, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.hcc.2024.100211"
+          },
+          {
+            "issue": "2",
+            "key": "ref2",
+            "first-page": "1",
+            "article-title": "Security and privacy challenges of large language models: A survey",
+            "volume": "4",
+            "author": "Das",
+            "year": "2024",
+            "journal-title": "High-Confidence Comput."
+          },
+          {
+            "key": "ref3",
+            "article-title": "Securing AI agent execution",
+            "author": "Bhler",
+            "year": "2025"
+          },
+          {
+            "key": "ref4",
+            "article-title": "Github MCP exploited: Accessing private repositories via MCP",
+            "author": "Milanta",
+            "year": "2025"
+          },
+          {
+            "key": "ref5",
+            "article-title": "Incident reportid 5b9hhtgs3mxs",
+            "author": "Asana",
+            "year": "2025"
+          },
+          {
+            "key": "ref6",
+            "first-page": "2025",
+            "article-title": "Agentharm: Measuring the safety of tool-using LLM agents",
+            "volume-title": "Proc. Int. Conf. Learn. Representations",
+            "author": "Andriushchenko"
+          },
+          {
+            "key": "ref7",
+            "first-page": "1",
+            "article-title": "The security of using large language models: A survey",
+            "volume": "12",
+            "author": "Zhou",
+            "year": "2025",
+            "journal-title": "J. Appl. Secur."
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s41019-025-00296-9"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3796519"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/icaic67076.2026.11395723"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/ai6090216"
+          },
+          {
+            "key": "ref12",
+            "article-title": "MCP-universe: Benchmarking large language models with real-world model context protocol servers",
+            "author": "Luo",
+            "year": "2025"
+          },
+          {
+            "key": "ref13",
+            "article-title": "ReAct: Reasoning and acting in language models",
+            "volume-title": "Proc. Int. Conf. Learn. Representations",
+            "author": "Yao",
+            "year": "2023"
+          },
+          {
+            "key": "ref14",
+            "first-page": "8634",
+            "article-title": "Reflexion: Language agents with verbal reinforcement learning",
+            "volume-title": "Proc. Adv. Neural Inf. Process. Syst.",
+            "author": "Shinn",
+            "year": "2023"
+          },
+          {
+            "key": "ref15",
+            "first-page": "68539",
+            "article-title": "Toolformer: Language models can teach themselves to use tools",
+            "volume-title": "Proc. Int. Conf. Neural Inf. Process. Syst.",
+            "volume": "36",
+            "author": "Schick",
+            "year": "2023"
+          },
+          {
+            "key": "ref16",
+            "article-title": "Model context protocol (MCP) at first glance: Studying the security and maintainability of MCP servers",
+            "author": "Hasan",
+            "year": "2025"
+          },
+          {
+            "key": "ref17",
+            "article-title": "Systematic analysis of MCP security",
+            "author": "Guo",
+            "year": "2025"
+          },
+          {
+            "key": "ref18",
+            "article-title": "We should identify and mitigate third-party safety risks in MCP-powered agentsystems",
+            "author": "Fang",
+            "year": "2025"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5121/csit.2025.150908"
+          },
+          {
+            "key": "ref20",
+            "article-title": "AgentSpec: Customizable runtime enforcement for safe and reliable LLM agents",
+            "author": "Wang",
+            "year": "2025"
+          }
+        ],
+        "container-title": [
+          "IEEE Open Journal of the Computer Society"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/8782664/11319293/11394790.pdf?arnumber=11394790",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              26
+            ]
+          ],
+          "date-time": "2026-02-26T20:47:13Z",
+          "timestamp": 1772138833000
+        },
+        "score": 24.777048,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11394790/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 20,
+        "URL": "https://doi.org/10.1109/ojcs.2026.3664314",
+        "ISSN": [
+          "2644-1268"
+        ],
+        "issn-type": [
+          {
+            "value": "2644-1268",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              2
+            ]
+          ],
+          "date-time": "2025-12-02T06:29:47Z",
+          "timestamp": 1764656987463,
+          "version": "3.46.0"
+        },
+        "reference-count": 15,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  8,
+                  15
+                ]
+              ],
+              "date-time": "2025-08-15T00:00:00Z",
+              "timestamp": 1755216000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  8,
+                  15
+                ]
+              ],
+              "date-time": "2025-08-15T00:00:00Z",
+              "timestamp": 1755216000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              15
+            ]
+          ]
+        },
+        "DOI": "10.1109/aann66429.2025.11257606",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2025-12-01T18:23:40Z",
+          "timestamp": 1764613420000
+        },
+        "page": "1-5",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Method for Enhancing Invocation Capabilities in Tool Calling with LLM-as-a-Judge System"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Yinglei",
+            "family": "Shang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Intelligent Network Institute, North China Institute of Computer Systems Engineering,Beijing,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Chunlei",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Intelligent Network Institute, North China Institute of Computer Systems Engineering,Beijing,China"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "article-title": "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs[C]",
+            "volume-title": "The Twelfth International Conference on Learning Representations",
+            "author": "Qin",
+            "key": "ref1"
+          },
+          {
+            "key": "ref2",
+            "first-page": "38154",
+            "article-title": "Hugginggpt: Solving ai tasks with chatgpt and its friends in hugging face[J]",
+            "volume": "36",
+            "author": "Shen",
+            "year": "2023",
+            "journal-title": "Advances in Neural Information Processing Systems"
+          },
+          {
+            "key": "ref3",
+            "article-title": "Restgpt: Connecting large language models with real-world restful apis[J]",
+            "author": "Song",
+            "year": "2023",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref4",
+            "article-title": "Tptu: Task planning and tool usage of large language model-based ai agents[C]",
+            "volume-title": "NeurIPS 2023 Foundation Models for Decision Making Workshop.",
+            "author": "Ruan",
+            "year": "2023"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-031-73254-6_6"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Toolnet: Connecting large language models with massive tools via tool graph[J]",
+            "author": "Liu",
+            "year": "2024",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Tool documentation enables zero-shot tool-usage with large language models[J]",
+            "author": "Hsieh",
+            "year": "2023",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.findings-naacl.22"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.naacl-long.44"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Llms-as-judges: a comprehensive survey on llm-based evaluation methods[J]",
+            "author": "Li",
+            "year": "2024",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref11",
+            "article-title": "Prometheus: Inducing fine-grained evaluation capability in language models[C]",
+            "volume-title": "The Twelfth International Conference on Learning Representations",
+            "author": "Kim",
+            "year": "2023"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/TASLPRO.2025.3587460"
+          },
+          {
+            "key": "ref13",
+            "article-title": "Self-judge: Selective instruction following with alignment self-evaluation[J]",
+            "author": "Ye",
+            "year": "2024",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref14",
+            "article-title": "Towards reasoning in large language models via multi-agent peer review collaboration[J]",
+            "author": "Xu",
+            "year": "2023",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.findings-emnlp.624"
+          }
+        ],
+        "event": {
+          "name": "2025 5th\u00a0International Conference on Advanced Algorithms and Neural Networks (AANN)",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                8,
+                15
+              ]
+            ]
+          },
+          "location": "Qingdao, China",
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                8,
+                17
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 5th International Conference on Advanced Algorithms and Neural Networks (AANN)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11253536/11257578/11257606.pdf?arnumber=11257606",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              2
+            ]
+          ],
+          "date-time": "2025-12-02T06:26:05Z",
+          "timestamp": 1764656765000
+        },
+        "score": 24.762854,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11257606/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              15
+            ]
+          ]
+        },
+        "references-count": 15,
+        "URL": "https://doi.org/10.1109/aann66429.2025.11257606",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              15
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T20:28:11Z",
+          "timestamp": 1793996891594,
+          "version": "4.8.0"
+        },
+        "reference-count": 15,
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "name": "independently"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "IEEE Data Descr."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "DOI": "10.1109/ieeedata.2026.3742501",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T19:08:08Z",
+          "timestamp": 1791832088000
+        },
+        "page": "743-751",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Descriptor: LLM-Based Feature Engineering in Energy Systems Tool-Calling Dataset (AutoFEnergy)"
+        ],
+        "prefix": "10.1109",
+        "volume": "3",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-7342-2999",
+            "authenticated-orcid": false,
+            "given": "Jin",
+            "family": "Yi",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Hohai University",
+                "place": [
+                  "Nanjing, China"
+                ],
+                "department": [
+                  "Key Laboratory of Ministry of Education for Geomechanics and Embankment Engineering"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1732-1156",
+            "authenticated-orcid": false,
+            "given": "Zihang",
+            "family": "Qiu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of New South Wales Sydney",
+                "place": [
+                  "Sydney, NSW, Australia"
+                ],
+                "department": [
+                  "School of Electrical Engineering and Telecommunications"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0380-8780",
+            "authenticated-orcid": false,
+            "given": "Yuedong",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Hohai University",
+                "place": [
+                  "Nanjing, China"
+                ],
+                "department": [
+                  "Key Laboratory of Ministry of Education for Geomechanics and Embankment Engineering"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9438-0424",
+            "authenticated-orcid": false,
+            "given": "Jian",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Hohai University",
+                "place": [
+                  "Nanjing, China"
+                ],
+                "department": [
+                  "Key Laboratory of Ministry of Education for Geomechanics and Embankment Engineering"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3115-1202",
+            "authenticated-orcid": false,
+            "given": "Pingyang",
+            "family": "Sun",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of New South Wales Sydney",
+                "place": [
+                  "Sydney, NSW, Australia"
+                ],
+                "department": [
+                  "School of Electrical Engineering and Telecommunications"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.engappai.2026.115728"
+          },
+          {
+            "key": "ref2",
+            "article-title": "GPT-signal: Generative AI for semi-automated feature engineering in the alpha research process",
+            "author": "Wang",
+            "year": "2024"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-1938"
+          },
+          {
+            "key": "ref4",
+            "article-title": "LLM-select: Feature selection with large language models",
+            "author": "Jeong",
+            "year": "2024"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10994-025-06867-1"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Efficient model selection for time series forecasting via LLMs",
+            "author": "Wei",
+            "year": "2025"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.24963/ijcai.2025/782"
+          },
+          {
+            "key": "ref8",
+            "article-title": "AlphaQuant: LLM-driven automated robust feature engineering for quantitative finance",
+            "author": "Yuksel",
+            "year": "2025",
+            "journal-title": "SSRN"
+          },
+          {
+            "key": "ref9",
+            "article-title": "LLM with tools: A survey",
+            "author": "Shen",
+            "year": "2024"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.emnlp-main.929"
+          },
+          {
+            "key": "ref11",
+            "article-title": "Qwen2.5-72B-Instruct"
+          },
+          {
+            "key": "ref12",
+            "article-title": "Qwen2.5-7B-Instruct"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/s41467-023-43713-1"
+          },
+          {
+            "key": "ref14",
+            "article-title": "Rethinking interpretability in the era of large language models",
+            "author": "Singh",
+            "year": "2024"
+          },
+          {
+            "key": "ref15",
+            "article-title": "AutoF Energy\u2014Synthetic Data Used to Teach LLM Feature Engineering for Energy",
+            "author": "Qiu",
+            "year": "2025"
+          }
+        ],
+        "container-title": [
+          "IEEE Data Descriptions"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/10347231/11297892/11732611.pdf?arnumber=11732611",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T20:12:30Z",
+          "timestamp": 1793995950000
+        },
+        "score": 24.051771,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11732611/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 15,
+        "URL": "https://doi.org/10.1109/ieeedata.2026.3742501",
+        "ISSN": [
+          "2995-4274"
+        ],
+        "issn-type": [
+          {
+            "value": "2995-4274",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T05:19:12Z",
+          "timestamp": 1787807952043,
+          "version": "build-2784847793"
+        },
+        "reference-count": 34,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "funder": [
+          {
+            "name": "National Natural Science Foundation of China"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1109/iwqos70441.2026.11661202",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              26
+            ]
+          ],
+          "date-time": "2026-08-26T19:12:14Z",
+          "timestamp": 1787771534000
+        },
+        "page": "1-6",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "DelAct: A Replayable Boundary Runtime for Auditable and Governed LLM Agent Workflows"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Yuanbo",
+            "family": "Zhang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Sun Yat-sen University"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hanlong",
+            "family": "Liao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "National University of Defense Technology"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Deke",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sun Yat-sen University"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Guoming",
+            "family": "Tang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "The Hong Kong University of Science and Technology (Guangzhou)"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "article-title": "Phoenix: Ai observability & evaluation. Opensource LLM tracing and evaluation platform",
+            "author": "AI"
+          },
+          {
+            "key": "ref2",
+            "article-title": "Ng Wee Keong, Kasun De Zoysa, Aruna Withanage, and Nilaan Loganathan. A practical guide for designing, developing, and deploying production-grade agentic ai workflows",
+            "author": "Bandara",
+            "year": "2025"
+          },
+          {
+            "key": "ref3",
+            "article-title": "Alas: A stateful multi1lm agent framework for disruption-aware planning",
+            "author": "Chang",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2505.12501"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.14778/3750601.3750611"
+          },
+          {
+            "key": "ref5",
+            "article-title": "Software. Citation metadata in CITATION.cff",
+            "year": "2022"
+          },
+          {
+            "key": "ref6",
+            "article-title": "Murakkab: Resourceefficient agentic workflow orchestration in cloud platforms",
+            "author": "Chaudhry",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2508.18298"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Agentverse: Facilitating multi-agent collaboration and exploring emergent behaviors",
+            "author": "Chen",
+            "year": "2024",
+            "journal-title": "ICLR"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3706598.3713581"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/INFOCOMWKSHPS61880.2024.10620727"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Get experience from practice",
+            "author": "Feng",
+            "year": "2025",
+            "journal-title": "Llm agents with record & replay. arXiv preprint arXiv:2505.17716"
+          },
+          {
+            "key": "ref11",
+            "article-title": "Metagpt: Meta programming for a multi-agent collaborative framework",
+            "author": "Hong",
+            "year": "2024",
+            "journal-title": "ICLR"
+          },
+          {
+            "key": "ref12",
+            "article-title": "Agent operating systems (agent-os): A blueprint architecture for real-time, secure, and scalable ai agents. Preprints.org",
+            "author": "Koubaa",
+            "year": "2025"
+          },
+          {
+            "key": "ref13",
+            "article-title": "LLM/Agent observability and evaluation platform (General Availability announcement and documentation)",
+            "year": "2024"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/electronics15010056"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2264"
+          },
+          {
+            "key": "ref16",
+            "article-title": "Flow: Modularized agentic workflow automation",
+            "author": "Niu",
+            "year": "2025",
+            "journal-title": "ICLR"
+          },
+          {
+            "key": "ref17",
+            "first-page": "2026",
+            "article-title": "Opentelemetry specification. Specification and standards for telemetry (traces, metrics, logs); release v1",
+            "author": "Authors",
+            "year": "2026"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3390/info16020087"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2997"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-0377"
+          },
+          {
+            "key": "ref21",
+            "volume-title": "Significant Gravitas. Autogpt. Software. Metadata in CITATION."
+          },
+          {
+            "key": "ref22",
+            "article-title": "Trade in minutes! rationality-driven agentic system for quantitative financial trading",
+            "author": "Song",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2510.04787"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/eScience65000.2025.00093"
+          },
+          {
+            "key": "ref24",
+            "article-title": "Audit the whisper: Detecting steganographic collusion in multi-agent llms",
+            "author": "Tailor",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2510.04303"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/INFOCOMWKSHPS61880.2024.10620745"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.findings-acl.259"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/068431-1800"
+          },
+          {
+            "key": "ref28",
+            "article-title": "Autogen: Enabling nextgen llm applications via multi-agent conversation",
+            "volume-title": "ICLR Workshop on LLM Agents",
+            "author": "Wu"
+          },
+          {
+            "key": "ref29",
+            "article-title": "Autogen: Enabling next-gen 1lm applications via multi-agent conversation",
+            "author": "Wu",
+            "year": "2023"
+          },
+          {
+            "key": "ref30",
+            "article-title": "React: Synergizing reasoning and acting in language models",
+            "volume-title": "International Conference on Learning Representations (ICLR)",
+            "author": "Yao"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/079017-4354"
+          },
+          {
+            "key": "ref32",
+            "article-title": "The desktop agentos",
+            "author": "Zhang",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2504.14603"
+          },
+          {
+            "key": "ref33",
+            "article-title": "Automating agentic workflow generation",
+            "author": "Zhang",
+            "year": "2025",
+            "journal-title": "ICLR"
+          },
+          {
+            "key": "ref34",
+            "article-title": "Llmsched: Uncertainty-aware workload scheduling for compound llm applications",
+            "author": "Botao",
+            "year": "2025",
+            "journal-title": "arXiv preprint arXiv:2504.03444"
+          }
+        ],
+        "event": {
+          "name": "2026 IEEE/ACM International Symposium on Quality of Service (IWQoS)",
+          "location": "Istanbul, Turkiye",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                29
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                2
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 IEEE/ACM International Symposium on Quality of Service (IWQoS)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11660881/11661011/11661202.pdf?arnumber=11661202",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T04:43:15Z",
+          "timestamp": 1787805795000
+        },
+        "score": 24.010452,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11661202/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "references-count": 34,
+        "URL": "https://doi.org/10.1109/iwqos70441.2026.11661202",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              12
+            ]
+          ],
+          "date-time": "2026-11-12T21:31:12Z",
+          "timestamp": 1794519072356,
+          "version": "4.9.1"
+        },
+        "reference-count": 0,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/tdmrep.html"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1109/acsos-c70952.2026.00055",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              12
+            ]
+          ],
+          "date-time": "2026-11-12T20:55:31Z",
+          "timestamp": 1794516931000
+        },
+        "page": "208-213",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Security Assurance Cases as a Runtime Compliance Check on an LLM Adaptation Planning"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Logan",
+            "family": "Quirk",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "University of Tulsa",
+                "place": [
+                  "Tulsa, OK"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Rose",
+            "family": "Gamble",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Tulsa",
+                "place": [
+                  "Tulsa, OK"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "event": {
+          "name": "2026 IEEE International Conference on Autonomic Computing and Self-Organizing Systems Companion (ACSOS-C)",
+          "location": "Cesena, Italy",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                7
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                9,
+                11
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 IEEE International Conference on Autonomic Computing and Self-Organizing Systems Companion (ACSOS-C)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11766165/11767785/11767929.pdf?arnumber=11767929",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              12
+            ]
+          ],
+          "date-time": "2026-11-12T20:55:31Z",
+          "timestamp": 1794516931000
+        },
+        "score": 23.924034,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11767929/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.1109/acsos-c70952.2026.00055",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              8
+            ]
+          ],
+          "date-time": "2026-10-08T06:50:41Z",
+          "timestamp": 1791442241812,
+          "version": "4.3.3"
+        },
+        "reference-count": 39,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1109/icws72778.2026.11718616",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              7
+            ]
+          ],
+          "date-time": "2026-10-07T19:09:17Z",
+          "timestamp": 1791400157000
+        },
+        "page": "1549-1560",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Beyond Static Guardrails: Auditable Surgical Output Control for Agentic LLM Workflows"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Lara",
+            "family": "Mauri",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Universit\u00e0 degli Studi di Milano",
+                "place": [
+                  "Milan, Italy"
+                ],
+                "department": [
+                  "Department of Computer Science"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ernesto",
+            "family": "Damiani",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Universit\u00e0 degli Studi di Milano - Mooncloud s.r.l.",
+                "place": [
+                  "Milan, Italy"
+                ],
+                "department": [
+                  "Department of Computer Science"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/N19-1063"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2020.emnlp-main.154"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1162/tacl_a_00434"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1162/coli_a_00524"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.realm-1.13"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s40860-020-00109-y"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1017/S0047404507070030"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10994-025-06862-6"
+          },
+          {
+            "key": "ref9",
+            "article-title": "Biasfreebench: a benchmark for mitigating bias in large language model responses",
+            "author": "Xu",
+            "year": "2025",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.acl-long.553"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.naacl-long.114"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.emnlp-main.1513"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2196/84322"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.emnlp-main.874"
+          },
+          {
+            "key": "ref15",
+            "article-title": "Man is to computer programmer as woman is to homemaker? debiasing word embeddings",
+            "volume": "29",
+            "author": "Bolukbasi",
+            "year": "2016",
+            "journal-title": "Advances in neural information processing systems"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1126/science.aal4230"
+          },
+          {
+            "key": "ref17",
+            "article-title": "In-context learning and induction heads",
+            "author": "Olsson",
+            "year": "2022",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref18",
+            "article-title": "Representation engineering: A top-down approach to ai transparency",
+            "author": "Zou",
+            "year": "2023",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/068431-1262"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.nlp4science-1.1"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.findings-acl.200"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CAI68641.2026.11536280"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10462-025-11389-2"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.emnlp-main.1010"
+          },
+          {
+            "key": "ref25",
+            "first-page": "6067",
+            "article-title": "Trusting what you cannot see: Auditable Fine-Tuning and inference for proprietary AI",
+            "volume-title": "35th USENIX Security Symposium (USENIX Security 26). USENIX Association",
+            "author": "Jin",
+            "year": "2026"
+          },
+          {
+            "key": "ref26",
+            "article-title": "Audit trails for accountability in large language models",
+            "author": "Ojewale",
+            "year": "2026",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref27",
+            "article-title": "Confidential inference systems: Design principles and security risks",
+            "volume-title": "Anthropic and Pattern Labs, Tech. Rep.",
+            "year": "2025"
+          },
+          {
+            "key": "ref28",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1515/9781400881970-018"
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3321/j.issn:0529-6579.2007.z1.029"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1073/pnas.1611835114"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/FLLM67465.2025.11391029"
+          },
+          {
+            "key": "ref32",
+            "article-title": "Direct shapley approximation scales! attribution via symmetric chain decompositions of the subset lattice",
+            "author": "Mauri",
+            "year": "2026",
+            "journal-title": "IEEE Smart World Congress (SWC)"
+          },
+          {
+            "key": "ref33",
+            "article-title": "Debest 2023 - cadenabbia agenda - trust and well being in our digital age",
+            "volume-title": "DEBEST Think-Tank Conference, Tech. Rep.",
+            "volume": "11",
+            "author": "Anda",
+            "year": "2023"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2020"
+          },
+          {
+            "key": "ref35",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/MIC.2023.3322327"
+          },
+          {
+            "key": "ref36",
+            "article-title": "Mamba: Linear-time sequence modeling with selective state spaces",
+            "author": "Gu",
+            "year": "2023",
+            "journal-title": "arXiv preprint"
+          },
+          {
+            "key": "ref37",
+            "first-page": "10041",
+            "article-title": "Transformers are SSMs: Generalized models and efficient algorithms through structured state space duality",
+            "volume-title": "Proceedings of the 41st International Conference on Machine Learning, ser. Proceedings of Machine Learning Research",
+            "volume": "235",
+            "author": "Dao",
+            "year": "2024"
+          },
+          {
+            "key": "ref38",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2023.findings-emnlp.936"
+          },
+          {
+            "key": "ref39",
+            "article-title": "RWKV-7 \u201cgoose",
+            "volume-title": "with expressive dynamic state evolution",
+            "author": "Peng",
+            "year": "2025"
+          }
+        ],
+        "event": {
+          "name": "2026 IEEE International Conference on Web Services (ICWS)",
+          "location": "Sydney, Australia",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                13
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                18
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 IEEE International Conference on Web Services (ICWS)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11670018/11670022/11718616.pdf?arnumber=11718616",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              8
+            ]
+          ],
+          "date-time": "2026-10-08T06:09:07Z",
+          "timestamp": 1791439747000
+        },
+        "score": 23.825304,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11718616/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "references-count": 39,
+        "URL": "https://doi.org/10.1109/icws72778.2026.11718616",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              12
+            ]
+          ],
+          "date-time": "2026-09-12T06:08:38Z",
+          "timestamp": 1789193318554,
+          "version": "build-2803163510"
+        },
+        "reference-count": 18,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  1
+                ]
+              ],
+              "date-time": "2026-07-01T00:00:00Z",
+              "timestamp": 1782864000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1109/lmiat70705.2026.11682536",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              11
+            ]
+          ],
+          "date-time": "2026-09-11T19:12:39Z",
+          "timestamp": 1789153959000
+        },
+        "page": "52-56",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "LLM-as-Tool-Maker: Automatic Generation and Validation of Tool Definitions for Novel Tasks Beyond Predefined API Boundaries"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Changqing",
+            "family": "Dong",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "first-page": "9459",
+            "article-title": "Retrieval-augmented generation for knowledge-intensive nlp tasks",
+            "volume": "33",
+            "author": "Lewis",
+            "year": "2020",
+            "journal-title": "Advances in Neural Information Processing Systems"
+          },
+          {
+            "key": "ref2",
+            "article-title": "ReAct: Synergizing reasoning and acting in language models",
+            "volume-title": "International Conference on Learning Representations",
+            "author": "Yao"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2997"
+          },
+          {
+            "key": "ref4",
+            "article-title": "ToolLLM: Facilitating large language models to master 16000+ real-world apis",
+            "volume-title": "International Conference on Learning Representations",
+            "author": "Qin"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/AIEA66061.2025.11160531"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/RAIIC65850.2025.11170170"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICAICE68195.2025.11382503"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICAICE68195.2025.11382404"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICBASE66587.2025.11181270"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/CBASE67452.2025.11335561"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1561/2500000010"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2019"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-0377"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICMLCA66850.2025.11336788"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICBASE70763.2026.11619420"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICAICE68195.2025.11382312"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICNCIS67521.2025.11296031"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3773365.3773410"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)",
+          "location": "Hangzhou, China",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                17
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                19
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11682030/11682085/11682536.pdf?arnumber=11682536",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              12
+            ]
+          ],
+          "date-time": "2026-09-12T05:22:52Z",
+          "timestamp": 1789190572000
+        },
+        "score": 23.785301,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11682536/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        },
+        "references-count": 18,
+        "URL": "https://doi.org/10.1109/lmiat70705.2026.11682536",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              19
+            ]
+          ],
+          "date-time": "2026-09-19T11:10:26Z",
+          "timestamp": 1789816226663,
+          "version": "4.0.1"
+        },
+        "reference-count": 17,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  29
+                ]
+              ],
+              "date-time": "2025-10-29T00:00:00Z",
+              "timestamp": 1761696000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  10,
+                  29
+                ]
+              ],
+              "date-time": "2025-10-29T00:00:00Z",
+              "timestamp": 1761696000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              29
+            ]
+          ]
+        },
+        "DOI": "10.1109/aict67988.2025.11268754",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              8
+            ]
+          ],
+          "date-time": "2025-12-08T18:38:34Z",
+          "timestamp": 1765219114000
+        },
+        "page": "1-7",
+        "source": "Crossref",
+        "is-referenced-by-count": 8,
+        "title": [
+          "Enhancing LLM Code Generation: A Systematic Evaluation of Multi-Agent Collaboration and Runtime Debugging for Accuracy, Reliability, and Latency"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Nazmus",
+            "family": "Ashrafi",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "United Arab Emirates University,Department of Computer Science and Software Engineering,Al Ain,United Arab Emirates"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Salah",
+            "family": "Bouktif",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "United Arab Emirates University,Department of Computer Science and Software Engineering,Al Ain,United Arab Emirates"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mohammed",
+            "family": "Mediani",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "United Arab Emirates University,Department of Computer Science and Software Engineering,Al Ain,United Arab Emirates"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s10515-019-00256-4"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/2555596"
+          },
+          {
+            "key": "ref3",
+            "author": "Chen",
+            "year": "2021",
+            "journal-title": "Evaluating large language models trained on code"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICWS.2017.30"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3649825"
+          },
+          {
+            "key": "ref6",
+            "article-title": "A survey on llm inference-time self-improvement",
+            "author": "Dong",
+            "year": "2024"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3672459"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ACCESS.2025.3574462"
+          },
+          {
+            "key": "ref9",
+            "author": "Hu",
+            "year": "2024",
+            "journal-title": "Leveraging print debugging to improve code generation in large language models"
+          },
+          {
+            "key": "ref10",
+            "article-title": "Agentcoder: Multi-agent-based code generation with iterative testing and optimisation",
+            "author": "Huang",
+            "year": "2023"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.acl-long.269"
+          },
+          {
+            "key": "ref12",
+            "author": "Jin",
+            "year": "2024",
+            "journal-title": "From llms to llm-based agents for software engineering: A survey of current, challenges and future"
+          },
+          {
+            "key": "ref13",
+            "article-title": "Lingming Zhang. Is your code generated by chatgpt really correct? rigorous evaluation of large language models for code generation",
+            "author": "Liu",
+            "journal-title": "Online repository"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICWS.2017.62"
+          },
+          {
+            "key": "ref15",
+            "author": "Qian",
+            "year": "2024",
+            "journal-title": "Scaling large-language-model-based multi-agent collaboration"
+          },
+          {
+            "key": "ref16",
+            "author": "Zhang",
+            "year": "2023",
+            "journal-title": "Unifying the perspectives of nlp and software engineering: A survey on language models for code"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.findings-acl.49"
+          }
+        ],
+        "event": {
+          "name": "2025 IEEE 19th International Conference on Application of Information and Communication Technologies (AICT)",
+          "location": "Al Ain, United Arab Emirates",
+          "start": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                29
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2025,
+                10,
+                31
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2025 IEEE 19th International Conference on Application of Information and Communication Technologies (AICT)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11268481/11268552/11268754.pdf?arnumber=11268754",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              9
+            ]
+          ],
+          "date-time": "2025-12-09T06:29:32Z",
+          "timestamp": 1765261772000
+        },
+        "score": 23.682957,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11268754/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              29
+            ]
+          ]
+        },
+        "references-count": 17,
+        "URL": "https://doi.org/10.1109/aict67988.2025.11268754",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              29
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2026-08-28T05:19:42Z",
+          "timestamp": 1787894382677,
+          "version": "build-2784847793"
+        },
+        "reference-count": 27,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  6,
+                  1
+                ]
+              ],
+              "date-time": "2026-06-01T00:00:00Z",
+              "timestamp": 1780272000000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1109/dcoss-iot69657.2026.00163",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              27
+            ]
+          ],
+          "date-time": "2026-08-27T19:14:45Z",
+          "timestamp": 1787858085000
+        },
+        "page": "1059-1066",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "An Organization-Scoped LLM Agent Runtime Architecture for Regulated Cybersecurity Operations"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "George",
+            "family": "Fatouros",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Innov-Acts Ltd",
+                "place": [
+                  "Nicosia, Cyprus"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Georgios",
+            "family": "Makridis",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Piraeus",
+                "place": [
+                  "Athens, Greece"
+                ],
+                "department": [
+                  "Dept. of Digital Systems"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "George",
+            "family": "Kousiouris",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Harokopio University",
+                "place": [
+                  "Athens, Greece"
+                ],
+                "department": [
+                  "Dept. of Informatics and Telematics"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "John",
+            "family": "Soldatos",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Innov-Acts Ltd",
+                "place": [
+                  "Nicosia, Cyprus"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Dimosthenis",
+            "family": "Kyriazis",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of Piraeus",
+                "place": [
+                  "Athens, Greece"
+                ],
+                "department": [
+                  "Dept. of Digital Systems"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11704-024-40231-1"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1109/ICDMW69685.2025.00105"
+          },
+          {
+            "key": "ref3",
+            "article-title": "A survey on agentic security: Applications, threats and defenses",
+            "author": "Shahriar",
+            "year": "2025"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1109/DCOSS-IoT69657.2026.00161",
+            "article-title": "Cyberaid: Ai-driven cybersecurity for financial service providers",
+            "author": "Fatouros",
+            "year": "2026"
+          },
+          {
+            "key": "ref5",
+            "article-title": "Unrolling the codex agent loop",
+            "year": "2026"
+          },
+          {
+            "key": "ref6",
+            "article-title": "How claude code works",
+            "year": "2026"
+          },
+          {
+            "key": "ref7",
+            "article-title": "Best practices for coding with agents",
+            "year": "2026"
+          },
+          {
+            "key": "ref8",
+            "article-title": "Agent runtimes",
+            "year": "2026"
+          },
+          {
+            "key": "ref9",
+            "article-title": "Autogen: Enabling next-gen llm applications via multi-agent conversations",
+            "volume-title": "First Conference on Language Modeling",
+            "author": "Wu"
+          },
+          {
+            "key": "ref10",
+            "article-title": "ReAct: Synergizing reasoning and acting in language models",
+            "volume-title": "Proceedings of the International Conference on Learning Representations (ICLR 2023)",
+            "author": "Yao"
+          },
+          {
+            "key": "ref11",
+            "first-page": "9459",
+            "article-title": "Retrieval-augmented generation for knowledge-intensive nlp tasks",
+            "volume": "33",
+            "author": "Lewis",
+            "year": "2020",
+            "journal-title": "Advances in Neural Information Processing Systems"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/068431-1800"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s00521-024-10613-4"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2997"
+          },
+          {
+            "key": "ref15",
+            "article-title": "LLM agents can autonomously exploit one-day vulnerabilities",
+            "author": "Fang",
+            "year": "2024"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2026.eacl-long.2"
+          },
+          {
+            "key": "ref17",
+            "article-title": "IRIS: LLM-assisted static analysis for detecting security vulnerabilities",
+            "author": "Li",
+            "year": "2024"
+          },
+          {
+            "key": "ref18",
+            "article-title": "Ids-agent: An llm agent for explainable intrusion detection in iot networks",
+            "author": "Li",
+            "year": "2024",
+            "journal-title": "NeurIPS 2024 Workshop on Open-World Agents"
+          },
+          {
+            "key": "ref19",
+            "article-title": "CORTEX: Collaborative LLM agents for high-stakes alert triage",
+            "author": "Wei",
+            "year": "2025"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.future.2025.108186"
+          },
+          {
+            "key": "ref21",
+            "article-title": "CTIKG: LLM-powered knowledge graph construction from cyber threat intelligence",
+            "volume-title": "Proceedings of the First Conference on Language Modeling (COLM 2024)",
+            "author": "Huang"
+          },
+          {
+            "key": "ref22",
+            "first-page": "793",
+            "article-title": "KnowPhish: Large language models meet multimodal knowledge graphs for enhancing reference-based phishing detection",
+            "volume-title": "33rd USENIX Security Symposium (USENIX Security 24)",
+            "author": "Li"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.inffus.2025.103941"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.icte.2025.12.001"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3773080"
+          },
+          {
+            "key": "ref26",
+            "article-title": "Security best practices",
+            "year": "2026"
+          },
+          {
+            "key": "ref27",
+            "article-title": "Threatmodeling-llm: Automating threat modeling using large language models for banking system",
+            "author": "Wu",
+            "year": "2024"
+          }
+        ],
+        "event": {
+          "name": "2026 22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)",
+          "location": "Reykjavik, Iceland",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                22
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                6,
+                24
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11659335/11659317/11659490.pdf?arnumber=11659490",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2026-08-28T05:00:16Z",
+          "timestamp": 1787893216000
+        },
+        "score": 23.449831,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11659490/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "references-count": 27,
+        "URL": "https://doi.org/10.1109/dcoss-iot69657.2026.00163",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              23
+            ]
+          ],
+          "date-time": "2026-09-23T06:02:23Z",
+          "timestamp": 1790143343056,
+          "version": "4.0.1"
+        },
+        "reference-count": 27,
+        "publisher": "IEEE",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  1
+                ]
+              ],
+              "date-time": "2026-03-01T00:00:00Z",
+              "timestamp": 1772323200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  1
+                ]
+              ],
+              "date-time": "2026-03-01T00:00:00Z",
+              "timestamp": 1772323200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  1
+                ]
+              ],
+              "date-time": "2026-03-01T00:00:00Z",
+              "timestamp": 1772323200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1109/ciml69155.2026.11692797",
+        "type": "proceedings-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              22
+            ]
+          ],
+          "date-time": "2026-09-22T19:11:11Z",
+          "timestamp": 1790104271000
+        },
+        "page": "612-616",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Dual-Roofline Runtime Model for Capacity Planning in Shared-Backend LLM Multi-Agent Social Simulation: A Case Study of AgentSociety"
+        ],
+        "prefix": "10.1109",
+        "author": [
+          {
+            "given": "Xiaoyang",
+            "family": "Chang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Tohoku University",
+                "place": [
+                  "Sendai, Japan"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sichen",
+            "family": "Tao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tohoku University",
+                "place": [
+                  "Sendai, Japan"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Masatoshi",
+            "family": "Kawai",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tohoku University",
+                "place": [
+                  "Sendai, Japan"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hiroyuki",
+            "family": "Takizawa",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tohoku University",
+                "place": [
+                  "Sendai, Japan"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "263",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3586183.3606763"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1057/s41599-024-03611-3"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.2139/ssrn.4607026",
+            "article-title": "S3: Social-network simulation system with large language model-empowered agents",
+            "author": "Gao",
+            "year": "2023"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.acl-industry.94"
+          },
+          {
+            "key": "ref5",
+            "article-title": "OpenCity: A scalable platform to simulate urban activities with massive LLM agents",
+            "author": "Yan",
+            "year": "2024"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2025.naacl-demo.15"
+          },
+          {
+            "key": "ref7",
+            "article-title": "MetaGPT: Meta programming for a multi-agent collaborative framework",
+            "volume-title": "International Conference on Learning Representations",
+            "author": "Hong"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/075280-2264"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18653/v1/2024.acl-long.810"
+          },
+          {
+            "key": "ref10",
+            "article-title": "AgentVerse: Facilitating multi-agent collaboration and exploring emergent behaviors",
+            "volume-title": "International Conference on Learning Representations",
+            "author": "Chen"
+          },
+          {
+            "key": "ref11",
+            "article-title": "AI Metropolis: Scaling large language model-based multi-agent simulation with out-of-order execution",
+            "volume-title": "Proceedings of Machine Learning and Systems",
+            "volume": "7",
+            "author": "Xie"
+          },
+          {
+            "key": "ref12",
+            "article-title": "ScaleSim: Serving large-scale multi-agent simulation with invocation distance-based memory management",
+            "author": "Pan",
+            "year": "2026"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/1498765.1498785"
+          },
+          {
+            "key": "ref14",
+            "first-page": "521",
+            "article-title": "Orca: A distributed serving system for transformer-based generative models",
+            "volume-title": "16th USENIX Symposium on Operating Systems Design and Implementation",
+            "author": "Yu"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/3600006.3613165"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.52202/079017-2000"
+          },
+          {
+            "key": "ref17",
+            "article-title": "Vidur: A large-scale simulation framework for LLM inference",
+            "volume-title": "Proceedings of Machine Learning and Systems",
+            "volume": "6",
+            "author": "Agrawal"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.asoc.2024.111677"
+          },
+          {
+            "key": "ref19",
+            "article-title": "Throughput-optimal scheduling algorithms for LLM inference and AI agents",
+            "author": "Li",
+            "year": "2025"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.rcim.2024.102942"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.aei.2025.103508"
+          },
+          {
+            "key": "ref22",
+            "article-title": "Autellix: An efficient serving engine for LLM agents as general programs",
+            "author": "Luo",
+            "year": "2025"
+          },
+          {
+            "key": "ref23",
+            "article-title": "AgentSims: An open-source sandbox for large language model evaluation",
+            "author": "Lin",
+            "year": "2023"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5555/3291168.3291210"
+          },
+          {
+            "key": "ref25",
+            "article-title": "High performance simulation for scalable multi-agent reinforcement learning",
+            "author": "Langham-Lopez",
+            "year": "2022"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1145/1465482.1465560"
+          },
+          {
+            "key": "ref27",
+            "article-title": "Smart agent-based modeling: On the use of large language models in computer simulations",
+            "author": "Wu",
+            "year": "2023"
+          }
+        ],
+        "event": {
+          "name": "2026 International Conference on Computational Intelligence and Machine Learning (CIML)",
+          "location": "Hangzhou, China",
+          "start": {
+            "date-parts": [
+              [
+                2026,
+                3,
+                27
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2026,
+                3,
+                29
+              ]
+            ]
+          }
+        },
+        "container-title": [
+          "2026 International Conference on Computational Intelligence and Machine Learning (CIML)"
+        ],
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/11692671/11692633/11692797.pdf?arnumber=11692797",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              23
+            ]
+          ],
+          "date-time": "2026-09-23T05:18:53Z",
+          "timestamp": 1790140733000
+        },
+        "score": 23.201385,
+        "resource": {
+          "primary": {
+            "URL": "https://ieeexplore.ieee.org/document/11692797/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              3
+            ]
+          ]
+        },
+        "references-count": 27,
+        "URL": "https://doi.org/10.1109/ciml69155.2026.11692797",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              3
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 20,
+    "query": {
+      "start-index": 0,
+      "search-terms": "\"LLM agent\" OR \"tool calling\" \"runtime security\" OR \"guardrails\" OR \"authorization\" OR \"interception\""
+    }
+  }
+}

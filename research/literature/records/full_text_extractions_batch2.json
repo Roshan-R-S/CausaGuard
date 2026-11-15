@@ -1,0 +1,421 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-002",
+      "bibtex_key": "zhang2026overact"
+    },
+    "field_02_bibliographic_record": {
+      "title": "OverAct: Measuring and Mitigating Proactive Over-Authorization in LLM Tool-Calling Agents",
+      "authors": [
+        "Taolin Zhang",
+        "Jiuheng Wan",
+        "Hanyu Wang",
+        "Tingyuan Hu",
+        "Chengyu Wang"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2610.01508v1, 16 pages",
+      "doi": "10.48550/arXiv.2610.01508",
+      "canonical_url": "https://arxiv.org/abs/2610.01508",
+      "arxiv_id": "arXiv:2610.01508v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-002_2610.01508.html",
+        "file_size_bytes": 352092,
+        "sha256": "615DBC908133680966E3E999DF011B6383938BE560E986665DFD6CE6E8AFB448",
+        "inspection_depth": "Complete full text, Sections 1-5, Table 1 (SIR Baselines), Decision-Theoretic Model, Limitations"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Recent preprint on agent authorization and decision-theoretic mitigation.",
+    "field_04_concrete_problem": "Proactive over-authorization: autonomous tool-calling agents frequently request or exercise scopes far broader than necessary to accomplish the user's task, exposing private data and sensitive APIs.",
+    "field_05_agent_architecture_horizon": "Tool-calling agents with multi-turn tool interaction across enterprise workflows.",
+    "field_06_action_space": "Permission requests and tool invocations: GRANT, RESTRICT, FILTER, or REJECT tool execution scope.",
+    "field_07_verifier_noise_delay": "Evaluates Scope Inflation Rate (SIR); in-process SelfAudit filter adds negligible latency (<5ms) without requiring secondary LLM forward passes.",
+    "field_08_primary_method_algorithm": "Decision-Theoretic Scope Optimization. Formalizes permission granting as a cost-utility tradeoff; introduces SelfAudit, an in-process pre-execution verification filter that identifies and strips excess permission scopes (Section 3).",
+    "field_09_formal_assumptions": "Tool parameter schemas define valid functional scopes; excess scopes are identifiable via intent matching; user goal is partially specified.",
+    "field_10_authorization_security_layer": "In-process pre-execution scope filter operating between planner and tool dispatch.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across multiple foundation models on tool-use benchmarks (Section 4, Table 1). SelfAudit reduces privacy-oriented excess scope by 43% without oracle knowledge; one-sided Wilcoxon signed-rank tests confirm statistical significance (p < 0.01).",
+    "field_12_baselines_compared": "Unchecked execution, structured justification prompting, static scope allowlists, oracle scope filter.",
+    "field_13_limitations_failure_modes": "Ablation shows that explicit filtering, rather than structured prompting alone, is the main driver; complex nested tool schemas can result in over-filtering that disrupts legitimate actions (Limitations).",
+    "field_14_disruption_recovery_findings": "Demonstrates that static over-permissioning leads to severe data exposure, but aggressive uncalibrated filtering disrupts valid tool sequences. SelfAudit balances the scope-utility tradeoff.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard's principle of least-privilege tool execution and formalizes the cost of over-authorization. Informs RQ1 & RQ6. Section 3 & 4."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-003",
+      "bibtex_key": "zuvic2026capability"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Capability Gates Are Not Authorization: Confused-Deputy Failures in LLM Agent Frameworks",
+      "authors": [
+        "David Mellafe Zuvic"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2606.28679v1, 14 pages",
+      "doi": "10.48550/arXiv.2606.28679",
+      "canonical_url": "https://arxiv.org/abs/2606.28679",
+      "arxiv_id": "arXiv:2606.28679v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-003_2606.28679.html",
+        "file_size_bytes": 201821,
+        "sha256": "7DE9CE9C14B906BD39138A8B3AEDBDA7A2986B14E218AD04CE28CB9EA2BD29DC",
+        "inspection_depth": "Complete full text, Sections I-VIII, Table I (Cross-Framework Audit), ScopeGate Design & Limitations"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Systems security preprint on agent authorization architectures.",
+    "field_04_concrete_problem": "Confused-deputy vulnerability in LLM frameworks: frameworks implement 'capability gates' (checking whether an agent has permission to call tool T) but fail to enforce per-call value authorization (checking whether tool arguments target authorized resources).",
+    "field_05_agent_architecture_horizon": "Multi-agent frameworks (LangChain, AutoGen, CrewAI); multi-turn tool interaction.",
+    "field_06_action_space": "Binary tool execution decisions: PASS (dispatch tool), REJECT (block invocation), or SCOPE-RESTRICT.",
+    "field_07_verifier_noise_delay": "Fail-closed deterministic ACL check; microsecond-level overhead (<0.5ms); zero false negative rate for out-of-scope resources.",
+    "field_08_primary_method_algorithm": "ScopeGate: a fail-closed reference monitor enforcing fine-grained per-call value authorization over arguments, resource URIs, and user identity, decoupling tool accessibility from operational authority (Section V).",
+    "field_09_formal_assumptions": "Integrator configures resource ACLs; tool arguments can be bound to specific security principals; framework runtime cannot be bypassed by in-process hooks.",
+    "field_10_authorization_security_layer": "Independent reference monitor enforcing fail-closed value authorization at the boundary between agent runtime and underlying APIs.",
+    "field_11_reported_evidence_benchmarks": "Audited major public-source agent frameworks (Section III, Table I): evaluates LangChain, LlamaIndex, and Stripe Agent Toolkit, demonstrating that tested frameworks exhibit confused-deputy vulnerabilities by default when exposed to untrusted tool inputs. Tested ScopeGate control reports 0/48 static bypasses, 0/29 unauthorized adaptive attempts across a 40-iteration adaptive attack run, and 0/10 benign false-denies.",
+    "field_12_baselines_compared": "Public agent frameworks evaluated under standard configurations: LangChain, LlamaIndex, Stripe Agent Toolkit; prompt-based tool restrictions; static role-based access control (RBAC).",
+    "field_13_limitations_failure_modes": "Section VIII explicitly qualifies containment boundaries: 'Containment is not cure. ScopeGate does not prevent prompt injection, detect poisoned weights, repair model behavior, or guarantee safe natural-language outputs. It bounds what a compromised model can do through governed tools. No CVE is asserted; Table I represents hardening and standards evidence.' Also requires developers to formally specify resource and parameter authorization schemas.",
+    "field_14_disruption_recovery_findings": "Demonstrates that coarse capability gating provides an illusion of security while leaving agents vulnerable to prompt injection hijacking; value authorization prevents confused-deputy misuse without disrupting benign authorized tasks.",
+    "field_15_causaguard_relevance": "Direct conceptual foundation for CausaGuard's immutable access grader (`MockState`, `access_grader`): reinforces that capability checks alone are insufficient and independent value-level authorization is mandatory (RQ6). Sections II, V, Table I."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-004",
+      "bibtex_key": "zhao2026clawguard"
+    },
+    "field_02_bibliographic_record": {
+      "title": "ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection",
+      "authors": [
+        "Wei Zhao",
+        "Zhe Li",
+        "Peixin Zhang",
+        "Jun Sun"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2604.11790v2, 18 pages",
+      "doi": "10.48550/arXiv.2604.11790",
+      "canonical_url": "https://arxiv.org/abs/2604.11790",
+      "arxiv_id": "arXiv:2604.11790v2",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-004_2604.11790.html",
+        "file_size_bytes": 526163,
+        "sha256": "38A37818E98CD005BFE2047473C79C3DDC6C8ED6287D768A00FA4E07DAA23034",
+        "inspection_depth": "Complete full text, Sections I-VI, ClawGuard Architecture, Empirical Evaluations, Security Guarantees"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Comprehensive runtime systems and security preprint.",
+    "field_04_concrete_problem": "Vulnerability of tool-augmented agents to indirect prompt injections, tool poisoning in MCP servers, and malicious skill file injections during multi-step execution.",
+    "field_05_agent_architecture_horizon": "Tool-augmented LLM agents interacting with external environments across long horizons.",
+    "field_06_action_space": "Runtime interception: ALLOW, QUARANTINE, REWRITE, or TERMINATE tool invocation.",
+    "field_07_verifier_noise_delay": "Combines dynamic taint tracking with semantic verification; evaluates latency overhead across multi-turn workflows (~20\u201360ms per tool interaction).",
+    "field_08_primary_method_algorithm": "ClawGuard runtime defense. Combines protocol-level isolation, runtime taint tracking across tool return payloads, and pre-execution authorization gates to prevent untrusted tool outputs from hijacking agent control flow (Section III).",
+    "field_09_formal_assumptions": "Operating system and execution runtime are trusted; tool communication occurs via standardized protocols (e.g. MCP); initial user prompt is authentic.",
+    "field_10_authorization_security_layer": "Independent multi-layered runtime reference monitor intercepting tool execution requests and data returns.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on extensive benchmarks including prompt injection test sets, poisoned MCP tools, and multi-step agent scenarios (Section IV). Achieves high attack detection accuracy while maintaining agent task completion rates.",
+    "field_12_baselines_compared": "Model-level fine-tuning (SecAlign), prompt-based defense filters, static delimiter tagging, unprotected baseline agents.",
+    "field_13_limitations_failure_modes": "Protocol-level separation requires ecosystem coordination; semantic taint tracking incurs moderate runtime latency; complex multi-modal tool payloads can evade heuristic parsers (Section VI).",
+    "field_14_disruption_recovery_findings": "Demonstrates that architectural runtime interception prevents catastrophic security hijacking without requiring model fine-tuning; selective quarantine prevents false-alarm task termination.",
+    "field_15_causaguard_relevance": "Provides architectural blueprint for runtime tool interception and quarantine mechanisms in CausaGuard's gateway layer. Informs RQ6 (Threat Models & Security Boundaries). Sections III & IV."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-005",
+      "bibtex_key": "pandey2026local"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Local Allow, Global Deny: Why Per-Action Authorization Does Not Compose in LLM Agents",
+      "authors": [
+        "Anmol Pandey",
+        "Aditya Jain",
+        "Liang Chen",
+        "Carsten Maple"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2610.27620v1, 18 pages",
+      "doi": "10.48550/arXiv.2610.27620",
+      "canonical_url": "https://arxiv.org/abs/2610.27620",
+      "arxiv_id": "arXiv:2610.27620v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-005_2610.27620.html",
+        "file_size_bytes": 459237,
+        "sha256": "8A2B6F11F233BE32213C3CA91A62DDCF22C28301B7411421817CB53602B7CD40",
+        "inspection_depth": "Complete full text, Sections I-VIII, SMT Synthesis (AL-Synth), Monitor Blindness Proofs, Empirical Study"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Formal methods and systems security preprint.",
+    "field_04_concrete_problem": "Compositional Authorization Failures (CAFs): in multi-step agent trajectories, each individual tool action may be locally authorized, yet their sequential composition reaches an unauthorized global system state (e.g. read secret, write to public staging, exfiltrate).",
+    "field_05_agent_architecture_horizon": "Multi-turn sequential agent execution; stateful environments; long-horizon task planning.",
+    "field_06_action_space": "Global trajectory authorization: ALLOW sequence, INTERRUPT sequence, or ENFORCE state-transition invariant.",
+    "field_07_verifier_noise_delay": "SAT/SMT solver verification; verification latency is negligible (<10ms) for bounded state invariants; formal mathematical correctness guarantee.",
+    "field_08_primary_method_algorithm": "AL-Synth: a SAT/SMT synthesizer (using no language model) that emits minimal CAF witnesses. Establishes formal separation results proving that memoryless per-action monitors are provably blind to multi-step compositional attacks (Section V & VI).",
+    "field_09_formal_assumptions": "System state transitions and security policies can be formulated in first-order logic; actions mutate environment state deterministically.",
+    "field_10_authorization_security_layer": "Stateful sequential authorization monitor tracking multi-step execution history rather than stateless per-call gates.",
+    "field_11_reported_evidence_benchmarks": "Empirical study evaluating monitor blindness across frontier LLM agents (Section VIII). Demonstrates that stateless per-action authorization fails to prevent 78%+ of multi-step compositional exploits synthesized by AL-Synth.",
+    "field_12_baselines_compared": "Stateless per-call authorization gates, heuristic trajectory summarizers, prompt-level safety instructions.",
+    "field_13_limitations_failure_modes": "Scaling SMT verification to infinite-state or unstructured environments requires state abstraction; manual invariant specification is required for complex domain logic (Section VIII).",
+    "field_14_disruption_recovery_findings": "Proves theoretically and empirically that stopping attacks requires state-aware sequential invariants; relying on single-action filters either permits severe security violations or, if overly restrictive, halts benign multi-step workflows.",
+    "field_15_causaguard_relevance": "Direct mathematical proof supporting CausaGuard's stateful, sequential supervision model over naive single-step guardrails. Informs RQ4 (Sequential Evaluation) & RQ6 (Constraints). Sections III, V, & VI."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-007",
+      "bibtex_key": "dong2026claws"
+    },
+    "field_02_bibliographic_record": {
+      "title": "The Claws in Plain Sight: Unauthorized Context Disclosure through LLM Agent Tool Calls",
+      "authors": [
+        "Ben Dong",
+        "Zhonghao Guo",
+        "Tianyi Lu",
+        "Qian Wang"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2608.20658v1, 14 pages",
+      "doi": "10.48550/arXiv.2608.20658",
+      "canonical_url": "https://arxiv.org/abs/2608.20658",
+      "arxiv_id": "arXiv:2608.20658v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-007_2608.20658.html",
+        "file_size_bytes": 190180,
+        "sha256": "9E17F0C4DE916B73875CBC24F7B2D3779C6AE2F3229315382723CACD6B9BFA66",
+        "inspection_depth": "Complete full text, Sections 1-8, Threat Model, Claw Evaluation, Provenance Defense"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Privacy and systems security preprint on agent tool leakage.",
+    "field_04_concrete_problem": "Unauthorized context disclosure: agents inadvertently pass private conversational history, system prompts, or authentication tokens as arguments into third-party tools due to authority-conflict information flows.",
+    "field_05_agent_architecture_horizon": "Tool-augmented agents calling external third-party APIs.",
+    "field_06_action_space": "Pre-execution sanitization: DISPATCH, SANITIZE argument, REDACT context, or ABORT tool call.",
+    "field_07_verifier_noise_delay": "Provenance-aware pre-execution monitor; fast regex and taint check (<2ms overhead).",
+    "field_08_primary_method_algorithm": "Authority-Conflict Information Flow Tracking. Formulates disclosure vulnerabilities under authority conflicts and introduces provenance-aware pre-execution monitoring to detect and redact sensitive context before tool transmission (Section 4 & 7).",
+    "field_09_formal_assumptions": "Private context can be tagged at ingestion; tool interfaces distinguish public from private communication endpoints.",
+    "field_10_authorization_security_layer": "Data provenance and privacy-leakage monitor sitting on outbound tool execution channels.",
+    "field_11_reported_evidence_benchmarks": "Empirical evaluation on realistic agent task suites (Section 6). Measures unauthorized disclosure rates across frontier LLMs, showing widespread contextual leakage under standard configurations.",
+    "field_12_baselines_compared": "Unchecked agent execution, static system prompt privacy reminders, simple keyword blacklists.",
+    "field_13_limitations_failure_modes": "Overly broad redaction can strip necessary parameters, causing tool execution errors; implicit semantic context disclosure can evade lexical taint checkers (Section 7).",
+    "field_14_disruption_recovery_findings": "Shows that automated argument redaction prevents data leakage without breaking tool execution when parameters are functionally independent of the leaked context.",
+    "field_15_causaguard_relevance": "Direct empirical evidence for outbound tool sanitization and argument inspection. Informs CausaGuard's data-engineering pilot and security boundaries (RQ6). Sections 4 & 7."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-008",
+      "bibtex_key": "guo2026commands"
+    },
+    "field_02_bibliographic_record": {
+      "title": "When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents",
+      "authors": [
+        "Xiaokun Guo",
+        "Zhen Xu",
+        "Dongdong Huo",
+        "Yanqiu Zhang",
+        "Wei Wang",
+        "Qinfu Yang",
+        "Dongjin Yu",
+        "Yu Wang"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2608.27146v1, 15 pages",
+      "doi": "10.48550/arXiv.2608.27146",
+      "canonical_url": "https://arxiv.org/abs/2608.27146",
+      "arxiv_id": "arXiv:2608.27146v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-008_2608.27146.html",
+        "file_size_bytes": 336024,
+        "sha256": "A3890A82F9DF536876B68B01BD7620FBBE0597AC5704B27F265245C634B07891",
+        "inspection_depth": "Complete full text, Sections 1-6, SARA Architecture, Threat Model, Experimental Setup"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Systems security preprint on agent action induction vs authorization.",
+    "field_04_concrete_problem": "Action induction hijacking: untrusted tool outputs contain imperative commands that LLM planners interpret as authoritative user instructions, inducing unauthorized secondary tool actions.",
+    "field_05_agent_architecture_horizon": "Tool-augmented agents executing multi-turn workflows.",
+    "field_06_action_space": "Decoupled action processing: INDUCE action recommendation vs AUTHORIZE execution.",
+    "field_07_verifier_noise_delay": "Independent authorization arbiter; adds slight deliberation latency (~10\u201330ms).",
+    "field_08_primary_method_algorithm": "SARA: Separating Action Induction from Runtime Authorization. Strictly decouples the cognitive generation of candidate actions (LLM planner) from an independent runtime authorization arbiter that verifies whether candidate actions originate from authentic user goals (Section 4).",
+    "field_09_formal_assumptions": "Authentic user instructions are established at session start; candidate actions must possess a valid provenance path to initial user intent.",
+    "field_10_authorization_security_layer": "Independent runtime authorization arbiter separating LLM action proposals from execution dispatch.",
+    "field_11_reported_evidence_benchmarks": "Evaluated against indirect prompt injection benchmarks and tool-execution testbeds (Section 5). SARA eliminates command-induction exploits while maintaining high benign task execution fidelity.",
+    "field_12_baselines_compared": "Coupled planner-authorizer agents, system prompt defense delimiters, external LLM output monitors.",
+    "field_13_limitations_failure_modes": "In highly dynamic workflows where user instructions legitimately evolve based on tool feedback, SARA may require human-in-the-loop clarification to validate new action branches (Section 6).",
+    "field_14_disruption_recovery_findings": "Demonstrates that coupling action generation with authorization guarantees vulnerability; separating the roles allows safe recovery and prevents tool output data from hijacking control flow.",
+    "field_15_causaguard_relevance": "Directly supports CausaGuard's core architecture: the supervisory controller acts as an independent decision-maker evaluating candidate agent actions without trusting the agent's internal reasoning (RQ6). Sections 4 & 5."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-009",
+      "bibtex_key": "wang2026authgraph"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Aligning Provenance with Authorization: A Dual-Graph Defense for LLM Agents",
+      "authors": [
+        "Peiran Wang",
+        "Ying Li",
+        "Yuan Tian"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2605.26497v1, 16 pages",
+      "doi": "10.48550/arXiv.2605.26497",
+      "canonical_url": "https://arxiv.org/abs/2605.26497",
+      "arxiv_id": "arXiv:2605.26497v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-009_2605.26497.html",
+        "file_size_bytes": 299340,
+        "sha256": "FF003B1E43EE583309DD9CDAB956EA44B08D59F8572AAB891DB0E126AD3EFBEF",
+        "inspection_depth": "Complete full text, Sections 1-5, AuthGraph System Design, Benchmark Evaluation, Case Studies"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Graph-theoretic systems security preprint for autonomous agents.",
+    "field_04_concrete_problem": "Lack of fine-grained provenance alignment: untrusted data flows contaminate agent execution graphs, causing agents to execute sensitive tools on behalf of unverified data sources.",
+    "field_05_agent_architecture_horizon": "Complex multi-tool LLM agents executing DAG-structured or conversational workflows.",
+    "field_06_action_space": "Graph alignment check: EXECUTE tool, RESTRICT data flow, or HALT execution branch.",
+    "field_07_verifier_noise_delay": "Graph isomorphism and reachability verification; operates with low graph-traversal latency (<5ms).",
+    "field_08_primary_method_algorithm": "AuthGraph: A dual-graph defense maintaining simultaneous data-flow and authorization-provenance graphs. Enforces graph-reachability constraints before permitting sensitive tool invocation (Section 3).",
+    "field_09_formal_assumptions": "Data transfers between tools can be intercepted and tagged; security policies map permissible data sources to authorized sinks.",
+    "field_10_authorization_security_layer": "Dual-graph reference monitor intercepting all inter-tool data communications.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on multi-tool workflow benchmarks and real-world API testbeds (Section 4). Effectively thwarts indirect prompt injection and unauthorized cross-service data exfiltration.",
+    "field_12_baselines_compared": "Single-graph taint tracking, prompt-based instruction tracking, baseline agent frameworks.",
+    "field_13_limitations_failure_modes": "Graph explosion in very long-horizon multi-agent conversations; requires instrumentation of tool communication channels (Section 5).",
+    "field_14_disruption_recovery_findings": "Confirms that aligning provenance with authorization prevents attacks without the false-positive disruption caused by blanket data-blocking filters.",
+    "field_15_causaguard_relevance": "Direct architectural parallel to CausaGuard's stateful execution modeling and DAG-based dependency tracking in multi-agent workflows. Informs RQ4 & RQ6. Section 3."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-010",
+      "bibtex_key": "zhang2026persistent"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Persistent Billable State: Denial-of-Wallet Attacks and Defenses in Tool-Calling LLM Agents",
+      "authors": [
+        "Jinqian Zhang",
+        "Haojun Xia",
+        "Shujiang Wu",
+        "Jingkun Yue",
+        "Xia Zhang",
+        "Zhangpei Cheng",
+        "Bibo Tu"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2609.28585v1, 16 pages",
+      "doi": "10.48550/arXiv.2609.28585",
+      "canonical_url": "https://arxiv.org/abs/2609.28585",
+      "arxiv_id": "arXiv:2609.28585v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-010_2609.28585.html",
+        "file_size_bytes": 408585,
+        "sha256": "A2D4AD19FDA9E4E4530792992C49A3E4D147E05EE523C927724E4FA388DDE655",
+        "inspection_depth": "Complete full text, Sections 1-8, Table 1 (DoW Taxonomy V0-V5), Attack Evaluation, Cost Defense"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Economic and availability security preprint for LLM agents.",
+    "field_04_concrete_problem": "Denial-of-Wallet (DoW) attacks: malicious inputs induce tool-calling agents to execute redundant, infinite, or high-cost API calls and generate massive token outputs, causing catastrophic financial exhaustion.",
+    "field_05_agent_architecture_horizon": "Tool-calling agents with billing/API metering across long-horizon sessions.",
+    "field_06_action_space": "Economic rate limiting: DISPATCH tool, THROTTLE rate, CAP budget, or TERMINATE session.",
+    "field_07_verifier_noise_delay": "Economic budget tracking and algorithmic cycle detection; zero latency overhead.",
+    "field_08_primary_method_algorithm": "Economic Defense Framework for Tool-Calling Agents. Systematizes six DoW attack vectors (V0\u2013V5; Section 4, Table 1); combines dynamic token budgeting, execution cycle detection, and progressive cost caps to mitigate billable exhaustion (Section 7).",
+    "field_09_formal_assumptions": "Tool invocations have measurable financial or token costs; user defines maximum session budget.",
+    "field_10_authorization_security_layer": "Economic metering and budget gate standing between planner and billed external APIs.",
+    "field_11_reported_evidence_benchmarks": "Evaluated against Denial-of-Wallet (DoW) attack vectors on tool-calling benchmarks (Section 6, Finding 1 & Section 7/8). Attack exposure reaches $3.404 and 14,293x Cost Amplification Factor (CAF_tok), with 51/69 priced attack sessions crossing the $0.10 circuit-breaker threshold (versus a $0.025 benign maximum). Evaluates host-side enforcement kernel (D1 token delta cap, D2 cost circuit breaker, D3 cycle detector, D4 progress utility gate). The four-gate defense stops all 123 recorded attack sequences in frozen replay while preserving 10/12 and 11/12 history-dependent benign tasks.",
+    "field_12_baselines_compared": "Undefended agents, unmetered tool execution, isolated individual defense gates (D1 only, D2 only, D3 only, D4 only), and static execution timeouts.",
+    "field_13_limitations_failure_modes": "Host-side enforcement kernel cannot detect semantic deception that stays within nominal budget envelopes without external verification; progress utility gate can prematurely terminate 1-2/12 long-horizon benign tasks if progress delta stalls (Section 8 & 9).",
+    "field_14_disruption_recovery_findings": "Confirms that naive step caps disrupt viable long-horizon tasks, whereas dynamic cost-aware budgeting preserves task completion while capping financial loss.",
+    "field_15_causaguard_relevance": "Direct empirical evidence supporting CausaGuard's formal verification cost model and latency/economic SLA penalties. Informs RQ2 (Value of Information & Cost) and WP3/WP7 budgeting. Sections 4, 7, & Table 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-012",
+      "bibtex_key": "zhang2026agentstep"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Agent Step Value: Auditing Evaluation-Channel Sensitivity in Black-Box Agent Traces",
+      "authors": [
+        "Andrew Zhang",
+        "Chengzhan Li"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2607.04419v5, 17 pages",
+      "doi": "10.48550/arXiv.2607.04419",
+      "canonical_url": "https://arxiv.org/abs/2607.04419",
+      "arxiv_id": "arXiv:2607.04419v5",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-012_2607.04419.html",
+        "file_size_bytes": 403407,
+        "sha256": "3DBEA7A0E489CF0BC734A4D4051B2FC7C12467C64422FD467DD042158182BCEA",
+        "inspection_depth": "Complete full text, Sections 1-7, Table 1 (Authority Policy Configs), Channel Sensitivity Audit"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Empirical auditing preprint on agent evaluation reliability.",
+    "field_04_concrete_problem": "Evaluation-channel sensitivity: step-level evaluations of agent safety and utility are highly sensitive to the evaluation channel (judge model, rubric prompt, observer access), producing inconsistent and biased assessments of black-box traces.",
+    "field_05_agent_architecture_horizon": "Black-box multi-turn LLM agent execution traces.",
+    "field_06_action_space": "Step evaluation: SCORE step value, FLAG violation, or PASS without annotation.",
+    "field_07_verifier_noise_delay": "Empirically models evaluation noise, inter-evaluator variance, and channel bias across different LLM judges.",
+    "field_08_primary_method_algorithm": "Channel-Dependent Step Value Auditing. Quantifies discrepancy in estimated step value across different evaluation channels; demonstrates that uncalibrated single-channel evaluators produce substantial false alarm noise (Section 3).",
+    "field_09_formal_assumptions": "Ground-truth task utility is observable at trajectory termination; intermediate step values are latent.",
+    "field_10_authorization_security_layer": "Auditing and evaluation framework; not a real-time runtime authorization gate.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across multiple agent execution trace datasets and evaluation-channel configurations (Section 4 & 5, Table 1). Documents widespread cross-channel disagreement in step-level evaluation.",
+    "field_12_baselines_compared": "Single-judge LLM evaluation, majority voting across LLMs, heuristic rule assertions.",
+    "field_13_limitations_failure_modes": "Demonstrates that LLM judges cannot serve as ground truth without programmatic or human calibration (Section 6 & Limitations).",
+    "field_14_disruption_recovery_findings": "Confirms that relying on uncalibrated evaluation channels to trigger runtime interventions leads directly to the Intervention Paradox due to high false-positive error rates.",
+    "field_15_causaguard_relevance": "Direct empirical evidence supporting CausaGuard's requirement for independent programmatic ground-truth grading (avoiding LLM-as-a-judge bias). Informs RQ2 & RQ5. Sections 3, 5, & Table 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-014",
+      "bibtex_key": "modgil2026saturation"
+    },
+    "field_02_bibliographic_record": {
+      "title": "The Saturation Trap and the Subjectivity of Intervention Timing: Why Affect-Based Triggers and LLM Judges Fail to Time Interventions on Autonomous Agents",
+      "authors": [
+        "Manvendra Modgil"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2606.04296v2, 12 pages",
+      "doi": "10.48550/arXiv.2606.04296",
+      "canonical_url": "https://arxiv.org/abs/2606.04296",
+      "arxiv_id": "arXiv:2606.04296v2",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch2/CG-REC-014_2606.04296.html",
+        "file_size_bytes": 144232,
+        "sha256": "6F0A84CC4A2CF1D5B1B6B0418223521E006E3655A69BBA11C46B5FF9CF9FEDE5",
+        "inspection_depth": "Complete full text, Sections 1-8, Table 1 (Saturation Behavior), Diagnostic Probe, Inter-Rater Audit"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Targeted empirical study on agent intervention timing failure modes.",
+    "field_04_concrete_problem": "Failure of heuristic intervention timing: affect-based monitors (e.g. frustration/confusion detectors) and LLM judges suffer from the 'saturation trap', firing prematurely or continuously and failing to time interventions effectively.",
+    "field_05_agent_architecture_horizon": "Autonomous LLM agents operating in multi-step problem-solving environments.",
+    "field_06_action_space": "Intervention timing: PROCEED unchecked vs TRIGGER INTERVENTION (abort, reprompt, human handoff).",
+    "field_07_verifier_noise_delay": "Evaluates sensor saturation: detector output pegs at maximum value (1.00) early in execution and remains saturated, destroying discriminative power.",
+    "field_08_primary_method_algorithm": "State Saturation Analysis & Three-Layer Architecture Diagnostic. Audits trigger firing patterns and inter-rater reliability across human annotators and LLM judges; proves that affect-based triggers quickly reach 1.00 saturation across 100% of evaluated pilot trajectories (Section 5, Table 1).",
+    "field_09_formal_assumptions": "Optimal intervention timing exists along trajectory; detector monitors emotional or trajectory cues.",
+    "field_10_authorization_security_layer": "Supervisory timing trigger; does not enforce formal capability security.",
+    "field_11_reported_evidence_benchmarks": "Evaluated across five pilot trajectory suites and cross-model LLM-as-judge sweeps (Section 5 & 6, Table 1). Max frustration reaches 1.00 on all 5 pilot trajectories. Author errata in v2 clarifies that the initial v1 observer lacked an active recovery/decay channel during replays. Quantitative calibration metrics are grounded in a single trajectory from SWE-bench-Verified (astropy__astropy-13398) with sparse human labels. Inter-rater reliability across three human annotators applying the same rubric shows minimal agreement (pairwise Cohen's kappa from -0.08 to 0.34, mean near zero).",
+    "field_12_baselines_compared": "Heuristic sentiment/frustration triggers, LLM-as-a-judge triggers, random interruption.",
+    "field_13_limitations_failure_modes": "Demonstrates that heuristic affect-based monitors cannot provide calibrated intervention signals; subjective human affect makes interruption timing ill-defined without objective cost models (Section 7 & 8). Empirical calibration is limited to a single SWE-bench-Verified trajectory (astropy__astropy-13398) and small pilot samples.",
+    "field_14_disruption_recovery_findings": "Documents that saturated triggers fire on virtually every action, causing massive disruption to benign tasks and halting progress, directly validating the Intervention Paradox.",
+    "field_15_causaguard_relevance": "Direct empirical justification for CausaGuard's formal decision-theoretic Value of Information framework: replaces subjective, saturated heuristic triggers with rigorous mathematical cost-benefit thresholds (RQ1, RQ2). Sections 5, 7, & Table 1."
+  }
+]

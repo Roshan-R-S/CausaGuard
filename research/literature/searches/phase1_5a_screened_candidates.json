@@ -1,0 +1,1074 @@
+[
+  {
+    "study_id": "CG-IEEE-001",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 1,
+    "title": "LLM Agent Runtime Security: A Reference Monitor Framework for Confined AI Agents",
+    "doi": "10.1109/icact70625.2026.11748640",
+    "year": 2026,
+    "venue": "2026 International Conference on Advanced Computing Technologies (ICACT)",
+    "authors": [
+      "Asha Joseph",
+      "Arun AnandhaKrishnan"
+    ],
+    "url": "https://doi.org/10.1109/icact70625.2026.11748640",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-002",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 2,
+    "title": "Runtime Protection Practice for LLM Agent Security: An On-Demand Behavioral Sandbox Approach",
+    "doi": "10.1109/isaeece70502.2026.11635191",
+    "year": 2026,
+    "venue": "2026 11th International Symposium on Advances in Electrical, Electronics and Computer Engineering (ISAEECE)",
+    "authors": [
+      "Junyong Jiang"
+    ],
+    "url": "https://doi.org/10.1109/isaeece70502.2026.11635191",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-003",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 3,
+    "title": "Cybersecurity Threat Intelligence for Audit: LLM Scoping, Evidence Guardrails, and Materiality",
+    "doi": "10.1109/acsacw69556.2025.00051",
+    "year": 2025,
+    "venue": "2025 Annual Computer Security Applications Conference Workshops (ACSAC Workshops)",
+    "authors": [
+      "Gurkan Akalin",
+      "Ning Zhou"
+    ],
+    "url": "https://doi.org/10.1109/acsacw69556.2025.00051",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-004",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 4,
+    "title": "Verifier-Grounded Runtime Mediation for LLM Agent Procedural Compliance",
+    "doi": "10.1109/sse72781.2026.00014",
+    "year": 2026,
+    "venue": "2026 IEEE International Conference on Software Services Engineering (SSE)",
+    "authors": [
+      "Hitoshi Yabusaki"
+    ],
+    "url": "https://doi.org/10.1109/sse72781.2026.00014",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC1/IC4 candidate: Investigates tool calling or agent workflow governance; requires full-text inspection to verify safety-interception relevance.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-005",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 5,
+    "title": "Trust-Aware Runtime Verification for Autonomous LLM Agent Systems",
+    "doi": "10.1109/icaiset66439.2026.11541707",
+    "year": 2026,
+    "venue": "2026 International Conference on Artificial Intelligence, Systems, and Emerging Technologies (ICAISET)",
+    "authors": [
+      "Tejas Pravinbhai Patel"
+    ],
+    "url": "https://doi.org/10.1109/icaiset66439.2026.11541707",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-006",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 6,
+    "title": "Capability-Bound Authorization for AI Agent Tool Calls",
+    "doi": "10.1109/mic.2026.3753356",
+    "year": 2026,
+    "venue": "IEEE Internet Computing",
+    "authors": [
+      "Dhruv Agnihotri"
+    ],
+    "url": "https://doi.org/10.1109/mic.2026.3753356",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-007",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 7,
+    "title": "Evaluating Prompt Injection Risk and Guardrails in LLM-Enabled Home IoT Assistants",
+    "doi": "10.1109/imns67862.2026.11655283",
+    "year": 2026,
+    "venue": "2026 International Conference on Intelligent Multimedia, Networking, and Security (IMNS)",
+    "authors": [
+      "Shazid Bin Zaman",
+      "Sohan Gyawali",
+      "Ciprian Popoviciu",
+      "Yili Jiang",
+      "Jiaqi Huang"
+    ],
+    "url": "https://doi.org/10.1109/imns67862.2026.11655283",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-008",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 8,
+    "title": "Multi-Agent Tool Sharing: Task Allocation, Concurrent Access Coordination, and Consistency Guarantees in Collaborative LLM Agent Systems",
+    "doi": "10.1109/lmiat70705.2026.11682229",
+    "year": 2026,
+    "venue": "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)",
+    "authors": [
+      "Yang Xiang"
+    ],
+    "url": "https://doi.org/10.1109/lmiat70705.2026.11682229",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC1/IC4 candidate: Investigates tool calling or agent workflow governance; requires full-text inspection to verify safety-interception relevance.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-009",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 9,
+    "title": "Safety Guardrails for LLM-Enabled Robots_supp1-3667488.mp4",
+    "doi": "10.1109/lra.2026.3667488/mm1",
+    "year": null,
+    "venue": "",
+    "authors": [
+      "Zachary Ravichandran"
+    ],
+    "url": "https://doi.org/10.1109/lra.2026.3667488/mm1",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC4: Non-article media or supplementary video attachment.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-010",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 10,
+    "title": "KubeScribe: LLM-Driven Automation of Runtime Security Policies in Cloud-Native Environments",
+    "doi": "10.1109/ictc66702.2025.11388772",
+    "year": 2025,
+    "venue": "2025 16th International Conference on Information and Communication Technology Convergence (ICTC)",
+    "authors": [
+      "Jaeyoung Lee",
+      "Jaehyun Nam"
+    ],
+    "url": "https://doi.org/10.1109/ictc66702.2025.11388772",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-011",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 11,
+    "title": "MCP-Secure: A Runtime Access Control Layer for Privilege-Aware LLM Agent Tooling",
+    "doi": "10.1109/ojcs.2026.3664314",
+    "year": 2026,
+    "venue": "IEEE Open Journal of the Computer Society",
+    "authors": [
+      "Gamini Singh",
+      "Vijay K. Madisetti"
+    ],
+    "url": "https://doi.org/10.1109/ojcs.2026.3664314",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-012",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 12,
+    "title": "A Method for Enhancing Invocation Capabilities in Tool Calling with LLM-as-a-Judge System",
+    "doi": "10.1109/aann66429.2025.11257606",
+    "year": 2025,
+    "venue": "2025 5th International Conference on Advanced Algorithms and Neural Networks (AANN)",
+    "authors": [
+      "Yinglei Shang",
+      "Chunlei Wang"
+    ],
+    "url": "https://doi.org/10.1109/aann66429.2025.11257606",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC1/IC4 candidate: Investigates tool calling or agent workflow governance; requires full-text inspection to verify safety-interception relevance.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-013",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 13,
+    "title": "Descriptor: LLM-Based Feature Engineering in Energy Systems Tool-Calling Dataset (AutoFEnergy)",
+    "doi": "10.1109/ieeedata.2026.3742501",
+    "year": 2026,
+    "venue": "IEEE Data Descriptions",
+    "authors": [
+      "Jin Yi",
+      "Zihang Qiu",
+      "Yuedong Wu",
+      "Jian Liu",
+      "Pingyang Sun"
+    ],
+    "url": "https://doi.org/10.1109/ieeedata.2026.3742501",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-014",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 14,
+    "title": "DelAct: A Replayable Boundary Runtime for Auditable and Governed LLM Agent Workflows",
+    "doi": "10.1109/iwqos70441.2026.11661202",
+    "year": 2026,
+    "venue": "2026 IEEE/ACM International Symposium on Quality of Service (IWQoS)",
+    "authors": [
+      "Yuanbo Zhang",
+      "Hanlong Liao",
+      "Deke Guo",
+      "Guoming Tang"
+    ],
+    "url": "https://doi.org/10.1109/iwqos70441.2026.11661202",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-015",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 15,
+    "title": "Security Assurance Cases as a Runtime Compliance Check on an LLM Adaptation Planning",
+    "doi": "10.1109/acsos-c70952.2026.00055",
+    "year": 2026,
+    "venue": "2026 IEEE International Conference on Autonomic Computing and Self-Organizing Systems Companion (ACSOS-C)",
+    "authors": [
+      "Logan Quirk",
+      "Rose Gamble"
+    ],
+    "url": "https://doi.org/10.1109/acsos-c70952.2026.00055",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-016",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 16,
+    "title": "Beyond Static Guardrails: Auditable Surgical Output Control for Agentic LLM Workflows",
+    "doi": "10.1109/icws72778.2026.11718616",
+    "year": 2026,
+    "venue": "2026 IEEE International Conference on Web Services (ICWS)",
+    "authors": [
+      "Lara Mauri",
+      "Ernesto Damiani"
+    ],
+    "url": "https://doi.org/10.1109/icws72778.2026.11718616",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-017",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 17,
+    "title": "LLM-as-Tool-Maker: Automatic Generation and Validation of Tool Definitions for Novel Tasks Beyond Predefined API Boundaries",
+    "doi": "10.1109/lmiat70705.2026.11682536",
+    "year": 2026,
+    "venue": "2026 International Conference on Large Models and Intelligent Agent Technologies (LMIAT)",
+    "authors": [
+      "Changqing Dong"
+    ],
+    "url": "https://doi.org/10.1109/lmiat70705.2026.11682536",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-018",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 18,
+    "title": "Enhancing LLM Code Generation: A Systematic Evaluation of Multi-Agent Collaboration and Runtime Debugging for Accuracy, Reliability, and Latency",
+    "doi": "10.1109/aict67988.2025.11268754",
+    "year": 2025,
+    "venue": "2025 IEEE 19th International Conference on Application of Information and Communication Technologies (AICT)",
+    "authors": [
+      "Nazmus Ashrafi",
+      "Salah Bouktif",
+      "Mohammed Mediani"
+    ],
+    "url": "https://doi.org/10.1109/aict67988.2025.11268754",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-019",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 19,
+    "title": "An Organization-Scoped LLM Agent Runtime Architecture for Regulated Cybersecurity Operations",
+    "doi": "10.1109/dcoss-iot69657.2026.00163",
+    "year": 2026,
+    "venue": "2026 22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)",
+    "authors": [
+      "George Fatouros",
+      "Georgios Makridis",
+      "George Kousiouris",
+      "John Soldatos",
+      "Dimosthenis Kyriazis"
+    ],
+    "url": "https://doi.org/10.1109/dcoss-iot69657.2026.00163",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-IEEE-020",
+    "source_db": "IEEE Xplore",
+    "raw_rank": 20,
+    "title": "A Dual-Roofline Runtime Model for Capacity Planning in Shared-Backend LLM Multi-Agent Social Simulation: A Case Study of AgentSociety",
+    "doi": "10.1109/ciml69155.2026.11692797",
+    "year": 2026,
+    "venue": "2026 International Conference on Computational Intelligence and Machine Learning (CIML)",
+    "authors": [
+      "Xiaoyang Chang",
+      "Sichen Tao",
+      "Masatoshi Kawai",
+      "Hiroyuki Takizawa"
+    ],
+    "url": "https://doi.org/10.1109/ciml69155.2026.11692797",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-001",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 1,
+    "title": "Runtime Verification and Runtime Enforcement",
+    "doi": "10.1145/3731217.3731231",
+    "year": 2025,
+    "venue": "Biomedical Embedded Systems",
+    "authors": [],
+    "url": "https://doi.org/10.1145/3731217.3731231",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-002",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 2,
+    "title": "Synchronous and asynchronous stream runtime verification",
+    "doi": "10.1145/3464974.3468453",
+    "year": 2021,
+    "venue": "Proceedings of the 5th ACM International Workshop on Verification and mOnitoring at Runtime EXecution",
+    "authors": [
+      "C\u00e9sar S\u00e1nchez"
+    ],
+    "url": "https://doi.org/10.1145/3464974.3468453",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-003",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 3,
+    "title": "On Stream Runtime Verification and Aggregate Programming",
+    "doi": "10.1145/3605159.3605854",
+    "year": 2023,
+    "venue": "Proceedings of the 6th International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Ferruccio Damiani",
+      "Gianluca Torta"
+    ],
+    "url": "https://doi.org/10.1145/3605159.3605854",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-004",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 4,
+    "title": "R2U2: Runtime Verification Takes Off! (Keynote)",
+    "doi": "10.1145/3679008.3685539",
+    "year": 2024,
+    "venue": "Proceedings of the 7th ACM International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Kristin Yvonne Rozier"
+    ],
+    "url": "https://doi.org/10.1145/3679008.3685539",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-005",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 5,
+    "title": "Runtime verification of authorization hook placement for the linux security modules framework",
+    "doi": "10.1145/586139.586141",
+    "year": 2002,
+    "venue": "Proceedings of the 9th ACM conference on Computer and communications security  - CCS '02",
+    "authors": [
+      "Antony Edwards",
+      "Trent Jaeger",
+      "Xiaolan Zhang"
+    ],
+    "url": "https://doi.org/10.1145/586139.586141",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Directly investigates runtime security, authorization boundaries, reference monitors, or guardrails for tool-using LLM agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-006",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 6,
+    "title": "Combining Static and Runtime Verification with AC and Coq",
+    "doi": "10.1145/3605159.3605857",
+    "year": 2023,
+    "venue": "Proceedings of the 6th International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Giorgio Audrito",
+      "Daniel Haures"
+    ],
+    "url": "https://doi.org/10.1145/3605159.3605857",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-007",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 7,
+    "title": "Operational and Declarative Runtime Verification (Keynote)",
+    "doi": "10.1145/3679008.3685541",
+    "year": 2024,
+    "venue": "Proceedings of the 7th ACM International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Klaus Havelund",
+      "Moran Omer",
+      "Doron Peled"
+    ],
+    "url": "https://doi.org/10.1145/3679008.3685541",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-008",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 8,
+    "title": "RVPLAN: a general purpose framework for replanning using runtime verification",
+    "doi": "10.1145/3464974.3468447",
+    "year": 2021,
+    "venue": "Proceedings of the 5th ACM International Workshop on Verification and mOnitoring at Runtime EXecution",
+    "authors": [
+      "Angelo Ferrando",
+      "Rafael C. Cardoso"
+    ],
+    "url": "https://doi.org/10.1145/3464974.3468447",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-009",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 9,
+    "title": "Runtime verification of authorization hook placement for the linux security modules framework",
+    "doi": "10.1145/586110.586141",
+    "year": 2002,
+    "venue": "Proceedings of the 9th ACM conference on Computer and communications security",
+    "authors": [
+      "Antony Edwards",
+      "Trent Jaeger",
+      "Xiaolan Zhang"
+    ],
+    "url": "https://doi.org/10.1145/586110.586141",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC3: Exact duplicate of CG-ACM-005 (Edwards et al., CCS 2002; DOI: 10.1145/586139.586141)",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-010",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 10,
+    "title": "RV4Rasa: A Formalism-Agnostic Runtime Verification Framework for Verifying ChatBots in Rasa",
+    "doi": "10.1145/3605159.3605855",
+    "year": 2023,
+    "venue": "Proceedings of the 6th International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Angelo Ferrando",
+      "Andrea Gatti",
+      "Viviana Mascardi"
+    ],
+    "url": "https://doi.org/10.1145/3605159.3605855",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-011",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 11,
+    "title": "AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents",
+    "doi": "10.1145/3744916.3764546",
+    "year": 2026,
+    "venue": "Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering",
+    "authors": [
+      "Haoyu Wang",
+      "Christopher M. Poskitt",
+      "Jun Sun"
+    ],
+    "url": "https://doi.org/10.1145/3744916.3764546",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-012",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 12,
+    "title": "Runtime verification for trustworthy secure shell deployment",
+    "doi": "10.1145/3464974.3468449",
+    "year": 2021,
+    "venue": "Proceedings of the 5th ACM International Workshop on Verification and mOnitoring at Runtime EXecution",
+    "authors": [
+      "Axel Curmi",
+      "Christian Colombo",
+      "Mark Vella"
+    ],
+    "url": "https://doi.org/10.1145/3464974.3468449",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-013",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 13,
+    "title": "WiP: GuardedMobile: Runtime Verification for LLM-Based Mobile GUI Agents in High-Stakes App Workflows",
+    "doi": "10.1145/3795866.3844739",
+    "year": 2026,
+    "venue": "Proceedings of the 32nd Annual International Conference on Mobile Computing and Networking",
+    "authors": [
+      "Ruoxi Li"
+    ],
+    "url": "https://doi.org/10.1145/3795866.3844739",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-014",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 14,
+    "title": "Asynchronous Wait-Free Runtime Verification and Enforcement of Linearizability",
+    "doi": "10.1145/3583668.3594563",
+    "year": 2023,
+    "venue": "Proceedings of the 2023 ACM Symposium on Principles of Distributed Computing",
+    "authors": [
+      "Armando Casta\u00f1eda",
+      "Gilde Valeria Rodr\u00edguez"
+    ],
+    "url": "https://doi.org/10.1145/3583668.3594563",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-015",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 15,
+    "title": "RML: runtime monitoring language",
+    "doi": "10.1145/3328433.3328462",
+    "year": 2019,
+    "venue": "Proceedings of the Conference Companion of the 3rd International Conference on Art, Science, and Engineering of Programming",
+    "authors": [
+      "Luca Franceschini"
+    ],
+    "url": "https://doi.org/10.1145/3328433.3328462",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC2 formal methods: General runtime verification framework; warrants full-text review for agent runtime applicability.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-016",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 16,
+    "title": "A lightweight LTL runtime verification tool for java",
+    "doi": "10.1145/1028664.1028776",
+    "year": 2004,
+    "venue": "Companion to the 19th annual ACM SIGPLAN conference on Object-oriented programming systems, languages, and applications",
+    "authors": [
+      "Eric Bodden"
+    ],
+    "url": "https://doi.org/10.1145/1028664.1028776",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-017",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 17,
+    "title": "RefineAct: Automatic Runtime Verification of LLM Agent Actions",
+    "doi": "10.1145/3832783.3834409",
+    "year": 2026,
+    "venue": "Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering",
+    "authors": [
+      "Fraol Batole",
+      "Foutse Khomh",
+      "Hridesh Rajan"
+    ],
+    "url": "https://doi.org/10.1145/3832783.3834409",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-018",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 18,
+    "title": "The e-ACSL perspective on runtime assertion checking",
+    "doi": "10.1145/3464974.3468451",
+    "year": 2021,
+    "venue": "Proceedings of the 5th ACM International Workshop on Verification and mOnitoring at Runtime EXecution",
+    "authors": [
+      "Julien Signoles"
+    ],
+    "url": "https://doi.org/10.1145/3464974.3468451",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-019",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 19,
+    "title": "Devising a TraceObject Class for Improved Runtime Monitoring of ooRexx Applications",
+    "doi": "10.1145/3679008.3685543",
+    "year": 2024,
+    "venue": "Proceedings of the 7th ACM International Workshop on Verification and Monitoring at Runtime Execution",
+    "authors": [
+      "Rony G. Flatscher",
+      "Till Winkler"
+    ],
+    "url": "https://doi.org/10.1145/3679008.3685543",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-ACM-020",
+    "source_db": "ACM Digital Library",
+    "raw_rank": 20,
+    "title": "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
+    "doi": "10.1145/3847353.3847499",
+    "year": 2026,
+    "venue": "Proceedings of the 2026 8th Joint Workshop on CPS&amp;IoT Security and Privacy",
+    "authors": [
+      "Nikolaos Kekatos",
+      "Stylianos Basagiannis",
+      "Marinelio Chintri",
+      "Alexios Lekidis",
+      "Tom Nianios",
+      "Ioannis Seitoglou",
+      "Anastasios Temperekidis",
+      "Panagiotis Katsaros"
+    ],
+    "url": "https://doi.org/10.1145/3847353.3847499",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC1 & IC2: Proposes formal runtime verification, runtime enforcement, or action mediation for autonomous agents.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-001",
+    "source_db": "SpringerLink",
+    "raw_rank": 1,
+    "title": "Risk-averse Contextual Multi-armed Bandit Problem with Linear Payoffs",
+    "doi": "10.1007/s11518-022-5541-9",
+    "year": 2022,
+    "venue": "Journal of Systems Science and Systems Engineering",
+    "authors": [
+      "Yifan Lin",
+      "Yuhao Wang",
+      "Enlu Zhou"
+    ],
+    "url": "https://doi.org/10.1007/s11518-022-5541-9",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-002",
+    "source_db": "SpringerLink",
+    "raw_rank": 2,
+    "title": "Expected Utility Theory for Sequential Decision Making",
+    "doi": "10.1007/978-3-540-73014-9_3",
+    "year": null,
+    "venue": "Lecture Notes in Economics and Mathematical Systems",
+    "authors": [],
+    "url": "https://doi.org/10.1007/978-3-540-73014-9_3",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-003",
+    "source_db": "SpringerLink",
+    "raw_rank": 3,
+    "title": "Overtaking Tracking Problems in Risk-Averse Control",
+    "doi": "10.1007/978-1-4614-5079-5_3",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_3",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-004",
+    "source_db": "SpringerLink",
+    "raw_rank": 4,
+    "title": "Risk-Averse Control of Linear-Quadratic Tracking Problems",
+    "doi": "10.1007/978-1-4614-5079-5_2",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_2",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-005",
+    "source_db": "SpringerLink",
+    "raw_rank": 5,
+    "title": "Risk-Averse Control Problems in Model-Following Systems",
+    "doi": "10.1007/978-1-4614-5079-5_5",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_5",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-006",
+    "source_db": "SpringerLink",
+    "raw_rank": 6,
+    "title": "Sequential procurement auctions with risk-averse suppliers",
+    "doi": "10.1007/s00712-013-0381-1",
+    "year": 2013,
+    "venue": "Journal of Economics",
+    "authors": [
+      "Takeshi Nishimura"
+    ],
+    "url": "https://doi.org/10.1007/s00712-013-0381-1",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Non-computational domain or unrelated physical/economic optimization application.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-007",
+    "source_db": "SpringerLink",
+    "raw_rank": 7,
+    "title": "Adversarial Multi-armed Bandit",
+    "doi": "10.1007/978-3-319-50502-2_4",
+    "year": 2016,
+    "venue": "Wireless Networks",
+    "authors": [
+      "Rong Zheng",
+      "Cunqing Hua"
+    ],
+    "url": "https://doi.org/10.1007/978-3-319-50502-2_4",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC3 foundation: Classical bandit formulation; requires inspection for applicability to risk-bounded agent intervention.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-008",
+    "source_db": "SpringerLink",
+    "raw_rank": 8,
+    "title": "Stochastic Multi-armed Bandit",
+    "doi": "10.1007/978-3-319-50502-2_2",
+    "year": 2016,
+    "venue": "Wireless Networks",
+    "authors": [
+      "Rong Zheng",
+      "Cunqing Hua"
+    ],
+    "url": "https://doi.org/10.1007/978-3-319-50502-2_2",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC3 foundation: Classical bandit formulation; requires inspection for applicability to risk-bounded agent intervention.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-009",
+    "source_db": "SpringerLink",
+    "raw_rank": 9,
+    "title": "Markov Multi-armed Bandit",
+    "doi": "10.1007/978-3-319-50502-2_3",
+    "year": 2016,
+    "venue": "Wireless Networks",
+    "authors": [
+      "Rong Zheng",
+      "Cunqing Hua"
+    ],
+    "url": "https://doi.org/10.1007/978-3-319-50502-2_3",
+    "abstract": "",
+    "screening_decision": "UNCERTAIN",
+    "exclusion_reason": "IC3 foundation: Classical bandit formulation; requires inspection for applicability to risk-bounded agent intervention.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-010",
+    "source_db": "SpringerLink",
+    "raw_rank": 10,
+    "title": "Risk Averse, Risk Neutral, Risk Lover",
+    "doi": "10.1007/springerreference_2402",
+    "year": null,
+    "venue": "SpringerReference",
+    "authors": [],
+    "url": "https://doi.org/10.1007/springerreference_2402",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-011",
+    "source_db": "SpringerLink",
+    "raw_rank": 11,
+    "title": "Linear-Quadratic Controls in Risk-Averse Decision Making",
+    "doi": "10.1007/978-1-4614-5079-5",
+    "year": 2013,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-012",
+    "source_db": "SpringerLink",
+    "raw_rank": 12,
+    "title": "Nondegenerate Intervals of No-Trade Prices for Risk Averse Traders",
+    "doi": "10.1023/a:1004950814993",
+    "year": 1999,
+    "venue": "Theory and Decision",
+    "authors": [
+      "Gerd Weinrich"
+    ],
+    "url": "https://doi.org/10.1023/a:1004950814993",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Non-computational domain or unrelated physical/economic optimization application.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-013",
+    "source_db": "SpringerLink",
+    "raw_rank": 13,
+    "title": "C2ST-Bandit for collaborative multi-category retail dynamic pricing with causal contrastive learning and contextual bandit",
+    "doi": "10.1007/s10791-026-10701-0",
+    "year": 2026,
+    "venue": "Discover Computing",
+    "authors": [
+      "Jun Liu"
+    ],
+    "url": "https://doi.org/10.1007/s10791-026-10701-0",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-014",
+    "source_db": "SpringerLink",
+    "raw_rank": 14,
+    "title": "Performance Risk Management in Servo Systems",
+    "doi": "10.1007/978-1-4614-5079-5_4",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_4",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Non-computational domain or unrelated physical/economic optimization application.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-015",
+    "source_db": "SpringerLink",
+    "raw_rank": 15,
+    "title": "Epilogue",
+    "doi": "10.1007/978-1-4614-5079-5_9",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_9",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Editorial matter or book front/back matter without technical content.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-016",
+    "source_db": "SpringerLink",
+    "raw_rank": 16,
+    "title": "Channel coordination of a risk-averse supply chain: a mean\u2013variance approach",
+    "doi": "10.1007/s40622-020-00267-1",
+    "year": 2020,
+    "venue": "DECISION",
+    "authors": [
+      "Indranil Biswas",
+      "Arnab Adhikari",
+      "Baidyanath Biswas"
+    ],
+    "url": "https://doi.org/10.1007/s40622-020-00267-1",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Non-computational domain or unrelated physical/economic optimization application.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-017",
+    "source_db": "SpringerLink",
+    "raw_rank": 17,
+    "title": "Introduction",
+    "doi": "10.1007/978-1-4614-5079-5_1",
+    "year": 2012,
+    "venue": "SpringerBriefs in Optimization",
+    "authors": [
+      "Khanh D. Pham"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4614-5079-5_1",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Editorial matter or book front/back matter without technical content.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-018",
+    "source_db": "SpringerLink",
+    "raw_rank": 18,
+    "title": "Markov Decision Processes and the Total Reward Criterion",
+    "doi": "10.1007/978-3-540-73014-9_2",
+    "year": null,
+    "venue": "Lecture Notes in Economics and Mathematical Systems",
+    "authors": [],
+    "url": "https://doi.org/10.1007/978-3-540-73014-9_2",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-019",
+    "source_db": "SpringerLink",
+    "raw_rank": 19,
+    "title": "Sequential Decision Making",
+    "doi": "10.1007/978-1-4615-5599-5_8",
+    "year": 1999,
+    "venue": "Decision Modeling in Policy Management",
+    "authors": [
+      "Giampiero E. G. Beroggi"
+    ],
+    "url": "https://doi.org/10.1007/978-1-4615-5599-5_8",
+    "abstract": "",
+    "screening_decision": "EXCLUDE",
+    "exclusion_reason": "EC1: Out of scope; does not address tool-using agents, runtime guardrails, or risk-constrained policy learning.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  },
+  {
+    "study_id": "CG-SPR-020",
+    "source_db": "SpringerLink",
+    "raw_rank": 20,
+    "title": "Risk-averse dynamic programming for Markov decision processes",
+    "doi": "10.1007/s10107-010-0393-3",
+    "year": 2010,
+    "venue": "Mathematical Programming",
+    "authors": [
+      "Andrzej Ruszczy\u0144ski"
+    ],
+    "url": "https://doi.org/10.1007/s10107-010-0393-3",
+    "abstract": "",
+    "screening_decision": "ADVANCE_TO_FULL_TEXT",
+    "exclusion_reason": "IC3: Formulates risk-averse contextual bandits, sequential decision-making, or causal policy evaluation.",
+    "reviewer_provenance": "Reviewer-1 Provisional Recommendation; Consensus: Pending Independent Human Confirmation"
+  }
+]

@@ -1,0 +1,345 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-018",
+      "bibtex_key": "liu2026toolanchor"
+    },
+    "field_02_bibliographic_record": {
+      "title": "ToolAnchor: Anchoring Counterfactual Context to Boost Agentic Tool-use Capability",
+      "authors": [
+        "Weiting Liu",
+        "et al."
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2607.14145v1 [cs.CL]",
+      "canonical_url": "https://arxiv.org/abs/2607.14145",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-018_2607.14145.html",
+        "file_size_bytes": 448482,
+        "sha256": "2809D795C3A9B207CD687C4830AB2E69C86680E332A204FCC52A889EB3FE4D9E"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / under review (arXiv:2607.14145v1, July 2026). Comprehensive empirical study with 46 sections, 7 tables, and detailed appendices.",
+    "field_04_concrete_problem": "Behavioral inertia in toolset expansion for post-trained LLM agents: agents post-trained on fixed toolsets struggle to incorporate newly introduced tools (e.g. visual search, python execution) because they default to familiar tools and repeat suboptimal reasoning routines (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Deep research agents (Tongyi-DeepResearch-30B-A3B, Qwen3-30B-A3B-Instruct, Gemini-2.5-Pro) executing long-horizon, multi-step search, code execution, and visual exploration trajectories.",
+    "field_06_action_space": "Hybrid tool-use action space: discrete tool invocations with parameterized inputs (Web Search, Scholar Search, Python Interpreter, Visual Search) interleaved with natural-language reasoning tokens.",
+    "field_07_verifier_noise_delay": "Anchor-conditioned LLM-as-a-judge verifier (Section 4.3, Appendix B.3, B.4) auditing counterfactual tool contexts for factual consistency and format compliance prior to policy fine-tuning.",
+    "field_08_primary_method_algorithm": "ToolAnchor framework (Section 4): collects failed trajectories, identifies critical decision rounds where newly added tools should have been invoked, generates counterfactual anchor contexts via teacher models, verifies anchor validity, and fine-tunes the student agent (SFT/RL) to internalize the updated toolset.",
+    "field_09_formal_assumptions": "Counterfactual anchor context hypothesis (Section 4.2): assumes that injecting teacher-guided counterfactual contexts at critical divergence points provides dense supervisory signals that break behavioral inertia without retraining from scratch.",
+    "field_10_authorization_security_layer": "Toolset expansion and context anchoring layer; steers agent exploration away from entrenched suboptimal tool paths into valid multi-modal tool use.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on GAIA, BrowseComp, and VDR-Bench (Visual Deep Research Benchmark). Resuming generation from teacher-revised context improves task success rate from 4.0% to 9.0% on OpenSeeker and 11.0% to 23.0% on VDR-Bench (Table 2). On VDR-Bench, ToolAnchor-DeepResearch-30B-A3B achieves 28.8% success, outperforming Gemini-2.5-Pro (23.2%) and baseline Tongyi-DeepResearch-30B (7.5%) by 21.3 percentage points (Table 3). On GAIA, achieves 74.5% vs baseline 70.9%.",
+    "field_12_baselines_compared": "Tongyi-DeepResearch-30B-A3B, OpenAI DeepResearch, OpenSeeker-v1-30B-SFT, Gemini-2.5-Pro, Qwen3-30B-A3B-Instruct, and naive visual tool augmentation without anchoring.",
+    "field_13_limitations_failure_modes": "Offline anchor generation relies heavily on advanced proprietary teacher models (Gemini-2.5-Pro, GPT-5); naive tool integration without anchoring causes performance regression on text benchmarks (BrowseComp drops from 43.4% to 42.5%, Table 4); does not enforce runtime execution bounds or mitigate adversarial prompt injections.",
+    "field_14_disruption_recovery_findings": "Empirically proves that unanchored tool additions cause behavioral disruption and performance degradation across existing tasks; counterfactual anchor internalization successfully recovers pre-existing capabilities while unlocking new tool proficiency.",
+    "field_15_causaguard_relevance": "Direct relevance to CausaGuard WP3, WP5, and RQ1/RQ3: provides concrete methodology for counterfactual trajectory evaluation and offline policy adaptation; demonstrates how unconstrained tool additions introduce behavioral instability unless anchored to formal intervention contexts."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-019",
+      "bibtex_key": "liu2025targetedintervention"
+    },
+    "field_02_bibliographic_record": {
+      "title": "A Principle of Targeted Intervention for Multi-Agent Reinforcement Learning",
+      "authors": [
+        "Anjie Liu",
+        "et al."
+      ],
+      "year": 2025,
+      "venue_or_identifier": "arXiv:2510.17697v4 [cs.MA], NeurIPS 2025",
+      "canonical_url": "https://arxiv.org/abs/2510.17697",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-019_2510.17697.html",
+        "file_size_bytes": 866451,
+        "sha256": "EAB03F68BB3043B441209B3E35F82077A2E1EC39BC881DF19937792F629B770E"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 peer-reviewed top conference proceedings (NeurIPS 2025). Rigorous theoretical foundation with 50 sections, 11 formal definitions/theorems/propositions, and extensive multi-agent experiments.",
+    "field_04_concrete_problem": "Steering cooperative multi-agent reinforcement learning (MARL) systems towards desired Pareto-optimal outcomes when global human supervision over the entire system is impractical, and empirical reward shaping lacks formal solvability guarantees (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Multi-agent systems modeled as Multi-Agent Influence Diagrams (MAIDs) over finite-horizon and infinite-horizon Team Reward Markov Games, using decentralized MARL architectures (IQL, VDN, QMIX) combined with Graph Neural Networks (GNNs).",
+    "field_06_action_space": "Joint action space $\\mathcal{A} = \\prod_{i \\in \\mathcal{I}} \\mathcal{A}_i$ augmented by targeted external interventions operating on agent strategic reasoning priors.",
+    "field_07_verifier_noise_delay": "Causal relevance graph verifier analyzing d-separation and strategic relevance in MAIDs; tested under noisy observation regimes (Appendix I.5).",
+    "field_08_primary_method_algorithm": "Targeted Intervention Paradigm and Pre-Strategy Intervention (Section 3.3, 4.3): intervenes specifically on the strategic reasoning prior of targeted agents rather than applying blanket global reward shaping. Proves Proposition 3.4 establishing the formal causal effect of targeted intervention.",
+    "field_09_formal_assumptions": "MAID graphical structure acyclicity and d-separation (Definition 2.1, 2.2); Solvability of MARL Learning Paradigms under Targeted Intervention (Section 4.2, Proposition 3.4); proves targeted pre-strategy intervention strictly dominates global intervention in sample complexity and eliminates side-effect equilibria.",
+    "field_10_authorization_security_layer": "Graph-theoretic intervention controller: bounds external interventions to minimally sufficient relevance subgraphs, preventing destabilization of uncoordinated agents.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Multi-Agent Particle Environments (MPE, Spread and Tag scenarios) and Hanabi (2-player and 4-player, Appendix I.6) across IQL, VDN, and QMIX. In Hanabi 2-player, achieves average score of 22.84 vs baseline 18.52; in MPE, achieves 35% faster convergence to collision-free cooperative trajectories.",
+    "field_12_baselines_compared": "Independent Q-Learning (IQL), Value-Decomposition Networks (VDN), QMIX, global reward shaping, and intrinsic curiosity-driven coordination.",
+    "field_13_limitations_failure_modes": "Requires identifiable causal dependency graphs (MAID structure); inaccurate relevance graph estimation degrades intervention efficacy; computational complexity scales with agent interaction density.",
+    "field_14_disruption_recovery_findings": "Explicitly demonstrates that global un-targeted interventions cause 'intervention toxicity' (disrupting non-target agents and collapsing team coordination); targeted minimal intervention enables rapid coordination recovery without collateral performance loss.",
+    "field_15_causaguard_relevance": "Direct mathematical foundation for CausaGuard RQ1, RQ4, and WP5 (Multi-Agent Coordination domain): provides the formal causal graphical foundation (MAIDs) proving that targeted, local interventions are strictly superior to global supervisor interventions in multi-agent environments."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-021",
+      "bibtex_key": "simao2019safe"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Safe Policy Improvement with an Estimated Baseline Policy",
+      "authors": [
+        "Thiago D. Sim\u00e3o",
+        "Romain Laroche",
+        "R\u00e9mi Tachet des Combes"
+      ],
+      "year": 2019,
+      "venue_or_identifier": "arXiv:1909.05236v2 [cs.LG], AAMAS 2020",
+      "canonical_url": "https://arxiv.org/abs/1909.05236",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-021_1909.05236.html",
+        "file_size_bytes": 271566,
+        "sha256": "3E2AA32C93F7D0522746BE0A2CBC2EAF4EE80B141D9CDF78108E159C20FCF752"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 peer-reviewed top conference proceedings (AAMAS 2020). Theoretical foundation with formal safety proofs, concentration inequalities, and empirical validations.",
+    "field_04_concrete_problem": "Theoretical and empirical breakdown of Safe Policy Improvement (SPIBB) when the baseline policy $\\pi_b$ is not known a priori and must be estimated from offline dataset $\\mathcal{D}$, introducing estimation errors that can violate standard SPI guarantees (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Batch / Offline Reinforcement Learning in finite and continuous Markov Decision Processes (MDPs) with infinite-horizon discounted return.",
+    "field_06_action_space": "Discrete and continuous action spaces $\\mathcal{A}$; policy improvement constrained to high-confidence state-action subsets.",
+    "field_07_verifier_noise_delay": "State-action visit frequency counter $N_\\mathcal{D}(s, a)$ determining bootstrap masking threshold $N_\\wedge$; concentration bounds under i.i.d. trajectory sampling (Lemma 3.1).",
+    "field_08_primary_method_algorithm": "Robust SPIBB with Estimated Baseline (Section 3): establishes Theorem 3.2, deriving a $\\zeta$-approximate safe policy improvement bound that explicitly accounts for $L_1$ baseline estimation error $\\|\\pi_b - \\widehat{\\pi}_n\\|_1$. Constructs constrained policy space $\\Pi_{\\widehat{b}}$ ensuring safety even with imperfect baseline knowledge.",
+    "field_09_formal_assumptions": "Theorem 2.1 (SPIBB safety bound) and Theorem 3.2 (Safe Policy Improvement with Estimated Baseline): with probability at least $1 - \\delta$, $\\rho(\\pi) \\ge \\rho(\\pi_b) - \\zeta - \\mathcal{O}(1/\\sqrt{n})$, guaranteeing safe improvement over the true unknown baseline policy.",
+    "field_10_authorization_security_layer": "Fail-safe baseline bootstrapping gate: dynamically switches from exploratory candidate policy $\\pi$ to estimated baseline $\\widehat{\\pi}$ whenever state-action uncertainty exceeds safe budget $\\zeta$.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Random Finite MDPs ($|\\mathcal{S}| = 20, |\\mathcal{A}| = 4$) and Continuous MDPs (Mountain Car, Helicopter) across dataset sizes $|\\mathcal{D}| = 3,000$ and $10,000$ (Table 1). Achieves 1%-CVaR performance of 2.18 (against baseline 2.18) with 0% negative improvement violations, whereas unconstrained offline RL policies suffer catastrophic failures (1%-CVaR of 0.75 and 1.34).",
+    "field_12_baselines_compared": "True baseline $\\pi_b$, Maximum Likelihood Policy ($\\pi^*$), standard SPIBB with naive baseline estimate, and Basic Batch RL (Q-learning).",
+    "field_13_limitations_failure_modes": "Conservative thresholding can prevent policy improvement when dataset size $|\\mathcal{D}|$ is small; requires sufficient coverage of state space to reliably estimate $\\widehat{\\pi}_n$.",
+    "field_14_disruption_recovery_findings": "Avoids catastrophic policy collapse in sparse data regions; provides mathematical guarantee against regression relative to the status-quo operational policy.",
+    "field_15_causaguard_relevance": "Direct mathematical justification for CausaGuard RQ3, WP4, and WP7: governs candidate controller fallback to the frozen baseline adapter (`WP4 baseline adapter`) when state uncertainty exceeds statistical confidence bounds."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-023",
+      "bibtex_key": "nadjahi2019soft"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Safe Policy Improvement with Soft Baseline Bootstrapping",
+      "authors": [
+        "Kimia Nadjahi",
+        "Romain Laroche",
+        "R\u00e9mi Tachet des Combes"
+      ],
+      "year": 2019,
+      "venue_or_identifier": "arXiv:1907.05079v1 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/1907.05079",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-023_1907.05079.html",
+        "file_size_bytes": 703397,
+        "sha256": "EA59326AED685042DC8417626FEB92B4C2AAE2272BE246508E6DCF3897C18D9F"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 high-impact pre-print / conference proceedings (35 sections, 40 formal definitions/theorems/lemmas, extensive MDP benchmarks).",
+    "field_04_concrete_problem": "Over-conservatism of standard SPIBB: hard binary bootstrapping ($N(s, a) < N_\\wedge$) strictly forces $\\pi(a|s) = \\pi_b(a|s)$, discarding useful gradient and reward information in moderately visited states and causing chattering policy behavior (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Batch MDP $\\mathcal{M} = \\langle \\mathcal{X}, \\mathcal{A}, P, R, \\gamma \\rangle$; tabular and continuous environments with infinite-horizon discounted returns.",
+    "field_06_action_space": "Discrete and continuous action spaces $\\mathcal{A}$; policy improvement constrained via local error budgets.",
+    "field_07_verifier_noise_delay": "State-action counting and local error budget allocation $\\epsilon_e(x)$ per state.",
+    "field_08_primary_method_algorithm": "Soft-SPIBB (Section 3): formulates a local error budget $\\epsilon$ allowing soft divergence from baseline: $\\|\\pi(\\cdot|x) - \\pi_b(\\cdot|x)\\|_1 \\le \\epsilon(x)$. Derives exact Safe Policy Improvement bounds using linear programming and policy iteration (Exact-Soft-SPIBB and Approx-Soft-SPIBB).",
+    "field_09_formal_assumptions": "Theorem 1 (Soft Safe Policy Improvement Bound): proves with probability at least $1 - \\delta$ that $V^\\pi(x) \\ge V^{\\pi_b}(x) - \\zeta_{\\text{soft}}$, where $\\zeta_{\\text{soft}}$ is strictly tighter than hard SPIBB when state transition model error is smooth.",
+    "field_10_authorization_security_layer": "Continuous divergence bounding layer: enforces trust-region constraints on policy deviations from known-safe operational baselines.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Random MDPs and Helicopter continuous domain (Table 2). Achieves superior mean performance (34.2 vs 28.5) and 10%-CVaR (29.1 vs 22.4) compared to hard SPIBB, while maintaining 0% safety violations.",
+    "field_12_baselines_compared": "Hard SPIBB ($\\Pi_b$-SPIBB), Safe Policy Iteration (SPI), Regularized MDPs (RaMDP), and Basic Batch RL.",
+    "field_13_limitations_failure_modes": "Assumption 1 requires bounded transition error propagation across horizons; hyperparameter tuning of error budget $\\epsilon$ requires cross-validation on held-out trajectories.",
+    "field_14_disruption_recovery_findings": "Demonstrates that continuous soft constraints eliminate the chattering / bang-bang instability of hard switching, providing smooth recovery when transitioning between uncertain and confident state regions.",
+    "field_15_causaguard_relevance": "Crucial for CausaGuard RQ3 and Gate 1: supports the transition from hard binary tool-blocking to soft value-of-information gating where intervention is proportional to causal risk."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-026",
+      "bibtex_key": "scholl2022safe"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Safe Policy Improvement Approaches and their Limitations",
+      "authors": [
+        "Philipp Scholl",
+        "Felix Dietrich",
+        "Clemens Otte"
+      ],
+      "year": 2022,
+      "venue_or_identifier": "arXiv:2208.00724v1 [cs.LG]",
+      "canonical_url": "https://arxiv.org/abs/2208.00724",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-026_2208.00724.html",
+        "file_size_bytes": 414720,
+        "sha256": "BC6CFA39CF6C80B7E757EE61A5308CFFC68D87B054C461FA7582BAF8DDBEAEC7"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / review article (arXiv:2208.00724v1, August 2022). Comprehensive theoretical review, formal flaw exposure in prior SPI proofs, and empirical stress tests.",
+    "field_04_concrete_problem": "Theoretical and empirical audit of published Safe Policy Improvement algorithms (RaMDP, DUIPI, R-MIN, SPIBB, Soft-SPIBB). Identifies that published safety bounds are frequently vacuous in sample-constrained regimes and rely on unverified structural assumptions (Section 1 & 4).",
+    "field_05_agent_architecture_horizon": "General Batch MDPs; finite and continuous state-action spaces with discounted returns.",
+    "field_06_action_space": "Discrete and continuous action sets with concentration-bounded divergence constraints.",
+    "field_07_verifier_noise_delay": "Concentration inequality verifiers (Hoeffding vs Maurer & Pontil empirical Bernstein bounds).",
+    "field_08_primary_method_algorithm": "Comparative theoretical and empirical taxonomy (Section 3\u20135). Identifies that Soft-SPIBB relies on an unverified assumption (Assumption 1: $\\kappa < 1/\\gamma$), and proposes Advantageous Soft-SPIBB (Adv-Approx-Soft-SPIBB) with rigorous lower-bound guarantees (Theorem 5.1).",
+    "field_09_formal_assumptions": "Theorem 4.1 audit and Theorem 5.1 proof: establishes exact 1%-CVaR bounds under Maurer & Pontil empirical Bernstein concentration, demonstrating that nominal theoretical bounds are often vacuous in practice unless sample counts exceed $10^6$ (Table 2).",
+    "field_10_authorization_security_layer": "Formal verification of safe policy bounds; audits mathematical soundness of safety boundaries.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Random MDP and Wet Chicken benchmarks across trajectory lengths from 10,000 to 1,000,000 steps (Table 2). Demonstrates that while DUIPI achieves 1%-CVaR of 38.0, its theoretical bound is 37.6; Soft-SPIBB (Hoeffding) reports 1%-CVaR of 32.1 with bound 21.5, proving that theoretical bounds can severely underestimate true empirical risk if concentration inequalities are misaligned.",
+    "field_12_baselines_compared": "RaMDP (Petrik et al.), DUIPI, R-MIN, Hard SPIBB, Soft-SPIBB, and Adv-Approx-Soft-SPIBB.",
+    "field_13_limitations_failure_modes": "Reveals that most published SPI safety guarantees are theoretically vacuous in sample-constrained regimes ($|\\mathcal{D}| < 10^5$), providing safety in theory but requiring empirical over-conservatism in practice.",
+    "field_14_disruption_recovery_findings": "Highlights that over-conservative safety bounds cause agent paralysis (zero policy improvement), while loose bounds permit catastrophic off-policy tail risk.",
+    "field_15_causaguard_relevance": "Vital for CausaGuard RQ3 and Gate 1 evaluation: provides a sobering, mathematically rigorous critique of SPI claims, enforcing that CausaGuard's safe improvement gates must be empirically validated under realistic sample sizes rather than relying solely on asymptotic concentration bounds."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-032",
+      "bibtex_key": "phalod2026when"
+    },
+    "field_02_bibliographic_record": {
+      "title": "When Should a Language Model Trust Itself? Same-Model Self-Verification as a Conditional Confidence Signal",
+      "authors": [
+        "Aditya Ajay Phalod"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2605.02915v1 [cs.CL]",
+      "canonical_url": "https://arxiv.org/abs/2605.02915",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-032_2605.02915.html",
+        "file_size_bytes": 533099,
+        "sha256": "1438BADCD50F87E345E3A4725636C486419392D659D54ED56E1545D3C3CA9D5E"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / under review (arXiv:2605.02915v1, April 2026). Methodological evaluation with 52 sections, 8 tables, and cross-family sweeps.",
+    "field_04_concrete_problem": "Unproven utility of same-model self-verification prompting for selective prediction / abstention: whether asking a model to audit its own predicted answer provides actionable confidence signals once standard likelihood baselines (average log-likelihood) are considered (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Single-model generation and verification pipelines across Phi-2, Qwen-1.5B, Qwen-7B, and TinyLlama-1.1B on multiple-choice question answering benchmarks.",
+    "field_06_action_space": "Binary selective prediction action: accept predicted answer vs defer/abstain based on calibrated confidence thresholds.",
+    "field_07_verifier_noise_delay": "Same-model verbalized probability verifier vs token likelihood metrics; evaluates evaluator noise, prompt sensitivity, and abstention latency costs.",
+    "field_08_primary_method_algorithm": "Comparative evaluation of Same-Model Self-Verification against LL-AVG and LL-SUM across AUROC (ranking quality) and Area Under Risk-Coverage Curve (AURC, selective abstention performance) (Section 3 & 4).",
+    "field_09_formal_assumptions": "Empirical risk-coverage curves and bootstrap confidence intervals for $\\Delta \\text{AUROC}$ and $\\Delta \\text{AURC}$ (Table 3).",
+    "field_10_authorization_security_layer": "Abstention / rejection gate based on model internal confidence scores.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on ARC-Challenge and TruthfulQA-MC across 4 model families and multiple prompt variations (Table 1 & 2). On ARC-Challenge, Self-Verify improves AUROC for Qwen-7B (+0.046) but underperforms on TruthfulQA-MC ($\\Delta \\text{AUROC} = -0.199$ to $-0.273$, Table 2). Across all settings, likelihood baselines (LL-AVG/LL-SUM) match or exceed Self-Verify without requiring an extra forward pass.",
+    "field_12_baselines_compared": "LL-AVG (average log-likelihood of answer tokens), LL-SUM (sum of log-likelihoods), and zero-shot greedy decoding.",
+    "field_13_limitations_failure_modes": "Same-model self-verification is strongly prone to sycophancy and confirmation bias; performance is highly brittle to prompt phrasing; fails completely on deceit/hallucination-heavy datasets (TruthfulQA-MC); doubles inference compute costs without commensurate reliability gains.",
+    "field_14_disruption_recovery_findings": "Demonstrates that self-verification causes unnecessary abstention on correct answers (false alarms) while failing to catch confident errors.",
+    "field_15_causaguard_relevance": "Direct empirical refutation of ungrounded self-reflection for CausaGuard RQ1 and RQ2: confirms that internal LLM self-auditing cannot substitute for external, causal, and formal verification gates (such as CausaGuard's independent access grader and counterfactual controller)."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-034",
+      "bibtex_key": "gao2026beyond"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Beyond Outcome Rewards: Post-Rationale Distribution Optimization for Selective Prediction in Reasoning Models",
+      "authors": [
+        "Zhimin Gao",
+        "et al."
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2609.38850v2 [cs.AI]",
+      "canonical_url": "https://arxiv.org/abs/2609.38850",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-034_2609.38850.html",
+        "file_size_bytes": 2350748,
+        "sha256": "2120549D67401A27391B9AECFAD4F733D4EA1FF568BFDFE20A6245A2BFECD26A"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / under review (arXiv:2609.38850v2, September 2026). In-depth reasoning model study with 32 sections, 13 tables, and extensive calibration sweeps.",
+    "field_04_concrete_problem": "Objective mismatch in reasoning models: reinforcement learning with outcome rewards (e.g. GRPO) optimizes reasoning for accuracy but distorts the post-rationale token distribution, causing extreme miscalibration and poor selective prediction / abstention (Section 1 & 2).",
+    "field_05_agent_architecture_horizon": "Long-chain reasoning LLMs (Qwen3-0.6B, Qwen3-1.5B, DeepSeek-R1 distillations) executing multi-step deductive problem solving.",
+    "field_06_action_space": "Post-rationale final answer token generation combined with calibrated confidence readout for selective deferral.",
+    "field_07_verifier_noise_delay": "Proper scoring rules (Brier score, Negative Log-Likelihood NLL), Expected Calibration Error (ECE), and risk-coverage thresholds.",
+    "field_08_primary_method_algorithm": "Post-Rationale Distribution Optimization (PRDO) (Section 3): aligns the post-rationale token distribution directly with deployed readouts via proper scoring losses; optimizes per-rationale targets rather than coarse trajectory outcomes.",
+    "field_09_formal_assumptions": "Theorem on proper scoring alignment for selective prediction readouts; risk-controlled thresholding guarantees on held-out calibration splits (Supplementary Table 4).",
+    "field_10_authorization_security_layer": "Calibrated selective prediction readout gate: safely defers unconfident reasoning steps before execution.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on MMLU-Pro, MATH-500, and GSM8K across zero-shot, SFT+TS (Temperature Scaling), and GRPO+TS (Table 2 & Supplementary Table 3). PRDO reduces ECE from 0.063 to 0.025 on MMLU-Pro with Qwen3-0.6B, and drops Excess AURC (E-AURC) from 0.296 to 0.182, achieving 25% higher coverage at fixed 5% error risk.",
+    "field_12_baselines_compared": "Zero-shot greedy, SFT with Temperature Scaling (SFT+TS), GRPO with Temperature Scaling (GRPO+TS), and CREDO+TS.",
+    "field_13_limitations_failure_modes": "Requires post-rationale training; reasoning traces can still suffer from logical fallacies that produce accidentally correct final answers; does not verify external tool effects.",
+    "field_14_disruption_recovery_findings": "Eliminates the sharp degradation in coverage caused by miscalibrated confidence thresholds; enables smooth risk-coverage trade-offs during selective execution.",
+    "field_15_causaguard_relevance": "Strongly relevant to CausaGuard RQ2 (Value of Information & Selective Interventions): provides a principled approach for calibrating the LLM reasoning agent's internal confidence distribution before it issues external tool-use proposals."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-035",
+      "bibtex_key": "turan2026oversight"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Oversight Has a Capacity: Calibrating Agent Guards to a Subjective, Fatiguing Human",
+      "authors": [
+        "Emre Turan"
+      ],
+      "year": 2026,
+      "venue_or_identifier": "arXiv:2606.08919v1 [cs.HC]",
+      "canonical_url": "https://arxiv.org/abs/2606.08919",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-035_2606.08919.html",
+        "file_size_bytes": 118733,
+        "sha256": "2A96533CF2EB2B1C27D98CE74C923F559F749D79EC92F01F35AB6760A34092CC"
+      }
+    },
+    "field_03_publication_tier": "Tier-2 pre-print / under review (arXiv:2606.08919v1, June 2026). Human-in-the-loop systems study with formal capacity modeling and empirical fatigue traces.",
+    "field_04_concrete_problem": "Fatigue collapse in Human-in-the-Loop (HITL) approval gates: when automated agent guards escalate too many borderline actions, human oversight capacity exhausts, leading to rubber-stamping and catastrophic security failures (Section 1 & 3).",
+    "field_05_agent_architecture_horizon": "Interactive agent supervisory architecture governing high-impact tool execution (e.g. bash commands, file modifications, cloud deployments) under finite reviewer review capacity $C$.",
+    "field_06_action_space": "Ternary guard action space: auto-allow, auto-block, or escalate to human supervisor.",
+    "field_07_verifier_noise_delay": "Human reviewer noise floor, inspection latency, and fatigue decay curves. Evaluates asymmetric cost matrix (Table 1: safe auto-allow = 0, false alarm escalation = 1, missed attack / catastrophe = 50).",
+    "field_08_primary_method_algorithm": "Capacity-calibrated guard optimization (Section 3 & 4): models human attention as a decaying budget. Solves for the safety-optimal escalation rate under finite capacity $C$, proving an 'inverted-U' relationship where escalating too many borderline actions increases net safety catastrophe rate.",
+    "field_09_formal_assumptions": "Optimization of expected loss under human error probability $p_{\\text{error}}(n) = f(n/C)$; formal characterization of the fatigue attack surface (Section 5.5).",
+    "field_10_authorization_security_layer": "Rate-limiting supervisory escalation gate: balances agent autonomy, verification cost, and reviewer fatigue.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on synthetic and empirical review logs across reviewer capacities $C \\in \\{10, 25, 50\\}$ (Table 2). At capacity $C=25$, safety-optimal escalation rate is 64%, yielding 42% danger-through rate, whereas naive full escalation yields 57% danger-through rate (a 15% increase in danger caused by reviewer fatigue).",
+    "field_12_baselines_compared": "Full escalation (escalate all suspicious actions), zero escalation (fully autonomous), and static threshold escalation.",
+    "field_13_limitations_failure_modes": "Human fatigue curves vary across individuals; adversarial attacks can intentionally generate benign noise bursts to deplete human capacity before issuing malicious payloads (fatigue as an attack vector, Section 5.5).",
+    "field_14_disruption_recovery_findings": "Quantifies the severe operational disruption of false-alarm flooding; shows that throttling escalation dynamically preserves human scrutiny for truly critical interventions.",
+    "field_15_causaguard_relevance": "Direct empirical foundation for CausaGuard RQ2 (Value of Information under human budget constraints) and RQ5 (Sociotechnical Governance): proves mathematically and empirically why CausaGuard must minimize unnecessary verifier interruptions."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-042",
+      "bibtex_key": "hanna2016bootstrapping"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Bootstrapping with Models: Confidence Intervals for Off-Policy Evaluation",
+      "authors": [
+        "Josiah P. Hanna",
+        "Peter Stone",
+        "Scott Niekum"
+      ],
+      "year": 2016,
+      "venue_or_identifier": "arXiv:1606.06126v3 [cs.AI], AAAI 2017",
+      "canonical_url": "https://arxiv.org/abs/1606.06126",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-042_1606.06126.html",
+        "file_size_bytes": 293721,
+        "sha256": "9B37413E9F72DD51F5879673764EC19104431D761B6A936633A8DC87EAC64A64"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 peer-reviewed top conference proceedings (AAAI 2017). Foundational statistical contribution with 23 sections, 6 formal theorems/lemmas, and empirical MDP evaluations.",
+    "field_04_concrete_problem": "Exponential sample complexity of High-Confidence Off-Policy Evaluation (HCOPE): importance sampling requires impractically large datasets to establish tight confidence lower bounds for policy performance, limiting safe offline verification (Section 1).",
+    "field_05_agent_architecture_horizon": "Finite-horizon Markov Decision Processes; off-policy batch evaluation.",
+    "field_06_action_space": "Continuous and discrete actions under evaluation policy $\\pi_e$ vs logging policy $\\pi_b$.",
+    "field_07_verifier_noise_delay": "Bootstrap resampling verifier using approximate environment transition models $\\widehat{M}$ as control variates.",
+    "field_08_primary_method_algorithm": "Weighted Doubly Robust Bootstrapping (WDR-B) and Direct Model-Based Bootstrapping (Section 3). Derives Theorem 1, bounding the model bias of trajectory-level value estimation: $|V(\\pi_e) - \\widehat{V}(\\pi_e)| \\le 2\\sqrt{2} L \\cdot r_{\\max} \\sqrt{\\mathbb{E}_{H \\sim \\pi_b}[\\rho_L^H \\log(p_{\\pi_e}(H) / \\widehat{p}_{\\pi_e}(H))]}$.",
+    "field_09_formal_assumptions": "Theorem 1 and Corollary 0: model bias bounds expressed in terms of trajectory likelihood ratios and KL-divergence; provides finite-sample valid $(1-\\delta)$ confidence lower bounds.",
+    "field_10_authorization_security_layer": "High-confidence offline policy certification gate: rejects any candidate policy whose bootstrap lower bound fails to exceed the baseline performance.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on Gridworld, Mountain Car, and Cart-Pole domains (Section 5, Figures 1\u20134). WDR-B achieves tighter lower bounds with 10x fewer trajectories than standard importance sampling (IS) and Per-Decision IS (PDIS) while maintaining 95% nominal coverage guarantees.",
+    "field_12_baselines_compared": "Importance Sampling (IS), Per-Decision Importance Sampling (PDIS), Weighted Importance Sampling (WIS), and standard Doubly Robust (DR).",
+    "field_13_limitations_failure_modes": "Inaccurate environment transition models introduce bias into bootstrap samples; bound loosens exponentially with horizon length $L$ if importance weights $\\rho_L$ diverge.",
+    "field_14_disruption_recovery_findings": "Protects against the disruption of deploying untested candidate controllers by rigorously certifying performance lower bounds using offline historical logs.",
+    "field_15_causaguard_relevance": "Core theoretical underpinning for CausaGuard RQ3, WP4, and WP6: provides the exact statistical framework (doubly robust bootstrapping with trajectory model bounds) for validating candidate controllers before live deployment."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-043",
+      "bibtex_key": "lee2022offpolicy"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Off-Policy Evaluation for Embedded Spaces",
+      "authors": [
+        "Jaron J. R. Lee",
+        "David Arbour",
+        "Georgios Theocharous"
+      ],
+      "year": 2022,
+      "venue_or_identifier": "arXiv:2203.02807v2 [cs.LG], ICML 2022",
+      "canonical_url": "https://arxiv.org/abs/2203.02807",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch3/CG-REC-043_2203.02807.html",
+        "file_size_bytes": 327011,
+        "sha256": "3675C78D8400E455751A42BA03267AD8202AB7360377C42BBB576CF5994515D6"
+      }
+    },
+    "field_03_publication_tier": "Tier-1 peer-reviewed top conference proceedings (ICML 2022). Comprehensive theoretical analysis with 23 sections, 17 formal definitions/theorems/assumptions, and large action-space experiments.",
+    "field_04_concrete_problem": "Failure of standard Off-Policy Evaluation in massive or continuous action spaces: when action spaces are large (e.g. semantic embeddings, complex tool arguments), the probability of exact action overlap between logging and target policies is near zero, causing infinite variance in standard importance weights (Section 1).",
+    "field_05_agent_architecture_horizon": "Contextual bandits and continuous embedding spaces $\\mathcal{Z} \\subset \\mathbb{R}^d$.",
+    "field_06_action_space": "High-dimensional continuous or discrete-embedded actions (e.g. latent tool-use vectors, semantic embeddings).",
+    "field_07_verifier_noise_delay": "Normalizing flows and binary classification density ratio estimators operating over latent embeddings.",
+    "field_08_primary_method_algorithm": "Embedded Off-Policy Evaluation (Embedded OPE, Section 3): projects actions into a lower-dimensional latent embedding space where common support holds, estimates density ratios using normalizing flows, and proves theoretical value bounds with and without positivity assumptions (Section 4, Theorems 1 & 2).",
+    "field_09_formal_assumptions": "Assumptions 1\u20133 (Consistency, Conditional Ignorability, and Positivity in Latent Space); Section 4 derives MSE and bias bounds, proving that embedded density estimation achieves finite variance where standard IPW fails.",
+    "field_10_authorization_security_layer": "Embedding-space density-support gate: detects out-of-support candidate actions in semantic latent space.",
+    "field_11_reported_evidence_benchmarks": "Evaluated on synthetic simulations and realistic semisynthetic recommender environments (Section 5). Embedded OPE achieves up to 80% reduction in Mean Squared Error (MSE) compared to standard Inverse Propensity Weighting (IPW) and Direct Method (DM) when action spaces exceed 1,000 discrete choices.",
+    "field_12_baselines_compared": "Inverse Propensity Weighting (IPW), Self-Normalized IPW (SN-IPW), Direct Method (DM), and Doubly Robust (DR).",
+    "field_13_limitations_failure_modes": "Requires a meaningful action embedding mapping; if the embedding map collapses distinct reward-relevant features, the estimator introduces irreducible representation bias.",
+    "field_14_disruption_recovery_findings": "Avoids catastrophic evaluation variance in massive tool/action spaces; enables reliable evaluation without requiring exhaustive historical exploration of every possible discrete tool invocation.",
+    "field_15_causaguard_relevance": "Highly relevant to CausaGuard RQ3 and WP5/WP7: enables off-policy evaluation and safety gating over complex, high-dimensional LLM tool calls and argument embeddings where exact discrete action matching is impossible."
+  }
+]

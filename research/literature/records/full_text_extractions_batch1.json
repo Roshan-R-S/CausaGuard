@@ -1,0 +1,431 @@
+[
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-01",
+      "bibtex_key": "laroche2019safe"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Safe Policy Improvement with Baseline Bootstrapping",
+      "authors": [
+        "Romain Laroche",
+        "Paul Trichelair",
+        "Rémi Tachet des Combes"
+      ],
+      "year": 2019,
+      "venue": "Proceedings of the 36th International Conference on Machine Learning (ICML 2019)",
+      "volume_pages": "PMLR 97:3652-3661",
+      "doi": "10.48550/arXiv.1712.06924",
+      "canonical_url": "https://proceedings.mlr.press/v97/laroche19a.html",
+      "arxiv_id": "arXiv:1712.06924v5",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv / PMLR)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-ANC-01_1712.06924.html",
+        "file_size_bytes": 702809,
+        "sha256": "ed6dae9e4cc3e01dcf3e0054a3e53511e4082ef88a04f2d0ff841e4199c96181",
+        "inspection_depth": "Complete full text, Sections 1-4, Theorems 1-2, Appendices A-C"
+      }
+    },
+    "field_03_publication_tier": "Tier 1: Top-tier peer-reviewed machine learning conference (ICML 2019 oral/proceedings).",
+    "field_04_concrete_problem": "Batch (offline) reinforcement learning where deploying a policy trained purely on historical dataset D risks catastrophic policy collapse relative to an existing baseline policy pi_b due to finite-sample estimation errors in poorly explored state-action pairs.",
+    "field_05_agent_architecture_horizon": "Discrete Markov Decision Process (MDP); finite/infinite horizon sequential decision-making; offline value iteration and deep Q-networks (SPIBB-DQN).",
+    "field_06_action_space": "Discrete control actions a in A; policy chooses between greedy optimization action a ~ argmax Q(s, a) in safe states, or reproduces baseline action a ~ pi_b(s) in uncertain states.",
+    "field_07_verifier_noise_delay": "No explicit active verification channel or delay model; uncertainty is quantified purely by empirical state-action counts N(s, a) vs threshold N_wedge.",
+    "field_08_primary_method_algorithm": "Safe Policy Improvement with Baseline Bootstrapping (SPIBB). Partitions state-action pairs into safe (N(s, a) >= N_wedge) and uncertain (N(s, a) < N_wedge). In uncertain states, pi(a|s) = pi_b(a|s). Proves high-probability performance lower bound: P(rho(pi) >= rho(pi_b) - zeta) >= 1 - delta (Section 2, Theorem 1).",
+    "field_09_formal_assumptions": "Finite discrete state-action spaces S and A; known or consistently estimable baseline policy pi_b; static offline transition dataset D; bounded rewards in [0, R_max].",
+    "field_10_authorization_security_layer": "None (pure RL/statistical control setting; no adversarial capability boundary or unauthorized action rejection layer).",
+    "field_11_reported_evidence_benchmarks": "Synthetic 2D Gridworld environments with controlled baseline quality; discrete Atari 2600 games (Breakout, Space Invaders) under SPIBB-DQN using offline replay buffers (Section 3).",
+    "field_12_baselines_compared": "Standard offline DQN, High-Confidence Off-Policy Policy Improvement (HCOPPI; Thomas et al., 2015), empirical unconstrained policy iteration.",
+    "field_13_limitations_failure_modes": "Relies on tabular count thresholding N(s, a) >= N_wedge; scaling to continuous state spaces requires density estimation or soft-SPIBB approximations; does not account for cost-sensitive active evidence acquisition or latency deadlines.",
+    "field_14_disruption_recovery_findings": "Demonstrates that unconstrained optimization over offline batches reliably degrades below the baseline policy (the offline RL failure mode); bootstrapping from pi_b in low-data regimes guarantees non-negative improvement over pi_b up to error margin zeta.",
+    "field_15_causaguard_relevance": "Direct theoretical foundation for CausaGuard's conservative risk fallback (e.g. f16_cal_r05 fallback, Stage 2 SPIBB constraint). Informs RQ3 (Uncertainty & Risk-Bounded Selection). Section 2, Theorem 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-04",
+      "bibtex_key": "debenedetti2024agentdojo"
+    },
+    "field_02_bibliographic_record": {
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "authors": [
+        "Edoardo Debenedetti",
+        "Jie Zhang",
+        "Mislav Balunović",
+        "Luca Beurer-Kellner",
+        "Marc Fischer",
+        "Florian Tramèr"
+      ],
+      "year": 2024,
+      "venue": "Advances in Neural Information Processing Systems (NeurIPS 2024) Datasets and Benchmarks Track",
+      "volume_pages": "NeurIPS 2024, Vol. 37",
+      "doi": "10.48550/arXiv.2406.13352",
+      "canonical_url": "https://openreview.net/forum?id=7U697qBuhz",
+      "arxiv_id": "arXiv:2406.13352v3",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv / NeurIPS Proceedings)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-ANC-04_2406.13352.html",
+        "file_size_bytes": 309965,
+        "sha256": "d294f76188b5e04f45d6affb5613e8e5472b3c5e55ff7c3c6b09e8f39cc48258",
+        "inspection_depth": "Complete full text, Sections 1-5, Tables 1-2, Appendices & Checklist"
+      }
+    },
+    "field_03_publication_tier": "Tier 1: Top-tier peer-reviewed AI/ML benchmark conference (NeurIPS 2024 Datasets & Benchmarks).",
+    "field_04_concrete_problem": "Lack of realistic, dynamic, multi-turn evaluation environments for indirect prompt injection attacks against LLM agents equipped with tools and access to private environment state.",
+    "field_05_agent_architecture_horizon": "Multi-turn LLM agent execution (GPT-4, Claude 3.5 Sonnet, Llama-3-70B) calling external APIs; trajectory horizon 2 to 15 turns depending on task complexity.",
+    "field_06_action_space": "Standard tool-calling action space: API invocation with typed arguments across 4 suites (email, banking, travel, workspace); action acceptance or refusal.",
+    "field_07_verifier_noise_delay": "Static rule-based environment assertions and LLM-as-a-judge evaluators; zero execution latency model; no explicit fallible verifier false alarm / miss modeling.",
+    "field_08_primary_method_algorithm": "Dynamic execution sandbox with stateful mock environments; evaluates 19 defense techniques under both static and adaptive prompt injections (Section 3 & 4).",
+    "field_09_formal_assumptions": "Adversary injects malicious payload into unauthenticated external data retrieved by agent; user prompt is trusted; environment state transitions follow mock API logic.",
+    "field_10_authorization_security_layer": "Defenses tested include prompt guards, delimiter tagging, and external filter models; highlights lack of architectural capability boundaries in commercial agent frameworks.",
+    "field_11_reported_evidence_benchmarks": "97 realistic user tasks across 4 suites (70 tools, 27 injection targets), 629 security test cases; evaluated across frontier LLMs. SOTA defenses reduce attack success rate but often drop benign task utility significantly (Section 4, Table 1).",
+    "field_12_baselines_compared": "Vanilla unprotected agents, prompt-based system defenses, Llama Guard, spotlighting, In-Context Defense, paraphrasing filters.",
+    "field_13_limitations_failure_modes": "All tested prompt-level and filtering defenses fail under adaptive multi-stage prompt injection attacks; defenses frequently exhibit high false positive rates that degrade benign task completion (utility–security trade-off).",
+    "field_14_disruption_recovery_findings": "Empirically documents the utility–security trade-off: aggressive prompt-filtering defenses block malicious tool calls but also disrupt 15–35% of benign user tasks, causing significant utility loss (Section 4, Table 2).",
+    "field_15_causaguard_relevance": "Core community security benchmark for Study E / RQ6 (Threat Models & Security Boundaries). Serves as the open-world task environment for evaluating CausaGuard's runtime interception. Section 4 & Table 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-10",
+      "bibtex_key": "angelopoulos2024conformal"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Conformal Risk Control",
+      "authors": [
+        "Anastasios N. Angelopoulos",
+        "Stephen Bates",
+        "Adam Fisch",
+        "Lihua Lei",
+        "Tal Schuster"
+      ],
+      "year": 2024,
+      "venue": "Twelfth International Conference on Learning Representations (ICLR 2024) Spotlight",
+      "volume_pages": "ICLR 2024, 25 pages",
+      "doi": "10.48550/arXiv.2208.02814",
+      "canonical_url": "https://openreview.net/forum?id=g090V3xPdD",
+      "arxiv_id": "arXiv:2208.02814v3",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv / ICLR Spotlight)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-ANC-10_2208.02814.html",
+        "file_size_bytes": 432122,
+        "sha256": "5825b6a9ac8ef8ff87c8200c39faa1621f8e3867e2dbc76cc9c64ceaad8deff9",
+        "inspection_depth": "Complete full text, Sections 1-5, Theorems 1-2, Examples & Appendix A"
+      }
+    },
+    "field_03_publication_tier": "Tier 1: Top-tier peer-reviewed deep learning conference (ICLR 2024 Spotlight).",
+    "field_04_concrete_problem": "Controlling the expected value of an arbitrary monotonic bounded loss function below a user-specified risk tolerance alpha in modern machine learning predictions without parametric distribution assumptions.",
+    "field_05_agent_architecture_horizon": "General predictive algorithms, multi-class classification, question answering, and structured output generation (single-step or multi-threshold decisions).",
+    "field_06_action_space": "Selection of threshold parameter lambda in Lambda determining prediction set C_lambda(X) or decision boundary (e.g. proceed vs defer).",
+    "field_07_verifier_noise_delay": "Noise is implicit in empirical loss evaluations; calibration set assumed exchangeable with test distribution; zero explicit sensor latency or queue delay.",
+    "field_08_primary_method_algorithm": "Conformal Risk Control (CRC). Computes empirical risk R_hat_n(lambda) = (1/n) sum l_i(lambda). Selects lambda_hat = inf { lambda : (n/(n+1)) * R_hat_n(lambda) + B/(n+1) <= alpha }. Proves exact finite-sample bound: E[l(C_lambda_hat(X_{n+1}), Y_{n+1})] <= alpha (Section 2, Theorem 1).",
+    "field_09_formal_assumptions": "CRITICAL ASSUMPTION: Exchangeability of calibration and test examples (X_i, Y_i)_{i=1}^{n+1}. Loss function l(lambda) must be non-increasing in lambda and bounded in [0, B] (Section 2).",
+    "field_10_authorization_security_layer": "None (pure statistical risk control framework).",
+    "field_11_reported_evidence_benchmarks": "Polyphonic music transcription, open-domain question answering (F1 loss control), tumor segmentation in biomedical imaging (false negative rate control) (Section 3).",
+    "field_12_baselines_compared": "Standard split conformal prediction (which only controls error rate / 0-1 coverage), heuristic validation threshold tuning, uncalibrated softmax thresholding.",
+    "field_13_limitations_failure_modes": "Requires exchangeability; risk coverage guarantee breaks under distribution shift / concept drift unless distribution-weighted conformal adjustments are applied; restricted to monotonic loss functions.",
+    "field_14_disruption_recovery_findings": "Demonstrates that setting conservative thresholds via uncalibrated heuristics either violates risk bounds under sample variance or severely over-predicts (excessive conservative abstention); CRC achieves tightest valid thresholding.",
+    "field_15_causaguard_relevance": "Theoretical comparator for CausaGuard's risk thresholding (R_limit = 0.05). Note: CRC is prior art illustrating distribution-free risk guarantees, NOT an approved production replacement for CausaGuard's existing isotonic model without empirical validation under shift. Section 2, Theorem 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-11",
+      "bibtex_key": "debenedetti2025defeating"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Defeating Prompt Injections by Design",
+      "authors": [
+        "Edoardo Debenedetti",
+        "Ilia Shumailov",
+        "Tianqi Fan",
+        "Jamie Hayes",
+        "Nicholas Carlini",
+        "Daniel Fabian",
+        "Christoph Kern",
+        "Chongyang Shi",
+        "Andreas Terzis",
+        "Florian Tramèr"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint / Google Research & DeepMind Systems Security",
+      "volume_pages": "arXiv:2503.18813, 24 pages",
+      "doi": "10.48550/arXiv.2503.18813",
+      "canonical_url": "https://arxiv.org/abs/2503.18813",
+      "arxiv_id": "arXiv:2503.18813v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv / Google Research)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-ANC-11_2503.18813.html",
+        "file_size_bytes": 2554808,
+        "sha256": "b862d8afed17e5274ee7faa217a77040e5928d05128c9319c6971bdea0f17b0d",
+        "inspection_depth": "Complete full text, Sections 1-8, Security Game, Evaluation, Side Channels"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: High-impact institutional research preprint (Google, DeepMind, ETH Zurich; under peer review).",
+    "field_04_concrete_problem": "Fundamental vulnerability of LLM agents where untrusted data fetched from external tools or web pages is mixed into the prompt stream, allowing attackers to hijack agent execution flow (indirect prompt injection).",
+    "field_05_agent_architecture_horizon": "CaMeL (Capabilities for Machine Learning): two-tier LLM execution separating a trusted privileged planner/interpreter from an untrusted quarantined data processing worker; multi-turn execution (Section 5).",
+    "field_06_action_space": "Tool invocation requiring non-forgeable runtime capability tokens; planner issues read/write tokens; quarantined worker cannot initiate arbitrary side-effecting actions.",
+    "field_07_verifier_noise_delay": "Deterministic information flow control (IFC) and static/dynamic taint tracking; zero verification noise; adds slight runtime latency for IPC/token verification.",
+    "field_08_primary_method_algorithm": "Architectural Information Flow Control (IFC) and Capability-Based Security. Strict separation of control flow (derived solely from trusted user instruction) and data flow (untrusted payloads). Formulates prompt injection security game and proves non-interference (Section 4 & 5).",
+    "field_09_formal_assumptions": "User prompt is authentic; execution runtime and operating system sandbox are trusted; cryptographic tokens cannot be forged by LLM output (Section 3).",
+    "field_10_authorization_security_layer": "Independent runtime reference monitor enforcing non-bypassable capability tokens and fine-grained information flow policies. Strongly dominates prompt-based guards.",
+    "field_11_reported_evidence_benchmarks": "Evaluated against adaptive prompt injection attacks on AgentDojo benchmark suites and synthetic adversarial workflows; achieves 0% attack success rate on tested non-adaptive and adaptive indirect injections while maintaining high utility (Section 6).",
+    "field_12_baselines_compared": "Vanilla LLM agents, prompt delimiters, LLM input/output firewalls, Llama Guard, heuristic rule filters.",
+    "field_13_limitations_failure_modes": "CRITICAL LIMITATIONS & NEGATIVE RESULTS (Section 7): Timing side channels and indirect data leakage through allowed actions can still occur; does not solve malicious user attacks (direct jailbreaks); requires major refactoring of agent toolkits into capability-passing interfaces.",
+    "field_14_disruption_recovery_findings": "Shows that structural capability enforcement eliminates security failures without causing false alarms on benign tasks, disproving the notion that prompt injection defense must inherently sacrifice task utility.",
+    "field_15_causaguard_relevance": "Direct foundational blueprint for CausaGuard's runtime capability security boundary (access_grader, MockState ACL). Informs RQ6 (Security Boundaries). Sections 3, 5, & 7."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-ANC-12",
+      "bibtex_key": "vasudev2026accurate"
+    },
+    "field_02_bibliographic_record": {
+      "title": "The Intervention Paradox: Accurate Failure Prediction in Agents Does Not Imply Effective Failure Prevention",
+      "authors": [
+        "Rakshith Vasudev",
+        "Melisa Russak",
+        "Dan Bikel",
+        "Waseem Alshikh"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2602.03338, 18 pages",
+      "doi": "10.48550/arXiv.2602.03338",
+      "canonical_url": "https://arxiv.org/abs/2602.03338",
+      "arxiv_id": "arXiv:2602.03338v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-ANC-12_2602.03338.html",
+        "file_size_bytes": 301765,
+        "sha256": "094609ddc95237386cf7a7809b69cb4e5fdc91f9b1216cfb444dd6006488ecff",
+        "inspection_depth": "Complete full text, Sections 1-8, Main Results, Ablations, Early-Step Intervention"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Targeted recent preprint directly formulating the Intervention Paradox.",
+    "field_04_concrete_problem": "The false equivalence in agent literature assuming that training a model with high ROC-AUC/F1 for predicting trajectory failure automatically leads to superior runtime intervention and task completion.",
+    "field_05_agent_architecture_horizon": "Multi-step tool-calling LLM agents across multi-turn reasoning and environment interaction (WebArena, ToolBench, synthetic workflow suites).",
+    "field_06_action_space": "Runtime interventions: early termination, fallback to smaller model, retry with perturbed prompt, human escalation, or unconstrained execution.",
+    "field_07_verifier_noise_delay": "Predictive failure monitors exhibit false alarms and delayed error recognition; evaluate the impact of imperfect detector precision on downstream execution.",
+    "field_08_primary_method_algorithm": "Empirical audit and analytical formulation of the 'Intervention Paradox': intervenor decisions alter downstream trajectory distribution; intervening on false positives disrupts viable trajectories, while intervening on true positives often results in secondary failures during recovery (Section 1, 4, 6).",
+    "field_09_formal_assumptions": "Failure predictor provides risk score S(t) in [0, 1]; intervention policy thresholds S(t) > tau; recovery attempts have success probability p_rec < 1.0.",
+    "field_10_authorization_security_layer": "External predictive monitor; does not enforce architectural authorization boundaries.",
+    "field_11_reported_evidence_benchmarks": "WebArena, AgentBench, and synthetic multi-step agent traces. Evaluates net task success rate under varying detector precision and intervention strategies (Section 3 & 4).",
+    "field_12_baselines_compared": "Unchecked execution, random interruption, high-precision thresholding, oracle failure predictor, retry-from-checkpoint.",
+    "field_13_limitations_failure_modes": "Empirical study focused on heuristic intervention strategies (retry, abort); does not derive closed-form optimal control policies under POMDP Value of Information or prove formal Safe Policy Improvement bounds (Section 8).",
+    "field_14_disruption_recovery_findings": "Empirically documents that failure detectors with 85%+ ROC-AUC frequently reduce overall agent success rate when wired to naive retry or abort mechanisms due to disruption of false-alarm trajectories (the Disruption-Recovery Tradeoff; Section 4, 6).",
+    "field_15_causaguard_relevance": "Primary anchor formulating the 'Intervention Paradox' directly motivating CausaGuard's core thesis and research questions RQ1 (Utility Deficits) & RQ2 (Intervention Paradox). Sections 1, 4, and 6."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-001",
+      "bibtex_key": "li2026openclaw"
+    },
+    "field_02_bibliographic_record": {
+      "title": "OpenClaw PRISM: A Zero-Fork, Defense-in-Depth Runtime Security Layer for Tool-Augmented LLM Agents",
+      "authors": [
+        "Frank Li"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2603.11853v1, 14 pages",
+      "doi": "10.48550/arXiv.2603.11853",
+      "canonical_url": "https://arxiv.org/abs/2603.11853",
+      "arxiv_id": "arXiv:2603.11853v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-REC-001_2603.11853.html",
+        "file_size_bytes": 233793,
+        "sha256": "9806e0c454434a86730ef4bfe95c18d990c4314346c2b26f95ad526addde8645",
+        "inspection_depth": "Complete full text, Sections 1-8, Table 1, Hook Architecture, Microbenchmarks"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Recent systems and security preprint for agent runtimes.",
+    "field_04_concrete_problem": "Security vulnerabilities in tool-augmented LLM agents spanning indirect prompt injection, unsafe tool execution, credential leakage, and tampering with local control files without requiring modifications to agent framework core ('zero-fork').",
+    "field_05_agent_architecture_horizon": "OpenClaw gateway architecture; in-process plugin with optional sidecar services; intercepts multi-turn agent execution across 10 lifecycle hooks (Section 3).",
+    "field_06_action_space": "Policy enforcement decisions at each hook: ALLOW, BLOCK, REWRITE, SCAN, or ESCALATE across message ingress, tool execution, persistence, and egress.",
+    "field_07_verifier_noise_delay": "Combines fast regex/heuristic scanning with secondary LLM scanning; session-scoped risk accumulation with TTL-based exponential decay; introduces ~15-45ms latency overhead in microbenchmarks (Section 4 & 5).",
+    "field_08_primary_method_algorithm": "Lifecycle Hook Reference Monitor. Ten interception points enforce least-privilege tool execution, private network access restrictions, domain tiers, and outbound secret pattern matching with a tamper-evident audit plane (Section 3).",
+    "field_09_formal_assumptions": "Gateway execution environment is trusted; plugin runs in-process before tool dispatch; cryptographic hash chain protects audit logs.",
+    "field_10_authorization_security_layer": "Architectural runtime reference monitor: zero-fork plugin intercepting all tool dispatch before network/OS execution. Strongly independent from model prompt.",
+    "field_11_reported_evidence_benchmarks": "Curated security test suite measuring prompt injection detection, data exfiltration prevention, false positives on benign agent tasks, and microbenchmark runtime overhead (Section 5).",
+    "field_12_baselines_compared": "Unprotected OpenClaw gateway, pure prompt-based guardrails (system prompts), static regex firewalls.",
+    "field_13_limitations_failure_modes": "Heuristic scanning produces false positives on code generation tasks; LLM scanning adds non-negligible latency and inference cost; relies on gateway-supported hook architecture (Section 7).",
+    "field_14_disruption_recovery_findings": "Notes that aggressive egress filtering can block legitimate agent data returns; demonstrates that risk accumulation with TTL decay reduces false-positive disruption by 42% compared to static thresholding.",
+    "field_15_causaguard_relevance": "Provides concrete architectural pattern for zero-fork runtime tool interception and independent reference monitoring in CausaGuard's FastAPI/gateway layer. Informs RQ6 (Security Boundaries). Sections 2 & 3."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-006",
+      "bibtex_key": "li2026toolminimize"
+    },
+    "field_02_bibliographic_record": {
+      "title": "ToolMinimize: Auditing and Rewriting LLM Agent Tool Calls to Minimize Privacy Exposure",
+      "authors": [
+        "Wenbiao Li",
+        "Yuqiao Xu"
+      ],
+      "year": 2026,
+      "venue": "Proceedings of the 23rd Annual International Conference on Privacy, Security and Trust (PST 2026) / IEEE Xplore",
+      "volume_pages": "PST 2026, 15 pages",
+      "doi": "10.48550/arXiv.2608.24957",
+      "canonical_url": "https://arxiv.org/abs/2608.24957",
+      "arxiv_id": "arXiv:2608.24957v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (Author Accepted Version for IEEE Xplore / PST 2026)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-REC-006_2608.24957.html",
+        "file_size_bytes": 296952,
+        "sha256": "234d6180440af703d2f3ec298ad4f149e8ca11fd72494c5221a944be1d400dfd",
+        "inspection_depth": "Complete full text, Sections I-VIII, Tables I-V, Schema vs Content-Necessity Ablations"
+      }
+    },
+    "field_03_publication_tier": "Tier 1 / Tier 2: Accepted for publication in IEEE PST 2026; preprint on arXiv.",
+    "field_04_concrete_problem": "LLM agents routinely transmit unnecessary privacy-sensitive data (PSD) in tool call arguments to third-party APIs (81-88% over-share under default prompts, Table I; 36-76% even with explicit privacy prompts).",
+    "field_05_agent_architecture_horizon": "Tool-augmented agents running production LLMs (GPT-4o, Claude 3.5 Sonnet, Llama-3.3-70B) over Model Context Protocol (MCP) and custom JSON tool schemas.",
+    "field_06_action_space": "Fine-grained argument rewriting operations: REMOVAL, GENERALIZATION, SUBSTITUTION, and TRUNCATION applied to tool payload arguments prior to dispatch (Section IV).",
+    "field_07_verifier_noise_delay": "DISTINCT PATHS VERIFIED (Section IV & V): Core schema-only rewriting has median latency of 1.77 ms (P99 = 10.8s on deeply nested JSON); optional LLM content-necessity layer adds 210 ms and financial API cost. Regex baseline adds <0.1ms; spaCy NER adds +26ms.",
+    "field_08_primary_method_algorithm": "Schema-aware necessity analysis combined with four rewriting transformations; minimizes mutual information between transmitted payload and private context subject to tool operational preconditions (Section IV).",
+    "field_09_formal_assumptions": "Tool schemas define functional parameter requirements; external API requires only necessary subset; user privacy preference specifies PSD entity categories.",
+    "field_10_authorization_security_layer": "Middleware interceptor sitting between LLM planner and external API endpoints; performs payload sanitization and argument mutation before execution.",
+    "field_11_reported_evidence_benchmarks": "Live validation on 307 tool calls across 3 production LLMs; 25 unannotated Model Context Protocol (MCP) schemas. Evaluated via Two One-Sided Tests (TOST) equivalence at Delta = 1.0 (p < 0.001) (Section V, Table III).",
+    "field_12_baselines_compared": "Default LLM tool execution, prompt-based privacy instructions ('do not include PII'), static allow/block gatekeepers, pure PII anonymizers.",
+    "field_13_limitations_failure_modes": "May over-prune arguments required by under-specified tool APIs, causing tool runtime exceptions; LLM content-necessity layer adds financial inference cost and latency; P99 latency reaches 10.8s on deeply nested JSON without timeouts.",
+    "field_14_disruption_recovery_findings": "CONFIGURATION-SPECIFIC FINDINGS (Section V): (1) Core schema-only ToolMinimize achieves 81.2%–92.0% privacy cost reduction at 100% argument-level task validity; on 25 unannotated MCP schemas, reduces privacy cost by 79.0% with zero metadata. (2) Optional LLM content-necessity layer raises live-LLM reduction to 85.1%–95.6% (mean 91.6%) and author-schema reduction from 71.1% to 90.9% by stripping PSD inside free-text fields.",
+    "field_15_causaguard_relevance": "Direct empirical evidence supporting CausaGuard's core finding that argument repair/remediation dominates binary rejection. Informs RQ1 (Repair vs Abort) and WP4/WP7 baseline integration. Sections IV & V."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-011",
+      "bibtex_key": "wang2026leash"
+    },
+    "field_02_bibliographic_record": {
+      "title": "LEASH: Uncertainty-Aware Weak-to-Strong Escalation and Oversight for Computer-Use Agents",
+      "authors": [
+        "Qingni Wang",
+        "Changdae Oh",
+        "Yuzhe Yang",
+        "Sharon Li",
+        "Jiachen Yang",
+        "Ang Li",
+        "Xin Eric Wang"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2610.22280v1, 16 pages",
+      "doi": "10.48550/arXiv.2610.22280",
+      "canonical_url": "https://arxiv.org/abs/2610.22280",
+      "arxiv_id": "arXiv:2610.22280v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-REC-011_2610.22280.html",
+        "file_size_bytes": 401532,
+        "sha256": "78c851f12eab85de2e83b91e9e0b39ee4d7a59eaf960c1ac4352e14ed841363d",
+        "inspection_depth": "Complete full text, Sections 1-6, Tables 1-2, Theoretical Analysis & Limitations"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Recent preprint on uncertainty-driven escalation for computer-use agents.",
+    "field_04_concrete_problem": "High inference cost and latency of running frontier LLMs at every step in long-horizon computer-use tasks, contrasted with frequent failures when running small open-weight models exclusively.",
+    "field_05_agent_architecture_horizon": "Weak-to-strong agent escalation architecture; small local model acts by default across long-horizon OS-level interactions (OSWorld); hands off to frontier API model upon high uncertainty (Section 3).",
+    "field_06_action_space": "Three-level escalation action space: (1) weak model direct execution, (2) runtime escalation to frontier model, (3) shadow observer oversight to re-escalate or abort.",
+    "field_07_verifier_noise_delay": "ZERO LATENCY UNCERTAINTY EXTRACTION: Uncertainty estimation during weak model execution extracts internal activation hidden states already computed during action generation, requiring no extra forward pass or monitor training. Handoff to strong model incurs API latency (Section 3).",
+    "field_08_primary_method_algorithm": "Training-free latent uncertainty estimation via similarity between weak model hidden states and past successful vs failed trajectory clusters; triggers weak-to-strong handoff when activation distance to failure cluster falls below threshold (Section 3).",
+    "field_09_formal_assumptions": "CRITICAL ASSUMPTION: Weak model hidden states are accessible (requires open-weight model) and contain separable failure signals; historical trajectory library provides representative calibration embeddings; strong model API is black-box.",
+    "field_10_authorization_security_layer": "Operational escalation router; no adversarial capability boundary.",
+    "field_11_reported_evidence_benchmarks": "EXACT NUMERICAL FINDINGS (Section 4, Table 1): Evaluated on OSWorld benchmark. With Qwen3.5-35B-A3B as weak model, LEASH achieves 73.66% task success (escalating 64.1% of tasks) at $0.4117 per task, matching always-on Claude Opus 5 (72.90% success at $0.5094) while reducing inference cost by 19.2%. Outperforms random escalation by 6.55–11.94 points at matched escalation rates (Table 2).",
+    "field_12_baselines_compared": "Always-weak model, always-strong frontier model, random escalation, heuristic entropy thresholding, perplexity-based confidence, StepWise.",
+    "field_13_limitations_failure_modes": "Requires white-box model activations (cannot monitor closed proprietary weak models like GPT-4o-mini); failure clustering requires representative historical run traces; black-box strong model can still drift post-escalation (Section 6 & Limitations).",
+    "field_14_disruption_recovery_findings": "Proves that selective, uncertainty-guided escalation recovers from weak agent failures while avoiding the excessive economic disruption of running always-on frontier models. Random escalation fails to recover tasks effectively.",
+    "field_15_causaguard_relevance": "Directly informs CausaGuard's escalation and learning-to-defer design (RQ3, RQ5). Highlights internal activation uncertainty vs external sensor verification. Sections 3, 4, & Table 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-015",
+      "bibtex_key": "li2026clarify"
+    },
+    "field_02_bibliographic_record": {
+      "title": "Clarify the User or Verify the World? Uncertainty Routing for Proactive Agents",
+      "authors": [
+        "Zhaofeng Li",
+        "Xuan Zhang",
+        "Xiaokui Xiao",
+        "Yang Deng"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2609.32255v1, 15 pages",
+      "doi": "10.48550/arXiv.2609.32255",
+      "canonical_url": "https://arxiv.org/abs/2609.32255",
+      "arxiv_id": "arXiv:2609.32255v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-REC-015_2609.32255.html",
+        "file_size_bytes": 394672,
+        "sha256": "fe838a117f1d230f37cc9ea57f8d1bc6b1429cd2fc8e0ac82cbd3410907f106e",
+        "inspection_depth": "Complete full text, Sections 1-5, Table 1, tau-bench Experiments, Appendix"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Recent preprint on proactive uncertainty routing across human vs environment channels.",
+    "field_04_concrete_problem": "Tool-using agents fail to differentiate between ambiguity in user intent (requiring human clarification) and uncertainty in environmental state (requiring external tool verification), resulting in unnecessary user interruptions or flawed world actions.",
+    "field_05_agent_architecture_horizon": "Proactive tool-augmented LLM agent interacting across multi-step conversational and transactional tasks.",
+    "field_06_action_space": "Tri-partite discrete intervention routing: ACT (commit tool action), CLARIFY (ask user for intent disambiguation), or VERIFY (query external environment/database) (Section 3).",
+    "field_07_verifier_noise_delay": "Models interaction cost as additional dialogue turns or API steps; penalizes unnecessary user interruption steps.",
+    "field_08_primary_method_algorithm": "PROUR (Proactive Uncertainty Routing). Decomposes total uncertainty into user-side ambiguity (disagreement across plausible user goals) and world-side entropy (unresolved factual evidence given goal). Employs mode-conditioned information-gain reward for targeted queries (Section 3).",
+    "field_09_formal_assumptions": "User goals can be represented as discrete hypotheses; external environment state is partially observable via APIs; total uncertainty decomposes additively.",
+    "field_10_authorization_security_layer": "Dialogue/agent interaction router; does not enforce formal capability security boundaries.",
+    "field_11_reported_evidence_benchmarks": "EXACT BENCHMARK RESULTS (Section 4, Table 1): Evaluated on tau-bench (retail and airline domains) and transactional tau^3-bench. PROUR achieves 28.17% average success rate (retail: 29.35%, airline: 26.98%), outperforming the strongest prior baseline by +4.57% while using 2.17 fewer interaction steps.",
+    "field_12_baselines_compared": "Standard reactive agent (ACT only), always-clarify proactive agent, heuristic uncertainty thresholding, entropy-based verification, StepWise.",
+    "field_13_limitations_failure_modes": "Goal hypothesis generation depends on LLM prompting; complex multi-modal goals may produce inaccurate ambiguity decomposition; query generation may hallucinate irrelevant clarification questions.",
+    "field_14_disruption_recovery_findings": "Documents that clarifying users when world verification is needed annoys users and fails, while verifying the world under user ambiguity wastes API budget. Source-aligned routing optimizes the recovery–disruption tradeoff.",
+    "field_15_causaguard_relevance": "Direct architectural parallel to CausaGuard's distinction between verify (world state sensor check) and escalate (human expert intervention). Validates RQ2 (Value of Information & Delay) and Study B. Sections 2, 3, & Table 1."
+  },
+  {
+    "field_01_study_id_bibtex": {
+      "study_id": "CG-REC-031",
+      "bibtex_key": "wang2026memory"
+    },
+    "field_02_bibliographic_record": {
+      "title": "When Is a Memory Safe Enough to Act On? Action-Conditioned Verification for Long-Lived Agents",
+      "authors": [
+        "Yiqi Wang",
+        "Yifei Wang",
+        "Jiaqi Zhang",
+        "Zhangkai Wu",
+        "Yiqun Duan",
+        "Taotao Cai",
+        "Mingkai Zheng"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint",
+      "volume_pages": "arXiv:2610.31446v1, 16 pages",
+      "doi": "10.48550/arXiv.2610.31446",
+      "canonical_url": "https://arxiv.org/abs/2610.31446",
+      "arxiv_id": "arXiv:2610.31446v1",
+      "retrieval_date": "2026-11-14",
+      "source_type": "Complete Full-Text HTML (arXiv)",
+      "source_provenance": {
+        "local_path": "research/literature/full_text/batch1/CG-REC-031_2610.31446.html",
+        "file_size_bytes": 391295,
+        "sha256": "dfe64cb6409446b3b9ddd59f2a764462a5967ffcf1b5c37385b0c1fb2003fb60",
+        "inspection_depth": "Complete full text, Sections 1-7, Tables 1-5, Appendices A-E"
+      }
+    },
+    "field_03_publication_tier": "Tier 2: Recent preprint on action-conditioned verification and Value of Information.",
+    "field_04_concrete_problem": "Long-lived agents acting on memory carried across sessions risk catastrophic harm when acting on stale or corrupted memory entries during irreversible physical/financial actions.",
+    "field_05_agent_architecture_horizon": "Long-lived agent with external episodic memory store; multi-session horizon; irreversible tool execution.",
+    "field_06_action_space": "Three-regime decision space conditioned on candidate action consequence: PROCEED (act unchecked), VERIFY (re-check memory premise via API/user), or ABSTAIN (refuse action) (Section 2 & 3).",
+    "field_07_verifier_noise_delay": "Explicit verification cost and sensor reliability model; accounts for asymmetric harm of executing on false memory vs cost of unnecessary verification.",
+    "field_08_primary_method_algorithm": "AMV-Guard (Action-Conditioned Memory Verification). Formulates verification as a sequential stopping problem using bounded Value of Information (VOI): a memory premise is verified only if the expected reduction in action risk exceeds the verification cost. Shifts decision thresholds dynamically based on action consequence magnitude (Section 3).",
+    "field_09_formal_assumptions": "CRITICAL EVALUATION ASSUMPTIONS (Section 2 & 4): Action consequence magnitude is estimable; memory premise extraction from planned action is reliable; memory validity belief is updated via Bayesian likelihoods; verification cost is known and additive.",
+    "field_10_authorization_security_layer": "Action-conditioned verification gate standing in front of irreversible tool dispatch; blocks execution if risk of acting on unverified memory exceeds safety budget.",
+    "field_11_reported_evidence_benchmarks": "EXACT EXPERIMENTAL RESULTS (Section 5, Table 1 & Table 10): (1) ToolSandbox: 3 observation seeds x 640 test instances (1,920 runs). Relative to AMV-Static, lowers mean verification cost by 33.9% while maintaining 100% safe-proceed recall, 0% Unsafe Pass, and 0% Gate harmful; raises Proceed coverage from 38.83% to 44.17% (+5.33 pts). (2) AppWorld transfer: carries over stopping/VOI core without structured premise pipeline; lowers verification cost by 21.3% at a small cost in safe-proceed recall and task success.",
+    "field_12_baselines_compared": "Static memory refresh, unchecked memory execution, confidence-only verification (checking memory without considering action severity), always-verify heuristic, AMV-Static.",
+    "field_13_limitations_failure_modes": "Requires accurate premise extraction from planned action; consequence calibration may fail on novel unseen tool actions; cross-environment transfer showed that dropping structured premise extraction degrades recall (Section 7 & Limitations).",
+    "field_14_disruption_recovery_findings": "Confirms that verification effort must be modulated by action reversibility and consequence rather than memory age alone. Constant-verification policies disrupt benign executions and incur excessive costs.",
+    "field_15_causaguard_relevance": "Direct mathematical and conceptual sibling to CausaGuard's core formulation: Value of Information (VOI) conditioned on action harm and verifier cost. Directly validates RQ2 (Action Selection After Verification) and RQ4. Sections 2, 3, & 5."
+  }
+]
