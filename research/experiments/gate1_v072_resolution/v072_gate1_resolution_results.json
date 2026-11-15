@@ -1,0 +1,402 @@
+{
+  "horizons": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "thetas_evaluated": [
+    0.005,
+    0.01,
+    0.02,
+    0.035,
+    0.05,
+    0.0501,
+    0.07
+  ],
+  "model_a_results": {
+    "maurer_pontil": {
+      "K_128": {
+        "theta_0.0050": 0.0,
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0350": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0,
+        "theta_0.0700": 0.0
+      },
+      "K_256": {
+        "theta_0.0050": 0.6336756093892174,
+        "theta_0.0100": 0.27365474027111925,
+        "theta_0.0200": 0.035316620336448085,
+        "theta_0.0350": 0.0011251111227451515,
+        "theta_0.0500": 2.869604513945975e-05,
+        "theta_0.0501": 2.7987797820216215e-05,
+        "theta_0.0700": 1.731662434627786e-07
+      },
+      "K_512": {
+        "theta_0.0050": 0.9987083058663861,
+        "theta_0.0100": 0.9248031446780842,
+        "theta_0.0200": 0.30402863641630806,
+        "theta_0.0350": 0.006659200744312277,
+        "theta_0.0500": 3.5967284759013186e-05,
+        "theta_0.0501": 3.463088962737108e-05,
+        "theta_0.0700": 1.0471097082285819e-08
+      },
+      "K_1024": {
+        "theta_0.0050": 0.9999999999997704,
+        "theta_0.0100": 0.9999989786716912,
+        "theta_0.0200": 0.9577343425836706,
+        "theta_0.0350": 0.10282657416439013,
+        "theta_0.0500": 0.00021876015762843968,
+        "theta_0.0501": 0.00020788725814102337,
+        "theta_0.0700": 1.2936228516755648e-09
+      }
+    },
+    "direct_betting": {
+      "K_128": {
+        "theta_0.0050": 0.79,
+        "theta_0.0100": 0.5785,
+        "theta_0.0200": 0.2215,
+        "theta_0.0350": 0.05,
+        "theta_0.0500": 0.012,
+        "theta_0.0501": 0.0105,
+        "theta_0.0700": 0.0005
+      },
+      "K_256": {
+        "theta_0.0050": 0.982,
+        "theta_0.0100": 0.8735,
+        "theta_0.0200": 0.413,
+        "theta_0.0350": 0.046,
+        "theta_0.0500": 0.0055,
+        "theta_0.0501": 0.002,
+        "theta_0.0700": 0.0
+      },
+      "K_512": {
+        "theta_0.0050": 1.0,
+        "theta_0.0100": 0.991,
+        "theta_0.0200": 0.6855,
+        "theta_0.0350": 0.055,
+        "theta_0.0500": 0.0015,
+        "theta_0.0501": 0.003,
+        "theta_0.0700": 0.0
+      },
+      "K_1024": {
+        "theta_0.0050": 1.0,
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.8935,
+        "theta_0.0350": 0.056,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.001,
+        "theta_0.0700": 0.0
+      }
+    },
+    "constant_betting": {
+      "K_128": {
+        "theta_0.0050": 0.855,
+        "theta_0.0100": 0.6475,
+        "theta_0.0200": 0.2605,
+        "theta_0.0350": 0.058,
+        "theta_0.0500": 0.014,
+        "theta_0.0501": 0.0125,
+        "theta_0.0700": 0.001
+      },
+      "K_256": {
+        "theta_0.0050": 0.986,
+        "theta_0.0100": 0.8835,
+        "theta_0.0200": 0.4155,
+        "theta_0.0350": 0.0495,
+        "theta_0.0500": 0.0055,
+        "theta_0.0501": 0.003,
+        "theta_0.0700": 0.0
+      },
+      "K_512": {
+        "theta_0.0050": 1.0,
+        "theta_0.0100": 0.992,
+        "theta_0.0200": 0.692,
+        "theta_0.0350": 0.0555,
+        "theta_0.0500": 0.001,
+        "theta_0.0501": 0.002,
+        "theta_0.0700": 0.0
+      },
+      "K_1024": {
+        "theta_0.0050": 1.0,
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.8805,
+        "theta_0.0350": 0.033,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0,
+        "theta_0.0700": 0.0
+      }
+    },
+    "hoeffding": {
+      "K_128": {
+        "theta_0.0050": 0.0,
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0350": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0,
+        "theta_0.0700": 0.0
+      },
+      "K_256": {
+        "theta_0.0050": 0.0,
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0350": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0,
+        "theta_0.0700": 0.0
+      },
+      "K_512": {
+        "theta_0.0050": 0.0,
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0350": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0,
+        "theta_0.0700": 0.0
+      },
+      "K_1024": {
+        "theta_0.0050": 0.9976020830887277,
+        "theta_0.0100": 0.7691603750205933,
+        "theta_0.0200": 0.030097913068267854,
+        "theta_0.0350": 2.8163725784612206e-06,
+        "theta_0.0500": 2.3277433332611936e-11,
+        "theta_0.0501": 2.142060294176045e-11,
+        "theta_0.0700": 5.422833613631676e-19
+      }
+    }
+  },
+  "model_b_results": {
+    "maurer_pontil": {
+      "K_128": {
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_256": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_512": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_1024": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      }
+    },
+    "direct_betting": {
+      "K_128": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_256": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_512": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_1024": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      }
+    },
+    "constant_betting": {
+      "K_128": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.4905,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_256": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_512": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_1024": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 1.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      }
+    },
+    "hoeffding": {
+      "K_128": {
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_256": {
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_512": {
+        "theta_0.0100": 0.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      },
+      "K_1024": {
+        "theta_0.0100": 1.0,
+        "theta_0.0200": 0.0,
+        "theta_0.0500": 0.0,
+        "theta_0.0501": 0.0
+      }
+    }
+  },
+  "model_c_heterogeneous_results": {
+    "K_128": {
+      "front_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.004,
+        "constant_betting": 0.006,
+        "permutation_betting": 0.0055,
+        "maurer_pontil": 0.0
+      },
+      "back_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.006,
+        "constant_betting": 0.006,
+        "permutation_betting": 0.0055,
+        "maurer_pontil": 0.0
+      },
+      "exchangeable_random_fsq": {
+        "direct_betting_aGRAPA": 0.0045,
+        "constant_betting": 0.006,
+        "permutation_betting": 0.0055,
+        "maurer_pontil": 0.0
+      }
+    },
+    "K_256": {
+      "front_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.0145,
+        "constant_betting": 0.002,
+        "permutation_betting": 0.002,
+        "maurer_pontil": 0.0
+      },
+      "back_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.002,
+        "constant_betting": 0.002,
+        "permutation_betting": 0.002,
+        "maurer_pontil": 0.0
+      },
+      "exchangeable_random_fsq": {
+        "direct_betting_aGRAPA": 0.002,
+        "constant_betting": 0.002,
+        "permutation_betting": 0.002,
+        "maurer_pontil": 0.0
+      }
+    },
+    "K_512": {
+      "front_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.0055,
+        "constant_betting": 0.0,
+        "permutation_betting": 0.0,
+        "maurer_pontil": 0.0
+      },
+      "back_loaded_fsq": {
+        "direct_betting_aGRAPA": 0.0,
+        "constant_betting": 0.0,
+        "permutation_betting": 0.0,
+        "maurer_pontil": 0.0
+      },
+      "exchangeable_random_fsq": {
+        "direct_betting_aGRAPA": 0.0,
+        "constant_betting": 0.0,
+        "permutation_betting": 0.0,
+        "maurer_pontil": 0.0
+      }
+    }
+  },
+  "catastrophic_shock_thresholds": {
+    "K_128": {
+      "maurer_pontil": -1,
+      "hoeffding": -1,
+      "direct_betting_beginning": 1,
+      "constant_betting": 1
+    },
+    "K_256": {
+      "maurer_pontil": 1,
+      "hoeffding": -1,
+      "direct_betting_beginning": 6,
+      "constant_betting": 4
+    },
+    "K_512": {
+      "maurer_pontil": 8,
+      "hoeffding": -1,
+      "direct_betting_beginning": 15,
+      "constant_betting": 11
+    },
+    "K_1024": {
+      "maurer_pontil": 28,
+      "hoeffding": 12,
+      "direct_betting_beginning": 36,
+      "constant_betting": 25
+    }
+  },
+  "missingness_sensitivity": {
+    "K_256_drop_5pct": {
+      "nominal_k": 256,
+      "effective_k": 243,
+      "maurer_pontil_power": 0.08696655909824703,
+      "direct_betting_power": 0.8595,
+      "constant_betting_power": 0.91
+    },
+    "K_256_drop_10pct": {
+      "nominal_k": 256,
+      "effective_k": 230,
+      "maurer_pontil_power": 0.09910481551887486,
+      "direct_betting_power": 0.8105,
+      "constant_betting_power": 0.919
+    },
+    "K_512_drop_5pct": {
+      "nominal_k": 512,
+      "effective_k": 486,
+      "maurer_pontil_power": 0.9416057845605741,
+      "direct_betting_power": 0.9915,
+      "constant_betting_power": 0.9965
+    },
+    "K_512_drop_10pct": {
+      "nominal_k": 512,
+      "effective_k": 460,
+      "maurer_pontil_power": 0.9059982240731765,
+      "direct_betting_power": 0.9905,
+      "constant_betting_power": 0.995
+    }
+  },
+  "computational_latencies_microseconds": {
+    "maurer_pontil_us": 27.187100000446662,
+    "direct_betting_aGRAPA_us": 135.71430000229157,
+    "constant_betting_us": 3.804100000706967,
+    "permutation_betting_M10_us": 1230.8029999985592,
+    "hoeffding_us": 2.429600001050858
+  }
+}
