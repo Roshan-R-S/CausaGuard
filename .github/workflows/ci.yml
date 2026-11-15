@@ -4,22 +4,27 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   check:
     name: Current Alpha Validation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: python -m pip install -e ".[dev]"
+        run: python -m pip install -e ".[dev]" -c constraints-ci.txt
 
       - name: Lint v0.7.1
         run: ruff check demo_v07_1.py src_v07_1 tests_v07_1 experiments_v07_1
@@ -33,6 +38,8 @@ jobs:
   historical_integrity:
     name: Historical Integrity - Known Issues
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     # Historical verification is reported but non-blocking
     # until the original frozen provenance is recovered.
@@ -40,15 +47,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: python -m pip install -e ".[dev]"
+        run: python -m pip install -e ".[dev]" -c constraints-ci.txt
 
       - name: Test historical v0.6
         id: v06
