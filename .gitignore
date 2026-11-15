@@ -32,3 +32,14 @@ artifacts/
 Thumbs.db
 models/
 vendor/llama.cpp/
+
+
+# Temporary analysis scripts
+scratch/
+
+# Downloaded academic full texts
+research/literature/full_text/
+
+# Local AI agent configurations
+.agents/
+skills-lock.json
